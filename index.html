@@ -3724,7 +3724,7 @@ function srsQueue(){if(SRS.d!==srsToday()){SRS.d=srsToday();SRS.nn=0}const now=D
  const fresh=P.filter(x=>!R(x.id)).slice(0,Math.max(0,SRSNEW-SRS.nn));return{P,q:[...due,...fresh]}}
 let SQ={cur:null,opts:[],ans:-1,pick:-1};
 function srsCount(){try{return srsQueue().q.length}catch(_){return 0}}
-function srsBadge(){const b=$('srsB'),w=$('srsBan');if(b){const n=srsCount();b.textContent=n;b.hidden=!n;if(w)w.hidden=!n&&$('srsp').hidden}}
+function srsBadge(){const b=$('srsB'),w=$('srsBan');if(b){const n=srsCount();b.textContent=n;b.hidden=!n;if(w)w.hidden=C.n===0||(!n&&$('srsp').hidden)}}
 const srsM=x=>tx(x.a);
 function srsNext(){const{P,q}=srsQueue();if(!q.length){SQ.cur=null;return}const x=q[0];const others=shuf(P.filter(y=>srsM(y)!==srsM(x))).slice(0,3).map(srsM);
  SQ={cur:x,opts:shuf([srsM(x),...new Set(others)]),pick:-1};SQ.ans=SQ.opts.indexOf(srsM(x))}
