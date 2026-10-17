@@ -249,7 +249,7 @@ table.wide{min-width:820px}table.ctab{min-width:1300px;border-collapse:collapse}
 .clkw{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:center}.aclk{width:100%;max-width:260px;touch-action:none;cursor:pointer}.aclk .cf{fill:var(--bg);stroke:var(--ink);stroke-width:4}.aclk .tk{stroke:var(--line);stroke-width:2}.aclk .tk5{stroke:var(--ink);stroke-width:3}.aclk .cn{font:800 16px Nunito,sans-serif;fill:var(--ink);text-anchor:middle}.aclk .hh{stroke:var(--sky);stroke-width:8;stroke-linecap:round}.aclk .mh{stroke:var(--pnk);stroke-width:5;stroke-linecap:round}.aclk .cc{fill:var(--ink)}
 .pl2{display:flex;gap:8px;align-items:flex-start}.pl2 .av{color:var(--ink)!important;flex:0 0 auto;min-width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--paper);border:2px solid var(--line);font-size:13px;font-weight:900}.pl2>.s{flex:1}.pl2.B{flex-direction:row-reverse}
 .ager{width:100%;accent-color:var(--amb);margin:8px 0}.agebig{display:flex;align-items:baseline;gap:12px;justify-content:center}.agebig b{font-size:54px;color:var(--amb)}.agebig .jp{font-size:24px}.agebig small{color:var(--mut);font-weight:800}
-.bub.shad{box-shadow:0 0 0 3px var(--vio);position:relative}.bub.shad::after{content:"🗣 İndi siz təkrarlayın";}html[lang=en] .bub.shad::after{content:"🗣 Now you repeat"}html[lang=ru] .bub.shad::after{content:"🗣 Теперь повторите вы"}.bub.shad::after{position:absolute;left:12px;right:12px;bottom:-12px;height:20px;border-radius:999px;background:linear-gradient(90deg,var(--vio) 0 0,color-mix(in srgb,var(--vio) 20%,var(--bg)) 0);color:#fff;font:900 11px/20px Nunito,sans-serif;text-align:center;animation:shd var(--sd) linear forwards;background-size:200% 100%}@keyframes shd{from{background:linear-gradient(90deg,var(--vio) 0%,color-mix(in srgb,var(--vio) 25%,var(--bg)) 0%)}to{background:linear-gradient(90deg,var(--vio) 100%,color-mix(in srgb,var(--vio) 25%,var(--bg)) 100%)}}
+.bub.shad{box-shadow:0 0 0 3px var(--vio);position:relative}.bub.shad::after{content:"İndi siz təkrarlayın";}html[lang=en] .bub.shad::after{content:"Now you repeat"}html[lang=ru] .bub.shad::after{content:"Теперь повторите вы"}.bub.shad::after{position:absolute;left:12px;right:12px;bottom:-12px;height:20px;border-radius:999px;background:linear-gradient(90deg,var(--vio) 0 0,color-mix(in srgb,var(--vio) 20%,var(--bg)) 0);color:#fff;font:900 11px/20px Nunito,sans-serif;text-align:center;animation:shd var(--sd) linear forwards;background-size:200% 100%}@keyframes shd{from{background:linear-gradient(90deg,var(--vio) 0%,color-mix(in srgb,var(--vio) 25%,var(--bg)) 0%)}to{background:linear-gradient(90deg,var(--vio) 100%,color-mix(in srgb,var(--vio) 25%,var(--bg)) 100%)}}
 .say.slow{box-shadow:0 0 0 3px var(--amb)}
 .tour{position:fixed;inset:0;z-index:60}.tour[hidden]{display:none}.thl{position:fixed;border-radius:14px;box-shadow:0 0 0 9999px rgba(20,18,42,.62);transition:left .25s,top .25s,width .25s,height .25s;pointer-events:none;outline:3px solid #fff}.tbx{position:fixed;background:var(--bg);color:var(--ink);border-radius:16px;padding:12px 14px;box-shadow:0 12px 40px rgba(0,0,0,.35)}.tbx small{color:var(--mut);font-weight:800}.tbx b{display:block;font-size:17px;margin:2px 0}.tbx p{margin:4px 0 8px;font-size:14.5px}.tbx .tools{justify-content:flex-end;margin:0}
 @media (max-width:640px){.dress,.clkw{grid-template-columns:1fr}.gstage{grid-template-columns:repeat(2,1fr)}.lift{grid-template-columns:1fr 56px}}
@@ -1160,7 +1160,7 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&qu
 const PUNC_SUF={'。':'.','、':',','？':'?','！':'!','：':':','」':'”','］':']','）':')'},PUNC_PRE={'「':'“','［':'[','（':'('};
 function J(m,lst){ // -> {h: html, r: romaji html, t: plain}
  let h='',t='',words=[],cur=null,cap=false,noc=false,pre='',inl=false;
- const flush=()=>{if(cur&&cur.k){let r=k2r(cur.k);if(cur.cap||(isKata(cur.k[0])&&!cur.noc))r=r[0].toUpperCase()+r.slice(1);words.push({r:pre+esc(r)});pre=''}cur=null};
+ const flush=()=>{if(cur&&cur.k){let r=k2r(cur.k).replace(/(desu|deshita|deshou|masu|mashita|masen|mashou)ka$/,'$1 ka').replace(/^(.+?)(desu|deshita|deshou)(?=( ka)?$)/,'$1 $2');if(cur.cap||(isKata(cur.k[0])&&!cur.noc))r=r[0].toUpperCase()+r.slice(1);words.push({r:pre+esc(r)});pre=''}cur=null};
  const add=(k)=>{if(!cur){cur={k:'',cap,noc};cap=false;noc=false}cur.k+=k};
  const re=/\[([^:\]]+):([^\]]+)\]|\{([^}]+)\}|<([^=>]+)=([^>]+)>|(.)/gu;let mm;
  while((mm=re.exec(m))){
@@ -4221,6 +4221,10 @@ const I={
 '💳':sv('<rect x="2" y="5" width="20" height="14" rx="2.5" fill="#3d6fd8"/><rect x="2" y="8.5" width="20" height="2.6" fill="#1f3f86"/><rect x="5" y="14" width="6" height="2" rx="1" fill="#f4c04a"/>'),
 '🎁':sv('<rect x="3" y="9" width="18" height="12" rx="1.5" fill="#ef5b8a"/><rect x="2" y="6.5" width="20" height="4" rx="1.2" fill="#f7799f"/><rect x="10.5" y="6.5" width="3" height="14.5" fill="#f4c04a"/><path d="M12 6.5C10 2.5 6 3.5 7.5 6.5M12 6.5c2-4 6-3 4.5 0" fill="none" stroke="#f4c04a" stroke-width="2" stroke-linecap="round"/>'),
 '❓':sv('<circle cx="12" cy="12" r="10" fill="#7b61ff"/><path d="M9 9.3a3 3 0 1 1 4.3 2.7c-.9.5-1.3 1-1.3 2" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.3" fill="#fff"/>'),
+'👩‍⚕️':bust('#f1f5f9','<path d="M4 23a8 8 0 0 1 16 0z" fill="none" stroke="#94a3b8" stroke-width="1"/><path d="M10.5 18h3M12 16.5v3" stroke="#e5484d" stroke-width="1.6" stroke-linecap="round"/>'),
+'💬':sv('<path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#7b61ff"/><circle cx="8" cy="10.5" r="1.4" fill="#fff"/><circle cx="12" cy="10.5" r="1.4" fill="#fff"/><circle cx="16" cy="10.5" r="1.4" fill="#fff"/>'),
+'🚃':sv('<rect x="3" y="4" width="18" height="14" rx="3" fill="#22a06b"/><rect x="5.5" y="7" width="5.5" height="5" rx="1" fill="#e0f2fe"/><rect x="13" y="7" width="5.5" height="5" rx="1" fill="#e0f2fe"/><circle cx="8" cy="20" r="1.8" fill="#4a4458"/><circle cx="16" cy="20" r="1.8" fill="#4a4458"/>'),
+'🚄':sv('<path d="M2 17V9a3 3 0 0 1 3-3h9c4 0 8 4 8 9v2z" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/><path d="M14 8c2.5 0 5 2 6 5h-6z" fill="#3b82f6"/><rect x="4" y="9" width="7" height="3.5" rx="1" fill="#93c5fd"/><path d="M2 15h20" stroke="#3b82f6" stroke-width="1.5"/>'),
 '🙋':bust('#3d8bfd'),
 '🙂':bust('#22a06b'),
 '🤒':bust('#e879a6','<rect x="15.5" y="10" width="6" height="2" rx="1" transform="rotate(-25 15.5 11)" fill="#e5484d"/>'),
@@ -4236,7 +4240,7 @@ function fix(root){if(!root||!root.querySelectorAll)return;const w=document.crea
 // I açarlarında FE0F ola bilər: həm onlu, həm onsuz tanı
 for(const k of Object.keys(I)){const b=k.replace(/\uFE0F/g,'');if(!I[b])I[b]=I[k]}
 window.SCIB=k=>(I[k]||I[k.replace(/\uFE0F/g,'')]||'').replace(/^<svg[^>]*>|<\/svg>$/g,'');
-let q=0;const run=()=>{q=0;const p=document.getElementById('play');if(p)fix(p)};
+let q=0;const run=()=>{q=0;['play','dlg','annc'].forEach(id=>{const p=document.getElementById(id);if(p)fix(p)});document.querySelectorAll('.t2who').forEach(fix)};
 try{new MutationObserver(()=>{if(!q){q=1;requestAnimationFrame(run)}}).observe(document.body,{childList:true,subtree:true,characterData:true})}catch(_){}
 setTimeout(run,0);
 })();
