@@ -4251,7 +4251,7 @@ function apply(){const B=document.body;B.classList.toggle('nofuri',!PF.furi);B.c
  progressUI();
  const g=Object.values(st.got).filter(Boolean).length;$('prog').style.width=(lessonPct(C.n)*100)+'%'}
 tFuri.onclick=()=>{PF.furi=!PF.furi;save();apply()};tRo.onclick=()=>{PF.ro=!PF.ro;save();apply()};tAz.onclick=()=>{PF.az=!PF.az;save();apply()};
-const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),3200)};
+const TVO=new Set();const toast=m=>{if(m===TID("ui.no-japanese-voice-was-found-on-t")||m===TID("ui.this-browser-does-not-support-sp")){if(TVO.has(m))return;TVO.add(m)}const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),3200)};
 let jaVoice=null,voices=[];const vscore=v=>(/natural|neural|online/i.test(v.name)?50:0)+(/enhanced|premium|siri/i.test(v.name)?40:0)+(/google/i.test(v.name)?30:0)+(/nanami|kyoko|o-ren|otoya|haruka|ayumi|keita/i.test(v.name)?10:0)+(v.localService?0:5);
 const pickVoice=()=>{if(!('speechSynthesis' in window))return;voices=speechSynthesis.getVoices().filter(v=>/^ja/i.test(v.lang)).sort((a,b)=>vscore(b)-vscore(a));jaVoice=voices.find(v=>v.name===PF.voice)||voices[0]||null;
  const s=$('vsel');if(s){s.innerHTML=voices.length?voices.map(v=>`<option${jaVoice&&v.name===jaVoice.name?' selected':''}>${esc(v.name)}</option>`).join(''):'<option>Yapon səsi tapılmadı</option>';$('vrate').value=PF.rate||0.95}};
