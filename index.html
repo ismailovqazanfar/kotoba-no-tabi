@@ -1058,25 +1058,22 @@ html:has(.setp:not([hidden])) body{overflow:hidden}
 .ct-hit{fill:transparent;cursor:pointer}
 .ct-hit:hover{fill:rgba(236,72,153,.13)}
 .ct-mover{cursor:grab;transition:transform .45s cubic-bezier(.3,1.3,.5,1)}
+.ct-front{pointer-events:none}
 .ct-mover.drag{cursor:grabbing;transition:none}
-.ct-mover[data-who=cat] .ct-ball,.ct-mover[data-who=ball] .ct-cat{display:none}
-.ct-lie{display:none}
-.ct-mover[data-pose=lie] .ct-sit{display:none}.ct-mover[data-pose=lie] .ct-lie{display:inline}
-.ct-mover[data-pose=box] .ct-sit{transform:translateY(16px)}
-.ct-mover[data-pose=hide] .ct-sit{transform:translateY(4px)}
-.ct-tail{transform-origin:22px -14px;animation:ctTail 2.4s ease-in-out infinite}
+.ct-p{display:none}
+.ct-mover[data-pose=sit] .ct-p-sit,.ct-mover[data-pose=lie] .ct-p-lie,.ct-mover[data-pose=peek] .ct-p-peek,.ct-mover[data-pose=win] .ct-p-win{display:inline}
+.ct-tail{transform-box:fill-box;transform-origin:0% 100%;animation:ctTail 2.4s ease-in-out infinite}
 .ct-eye{transform-box:fill-box;transform-origin:center;animation:ctBlink 4.5s infinite}
-@keyframes ctTail{50%{transform:rotate(14deg)}}
+@keyframes ctTail{50%{transform:rotate(-6deg)}}
 @keyframes ctBlink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
 @media (prefers-reduced-motion:reduce){.ct-tail,.ct-eye{animation:none}.ct-mover{transition:none}}
-.ct-who{display:inline-flex;gap:6px;margin-left:auto}
-.ct-rule{margin:.4em 0;opacity:.8}
 .ct-opts{display:grid;gap:8px;margin:.6em 0}
 .ct-opts .btn{justify-content:flex-start;text-align:left}
 .ct-opts .btn.ok{border-color:#16a34a;background:rgba(22,163,74,.12)}
 .ct-opts .btn.no{border-color:#dc2626;background:rgba(220,38,38,.1)}
-.ct-mover[data-pose=hide] .ct-ball{transform:translate(30px,4px)}
-.ct-mover[data-pose=box] .ct-ball{transform:translateY(-14px)}
+.ct-tight .ct-tail{display:none}
+.scic{display:inline-flex;vertical-align:-.15em;line-height:1}
+.scic .sci{width:1.15em;height:1.15em;display:block}
 </style>
 </head>
 <body>
@@ -4108,96 +4105,141 @@ function gmFog(){const R=gmRev();if(!R)return '';const [x0,y0,x1,y1]=GDR,nw=+(PF
  <mask id="gfogM" maskUnits="userSpaceOnUse" x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}"><rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" fill="#fff"/>${c}</mask></defs>
  <g mask="url(#gfogM)" class="gfog"><rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" class="gfb"/><rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" fill="url(#gfogP)"/></g>`}
 
-/* ================= 10-cu dərs: "Pişik haradadır?" v2 – SVG otaq, pişik və top, 3 rejim ================= */
+/* ================= 10-cu dərs: "Pişik haradadır?" v3 – SVG otaq, pişik, 3 rejim ================= */
 const CZ2=[
- {k:'desk_on',j:'[机:つくえ]{の} [上:うえ]',x:322,y:288,t:['stolun üstündədir','on the desk','на столе']},
- {k:'desk_under',j:'[机:つくえ]{の} [下:した]',x:370,y:402,t:['stolun altındadır','under the desk','под столом']},
- {k:'tv_behind',j:'テレビ{の} [後:うし]ろ',x:430,y:288,p:'hide',t:['televizorun arxasındadır','behind the TV','за телевизором']},
- {k:'chair_on',j:'いす{の} [上:うえ]',x:250,y:338,t:['stulun üstündədir','on the chair','на стуле']},
- {k:'shelf_on',j:'[本棚:ほんだな]{の} [上:うえ]',x:160,y:152,t:['kitab rəfinin üstündədir','on the bookshelf','на книжной полке']},
- {k:'door_front',j:'ドア{の} [前:まえ]',x:62,y:446,t:['qapının qabağındadır','in front of the door','перед дверью']},
- {k:'between',j:'[机:つくえ]{と} [箱:はこ]{の} [間:あいだ]',x:487,y:402,t:['stolla qutunun arasındadır','between the desk and the box','между столом и коробкой']},
- {k:'box_in',j:'[箱:はこ]{の} [中:なか]',x:552,y:392,p:'box',t:['qutunun içindədir','in the box','в коробке']},
- {k:'box_on',j:'[箱:はこ]{の} [上:うえ]',x:552,y:344,t:['qutunun üstündədir','on the box','на коробке']},
- {k:'bed_on',j:'ベッド{の} [上:うえ]',x:690,y:332,t:['çarpayının üstündədir','on the bed','на кровати']},
- {k:'bed_under',j:'ベッド{の} [下:した]',x:705,y:400,p:'lie',t:['çarpayının altındadır','under the bed','под кроватью']},
- {k:'win_out',j:'[窓:まど]{の} [外:そと]',x:706,y:196,t:['pəncərədən bayırdadır','outside the window','за окном']}];
+ {k:'desk_on',j:'[机:つくえ]{の} [上:うえ]',x:330,y:288,t:['stolun üstündədir','on the desk','на столе']},
+ {k:'desk_under',j:'[机:つくえ]{の} [下:した]',x:378,y:398,t:['stolun altındadır','under the desk','под столом']},
+ {k:'tv_behind',j:'テレビ{の} [後:うし]ろ',x:428,y:288,p:'peek',t:['televizorun arxasındadır','behind the TV','за телевизором']},
+ {k:'chair_on',j:'いす{の} [上:うえ]',x:254,y:338,t:['stulun üstündədir','on the chair','на стуле']},
+ {k:'shelf_on',j:'[本棚:ほんだな]{の} [上:うえ]',x:161,y:152,t:['kitab rəfinin üstündədir','on the bookshelf','на книжной полке']},
+ {k:'door_front',j:'ドア{の} [前:まえ]',x:50,y:438,t:['qapının qabağındadır','in front of the door','перед дверью']},
+ {k:'ball_left',j:'ボール{の} [左:ひだり]',x:104,y:474,t:['topun solundadır','to the left of the ball','слева от мяча']},
+ {k:'ball_right',j:'ボール{の} [右:みぎ]',x:244,y:474,t:['topun sağındadır','to the right of the ball','справа от мяча']},
+ {k:'between',j:'[机:つくえ]{と} [箱:はこ]{の} [間:あいだ]',x:492,y:398,p:'tight',t:['stolla qutunun arasındadır','between the desk and the box','между столом и коробкой']},
+ {k:'box_in',j:'[箱:はこ]{の} [中:なか]',x:560,y:410,p:'peek',t:['qutunun içindədir','in the box','в коробке']},
+ {k:'box_on',j:'[箱:はこ]{の} [上:うえ]',x:560,y:345,t:['qutunun üstündədir','on the box','на коробке']},
+ {k:'bed_on',j:'ベッド{の} [上:うえ]',x:688,y:320,t:['çarpayının üstündədir','on the bed','на кровати']},
+ {k:'bed_under',j:'ベッド{の} [下:した]',x:706,y:400,p:'lie',t:['çarpayının altındadır','under the bed','под кроватью']},
+ {k:'win_out',j:'[窓:まど]{の} [外:そと]',x:705,y:194,p:'win',t:['pəncərədən bayırdadır','outside the window','за окном']}];
 const CU2={free:{az:'Sərbəst',en:'Free play',ru:'Свободно'},listen:{az:'Dinlə və tap',en:'Listen & find',ru:'Слушай и найди'},ask:{az:'Sual-cavab',en:'Q&A',ru:'Вопрос-ответ'},
- cat:{az:'Pişik',en:'Cat',ru:'Кошка'},ball:{az:'Top',en:'Ball',ru:'Мяч'},
- rule:{az:'Canlılar üçün います, əşyalar üçün あります.',en:'います for living things, あります for objects.',ru:'います – для живых, あります – для предметов.'},
+ cat:{az:'Pişik',en:'Cat',ru:'Кошка'},
  tap:{az:'Pişiyi sürüklə və ya otaqda bir yerə toxun.',en:'Drag the cat or tap a spot in the room.',ru:'Перетащите кошку или нажмите на место в комнате.'},
- tapb:{az:'Topu sürüklə və ya otaqda bir yerə toxun.',en:'Drag the ball or tap a spot in the room.',ru:'Перетащите мяч или нажмите на место в комнате.'},
  lis:{az:'Dinlə və həmin yerə toxun.',en:'Listen and tap that place.',ru:'Послушайте и нажмите на это место.'},again:{az:'Bir də dinlə',en:'Listen again',ru:'Ещё раз'},
- ok:{az:'Düzdür!',en:'Correct!',ru:'Верно!'},no:{az:'Yox, bir də yoxla.',en:'No, try again.',ru:'Нет, попробуйте ещё.'},next:{az:'Növbəti',en:'Next',ru:'Дальше'},score:{az:'Xal',en:'Score',ru:'Счёт'},
- askq:{az:'Pişik haradadır? Düzgün cavabı seç.',en:'Where is the cat? Pick the right answer.',ru:'Где кошка? Выберите правильный ответ.'},askqb:{az:'Top haradadır? Düzgün cavabı seç.',en:'Where is the ball? Pick the right answer.',ru:'Где мяч? Выберите правильный ответ.'}};
+ ok:{az:'Düzdür!',en:'Correct!',ru:'Верно!'},no:{az:'Yox, bir də yoxla.',en:'No, try again.',ru:'Нет, попробуйте ещё.'},next:{az:'Növbəti',en:'Next',ru:'Дальше'},score:{az:'Xal',en:'Score',ru:'Счёт'}};
 const cu2=k=>SL(CU2[k]);
-let CT2={mode:'free',who:'cat',z:0,ans:-1,opts:[],pick:-1,score:0,msg:''};
-const ctSent=(z,who)=>who==='cat'?`[猫:ねこ]{は} ${CZ2[z].j}{に} います。`:`ボール{は} ${CZ2[z].j}{に} あります。`;
-const ctTr=(z,who)=>{const li=SLI(),t=CZ2[z].t[li];return [`${who==='cat'?'Pişik':'Top'} ${t}.`,`The ${who==='cat'?'cat':'ball'} is ${t}.`,`${who==='cat'?'Кошка':'Мяч'} ${t}.`][li]};
-const ctQ=who=>who==='cat'?'[猫:ねこ]{は} どこ{に} いますか。':'ボール{は} どこ{に} ありますか。';
-const ctQT=who=>{const li=SLI();return [`${who==='cat'?'Pişik':'Top'} haradadır?`,`Where is the ${who==='cat'?'cat':'ball'}?`,`Где ${who==='cat'?'кошка':'мяч'}?`][li]};
-function ctCat(){return `<g class="ct-cat"><g class="ct-sit"><path class="ct-tail" d="M22 -14 C44 -16 50 -38 38 -50" fill="none" stroke="#e8923a" stroke-width="7" stroke-linecap="round"/>
- <ellipse cx="0" cy="-18" rx="24" ry="20" fill="#f4a64a"/><ellipse cx="0" cy="-12" rx="12" ry="12" fill="#fde5c4"/>
- <path d="M-20 -44 L-24 -66 L-6 -54Z M20 -44 L24 -66 L6 -54Z" fill="#f4a64a"/><path d="M-19 -48 L-21 -61 L-10 -53Z M19 -48 L21 -61 L10 -53Z" fill="#ffb3c4"/>
- <circle cx="0" cy="-44" r="21" fill="#f4a64a"/><path d="M-8 -60 q8 6 16 0" stroke="#d9772a" stroke-width="2.5" fill="none"/>
- <g class="ct-eye"><ellipse cx="-8" cy="-46" rx="3" ry="4" fill="#2a2420"/><ellipse cx="8" cy="-46" rx="3" ry="4" fill="#2a2420"/></g>
- <path d="M-3 -38 h6 l-3 3z" fill="#e8607e"/><path d="M0 -35 q-4 4 -7 2 M0 -35 q4 4 7 2" stroke="#2a2420" stroke-width="1.5" fill="none" stroke-linecap="round"/>
- <path d="M-12 -38 h-14 M-12 -35 l-13 3 M12 -38 h14 M12 -35 l13 3" stroke="#7a5230" stroke-width="1" stroke-linecap="round"/>
- <ellipse cx="-10" cy="-1" rx="7" ry="4" fill="#fde5c4"/><ellipse cx="10" cy="-1" rx="7" ry="4" fill="#fde5c4"/></g>
- <g class="ct-lie"><path class="ct-tail" d="M34 -8 C52 -8 58 -20 52 -28" fill="none" stroke="#e8923a" stroke-width="6" stroke-linecap="round"/>
- <ellipse cx="6" cy="-13" rx="32" ry="13" fill="#f4a64a"/><path d="M-36 -26 L-38 -42 L-26 -32Z M-14 -26 L-10 -42 L-22 -32Z" fill="#f4a64a"/>
- <circle cx="-26" cy="-18" r="15" fill="#f4a64a"/><g class="ct-eye"><ellipse cx="-31" cy="-20" rx="2.6" ry="3.4" fill="#2a2420"/><ellipse cx="-20" cy="-20" rx="2.6" ry="3.4" fill="#2a2420"/></g>
- <path d="M-28 -14 h5 l-2.5 2.5z" fill="#e8607e"/><ellipse cx="-14" cy="-2" rx="7" ry="3.5" fill="#fde5c4"/><ellipse cx="24" cy="-2" rx="7" ry="3.5" fill="#fde5c4"/></g></g>`}
-function ctBall(){return `<g class="ct-ball"><ellipse cx="0" cy="-1" rx="17" ry="4" fill="#000" opacity=".12"/><circle cx="0" cy="-18" r="17" fill="#4a8fd0"/><path d="M-12 -30 q12 12 0 24 M12 -30 q-12 12 0 24" stroke="#f4c04a" stroke-width="5" fill="none"/><circle cx="-6" cy="-27" r="3.5" fill="#fff" opacity=".55"/></g>`}
+let CT2={mode:'free',z:0,ans:-1,opts:[],pick:-1,score:0,msg:''};
+const ctSent=z=>`[猫:ねこ]{は} ${CZ2[z].j}{に} います。`;
+const ctTr=z=>{const li=SLI(),t=CZ2[z].t[li];return [`Pişik ${t}.`,`The cat is ${t}.`,`Кошка ${t}.`][li]};
+const ctQ=()=>'[猫:ねこ]{は} どこ{に} いますか。';
+const ctQT=()=>['Pişik haradadır?','Where is the cat?','Где кошка?'][SLI()];
+const CO='#4a4458',CG='#c9cdd8',CS='#8f95a6';
+function ctHead(cx,cy){return `<path d="M${cx-21} ${cy-6} L${cx-22} ${cy-33} Q${cx-20} ${cy-36} ${cx-17} ${cy-34} L${cx-3} ${cy-20}Z M${cx+21} ${cy-6} L${cx+22} ${cy-33} Q${cx+20} ${cy-36} ${cx+17} ${cy-34} L${cx+3} ${cy-20}Z" fill="${CG}" stroke="${CO}" stroke-width="2.5" stroke-linejoin="round"/>
+ <path d="M${cx-18} ${cy-12} L${cx-19} ${cy-28} L${cx-9} ${cy-20}Z M${cx+18} ${cy-12} L${cx+19} ${cy-28} L${cx+9} ${cy-20}Z" fill="#f6b9c8"/>
+ <ellipse cx="${cx}" cy="${cy}" rx="25" ry="21" fill="${CG}" stroke="${CO}" stroke-width="2.5"/>
+ <path d="M${cx-6} ${cy-20} v6 M${cx} ${cy-21} v8 M${cx+6} ${cy-20} v6" stroke="${CS}" stroke-width="3" stroke-linecap="round"/>
+ <ellipse cx="${cx}" cy="${cy+9}" rx="12" ry="8" fill="#fff"/>
+ <g class="ct-eye"><ellipse cx="${cx-9}" cy="${cy-1}" rx="3.6" ry="4.6" fill="#2b2735"/><ellipse cx="${cx+9}" cy="${cy-1}" rx="3.6" ry="4.6" fill="#2b2735"/><circle cx="${cx-8}" cy="${cy-3}" r="1.3" fill="#fff"/><circle cx="${cx+10}" cy="${cy-3}" r="1.3" fill="#fff"/></g>
+ <circle cx="${cx-16}" cy="${cy+6}" r="3.5" fill="#f6a3b8" opacity=".55"/><circle cx="${cx+16}" cy="${cy+6}" r="3.5" fill="#f6a3b8" opacity=".55"/>
+ <path d="M${cx-2.5} ${cy+5} h5 l-2.5 2.6z" fill="#e8708e"/><path d="M${cx} ${cy+8} q-2.5 3 -5 1.5 M${cx} ${cy+8} q2.5 3 5 1.5" stroke="${CO}" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+ <path d="M${cx-13} ${cy+7} h-13 M${cx-13} ${cy+10} l-12 3 M${cx+13} ${cy+7} h13 M${cx+13} ${cy+10} l12 3" stroke="${CO}" stroke-width="1" stroke-linecap="round" opacity=".7"/>`}
+const ctPaw=(x,y)=>`<ellipse cx="${x}" cy="${y}" rx="7.5" ry="5" fill="#fff" stroke="${CO}" stroke-width="2.2"/>`;
+const ctPad=(x,y)=>`<g><ellipse cx="${x}" cy="${y}" rx="9" ry="10" fill="#fff" stroke="${CO}" stroke-width="2.2"/><ellipse cx="${x}" cy="${y+3}" rx="4.5" ry="3.6" fill="#f6a3b8"/><circle cx="${x-4.5}" cy="${y-4}" r="1.9" fill="#f6a3b8"/><circle cx="${x}" cy="${y-5.5}" r="1.9" fill="#f6a3b8"/><circle cx="${x+4.5}" cy="${y-4}" r="1.9" fill="#f6a3b8"/></g>`;
+function ctCat(){return `<g class="ct-p ct-p-sit"><g class="ct-tail"><path d="M16 -8 C42 -4 46 -30 33 -38" fill="none" stroke="${CO}" stroke-width="11" stroke-linecap="round"/><path d="M16 -8 C42 -4 46 -30 33 -38" fill="none" stroke="${CG}" stroke-width="6.5" stroke-linecap="round"/></g>
+ <ellipse cx="0" cy="-21" rx="22" ry="21" fill="${CG}" stroke="${CO}" stroke-width="2.5"/><ellipse cx="0" cy="-17" rx="12" ry="13" fill="#fff"/>${ctPaw(-8,-3)}${ctPaw(8,-3)}${ctHead(0,-50)}</g>
+ <g class="ct-p ct-p-lie"><g transform="scale(.82)"><g class="ct-tail"><path d="M30 -10 C50 -10 56 -22 50 -30" fill="none" stroke="${CO}" stroke-width="10" stroke-linecap="round"/><path d="M30 -10 C50 -10 56 -22 50 -30" fill="none" stroke="${CG}" stroke-width="5.5" stroke-linecap="round"/></g>
+ <ellipse cx="6" cy="-13" rx="32" ry="13" fill="${CG}" stroke="${CO}" stroke-width="2.5"/><path d="M4 -24 v6 M14 -25 v7 M24 -23 v6" stroke="${CS}" stroke-width="3" stroke-linecap="round"/>${ctPaw(-22,-3)}${ctPaw(-8,-3)}${ctHead(-28,-22)}</g></g>
+ <g class="ct-p ct-p-peek">${ctHead(0,-59)}</g>
+ <g class="ct-p ct-p-win"><path d="M-17 -22 L-31 -52 M17 -22 L31 -52" stroke="${CO}" stroke-width="13" stroke-linecap="round"/><path d="M-17 -22 L-31 -52 M17 -22 L31 -52" stroke="${CG}" stroke-width="8" stroke-linecap="round"/>
+ <ellipse cx="0" cy="-10" rx="27" ry="20" fill="${CG}" stroke="${CO}" stroke-width="2.5"/><ellipse cx="0" cy="-6" rx="13" ry="12" fill="#fff"/>${ctHead(0,-46)}</g>`}
+function ctCatF(){return `<g class="ct-p ct-p-peek">${ctPaw(-12,-54)}${ctPaw(12,-54)}</g><g class="ct-p ct-p-win">${ctPad(-32,-56)}${ctPad(32,-56)}</g>`}
 function ctRoom(){const books=['#e8607e','#4a8fd0','#f4c04a','#5cb85c','#9b6ad6','#e8923a'];
  return `<svg class="ct-svg" id="ctSvg" viewBox="0 0 800 500" role="img" aria-label="${esc(cu2('cat'))}">
  <defs><linearGradient id="ctSky" x2="0" y2="1"><stop offset="0" stop-color="#9fd4f2"/><stop offset="1" stop-color="#dff1fb"/></linearGradient><pattern id="ctWall" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#fdf3e7"/><circle cx="20" cy="20" r="2" fill="#f3e2cc"/></pattern></defs>
  <rect width="800" height="402" fill="url(#ctWall)"/><rect y="400" width="800" height="100" fill="#d8b48a"/>${[0,1,2,3,4].map(i=>`<path d="M0 ${420+i*20} H800" stroke="#c99f72" stroke-width="1.5"/>`).join('')}<rect y="396" width="800" height="8" fill="#b88a5a"/>
- <rect x="640" y="70" width="130" height="130" fill="url(#ctSky)"/><circle cx="745" cy="96" r="12" fill="#ffe27a"/><path d="M640 172 q30 -26 70 -10 q28 10 60 -6 V200 H640z" fill="#8fce7a"/>
+ <rect x="630" y="62" width="150" height="138" fill="url(#ctSky)"/><circle cx="752" cy="78" r="10" fill="#ffe27a"/><path d="M630 168 q34 -26 76 -10 q30 10 74 -8 V200 H630z" fill="#8fce7a"/>
  <rect x="20" y="138" width="86" height="262" rx="4" fill="#b9845a"/><rect x="30" y="148" width="66" height="244" rx="2" fill="#c99668"/><circle cx="88" cy="276" r="5" fill="#f4c04a"/>
  <rect x="115" y="152" width="92" height="248" fill="#8a5a36"/>${[0,1,2].map(r=>`<rect x="121" y="${160+r*80}" width="80" height="70" fill="#6a4226"/>${books.map((c,i)=>`<rect x="${125+i*12}" y="${172+r*80+(i%3)*4}" width="10" height="${56-(i%3)*4}" fill="${c}" rx="1.5"/>`).join('')}`).join('')}
+ <g transform="translate(174 474)"><ellipse cx="0" cy="0" rx="24" ry="5" fill="#000" opacity=".12"/><circle cx="0" cy="-24" r="24" fill="#4a8fd0" stroke="#2f5f8f" stroke-width="2.5"/><path d="M-17 -41 q17 17 0 34 M17 -41 q-17 17 0 34" stroke="#f4c04a" stroke-width="6" fill="none"/><circle cx="-8" cy="-35" r="4.5" fill="#fff" opacity=".55"/></g>
  <rect x="226" y="258" width="10" height="142" fill="#7a5230"/><rect x="222" y="338" width="62" height="10" rx="3" fill="#a06a3e"/><rect x="226" y="348" width="7" height="52" fill="#7a5230"/><rect x="274" y="348" width="7" height="52" fill="#7a5230"/>
  <rect x="290" y="288" width="176" height="14" rx="3" fill="#a06a3e"/><rect x="298" y="302" width="12" height="98" fill="#7a5230"/><rect x="446" y="302" width="12" height="98" fill="#7a5230"/>
- <rect x="512" y="344" width="80" height="16" fill="#b8864e"/>
+ <rect x="524" y="344" width="72" height="16" fill="#b8864e"/>
  <rect x="620" y="318" width="170" height="20" rx="6" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><rect x="618" y="336" width="174" height="26" rx="4" fill="#7fb3e0"/><rect x="740" y="304" width="40" height="16" rx="8" fill="#fde68a"/><rect x="624" y="362" width="9" height="38" fill="#7a5230"/><rect x="779" y="362" width="9" height="38" fill="#7a5230"/><rect x="612" y="290" width="12" height="110" rx="3" fill="#8a5a36"/>
- <g id="ctMover" class="ct-mover">${ctCat()}${ctBall()}</g>
- <rect x="640" y="70" width="130" height="130" fill="#eaf6fd" opacity=".28"/><path d="M640 70 h130 v130 h-130z M705 70 v130 M640 135 h130" fill="none" stroke="#8a5a36" stroke-width="8"/><rect x="632" y="198" width="146" height="10" rx="3" fill="#a06a3e"/>
+ <g id="ctMover" class="ct-mover">${ctCat()}</g>
+ <rect x="630" y="62" width="150" height="138" fill="#eaf6fd" opacity=".3"/><path d="M646 76 l22 -10 M646 92 l38 -22" stroke="#fff" stroke-width="3" opacity=".6" stroke-linecap="round"/><path d="M630 62 h150 v138 h-150z M630 96 h150" fill="none" stroke="#8a5a36" stroke-width="8"/><rect x="622" y="198" width="166" height="10" rx="3" fill="#a06a3e"/>
  <rect x="398" y="234" width="60" height="44" rx="5" fill="#2a2a36"/><rect x="403" y="239" width="50" height="34" rx="3" fill="#4a6a8a"/><path d="M408 268 l12 -12 8 8 6 -5 12 9z" fill="#6a8aaa"/><rect x="420" y="278" width="16" height="10" fill="#2a2a36"/>
- <path d="M512 360 h80 v40 h-80z" fill="#d4a05e"/><path d="M512 360 l-10 -14 h8 M592 360 l10 -14 h-8" stroke="#b8864e" stroke-width="5" fill="none"/><path d="M540 372 h24" stroke="#a87840" stroke-width="3"/>
- ${CZ2.map((z,i)=>`<circle class="ct-hit" data-ctz="${i}" cx="${z.x}" cy="${z.y-24}" r="34"/>`).join('')}
+ <path d="M524 360 h72 v40 h-72z" fill="#d4a05e"/><path d="M524 360 l-8 -14 h7 M596 360 l8 -14 h-7" stroke="#b8864e" stroke-width="5" fill="none"/><path d="M548 376 h24" stroke="#a87840" stroke-width="3"/>
+ <g id="ctFront" class="ct-mover ct-front">${ctCatF()}</g>
+ ${CZ2.map((z,i)=>`<circle class="ct-hit" data-ctz="${i}" cx="${z.x}" cy="${z.y-30}" r="34"/>`).join('')}
  </svg>`}
-function ctPose(){const m=$('ctMover');if(!m)return;const z=CZ2[CT2.z];m.setAttribute('transform',`translate(${z.x} ${z.y})`);m.dataset.who=CT2.who;m.dataset.pose=z.p||'sit'}
-function ctOut(){const o=$('ctOut');if(!o)return;const z=CT2.z,who=CT2.who;
- if(CT2.mode==='free'){o.innerHTML=S(ctSent(z,who),ctTr(z,who));return}
- if(CT2.mode==='listen'){const done=CT2.pick===CT2.ans;o.innerHTML=`<div class="tools"><button class="btn" id="ctAgain" style="--c:var(--pnk)">🔊 ${cu2('again')}</button><span class="role">${cu2('score')}: ${CT2.score}</span></div><p class="kqp">${CT2.msg||cu2('lis')}</p>${done?S(ctSent(CT2.ans,who),ctTr(CT2.ans,who))+`<div class="tools"><button class="btn fill" id="ctNext" style="--c:var(--vio)">${cu2('next')}</button></div>`:''}`;return}
- const done=CT2.pick===CT2.ans;o.innerHTML=`${S(ctQ(who),ctQT(who))}<div class="ct-opts">${CT2.opts.map(i=>`<button class="btn${CT2.pick===i?(i===CT2.ans?' ok':' no'):''}" data-cto="${i}"><span class="jp">${J(CZ2[i].j+'{に} '+(who==='cat'?'います':'あります')).h}</span></button>`).join('')}</div><p class="kqp">${CT2.msg||''}</p>${done?S(ctSent(CT2.ans,who),ctTr(CT2.ans,who))+`<div class="tools"><button class="btn fill" id="ctNext" style="--c:var(--vio)">${cu2('next')}</button><span class="role">${cu2('score')}: ${CT2.score}</span></div>`:''}`}
+function ctPose(){const z=CZ2[CT2.z];['ctMover','ctFront'].forEach(id=>{const m=$(id);if(!m)return;m.setAttribute('transform',`translate(${z.x} ${z.y})`);m.dataset.pose=z.p==='tight'?'sit':(z.p||'sit');m.classList.toggle('ct-tight',z.p==='tight')})}
+function ctOut(){const o=$('ctOut');if(!o)return;const z=CT2.z;
+ if(CT2.mode==='free'){o.innerHTML=S(ctSent(z),ctTr(z));return}
+ if(CT2.mode==='listen'){const done=CT2.pick===CT2.ans;o.innerHTML=`<div class="tools"><button class="btn" id="ctAgain" style="--c:var(--pnk)">🔊 ${cu2('again')}</button><span class="role">${cu2('score')}: ${CT2.score}</span></div><p class="kqp">${CT2.msg||cu2('lis')}</p>${done?S(ctSent(CT2.ans),ctTr(CT2.ans))+`<div class="tools"><button class="btn fill" id="ctNext" style="--c:var(--vio)">${cu2('next')}</button></div>`:''}`;return}
+ const done=CT2.pick===CT2.ans;o.innerHTML=`${S(ctQ(),ctQT())}<div class="ct-opts">${CT2.opts.map(i=>`<button class="btn${CT2.pick===i?(i===CT2.ans?' ok':' no'):''}" data-cto="${i}"><span class="jp">${J(CZ2[i].j+'{に} '+'います').h}</span></button>`).join('')}</div><p class="kqp">${CT2.msg||''}</p>${done?S(ctSent(CT2.ans),ctTr(CT2.ans))+`<div class="tools"><button class="btn fill" id="ctNext" style="--c:var(--vio)">${cu2('next')}</button><span class="role">${cu2('score')}: ${CT2.score}</span></div>`:''}`}
 function ctNew(){const pool=CZ2.map((_,i)=>i).filter(i=>i!==CT2.ans);CT2.ans=pool[Math.floor(Math.random()*pool.length)];CT2.pick=-1;CT2.msg='';
  if(CT2.mode==='ask'){CT2.z=CT2.ans;const o=shuf(CZ2.map((_,i)=>i).filter(i=>i!==CT2.ans)).slice(0,2);CT2.opts=shuf([CT2.ans,...o]);ctPose()}
- else if(CT2.mode==='listen')setTimeout(()=>say(J(ctSent(CT2.ans,CT2.who)).t),250)}
+ else if(CT2.mode==='listen')setTimeout(()=>say(J(ctSent(CT2.ans)).t),250)}
 function ctUI(){const b=$('ctBox');if(!b)return;
- b.innerHTML=`<div class="tools dtabs">${['free','listen','ask'].map(m=>`<button class="btn${CT2.mode===m?' fill':''}" data-ctm="${m}" style="--c:var(--pnk)">${cu2(m)}</button>`).join('')}<span class="ct-who">${['cat','ball'].map(w=>`<button class="btn${CT2.who===w?' fill':''}" data-ctw="${w}" style="--c:var(--tea)"><span class="jp">${w==='cat'?'猫':'ボール'}</span> ${cu2(w)}</button>`).join('')}</span></div>
- <p class="kqp ct-rule">${cu2('rule')}</p><div class="ct-wrap">${ctRoom()}</div><p class="kqp" id="ctHint">${CT2.mode==='free'?cu2(CT2.who==='cat'?'tap':'tapb'):''}</p><div class="pout" id="ctOut"></div>`;
+ b.innerHTML=`<div class="tools dtabs">${['free','listen','ask'].map(m=>`<button class="btn${CT2.mode===m?' fill':''}" data-ctm="${m}" style="--c:var(--pnk)">${cu2(m)}</button>`).join('')}</div><div class="ct-wrap">${ctRoom()}</div><p class="kqp" id="ctHint">${CT2.mode==='free'?cu2('tap'):''}</p><div class="pout" id="ctOut"></div>`;
  ctPose();ctOut();ctDrag();tagTerms&&tagTerms(b)}
 function ctDrag(){const svg=$('ctSvg'),m=$('ctMover');if(!svg||!m)return;let drag=false;
  const pt=e=>{const p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())};
  m.addEventListener('pointerdown',e=>{if(CT2.mode==='ask')return;drag=true;m.setPointerCapture(e.pointerId);m.classList.add('drag');e.preventDefault()});
- m.addEventListener('pointermove',e=>{if(!drag)return;const p=pt(e);m.setAttribute('transform',`translate(${p.x} ${p.y+30})`);m.dataset.pose='sit'});
- m.addEventListener('pointerup',e=>{if(!drag)return;drag=false;m.classList.remove('drag');const p=pt(e);let b=0,bd=1e9;CZ2.forEach((z,i)=>{const d=(z.x-p.x)**2+((z.y-24)-p.y)**2;if(d<bd){bd=d;b=i}});ctPick(b)})}
+ m.addEventListener('pointermove',e=>{if(!drag)return;const p=pt(e),f=$('ctFront');m.setAttribute('transform',`translate(${p.x} ${p.y+30})`);m.dataset.pose='sit';if(f){f.classList.add('drag');f.setAttribute('transform',`translate(${p.x} ${p.y+30})`);f.dataset.pose='sit'}});
+ m.addEventListener('pointerup',e=>{if(!drag)return;drag=false;m.classList.remove('drag');$('ctFront')&&$('ctFront').classList.remove('drag');const p=pt(e);let b=0,bd=1e9;CZ2.forEach((z,i)=>{const d=(z.x-p.x)**2+((z.y-30)-p.y)**2;if(d<bd){bd=d;b=i}});ctPick(b)})}
 function ctPick(i){if(CT2.mode==='ask')return;
- if(CT2.mode==='free'){CT2.z=i;ctPose();ctOut();say(J(ctSent(i,CT2.who)).t);return}
- CT2.z=i;ctPose();if(CT2.pick===CT2.ans)return;CT2.pick=i;if(i===CT2.ans){CT2.score++;CT2.msg=`<b class="vok">${cu2('ok')}</b>`;say(J(ctSent(i,CT2.who)).t)}else CT2.msg=`<b class="vno">${cu2('no')}</b>`;ctOut()}
+ if(CT2.mode==='free'){CT2.z=i;ctPose();ctOut();say(J(ctSent(i)).t);return}
+ CT2.z=i;ctPose();if(CT2.pick===CT2.ans)return;CT2.pick=i;if(i===CT2.ans){CT2.score++;CT2.msg=`<b class="vok">${cu2('ok')}</b>`;say(J(ctSent(i)).t)}else CT2.msg=`<b class="vno">${cu2('no')}</b>`;ctOut()}
 addEventListener('click',e=>{const t=e.target;if(!t.closest||!t.closest('#ctBox'))return;
  const m=t.closest('[data-ctm]');if(m){CT2.mode=m.dataset.ctm;CT2.ans=-1;CT2.pick=-1;CT2.msg='';if(CT2.mode!=='free')ctNew();ctUI();return}
- const w=t.closest('[data-ctw]');if(w){CT2.who=w.dataset.ctw;if(CT2.mode==='free'){ctUI();say(J(ctSent(CT2.z,CT2.who)).t)}else{ctNew();ctUI()}return}
  const h=t.closest('[data-ctz]');if(h){ctPick(+h.dataset.ctz);return}
- if(t.closest('#ctAgain')){say(J(ctSent(CT2.ans,CT2.who)).t);return}
+ if(t.closest('#ctAgain')){say(J(ctSent(CT2.ans)).t);return}
  if(t.closest('#ctNext')){ctNew();ctUI();return}
- const o=t.closest('[data-cto]');if(o){if(CT2.pick===CT2.ans)return;const i=+o.dataset.cto;CT2.pick=i;if(i===CT2.ans){CT2.score++;CT2.msg=`<b class="vok">${cu2('ok')}</b>`;say(J(ctSent(i,CT2.who)).t)}else CT2.msg=`<b class="vno">${cu2('no')}</b>`;ctOut();return}
+ const o=t.closest('[data-cto]');if(o){if(CT2.pick===CT2.ans)return;const i=+o.dataset.cto;CT2.pick=i;if(i===CT2.ans){CT2.score++;CT2.msg=`<b class="vok">${cu2('ok')}</b>`;say(J(ctSent(i)).t)}else CT2.msg=`<b class="vno">${cu2('no')}</b>`;ctOut();return}
 },true);
 setTimeout(()=>{if(typeof L10==='undefined')return;
  L10.play=()=>playSec(TID("ui.where-is-the-cat"),'<span class="jp">猫は どこに いますか</span> · neko wa doko ni imasu ka','','<div id="ctBox"></div>');
  L10.init=()=>{if($('ctBox'))ctUI()};
  try{if(C.n===10)render()}catch(_){}},0);
+
+/* ================= Səhnə ikonları: emoji yerinə SVG ================= */
+(function(){
+const sv=(b,vb)=>`<svg class="sci" viewBox="${vb||'0 0 24 24'}" aria-hidden="true">${b}</svg>`;
+const bust=(c,x)=>sv(`<path d="M4 23a8 8 0 0 1 16 0z" fill="${c}"/><circle cx="12" cy="9" r="5" fill="#f2c9a5"/><path d="M7 8.5a5 5 0 0 1 10 0c-1.5-1.6-3.2-2.3-5-2.3S8.5 6.9 7 8.5z" fill="#4a3a32"/>${x||''}`);
+const I={
+'🔄':sv('<path d="M19 8a8 8 0 0 0-14 1M5 16a8 8 0 0 0 14-1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M19 3v5h-5M5 21v-5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>'),
+'🔊':sv('<path d="M3 9h4l5-4v14l-5-4H3z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'),
+'🎯':sv('<circle cx="12" cy="12" r="9.5" fill="#ef5b5b"/><circle cx="12" cy="12" r="6.5" fill="#fff"/><circle cx="12" cy="12" r="3.5" fill="#ef5b5b"/>'),
+'🔔':sv('<path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z" fill="#f4c04a" stroke="#c9952a" stroke-width="1.2"/><circle cx="12" cy="21" r="2" fill="#c9952a"/>'),
+'☀️':sv('<circle cx="12" cy="12" r="5" fill="#f9b233"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="#f9b233" stroke-width="2" stroke-linecap="round"/>'),
+'☁️':sv('<path d="M7 19a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 9.5a4.8 4.8 0 0 1-.5 9.5z" fill="#c4ccd8"/>'),
+'☔':sv('<path d="M2.5 12a9.5 9.5 0 0 1 19 0z" fill="#5b8def"/><path d="M12 12v7a2 2 0 0 1-4 0" fill="none" stroke="#4a4458" stroke-width="1.8" stroke-linecap="round"/><path d="M6 16l-1 2.5M18 16l-1 2.5M15 18l-1 2.5" stroke="#5b8def" stroke-width="1.6" stroke-linecap="round"/>'),
+'❄️':sv('<path d="M12 2v20M3.3 7l17.4 10M3.3 17l17.4-10M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5" fill="none" stroke="#5fb4e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'),
+'🔥':sv('<rect x="9.5" y="2.5" width="5" height="13" rx="2.5" fill="#fff" stroke="#e5484d" stroke-width="1.6"/><circle cx="12" cy="18" r="4" fill="#e5484d"/><rect x="11" y="6" width="2" height="10" fill="#e5484d"/>'),
+'🧊':sv('<rect x="9.5" y="2.5" width="5" height="13" rx="2.5" fill="#fff" stroke="#3b82f6" stroke-width="1.6"/><circle cx="12" cy="18" r="4" fill="#3b82f6"/><rect x="11" y="12" width="2" height="4" fill="#3b82f6"/>'),
+'🌡':sv('<rect x="9.5" y="2.5" width="5" height="13" rx="2.5" fill="#fff" stroke="#e5484d" stroke-width="1.6"/><circle cx="12" cy="18" r="4" fill="#e5484d"/><rect x="11" y="7" width="2" height="9" fill="#e5484d"/>'),
+'💳':sv('<rect x="2" y="5" width="20" height="14" rx="2.5" fill="#3d6fd8"/><rect x="2" y="8.5" width="20" height="2.6" fill="#1f3f86"/><rect x="5" y="14" width="6" height="2" rx="1" fill="#f4c04a"/>'),
+'🎁':sv('<rect x="3" y="9" width="18" height="12" rx="1.5" fill="#ef5b8a"/><rect x="2" y="6.5" width="20" height="4" rx="1.2" fill="#f7799f"/><rect x="10.5" y="6.5" width="3" height="14.5" fill="#f4c04a"/><path d="M12 6.5C10 2.5 6 3.5 7.5 6.5M12 6.5c2-4 6-3 4.5 0" fill="none" stroke="#f4c04a" stroke-width="2" stroke-linecap="round"/>'),
+'❓':sv('<circle cx="12" cy="12" r="10" fill="#7b61ff"/><path d="M9 9.3a3 3 0 1 1 4.3 2.7c-.9.5-1.3 1-1.3 2" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.3" fill="#fff"/>'),
+'🙋':bust('#3d8bfd'),
+'🙂':bust('#22a06b'),
+'🤒':bust('#e879a6','<rect x="15.5" y="10" width="6" height="2" rx="1" transform="rotate(-25 15.5 11)" fill="#e5484d"/>'),
+'👔':bust('#3f4a5f','<path d="M12 15l-1.4 1.6L12 23l1.4-6.4z" fill="#e5484d"/>'),
+'🧑‍💼':bust('#7b61ff','<path d="M12 15l-1.4 1.6L12 23l1.4-6.4z" fill="#f4c04a"/>'),
+'🧑‍✈️':bust('#1f3f86','<path d="M6.5 6.5Q12 1.5 17.5 6.5v1.3h-11z" fill="#1f3f86"/><rect x="5.5" y="7.2" width="13" height="1.8" rx=".9" fill="#14285a"/><circle cx="12" cy="5" r="1" fill="#f4c04a"/>'),
+'🧑‍🤝‍🧑':sv('<path d="M1 23a6.5 6.5 0 0 1 13 0z" fill="#f59e0b"/><circle cx="7.5" cy="11" r="4" fill="#f2c9a5"/><path d="M3.5 10.6a4 4 0 0 1 8 0c-1.2-1.3-2.6-1.8-4-1.8s-2.8.5-4 1.8z" fill="#4a3a32"/><path d="M10 23a6.5 6.5 0 0 1 13 0z" fill="#14b8a6"/><circle cx="16.5" cy="11" r="4" fill="#f2c9a5"/><path d="M12.5 10.6a4 4 0 0 1 8 0c-1.2-1.3-2.6-1.8-4-1.8s-2.8.5-4 1.8z" fill="#7a4a2a"/>')
+};
+const K=Object.keys(I).sort((a,b)=>b.length-a.length);
+const RX=new RegExp('('+K.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')\\uFE0F?','gu');
+function fix(root){if(!root||!root.querySelectorAll)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode()){const n=w.currentNode;if(n.parentElement&&n.parentElement.closest('svg'))continue;RX.lastIndex=0;if(RX.test(n.data))ns.push(n)}
+ for(const n of ns){const f=document.createDocumentFragment();let last=0;const d=n.data;RX.lastIndex=0;let m;while((m=RX.exec(d))){if(m.index>last)f.appendChild(document.createTextNode(d.slice(last,m.index)));const sp=document.createElement('span');sp.className='scic';sp.innerHTML=I[m[1]]||I[m[1]+'\uFE0F']||'';f.appendChild(sp);last=m.index+m[0].length}if(last<d.length)f.appendChild(document.createTextNode(d.slice(last)));n.parentNode&&n.parentNode.replaceChild(f,n)}}
+// I açarlarında FE0F ola bilər: həm onlu, həm onsuz tanı
+for(const k of Object.keys(I)){const b=k.replace(/\uFE0F/g,'');if(!I[b])I[b]=I[k]}
+window.SCIB=k=>(I[k]||I[k.replace(/\uFE0F/g,'')]||'').replace(/^<svg[^>]*>|<\/svg>$/g,'');
+let q=0;const run=()=>{q=0;const p=document.getElementById('play');if(p)fix(p)};
+try{new MutationObserver(()=>{if(!q){q=1;requestAnimationFrame(run)}}).observe(document.body,{childList:true,subtree:true,characterData:true})}catch(_){}
+setTimeout(run,0);
+})();
 
 setTimeout(()=>{if(!PF.tourDone&&$('tour'))tourStart()},1200);
 function apply(){const B=document.body;B.classList.toggle('nofuri',!PF.furi);B.classList.toggle('noro',!PF.ro);B.classList.toggle('hideaz',!PF.az);if(typeof a11yFix==='function')requestAnimationFrame(a11yFix);
@@ -4761,9 +4803,9 @@ addEventListener('click',e=>{const t=e.target;if(!t.closest||!t.closest('#trainB
 },true);
 
 /* ---------- 12: hava və müqayisə xəritəsi ---------- */
-const WCITY=[['[札幌:さっぽろ]','札幌',141.35,43.06,2,{az:'Sapporo',en:'Sapporo',ru:'Саппоро'},['Sapporoda','in Sapporo','в Саппоро']],['[仙台:せんだい]','仙台',140.87,38.27,10,{az:'Sendai',en:'Sendai',ru:'Сэндай'},['Sendaida','in Sendai','в Сэндае']],['[東京:とうきょう]','東京',139.77,35.70,15,{az:'Tokio',en:'Tokyo',ru:'Токио'},['Tokioda','in Tokyo','в Токио']],['[大阪:おおさか]','大阪',135.50,34.69,17,{az:'Osaka',en:'Osaka',ru:'Осака'},['Osakada','in Osaka','в Осаке']],['[広島:ひろしま]','広島',132.46,34.39,16,{az:'Hiroshima',en:'Hiroshima',ru:'Хиросима'},['Hiroshimada','in Hiroshima','в Хиросиме']],['[福岡:ふくおか]','福岡',130.40,33.59,18,{az:'Fukuoka',en:'Fukuoka',ru:'Фукуока'},['Fukuokada','in Fukuoka','в Фукуоке']],['[那覇:なは]','那覇',0,0,25,{az:'Naha',en:'Naha',ru:'Наха'},['Nahada','in Naha','в Нахе']]];
+const WCITY=[['^[札幌:さっぽろ]','札幌',141.35,43.06,2,{az:'Sapporo',en:'Sapporo',ru:'Саппоро'},['Sapporoda','in Sapporo','в Саппоро']],['^[仙台:せんだい]','仙台',140.87,38.27,10,{az:'Sendai',en:'Sendai',ru:'Сэндай'},['Sendaida','in Sendai','в Сэндае']],['^[東京:とうきょう]','東京',139.77,35.70,15,{az:'Tokio',en:'Tokyo',ru:'Токио'},['Tokioda','in Tokyo','в Токио']],['^[大阪:おおさか]','大阪',135.50,34.69,17,{az:'Osaka',en:'Osaka',ru:'Осака'},['Osakada','in Osaka','в Осаке']],['^[広島:ひろしま]','広島',132.46,34.39,16,{az:'Hiroshima',en:'Hiroshima',ru:'Хиросима'},['Hiroshimada','in Hiroshima','в Хиросиме']],['^[福岡:ふくおか]','福岡',130.40,33.59,18,{az:'Fukuoka',en:'Fukuoka',ru:'Фукуока'},['Fukuokada','in Fukuoka','в Фукуоке']],['^[那覇:なは]','那覇',0,0,25,{az:'Naha',en:'Naha',ru:'Наха'},['Nahada','in Naha','в Нахе']]];
 const WWX=[['☀️','いい [天気:てんき]',['hava gözəl idi','the weather was nice','была хорошая погода'],'晴れ'],['☁️','くもり',['buludlu idi','it was cloudy','было облачно'],'くもり'],['☔','[雨:あめ]',['yağış yağırdı','it rained','шёл дождь'],'雨'],['❄️','[雪:ゆき]',['qar yağırdı','it snowed','шёл снег'],'雪']];
-const WTMP=[[5,'[寒:さむ]かった',['soyuq idi','cold','холодно']],[15,'[涼:すず]しかった',['sərin idi','cool','прохладно']],[24,'[暖:あたた]かかった',['ilıq idi','warm','тепло']],[99,'[暑:あつ]かった',['isti idi','hot','жарко']]];
+const WTMP=[[9,'[寒:さむ]かった',['soyuq idi','cold','холодно']],[17,'[涼:すず]しかった',['sərin idi','cool','прохладно']],[25,'[暖:あたた]かかった',['ilıq idi','warm','тепло']],[99,'[暑:あつ]かった',['isti idi','hot','жарко']]];
 const tmpOf=c=>WTMP.find(x=>c<=x[0]);
 const WU2={title:{az:'Dünənki hava',en:'Yesterday’s weather',ru:'Вчерашняя погода'},lead:{az:'Xəritədə dünənki hava. Şəhərə toxunun – keçmiş zamanla danışın. "Müqayisə" rejimində iki şəhər seçin. "Test"də sualı dinləyib xəritədə cavab şəhərə toxunun.',en:'Yesterday’s weather on the map. Tap a city to talk about it in the past tense. In “Compare” pick two cities. In “Test” listen to the question and tap the answer city on the map.',ru:'Вчерашняя погода на карте. Нажмите на город – расскажите о нём в прошедшем времени. В режиме «Сравнить» выберите два города. В «Тесте» послушайте вопрос и нажмите нужный город.'},
  say:{az:'Danış',en:'Talk',ru:'Рассказ'},cmp:{az:'Müqayisə',en:'Compare',ru:'Сравнить'},quiz:{az:'Test',en:'Test',ru:'Тест'},newd:{az:'Başqa gün',en:'Another day',ru:'Другой день'},
@@ -4778,20 +4820,20 @@ function wxMap(){return `<svg class="jmap wxmap" viewBox="0 0 424 464" role="img
  ${JISL.map(p=>`<path d="M${p.map(q=>JPP(q).map(v=>v.toFixed(1)).join(',')).join('L')}Z" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/>`).join('')}
  <rect x="320" y="372" width="86" height="84" rx="10" fill="none" stroke="var(--line)" stroke-dasharray="4 3"/><path d="M352 446l6-6 4 3 4-7" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
  ${WCITY.map((c,i)=>{const [x,y]=wxPos(i),D=WX.d[i],on=WX.sel.includes(i)||WX.pick===i,cls=WX.pick===i?(WX.q&&WX.q.ans===i?' ok':' no'):'';const o=WOFF[i]||[-27,-50],bx=Math.min(424-58,Math.max(4,x+o[0])),by=y+o[1];
-  return `<g class="wxc${on?' on':''}${cls}" data-wxc="${i}" tabindex="0" role="button" aria-label="${esc(SL(c[5]))}"><circle cx="${x}" cy="${y}" r="4" fill="var(--hanko)"/><rect x="${bx}" y="${by}" width="54" height="42" rx="9"/><text x="${bx+27}" y="${by+17}" text-anchor="middle" class="wxi">${WWX[D.w][0]} ${D.t}°</text><text x="${bx+27}" y="${by+34}" text-anchor="middle" class="wxn jp">${c[1]}</text></g>`}).join('')}</svg>`}
+  return `<g class="wxc${on?' on':''}${cls}" data-wxc="${i}" tabindex="0" role="button" aria-label="${esc(SL(c[5]))}"><circle cx="${x}" cy="${y}" r="4" fill="var(--hanko)"/><rect x="${bx}" y="${by}" width="54" height="42" rx="9"/><svg x="${bx+6}" y="${by+5}" width="15" height="15" viewBox="0 0 24 24">${SCIB(WWX[D.w][0])}</svg><text x="${bx+34}" y="${by+17}" text-anchor="middle" class="wxi">${D.t}°</text><text x="${bx+27}" y="${by+34}" text-anchor="middle" class="wxn jp">${c[1]}</text></g>`}).join('')}</svg>`}
 const wxL=(who,cls,jp,tr)=>`<div class="cl ${cls}"><span>${who}</span>${S(jp,tr)}</div>`;
 function wxSay(i){const c=WCITY[i],D=WX.d[i],W=WWX[D.w],T=tmpOf(D.t),li=SLI(),n=D.t,a=Math.abs(n)%100,rd=(a%10===1&&a!==11)?'градус':(a%10>=2&&a%10<=4&&(a<12||a>14))?'градуса':'градусов';
  const AC=x=>x.charAt(0).toLocaleUpperCase('az')+x.slice(1),tr=[`${AC(W[2][0])}. ${n} dərəcə idi. ${AC(T[2][0])}.`,`${ruCap(W[2][1])}. It was ${n} degree${Math.abs(n)===1?'':'s'}. It was ${T[2][1]}.`,`${ruCap(W[2][2])}. Было ${n} ${rd}. Было ${T[2][2]}.`][li];
- return wxL('🙋','p',`きのう ${c[0]}{の} [天気:てんき]{は} どう でしたか。`,[`Dünən ${c[6][0]} hava necə idi?`,`How was the weather ${c[6][1]} yesterday?`,`Какая погода была вчера ${c[6][2]}?`][li])+wxL('🧑‍💼','d',`${W[1]}|でした。<${D.t}度=${numR(D.t)} do>でした。${T[1]}|です。`,tr)}
+ return wxL('🙋','p',`きのう ${c[0]}{の} [天気:てんき]{は} どう でした{か}。`,[`Dünən ${c[6][0]} hava necə idi?`,`How was the weather ${c[6][1]} yesterday?`,`Какая погода была вчера ${c[6][2]}?`][li])+wxL('🧑‍💼','d',`${W[1]}|でした。<${D.t}度=${numR(D.t)} do>でした。${T[1]}|です。`,tr)}
 function wxCmp(a,b){const A=WCITY[a],B=WCITY[b],li=SLI(),hot=WX.d[a].t>WX.d[b].t?a:b,H=WCITY[hot],L=WCITY[hot===a?b:a];
- return wxL('🙋','p',`きのう ${A[0]}{と} ${B[0]}{と} どちら{が} [暑:あつ]かった|ですか。`,[`Dünən ${SL(A[5])} ilə ${SL(B[5])} – harada daha isti idi?`,`Yesterday, which was hotter, ${SL(A[5])} or ${SL(B[5])}?`,`Где вчера было жарче: ${SL(A[5])} или ${SL(B[5])}?`][li])
+ return wxL('🙋','p',`きのう ${A[0]}{と} ${B[0]}{と} どちら{が} [暑:あつ]かった|です{か}。`,[`Dünən ${SL(A[5])} ilə ${SL(B[5])} – harada daha isti idi?`,`Yesterday, which was hotter, ${SL(A[5])} or ${SL(B[5])}?`,`Где вчера было жарче: ${SL(A[5])} или ${SL(B[5])}?`][li])
  +wxL('🧑‍💼','d',`${H[0]}{の} ほう{が} [暑:あつ]かった|です。`,[`${H[6][0]} daha isti idi.`,`It was hotter ${H[6][1]}.`,`${ruCap(H[6][2])} было жарче.`][li])
  +wxL('🧑‍💼','d',`${L[0]}{は} ${H[0]}{より} [寒:さむ]かった|です。`,[`${SL(L[5])} ${H[5].az==='Sendai'?'Sendaidən':H[5].az+'dan'} soyuq idi.`,`${SL(L[5])} was colder than ${SL(H[5])}.`,`${ruCap(L[6][2])} было холоднее, чем ${H[6][2]}.`][li])}
 function wxMost(hot){const ts=WX.d.map(d=>d.t),i=ts.indexOf(hot?Math.max(...ts):Math.min(...ts)),c=WCITY[i],li=SLI();
- return wxL('🙋','p',`きのう どこ{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|ですか。`,[`Dünən harada ən ${hot?'isti':'soyuq'} idi?`,`Where was it ${hot?'hottest':'coldest'} yesterday?`,`Где вчера было ${hot?'жарче':'холоднее'} всего?`][li])+wxL('🧑‍💼','d',`${c[0]}{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です。`,[`Ən ${hot?'isti':'soyuq'} ${c[6][0]} idi.`,`It was ${hot?'hottest':'coldest'} ${c[6][1]}.`,`${ruCap(c[6][2])} было ${hot?'жарче':'холоднее'} всего.`][li])}
+ return wxL('🙋','p',`きのう どこ{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です{か}。`,[`Dünən harada ən ${hot?'isti':'soyuq'} idi?`,`Where was it ${hot?'hottest':'coldest'} yesterday?`,`Где вчера было ${hot?'жарче':'холоднее'} всего?`][li])+wxL('🧑‍💼','d',`${c[0]}{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です。`,[`Ən ${hot?'isti':'soyuq'} ${c[6][0]} idi.`,`It was ${hot?'hottest':'coldest'} ${c[6][1]}.`,`${ruCap(c[6][2])} было ${hot?'жарче':'холоднее'} всего.`][li])}
 function wxQ(){const li=SLI(),k=Math.floor(Math.random()*3),ts=WX.d.map(d=>d.t);
- if(k===2){const hot=Math.random()<.5,i=ts.indexOf(hot?Math.max(...ts):Math.min(...ts)),c=WCITY[i];WX.q={ans:i,j:`きのう どこ{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|ですか。`,t:[`Dünən harada ən ${hot?'isti':'soyuq'} idi?`,`Where was it ${hot?'hottest':'coldest'} yesterday?`,`Где вчера было ${hot?'жарче':'холоднее'} всего?`][li],aj:`${c[0]}{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です。`}}
- else{const [a,b]=shuf(WCITY.map((_,i)=>i)).slice(0,2),hot=k===0,A=WCITY[a],B=WCITY[b],ans=(WX.d[a].t>WX.d[b].t)===hot?a:b;WX.q={ans,j:`きのう ${A[0]}{と} ${B[0]}{と} どちら{が} ${hot?'[暑:あつ]':'[寒:さむ]'}かった|ですか。`,t:[`Dünən ${SL(A[5])}, yoxsa ${SL(B[5])} – harada daha ${hot?'isti':'soyuq'} idi?`,`Which was ${hot?'hotter':'colder'} yesterday, ${SL(A[5])} or ${SL(B[5])}?`,`Где вчера было ${hot?'жарче':'холоднее'}: ${SL(A[5])} или ${SL(B[5])}?`][li],aj:`${WCITY[ans][0]}{の} ほう{が} ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です。`}}
+ if(k===2){const hot=Math.random()<.5,i=ts.indexOf(hot?Math.max(...ts):Math.min(...ts)),c=WCITY[i];WX.q={ans:i,j:`きのう どこ{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です{か}。`,t:[`Dünən harada ən ${hot?'isti':'soyuq'} idi?`,`Where was it ${hot?'hottest':'coldest'} yesterday?`,`Где вчера было ${hot?'жарче':'холоднее'} всего?`][li],aj:`${c[0]}{が} いちばん ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です。`}}
+ else{const [a,b]=shuf(WCITY.map((_,i)=>i)).slice(0,2),hot=k===0,A=WCITY[a],B=WCITY[b],ans=(WX.d[a].t>WX.d[b].t)===hot?a:b;WX.q={ans,j:`きのう ${A[0]}{と} ${B[0]}{と} どちら{が} ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です{か}。`,t:[`Dünən ${SL(A[5])}, yoxsa ${SL(B[5])} – harada daha ${hot?'isti':'soyuq'} idi?`,`Which was ${hot?'hotter':'colder'} yesterday, ${SL(A[5])} or ${SL(B[5])}?`,`Где вчера было ${hot?'жарче':'холоднее'}: ${SL(A[5])} или ${SL(B[5])}?`][li],aj:`${WCITY[ans][0]}{の} ほう{が} ${hot?'[暑:あつ]':'[寒:さむ]'}かった|です。`}}
  WX.pick=null;WX.msg=''}
 function wxUI(){const b=$('wxBox');if(!b)return;if(!WX.d.length)wxNew();if(WX.mode==='quiz'&&!WX.q)wxQ();let side='';
  if(WX.mode==='say')side=WX.sel.length?`<div class="cdlg">${wxSay(WX.sel[0])}</div>`:`<p class="kqp">${wu2('tapc')}</p>`;
