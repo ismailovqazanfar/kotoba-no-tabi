@@ -4237,11 +4237,14 @@ function gmLayout(){const k=GV.k,cur=curStop(),HV=HID.map((d,i)=>i).filter(gmHid
 /* qatar */
 function gmTrainPos(){const g=$('gmT'),r=$('gmTR');if(!g||!GPTS||!GTR)return;const P=GPTS.slice(0,ROUTE.length),t=GTR.t,i=Math.min(ROUTE.length-2,Math.max(0,Math.floor(t))),f=Math.min(1,t-i),a=P[i],b=P[i+1];
  const x=a[0]+(b[0]-a[0])*f,y=a[1]+(b[1]-a[1])*f;g.setAttribute('transform',`translate(${x.toFixed(2)},${y.toFixed(2)})`);
- const d=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;r.setAttribute('transform',`rotate(${d.toFixed(1)}) scale(1.3,${Math.abs(d)>90?-1.3:1.3})`);const sea=i>=23&&i<=25,sh=$('gmSH');r.style.display=sea?'none':'';if(sh){sh.style.display=sea?'':'none';sh.setAttribute('transform',`scale(${b[0]<a[0]?-1.3:1.3},1.3)`)}}
-function gmTrain(cur){let from=cur;try{const v=+localStorage.getItem(TRK);if(v>=1&&v<cur)from=v}catch(_){}GTR={t:from-1};gmTrainPos();
- if(from>=cur||GRM()){GTR.t=cur-1;gmTrainPos();try{localStorage.setItem(TRK,cur)}catch(_){}return}
- const t0=performance.now(),dur=Math.min(4200,900+(cur-from)*500),ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
- const step=ts=>{if(!$('gmT'))return;const k=Math.min(1,(ts-t0)/dur);GTR.t=from-1+(cur-from)*ease(k);gmTrainPos();if(k<1)requestAnimationFrame(step);else try{localStorage.setItem(TRK,cur)}catch(_){}};setTimeout(()=>requestAnimationFrame(step),450)}
+ let d=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;if(GTR.rev)d=d>0?d-180:d+180;r.setAttribute('transform',`rotate(${d.toFixed(1)}) scale(1.3,${Math.abs(d)>90?-1.3:1.3})`);const sea=i>=23&&i<=25,sh=$('gmSH');r.style.display=sea?'none':'';if(sh){sh.style.display=sea?'':'none';sh.setAttribute('transform',`scale(${(b[0]<a[0])!==!!GTR.rev?-1.3:1.3},1.3)`)}}
+let GTRP=null;
+function gmTrain(cur){const tgt=(RSEL&&RSEL.t==='c'&&RSEL.i>=1&&RSEL.i<=cur)?RSEL.i:(GTRP!=null&&RSEL&&RSEL.t==='c'&&RSEL.i>cur?GTRP:cur);let from,first=GTRP==null;
+ if(!first)from=GTRP;else{from=cur;try{const v=+localStorage.getItem(TRK);if(v>=1&&v<cur)from=v}catch(_){}}
+ GTR={t:from-1,rev:tgt<from};gmTrainPos();const done=()=>{GTRP=tgt;if(tgt===cur)try{localStorage.setItem(TRK,cur)}catch(_){}};
+ if(from===tgt||GRM()){GTR.t=tgt-1;GTR.rev=false;gmTrainPos();done();return}
+ const t0=performance.now()+(first?450:120),dur=Math.min(4200,800+Math.abs(tgt-from)*(first?500:320)),ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;GTRP=tgt;
+ const step=ts=>{if(!$('gmT'))return;const k=Math.max(0,Math.min(1,(ts-t0)/dur));GTR.t=from-1+(tgt-from)*ease(k);gmTrainPos();if(k<1)requestAnimationFrame(step);else{GTR.rev=false;gmTrainPos();done()}};requestAnimationFrame(step)}
 /* görünüş */
 function gmLevel(){const z=GV.k/GV.k0;let l=1;for(let i=1;i<4;i++)if(z>=GLV[i])l=i+1;return l}
 function gmApply(){const svg=$('gsvg'),V=$('gmV');if(!svg||!V)return;const w=GV.w,h=GV.h,b=GMB;
