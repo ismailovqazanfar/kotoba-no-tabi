@@ -1,4 +1,4 @@
-const V='kt-202610180039',PRE=["./", "index.html", "tfonts.css", "audio.js", "audio2.js", "k4.js", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "music/chapter-by-lamplight.js", "music/last-train-home.js", "music/paper-lantern-rain.js"];
+const V='kt-202610180054',PRE=["./", "index.html", "tfonts.css", "audio.js", "audio2.js", "k4.js", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "music/chapter-by-lamplight.js", "music/last-train-home.js", "music/paper-lantern-rain.js"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(PRE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);
