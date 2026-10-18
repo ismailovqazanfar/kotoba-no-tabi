@@ -4646,6 +4646,1357 @@ setTimeout(()=>{for(const n in S4){let L;try{L=S4[n].L()}catch(_){continue}if(!L
   L.init=()=>{if($('s4Box'))s4UI()}}
  try{if(S4[C.n])render()}catch(_){}},0);
 
+/* scenes A: 1 Tanış olaq (名刺), 2 Bu nədir? (bit bazarı), 6 Dəvət ruleti, 7 Hədiyyə tərəzisi + genkan */
+(()=>{
+const T=(a,e,r)=>SL({az:a,en:e,ru:r});
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const bestGet=k=>{try{return +localStorage.getItem('kotoba-sa-'+k)||0}catch(_){return 0}};
+const bestSet=(k,v)=>{try{localStorage.setItem('kotoba-sa-'+k,v)}catch(_){}};
+const jp=m=>`<span class="jp">${J(m).h}</span>`;
+/* tərcümə sətirli səsli cümlə bloku */
+const sx=(m,tr)=>{const j=J(m);return `<div class="s sa-s"><div class="jl"><div class="jt jp">${j.h}</div><button class="say" data-say="${esc(j.t)}" aria-label="${T('Səsləndir','Play','Озвучить')}">${SPK}</button></div>${tr?`<div class="az">${tr}</div>`:''}</div>`};
+const css=document.createElement('style');
+css.textContent=`
+.sa-box{margin-top:6px}
+.sa-svg{display:block;width:100%;height:auto;border-radius:16px;border:2px solid var(--line,#e5e7eb);background:#fdf3e7;touch-action:none}
+.sa-tabs{margin-bottom:8px}
+.sa-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0}
+.sa-msg{min-height:1.6em;text-align:center;margin:8px 0 2px;font-weight:700;color:var(--ink)}
+.sa-cap{text-align:center;color:var(--mut);font-size:14px;margin:6px 0}
+.sa-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:8px 0}
+.sa-opt{border:2px solid var(--line,#ccc);background:var(--bg);color:var(--ink);border-radius:14px;padding:6px;font-weight:700;font-size:13px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+.sa-opt.ok{border-color:#16a34a;background:rgba(22,163,74,.12)}
+.sa-opt.no{border-color:#dc2626;background:rgba(220,38,38,.1)}
+.sa-opt.on{border-color:var(--pnk,#e11d74);background:rgba(225,29,116,.08)}
+.sa-opt svg{width:100%;max-width:150px;height:auto;border-radius:10px;background:#fdf3e7}
+.sa-line{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:50px;padding:8px;border:2px dashed var(--line,#ccc);border-radius:14px;margin:8px 0;background:var(--paper,transparent)}
+.sa-bank{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.sa-tile{border:2px solid var(--line,#ccc);background:var(--bg);color:var(--ink);border-radius:10px;padding:4px 10px;font-size:18px;cursor:pointer;line-height:1.7}
+.sa-tile.ok{border-color:#16a34a;background:rgba(22,163,74,.13)}
+.sa-tile.no{border-color:#dc2626;background:rgba(220,38,38,.1)}
+.sa-chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.sa-chip{border:2px solid var(--line,#ccc);background:var(--bg);color:var(--ink);border-radius:999px;padding:4px 12px;font-weight:800;font-size:14px;cursor:pointer}
+.sa-chip.on{border-color:var(--pnk,#e11d74);background:var(--pnk,#e11d74);color:#fff}
+.sa-sec{font-size:13px;font-weight:800;color:var(--mut);margin:10px 0 2px}
+.sa-grid2{display:grid;grid-template-columns:230px 1fr;gap:12px;align-items:start}
+@media(max-width:640px){.sa-grid2{grid-template-columns:1fr}}
+.sa-wheel{width:100%;max-width:230px;margin:0 auto;display:block}
+.sa-friend{display:flex;gap:10px;align-items:flex-start}
+.sa-friend>svg{flex:0 0 64px;width:64px;height:64px}
+.sa-friend>div{flex:1;min-width:0}
+.sa-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:8px 0}
+.sa-day{border:2px solid var(--line,#ccc);border-radius:10px;padding:4px 2px;text-align:center;min-height:74px;background:var(--bg);display:flex;flex-direction:column;align-items:center;gap:2px}
+.sa-day b{font-size:16px}.sa-day small{font-size:10.5px;color:var(--mut)}
+.sa-day.full{border-color:#16a34a;background:rgba(22,163,74,.1)}
+.sa-day.now{border-color:var(--pnk,#e11d74);box-shadow:0 0 0 2px rgba(225,29,116,.25)}
+.sa-day svg{width:26px;height:26px}
+.sa-day span{font-size:11px;font-weight:700}
+.sa-big{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}
+.sa-big span{font-size:26px;font-weight:900;padding:4px 18px;border-radius:14px;border:2px solid var(--line,#ccc);color:var(--mut);background:var(--bg)}
+.sa-big span.on{border-color:var(--pnk,#e11d74);background:var(--pnk,#e11d74);color:#fff}
+.sa-tray{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+.sa-it{border:2px solid var(--line,#ccc);border-radius:12px;background:var(--bg);color:var(--ink);padding:4px 10px;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:16px}
+.sa-it.on{border-color:var(--pnk,#e11d74);background:rgba(225,29,116,.1)}
+.sa-it svg{width:28px;height:28px}
+.sa-new{font-size:11px;font-weight:800;color:#b45309;border:1px solid #f59e0b;border-radius:6px;padding:0 5px;margin-left:6px;vertical-align:middle}
+.sa-node{cursor:pointer}.sa-node:focus{outline:none}
+`;
+document.head.appendChild(css);
+const modeTabs=(n,st)=>`<div class="tools dtabs sa-tabs">${[['learn',T('Öyrən','Learn','Учиться')],['test',T('Yoxla','Check','Проверка')]].map(([m,l])=>`<button class="btn${st.mode===m?' fill':''}" data-sa="mode" data-v="${m}" style="--c:var(--pnk)">${l}</button>`).join('')}</div>`;
+const scoreBar=(k,st,extra='')=>`<div class="sa-bar"><span class="role">${T('Xal','Score','Счёт')}: ${st.score} · ${T('Rekord','Best','Рекорд')}: ${bestGet(k)}</span>${extra}</div>`;
+const nextBtn=()=>`<button class="btn fill" data-sa="next" style="--c:var(--vio)">${T('Növbəti','Next','Дальше')}</button>`;
+const OKM=()=>`<b class="vok">${T('Düzdür!','Correct!','Верно!')}</b>`;
+const NOM=()=>`<b class="vno">${T('Yox, bir də bax.','No, look again.','Нет, посмотрите ещё.')}</b>`;
+const win=(k,st)=>{if(st.tries===0){st.score++;if(st.score>bestGet(k))bestSet(k,st.score)}};
+
+/* ---- ortaq SVG: sifət ---- */
+const fc=(x,y,r,m)=>{const e=r*.34,ey=y-r*.08,k='#4a382a',f=v=>+v.toFixed(1);
+ let s=`<circle cx="${f(x-e)}" cy="${f(ey)}" r="${f(r*.09)}" fill="${k}"/><circle cx="${f(x+e)}" cy="${f(ey)}" r="${f(r*.09)}" fill="${k}"/>`;
+ if(m==='happy')s+=`<path d="M${f(x-r*.3)} ${f(y+r*.28)}q${f(r*.3)} ${f(r*.34)} ${f(r*.6)} 0" stroke="${k}" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="${f(x-r*.6)}" cy="${f(y+r*.2)}" r="${f(r*.12)}" fill="#f4a0a0" opacity=".6"/><circle cx="${f(x+r*.6)}" cy="${f(y+r*.2)}" r="${f(r*.12)}" fill="#f4a0a0" opacity=".6"/>`;
+ else if(m==='uneasy')s+=`<path d="M${f(x-r*.62)} ${f(y-r*.3)}L${f(x-r*.18)} ${f(y-r*.46)}M${f(x+r*.62)} ${f(y-r*.3)}L${f(x+r*.18)} ${f(y-r*.46)}" stroke="${k}" stroke-width="2" stroke-linecap="round"/><path d="M${f(x-r*.3)} ${f(y+r*.42)}q${f(r*.15)} ${f(-r*.15)} ${f(r*.3)} 0t${f(r*.3)} 0" stroke="${k}" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M${f(x+r*.92)} ${f(y-r*.5)}q${f(r*.2)} ${f(r*.3)} 0 ${f(r*.4)}q${f(-r*.2)} ${f(-r*.1)} 0 ${f(-r*.4)}z" fill="#7cc4f5"/>`;
+ else if(m==='sad')s+=`<path d="M${f(x-r*.55)} ${f(y-r*.32)}L${f(x-r*.2)} ${f(y-r*.42)}M${f(x+r*.55)} ${f(y-r*.32)}L${f(x+r*.2)} ${f(y-r*.42)}" stroke="${k}" stroke-width="2" stroke-linecap="round"/><path d="M${f(x-r*.25)} ${f(y+r*.5)}q${f(r*.25)} ${f(-r*.24)} ${f(r*.5)} 0" stroke="${k}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
+ else s+=`<path d="M${f(x-r*.22)} ${f(y+r*.38)}h${f(r*.44)}" stroke="${k}" stroke-width="2.2" stroke-linecap="round"/>`;
+ return s};
+const head=(x,y,r,m,hair='#2b2b33')=>`<circle cx="${x}" cy="${y}" r="${r}" fill="#f4cfa8"/><path d="M${x-r} ${y-2}a${r} ${r} 0 0 1 ${2*r} 0q${-r*.5} ${-r*.5} ${-r*1.1} ${-r*.1}q${-r*.5} ${r*.1} ${-r*.9} ${r*.1}z" fill="${hair}"/>${fc(x,y+r*.12,r*.86,m)}`;
+
+/* ================= 1. Tanış olaq ================= */
+const P1=[
+ {n:'パーカー',lat:['Parker','Parker','Паркер'],c:'アメリカ',j:'[会社員:かいしゃいん]',from:['Amerikadan gəlmişəm','I come from the USA','Я из США'],job:['Şirkət işçisiyəm','I am a company employee','Я сотрудник компании']},
+ {n:'ラモス',lat:['Ramos','Ramos','Рамос'],c:'ブラジル',j:'[会社員:かいしゃいん]',from:['Braziliyadan gəlmişəm','I come from Brazil','Я из Бразилии'],job:['Şirkət işçisiyəm','I am a company employee','Я сотрудник компании']},
+ {n:'シャルマ',lat:['Şarma','Sharma','Шарма'],c:'インド',j:'[研究者:けんきゅうしゃ]',from:['Hindistandan gəlmişəm','I come from India','Я из Индии'],job:['Tədqiqatçıyam','I am a researcher','Я исследователь']},
+ {n:'〇〇',lat:['〇〇','〇〇','〇〇'],c:'アゼルバイジャン',j:'[学生:がくせい]',from:['Azərbaycandan gəlmişəm','I come from Azerbaijan','Я из Азербайджана'],job:['Tələbəyəm','I am a student','Я студент'],me:1}];
+const S1={mode:'learn',step:1,who:0,two:false,face:'me',bank:[],placed:[],seq:[],tiles:[],q:null,score:0,msg:'',tries:0,done:false};
+const s1ok=c=>c.two&&c.face==='rcv';
+const s1tip=c=>s1ok(c)?T('Düzgün: iki əllə, mətn qarşıdakına tərəf.','Correct: two hands, text facing the other person.','Верно: двумя руками, текстом к собеседнику.')
+ :(!c.two&&c.face==='me')?T('Bir əllə uzadılıb və mətn sənə baxır: qarşı tərəf oxuya bilmir.','One hand, and the text faces you: the other person cannot read it.','Одной рукой, и текст обращён к вам: собеседник не может прочесть.')
+ :!c.two?T('Bir əllə uzatmaq diqqətsiz görünür.','Offering with one hand looks careless.','Одной рукой – выглядит небрежно.')
+ :T('Mətn sənə baxır: qarşı tərəf oxuya bilmir.','The text faces you, so the other person cannot read it.','Текст обращён к вам: собеседник не может прочесть.');
+function s1person(cx,suit,mood,ex){const hy=92;return `${ex||''}<path d="M${cx-46} 250V160q0-30 30-30h32q30 0 30 30V250z" fill="${suit}"/><path d="M${cx-10} 132l10 22 10-22z" fill="#fff"/><rect x="${cx-8}" y="116" width="16" height="16" fill="#f4cfa8"/>${head(cx,hy,28,mood)}`}
+function s1svg(c,mood,bub,p){const gx=118,rx=402,cxx=260,cy=176,suit1='#2f4a7d',suit2='#7a3f5b',arm=(x1,y1,x2,y2,col)=>`<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="15" stroke-linecap="round"/>`,hand=(x,y)=>`<circle cx="${x}" cy="${y}" r="8" fill="#f4cfa8" stroke="#d9ab80"/>`;
+ let a1='',h1='',a2='',h2='';
+ if(c){const hx1=cxx-46,hx2=cxx+46,hy=cy+26;
+  a1=c.two?arm(gx-30,152,hx1,hy,suit1)+arm(gx+30,152,hx2,hy,suit1):arm(gx+30,152,hx2,hy,suit1)+arm(gx-30,152,gx-36,222,suit1);
+  h1=c.two?hand(hx1,hy)+hand(hx2,hy):hand(hx2,hy)+hand(gx-36,226);
+  if(mood==='happy'&&s1ok(c)){a2=arm(rx-30,152,cxx+58,cy-12,suit2)+arm(rx+30,152,cxx+58,cy+16,suit2);h2=hand(cxx+58,cy-12)+hand(cxx+58,cy+16)}
+  else{a2=arm(rx-30,152,rx-38,222,suit2)+arm(rx+30,152,rx+38,222,suit2);h2=hand(rx-38,226)+hand(rx+38,226)}
+ }else{a1=arm(gx-30,152,gx-36,222,suit1)+arm(gx+30,152,gx+36,222,suit1);h1=hand(gx-36,226)+hand(gx+36,226);a2=arm(rx-30,152,rx-38,222,suit2)+arm(rx+30,152,rx+38,222,suit2);h2=hand(rx-38,226)+hand(rx+38,226)}
+ const card=c?`<g transform="translate(${cxx} ${cy}) rotate(${c.face==='me'?180:0})"><rect x="-52" y="-32" width="104" height="64" rx="4" fill="#fffdf7" stroke="#bfb496" stroke-width="2"/><rect x="-42" y="-24" width="36" height="5" rx="2" fill="#a8a08a"/><circle cx="38" cy="-20" r="6" fill="#d33"/><text x="0" y="6" text-anchor="middle" font-size="16" font-weight="800" fill="#2b2b33" font-family="'Noto Sans JP',sans-serif">${p.n}</text><rect x="-42" y="16" width="50" height="4" rx="2" fill="#c9c2ac"/><rect x="-42" y="23" width="32" height="4" rx="2" fill="#c9c2ac"/></g>`:'';
+ const bw=bub?Math.min(300,bub.length*13+24):0,bx=Math.max(8,Math.min(520-bw-8,rx-bw/2));
+ const bb=bub?`<g><rect x="${bx}" y="6" width="${bw}" height="30" rx="12" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M${rx-8} 35l8 14 8-14z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><rect x="${rx-9}" y="33" width="18" height="4" fill="#fff"/><text x="${bx+bw/2}" y="26" text-anchor="middle" font-size="13" fill="#2b2b33" font-weight="700" font-family="'Noto Sans JP',sans-serif">${bub}</text></g>`:'';
+ return `<svg class="sa-svg" viewBox="0 0 520 250" role="img" aria-label="meishi"><rect width="520" height="250" fill="#efe6d2"/><rect y="226" width="520" height="24" fill="#cdb98f"/><rect x="226" y="40" width="68" height="84" rx="6" fill="#cfe6f5" stroke="#b9a98a" stroke-width="3" opacity=".7"/><path d="M260 40v84M226 82h68" stroke="#b9a98a" stroke-width="2" opacity=".7"/>
+ ${a1}${s1person(gx,suit1,'neutral')}${a2}${s1person(rx,suit2,mood)}${card}${h1}${h2}${bb}</svg>`}
+function s1mini(c,p){const cx=65,cy=36,arm=(x,y)=>`<path d="M${x} ${y}V92" stroke="#2f4a7d" stroke-width="13" stroke-linecap="round"/>`,hand=(x,y)=>`<circle cx="${x}" cy="${y}" r="7" fill="#f4cfa8" stroke="#d9ab80"/>`;
+ return `<svg viewBox="0 0 130 92" aria-hidden="true">${c.two?arm(cx-40,66)+arm(cx+40,66):arm(cx+40,66)}<g transform="translate(${cx} ${cy}) rotate(${c.face==='me'?180:0})"><rect x="-46" y="-28" width="92" height="56" rx="4" fill="#fffdf7" stroke="#bfb496" stroke-width="2"/><rect x="-37" y="-21" width="30" height="4" rx="2" fill="#a8a08a"/><circle cx="33" cy="-18" r="5" fill="#d33"/><text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#2b2b33" font-family="'Noto Sans JP',sans-serif">${p.n}</text><rect x="-37" y="14" width="44" height="4" rx="2" fill="#c9c2ac"/></g>${c.two?hand(cx-40,66)+hand(cx+40,66):hand(cx+40,66)}</svg>`}
+const s1cfgLabel=c=>(c.two?T('İki əl','Two hands','Две руки'):T('Bir əl','One hand','Одна рука'))+' · '+(c.face==='rcv'?T('mətn qarşıya','text to them','текст к ним'):T('mətn mənə','text to me','текст ко мне'));
+function s1seq(p){const T0=(t,m)=>({t,m:m||t});
+ return [T0('はじめまして。'),T0('わたし'),T0('は','{は}'),T0(p.n),T0('です。'),T0(p.c),T0('から','{から}'),T0('来ました。','[来:き]ました。'),T0(J(p.j).t,p.j),T0('です。'),T0('どうぞ よろしく お願いします。','どうぞ よろしく お[願:ねが]いします。')]}
+function s1newTiles(){const p=P1[S1.who],seq=s1seq(p),ex=[{t:'が',m:'{が}'},{t:'の',m:'{の}'},{t:'ですか。',m:'ですか。'}];
+ S1.seq=seq;S1.tiles=seq.map((x,i)=>({...x,id:i})).concat(ex.map((x,i)=>({...x,id:seq.length+i})));S1.bank=shuf(S1.tiles.map(x=>x.id));S1.placed=[];S1.done=false;S1.tries=0;S1.msg=''}
+function s1newQ(){const p=P1[S1.who=Math.floor(Math.random()*P1.length)];
+ if(Math.random()<.5){const all=[{two:true,face:'rcv'},{two:false,face:'rcv'},{two:true,face:'me'},{two:false,face:'me'}],good=all[0],bad=shuf(all.slice(1)).slice(0,2),opts=shuf([good,...bad]);S1.q={type:'card',opts,ans:opts.indexOf(good),pick:-1};S1.tries=0;S1.msg='';S1.cfg=null;S1.mood='neutral'}
+ else{S1.q={type:'tiles'};s1newTiles()}}
+const s1sentence=p=>`はじめまして。わたし{は} ${p.n}です。${p.c}{から} [来:き]ました。${p.j}です。どうぞ よろしく お[願:ねが]いします。`;
+const s1tr=p=>[`Tanış olaq. Adım ${p.lat[0]}. ${p.from[0]}. ${p.job[0]}. Tanışlığımıza şadam.`,`Nice to meet you. My name is ${p.lat[1]}. ${p.from[1]}. ${p.job[1]}. Pleased to meet you.`,`Давайте познакомимся. Меня зовут ${p.lat[2]}. ${p.from[2]}. ${p.job[2]}. Рад знакомству.`][SLI()];
+function s1tilesUI(live){const p=P1[S1.who],sq=S1.seq,pl=S1.placed.map(id=>S1.tiles[id]);
+ const full=S1.placed.length===sq.length&&pl.every((x,i)=>x.t===sq[i].t);
+ const line=pl.map((x,i)=>`<button class="sa-tile${live&&S1.placed.length?(x.t===sq[i].t?' ok':' no'):''}" data-sa="tu" data-v="${i}">${J(x.m).h}</button>`).join('');
+ const bank=S1.bank.filter(id=>!S1.placed.includes(id)).map(id=>`<button class="sa-tile" data-sa="tp" data-v="${id}">${J(S1.tiles[id].m).h}</button>`).join('');
+ return `<div class="sa-line jp">${line||`<span class="sa-cap">${T('Kartoçkaları düzgün sıra ilə düz.','Arrange the tiles in order.','Расставьте плитки по порядку.')}</span>`}</div><div class="sa-bank jp">${bank}</div>`+
+  (live&&full?sx(s1sentence(p),s1tr(p)):'')+
+  (!live?`<div class="tools"><button class="btn fill" data-sa="chk" style="--c:var(--vio)">${T('Təsdiq et','Confirm','Подтвердить')}</button><button class="btn" data-sa="clr" style="--c:var(--pnk)">${T('Təmizlə','Clear','Очистить')}</button></div>`:`<div class="tools"><button class="btn" data-sa="clr" style="--c:var(--pnk)">${T('Təmizlə','Clear','Очистить')}</button></div>`)}
+function s1UI(){const b=$('saBox1');if(!b)return;const p=P1[S1.who];let h=modeTabs(1,S1);
+ if(S1.mode==='learn'){
+  const c={two:S1.two,face:S1.face};
+  h+=`<div class="tools dtabs">${[1,2].map(s=>`<button class="btn${S1.step===s?' fill':''}" data-sa="step" data-v="${s}" style="--c:var(--vio)">${s===1?T('1 · Kart','1 · The card','1 · Визитка'):T('2 · Təqdimat','2 · Introduction','2 · Знакомство')}</button>`).join('')}</div>
+  <div class="sa-chips">${P1.map((x,i)=>`<button class="sa-chip${S1.who===i?' on':''}" data-sa="who" data-v="${i}">${x.me?T('Mən','Me','Я'):x.n}</button>`).join('')}</div>`;
+  if(S1.step===1){
+   h+=s1svg(c,s1ok(c)?'happy':'uneasy',s1ok(c)?'どうも ありがとう ございます':'あのう…',p)+
+   `<div class="sa-sec">${T('Əllər','Hands','Руки')}</div><div class="sa-chips">${[[true,T('İki əl','Two hands','Две руки')],[false,T('Bir əl','One hand','Одна рука')]].map(([v,l])=>`<button class="sa-chip${S1.two===v?' on':''}" data-sa="hand" data-v="${v?1:0}">${l}</button>`).join('')}</div>
+   <div class="sa-sec">${T('Kartın mətni','Card text','Текст визитки')}</div><div class="sa-chips">${[['rcv',T('Qarşıdakına doğru','Toward them','К собеседнику')],['me',T('Mənə doğru','Toward me','Ко мне')]].map(([v,l])=>`<button class="sa-chip${S1.face===v?' on':''}" data-sa="face" data-v="${v}">${l}</button>`).join('')}</div>
+   <p class="sa-msg">${s1tip(c)}</p>`+
+   `<div class="tools"><button class="btn fill" data-sa="step" data-v="2" style="--c:var(--vio)">${T('Təqdimata keç','Continue to introduction','К знакомству')}</button></div>`;
+  }else{
+   h+=s1svg({two:true,face:'rcv'},'happy',S1.placed.length===S1.seq.length&&S1.placed.every((id,i)=>S1.tiles[id].t===S1.seq[i].t)?'こちらこそ よろしく':null,p)+s1tilesUI(true);
+  }
+ }else{
+  const q=S1.q;h+=scoreBar('s1',S1);
+  if(q.type==='card'){
+   const c=S1.cfg;
+   h+=s1svg(c,S1.mood,S1.mood==='uneasy'?'あのう…':S1.mood==='happy'?'どうも ありがとう ございます':null,p)+
+   `<p class="kqp">${T('Vizit kartını düzgün təqdim etmək üçün hansı üsul doğrudur?','Which way of handing over the card is right?','Какой способ вручения визитки верный?')}</p><div class="sa-opts">${q.opts.map((o,i)=>`<button class="sa-opt${q.pick===i?(i===q.ans?' ok':' no'):''}" data-sa="opt" data-v="${i}">${s1mini(o,p)}<span>${s1cfgLabel(o)}</span></button>`).join('')}</div><p class="sa-msg">${S1.msg}</p>${q.pick===q.ans?`<div class="tools">${nextBtn()}</div>`:''}`;
+  }else{
+   h+=s1svg({two:true,face:'rcv'},'happy',null,p)+`<p class="kqp">${T('Özünü təqdim et: ','Introduce yourself: ','Представьтесь: ')}<b class="jp">${J(p.n).h}</b> · <b class="jp">${J(p.c).h}</b> · <b class="jp">${J(p.j).h}</b></p>`+s1tilesUI(false)+`<p class="sa-msg">${S1.msg}</p>${S1.done?`<div class="tools">${nextBtn()}</div>`:''}`;
+  }
+ }
+ b.innerHTML=h}
+function s1new(){if(S1.mode==='test'){S1.score=S1.score||0;s1newQ()}else{S1.step=1;S1.placed=[];s1newTiles()}}
+const H1=(a,v)=>{
+ if(a==='mode'){S1.mode=v;S1.score=0;S1.step=1;if(v==='test')s1newQ();else{S1.who=0;s1newTiles()}return s1UI()}
+ if(a==='step'){S1.step=+v;if(+v===2)s1newTiles();return s1UI()}
+ if(a==='who'){S1.who=+v;s1newTiles();return s1UI()}
+ if(a==='hand'){S1.two=!!+v;S1.last=1;return s1UI()}
+ if(a==='face'){S1.face=v;return s1UI()}
+ if(a==='opt'){const q=S1.q;if(q.pick===q.ans)return;q.pick=+v;S1.cfg=q.opts[+v];if(+v===q.ans){S1.mood='happy';S1.msg=OKM()+' '+s1tip(S1.cfg);win('s1',S1);say('どうも ありがとう ございます')}else{S1.mood='uneasy';S1.tries++;S1.msg=NOM()+' '+s1tip(S1.cfg)}return s1UI()}
+ if(a==='tp'){S1.placed.push(+v);if(S1.mode==='learn')say(J(S1.tiles[+v].m).t);return s1UI()}
+ if(a==='tu'){S1.placed.splice(+v,1);return s1UI()}
+ if(a==='clr'){S1.placed=[];S1.msg='';return s1UI()}
+ if(a==='chk'){const sq=S1.seq,pl=S1.placed.map(id=>S1.tiles[id]);if(S1.done)return;
+  if(pl.length===sq.length&&pl.every((x,i)=>x.t===sq[i].t)){S1.done=true;S1.msg=OKM();win('s1',S1);say(J(s1sentence(P1[S1.who])).t)}else{S1.tries++;S1.msg=NOM()}return s1UI()}
+ if(a==='next'){s1newQ();return s1UI()}};
+
+/* ================= 2. Bu nədir? ================= */
+const O2=[
+ {k:'hon',m:'[本:ほん]',n:['kitab','book','книга'],g:'<rect x="-20" y="-17" width="40" height="34" rx="3" fill="#3b6fc4"/><rect x="-15" y="-13" width="32" height="26" fill="#fff"/><path d="M-10 -6h20M-10 0h20M-10 6h14" stroke="#9ab" stroke-width="2"/><rect x="-20" y="-17" width="6" height="34" fill="#2a4f94"/>'},
+ {k:'kasa',m:'[傘:かさ]',n:['çətir','umbrella','зонт'],g:'<path d="M-24 4a24 24 0 0 1 48 0q-8-6-16 0q-8-6-16 0q-8-6-16 0z" fill="#dc4a4a"/><path d="M0 4v18q0 7-7 7" stroke="#5a4632" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M0-20v-4" stroke="#5a4632" stroke-width="3"/>'},
+ {k:'tokei',m:'[時計:とけい]',n:['saat','clock','часы'],g:'<circle r="20" fill="#fff" stroke="#6b5b45" stroke-width="4"/><path d="M0 0V-12M0 0l9 5" stroke="#2b2b33" stroke-width="3" stroke-linecap="round"/><circle r="2.5" fill="#2b2b33"/><path d="M0-17v3M17 0h-3M0 17v-3M-17 0h3" stroke="#6b5b45" stroke-width="2"/>'},
+ {k:'kaban',m:'かばん',n:['çanta','bag','сумка'],g:'<path d="M-10-10a10 10 0 0 1 20 0" stroke="#6b4423" stroke-width="4" fill="none"/><rect x="-22" y="-10" width="44" height="30" rx="6" fill="#a8683a"/><rect x="-5" y="-2" width="10" height="8" rx="2" fill="#f4c04a"/><path d="M-22 4h44" stroke="#7d4a25" stroke-width="2"/>'},
+ {k:'kamera',m:'~カメラ',n:['fotoaparat','camera','фотоаппарат'],g:'<rect x="-22" y="-12" width="44" height="30" rx="5" fill="#3a3f4a"/><rect x="-10" y="-18" width="14" height="8" rx="2" fill="#3a3f4a"/><circle cy="3" r="10" fill="#9ec9ee" stroke="#cfd6df" stroke-width="3"/><circle cx="15" cy="-7" r="2.5" fill="#f4c04a"/>'},
+ {k:'kagi',m:'[鍵:かぎ]',n:['açar','key','ключ'],g:'<circle cx="-12" cy="0" r="9" fill="none" stroke="#c9961f" stroke-width="5"/><path d="M-3 0h24M14 0v8M21 0v6" stroke="#c9961f" stroke-width="5" stroke-linecap="round"/>'}];
+const SPK2={x:96,y:318},LIS2={x:704,y:318},ZR=182;
+const an=w=>(/^[aeiou]/i.test(w)?'an ':'a ')+w;
+const zone2=(x,y)=>Math.hypot(x-SPK2.x,y-SPK2.y)<ZR?0:Math.hypot(x-LIS2.x,y-LIS2.y)<ZR?1:2;
+const ZW=['これ','それ','あれ'],ZP=['この','その','あの'];
+const S2={mode:'learn',objs:[{i:0,x:215,y:300},{i:1,x:585,y:300},{i:2,x:400,y:128}],sel:0,q:null,pick:-1,score:0,msg:'',tries:0};
+const S2PRE=[[196,250],[604,250],[400,126]];
+function s2person(x,col,lab){return `<g><ellipse cx="${x}" cy="378" rx="42" ry="8" fill="#000" opacity=".12"/><path d="M${x-36} 380V318q0-24 24-24h24q24 0 24 24V380z" fill="${col}"/>${head(x,268,24,'happy')}<rect x="${x-34}" y="356" width="68" height="22" rx="11" fill="#fff" opacity=".9"/><text x="${x}" y="372" text-anchor="middle" font-size="14" font-weight="800" fill="#2b2b33" font-family="'Noto Sans JP',sans-serif">${lab}</text></g>`}
+function s2svg(objs,sel,drag){
+ return `<svg class="sa-svg" id="sa2svg" viewBox="0 0 800 400" role="img" aria-label="flea market"><rect width="800" height="400" fill="#efdcb5"/>
+ <path d="M0 0h800v52H0z" fill="#f6f1e6"/>${Array.from({length:10},(_,i)=>`<path d="M${i*80} 0h40v52h-40z" fill="${i%2?'#e9edf5':'#d9534f'}"/>`).join('')}<path d="M0 52q40 22 80 0t80 0 80 0 80 0 80 0 80 0 80 0 80 0 80 0 80 0v6H0z" fill="#b94440" opacity=".5"/>
+ <rect x="150" y="98" width="500" height="14" rx="4" fill="#9c6a3c"/><rect x="160" y="112" width="8" height="40" fill="#7d5230"/><rect x="632" y="112" width="8" height="40" fill="#7d5230"/>
+ <rect x="248" y="226" width="304" height="104" rx="10" fill="#5ba08a"/><path d="M248 240h304" stroke="#4a8a75" stroke-width="3"/><rect x="262" y="330" width="10" height="44" fill="#7d5230"/><rect x="528" y="330" width="10" height="44" fill="#7d5230"/>
+ <circle cx="${SPK2.x}" cy="${SPK2.y}" r="${ZR}" fill="rgba(59,130,246,.14)" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="8 6"/><circle cx="${LIS2.x}" cy="${LIS2.y}" r="${ZR}" fill="rgba(34,160,90,.14)" stroke="#22a05a" stroke-width="2.5" stroke-dasharray="8 6"/>
+ <g font-family="'Noto Sans JP',sans-serif" font-weight="900" font-size="26" opacity=".55"><text x="${SPK2.x+40}" y="160" fill="#1d4ed8">これ</text><text x="${LIS2.x-40}" y="160" text-anchor="end" fill="#15803d">それ</text><text x="400" y="190" text-anchor="middle" fill="#7c2d12">あれ</text></g>
+ ${s2person(SPK2.x,'#3b6fc4','わたし')}${s2person(LIS2.x,'#2f9e63','あなた')}
+ ${objs.map((o,k)=>`<g class="sa2o" data-k="${k}" transform="translate(${o.x} ${o.y})" style="cursor:${drag?'grab':'default'}"><circle r="${k===sel?34:30}" fill="#fff" opacity="${k===sel?.95:.7}" stroke="${k===sel?'#e11d74':'#b9a98a'}" stroke-width="${k===sel?4:2}"/><g>${O2[o.i].g}</g></g>`).join('')}
+ </svg>`}
+function s2info(){const o=$('sa2info');if(!o)return;const ob=S2.objs[S2.sel],z=zone2(ob.x,ob.y),O=O2[ob.i];const li=SLI(),azD=w=>{const v=w.match(/[aeıioöuüə](?=[^aeıioöuüə]*$)/);return /[aıou]/.test(v?v[0]:'a')?'dır':'dir'};
+ const lisZ=[1,0,2][z];
+ const trA=[[`Bu (məndə/mənə yaxın) – ${O.n[0]}${azD(O.n[0])}.`,`This (near me) is ${an(O.n[1])}.`,`Это (рядом со мной) – ${O.n[2]}.`],[`O (sənə yaxın) – ${O.n[0]}${azD(O.n[0])}.`,`That (near you) is ${an(O.n[1])}.`,`Это (рядом с вами) – ${O.n[2]}.`],[`O (hər ikimizdən uzaq) – ${O.n[0]}${azD(O.n[0])}.`,`That over there is ${an(O.n[1])}.`,`Вон то (далеко от обоих) – ${O.n[2]}.`]][z][li];
+ const trB=[[`Bu ${O.n[0]}`,`this ${O.n[1]}`,`эта вещь: ${O.n[2]}`],[`o ${O.n[0]}`,`that ${O.n[1]}`,`тот предмет: ${O.n[2]}`],[`o (uzaqdakı) ${O.n[0]}`,`that ${O.n[1]} over there`,`вон тот предмет: ${O.n[2]}`]][z][li];
+ o.innerHTML=`<div class="sa-big jp">${ZW.map((w,i)=>`<span class="${i===z?'on':''}">${w}</span>`).join('')}</div>${sx(`${ZW[z]}{は} ${O.m}です。`,trA)}${sx(`${ZP[z]} ${O.m}`,trB)}<p class="sa-cap">${T('Dinləyən baxımından: ','From the listener\'s side: ','С точки зрения собеседника: ')}<b class="jp">${ZW[lisZ]}</b></p>`}
+function s2UI(){const b=$('saBox2');if(!b)return;let h=modeTabs(2,S2);
+ if(S2.mode==='learn'){
+  h+=s2svg(S2.objs,S2.sel,true)+`<div class="sa-chips">${S2.objs.map((o,k)=>`<button class="sa-chip${S2.sel===k?' on':''}" data-sa="sel" data-v="${k}">${jp(O2[o.i].m)}</button>`).join('')}</div>
+  <div class="tools"><button class="btn" data-sa="mv" data-v="0" style="--c:#2563eb">${T('Mənə yaxın','Close to me','Ближе ко мне')}</button><button class="btn" data-sa="mv" data-v="1" style="--c:#15803d">${T('Sənə yaxın','Close to you','Ближе к вам')}</button><button class="btn" data-sa="mv" data-v="2" style="--c:#7c2d12">${T('Uzaq','Far away','Далеко')}</button><button class="btn" data-sa="swap" style="--c:var(--pnk)">${T('Əşyanı dəyiş','Change item','Сменить предмет')}</button></div>
+  <div id="sa2info"></div>`;
+ }else{
+  const q=S2.q;h+=scoreBar('s2',S2)+s2svg([{i:q.i,x:q.x,y:q.y}],-1,false)+
+  `<p class="kqp">${q.type==='ko'?T('Danışan (mən) hansı sözü deyir?','Which word do I (the speaker) use?','Какое слово скажу я (говорящий)?'):T('Danışan (mən) hansı ifadəni deyir?','Which phrase do I (the speaker) use?','Какое выражение скажу я (говорящий)?')}</p>
+  <div class="ct-opts">${[0,1,2].map(i=>`<button class="btn${S2.pick===i?(i===q.z?' ok':' no'):''}" data-sa="opt" data-v="${i}" style="--c:var(--vio)"><span class="jp">${J(q.type==='ko'?ZW[i]:ZP[i]+' '+O2[q.i].m).h}</span></button>`).join('')}</div><p class="sa-msg">${S2.msg}</p>${S2.pick===q.z?`<div class="tools">${nextBtn()}</div>`:''}`;
+ }
+ b.innerHTML=h;s2info()}
+function s2newQ(){const z=Math.floor(Math.random()*3),i=Math.floor(Math.random()*O2.length);let x,y,n=0;
+ do{x=60+Math.random()*680;y=100+Math.random()*250;n++}while((zone2(x,y)!==z||(Math.abs(x-400)<10&&false)||Math.hypot(x-SPK2.x,y-SPK2.y)<60||Math.hypot(x-LIS2.x,y-LIS2.y)<60||Math.abs(Math.hypot(x-SPK2.x,y-SPK2.y)-ZR)<18||Math.abs(Math.hypot(x-LIS2.x,y-LIS2.y)-ZR)<18)&&n<500);
+ S2.q={i,x,y,z,type:Math.random()<.5?'ko':'kono'};S2.pick=-1;S2.msg='';S2.tries=0}
+const H2=(a,v)=>{
+ if(a==='mode'){S2.mode=v;S2.score=0;if(v==='test')s2newQ();return s2UI()}
+ if(a==='sel'){S2.sel=+v;return s2UI()}
+ if(a==='mv'){const ob=S2.objs[S2.sel],pre=S2PRE[+v];ob.x=pre[0]+(Math.random()*50-25);ob.y=pre[1]+(Math.random()*30-15);return s2UI()}
+ if(a==='swap'){const ob=S2.objs[S2.sel];const used=S2.objs.map(o=>o.i);let n;do{n=Math.floor(Math.random()*O2.length)}while(used.includes(n));ob.i=n;return s2UI()}
+ if(a==='opt'){const q=S2.q;if(S2.pick===q.z)return;S2.pick=+v;if(+v===q.z){S2.msg=OKM();win('s2',S2);say(J(q.type==='ko'?ZW[q.z]+'は '+O2[q.i].m+'です。':ZP[q.z]+' '+O2[q.i].m).t)}else{S2.tries++;S2.msg=NOM()}return s2UI()}
+ if(a==='next'){s2newQ();return s2UI()}};
+/* sürükləmə */
+let drag2=null;
+const svgPt=(svg,e)=>{const r=svg.getBoundingClientRect();return [(e.clientX-r.left)*800/r.width,(e.clientY-r.top)*400/r.height]};
+addEventListener('pointerdown',e=>{const g=e.target.closest&&e.target.closest('.sa2o');if(!g||S2.mode!=='learn')return;const svg=$('sa2svg');if(!svg||!svg.contains(g))return;
+ const k=+g.dataset.k,p=svgPt(svg,e),ob=S2.objs[k];drag2={k,dx:ob.x-p[0],dy:ob.y-p[1],g,svg};if(S2.sel!==k){S2.sel=k;svg.querySelectorAll('.sa2o').forEach((n,j)=>{const c=n.querySelector('circle');c.setAttribute('r',j===k?34:30);c.setAttribute('stroke',j===k?'#e11d74':'#b9a98a');c.setAttribute('stroke-width',j===k?4:2)});document.querySelectorAll('[data-sa="sel"]').forEach(c=>c.classList.toggle('on',+c.dataset.v===k))}
+ g.parentNode.appendChild(g);try{svg.setPointerCapture(e.pointerId)}catch(_){}e.preventDefault();s2info()},true);
+addEventListener('pointermove',e=>{if(!drag2)return;const p=svgPt(drag2.svg,e),ob=S2.objs[drag2.k];ob.x=Math.max(40,Math.min(760,p[0]+drag2.dx));ob.y=Math.max(70,Math.min(340,p[1]+drag2.dy));drag2.g.setAttribute('transform',`translate(${ob.x} ${ob.y})`);s2info()},true);
+const end2=()=>{if(drag2){drag2=null;s2info()}};addEventListener('pointerup',end2,true);addEventListener('pointercancel',end2,true);
+
+/* ================= 6. Dəvət ruleti ================= */
+const A6=[
+ {k:'gohan',s:'ご飯',o:'ご[飯:はん]{を} ',v:'[食:た]べ',ic:'<path d="M-15-2h30a15 15 0 0 1-15 17a15 15 0 0 1-15-17z" fill="#f4f1ea" stroke="#8a6a4a" stroke-width="2"/><path d="M-13-2a13 10 0 0 1 26 0z" fill="#fff" stroke="#bbb"/><path d="M-4-14q-3-4 0-8M4-14q-3-4 0-8" stroke="#aaa" stroke-width="2" fill="none"/>',
+  az:['Birlikdə yemək yeməzsiniz?','Əlbəttə, yeyək.'],en:['have a meal together','Sure, let\'s eat.'],ru:['поесть вместе','Да, давайте поедим.']},
+ {k:'ocha',s:'お茶',o:'お[茶:ちゃ]{を} ',v:'[飲:の]み',ic:'<path d="M-13-6h22v10a11 11 0 0 1-22 0z" fill="#6fae6b"/><path d="M9-2h4a5 5 0 0 1 0 10h-4" fill="none" stroke="#6fae6b" stroke-width="3"/><path d="M-6-10q-3-4 0-8M2-10q-3-4 0-8" stroke="#aaa" stroke-width="2" fill="none"/>',
+  az:['Birlikdə çay içməzsiniz?','Əlbəttə, içək.'],en:['have tea together','Sure, let\'s have tea.'],ru:['выпить чаю вместе','Да, давайте выпьем.']},
+ {k:'tenisu',s:'テニス',o:'~テニス{を} ',v:'し',ic:'<ellipse cx="-3" cy="-5" rx="10" ry="12" fill="none" stroke="#2f7d4f" stroke-width="3"/><path d="M-3 7L7 18" stroke="#6b4423" stroke-width="4" stroke-linecap="round"/><path d="M-3-17v24M-13-5h20" stroke="#2f7d4f" stroke-width="1"/><circle cx="12" cy="-10" r="5" fill="#d9e84a" stroke="#9aa81c"/>',
+  az:['Birlikdə tennis oynamazsınız?','Əlbəttə, oynayaq.'],en:['play tennis together','Sure, let\'s play.'],ru:['поиграть в теннис вместе','Да, давайте сыграем.']},
+ {k:'sakka',s:'サッカー',o:'~サッカー{を} ',v:'し',ic:'<circle r="15" fill="#fff" stroke="#333" stroke-width="2.5"/><path d="M0-6l6 4-2 7h-8l-2-7z" fill="#333"/><path d="M0-6V-15M6-2l9-3M4 5l5 8M-4 5l-5 8M-6-2l-9-3" stroke="#333" stroke-width="2"/>',
+  az:['Birlikdə futbol oynamazsınız?','Əlbəttə, oynayaq.'],en:['play soccer together','Sure, let\'s play.'],ru:['поиграть в футбол вместе','Да, давайте сыграем.']},
+ {k:'hanami',s:'お花見',o:'お[花見:はなみ]{を} ',v:'し',ic:'<g fill="#f8a8c8" stroke="#e57aa6"><circle cy="-9" r="7"/><circle cx="9" cy="-3" r="7"/><circle cx="6" cy="8" r="7"/><circle cx="-6" cy="8" r="7"/><circle cx="-9" cy="-3" r="7"/></g><circle r="4" fill="#f4c04a"/>',
+  az:['Birlikdə çiçək seyrinə çıxmazsınız?','Əlbəttə, çıxaq.'],en:['go flower viewing together','Sure, let\'s go.'],ru:['пойти любоваться цветами вместе','Да, давайте сходим.']},
+ {k:'shashin',s:'写真',o:'[写真:しゃしん]{を} ',v:'[撮:と]り',ic:'<rect x="-16" y="-8" width="32" height="22" rx="4" fill="#3a3f4a"/><rect x="-8" y="-13" width="12" height="6" rx="2" fill="#3a3f4a"/><circle cy="3" r="7" fill="#9ec9ee" stroke="#cfd6df" stroke-width="2.5"/>',
+  az:['Birlikdə şəkil çəkməzsiniz?','Əlbəttə, çəkək.'],en:['take photos together','Sure, let\'s take some.'],ru:['пофотографировать вместе','Да, давайте.']},
+ {k:'bideo',s:'ビデオ',o:'~ビデオ{を} ',v:'[見:み]',ic:'<rect x="-16" y="-11" width="32" height="22" rx="4" fill="#cfe3f5" stroke="#4a6a9a" stroke-width="2.5"/><path d="M-4-5l9 5-9 5z" fill="#4a6a9a"/><path d="M-8 14h16" stroke="#4a6a9a" stroke-width="3" stroke-linecap="round"/>',
+  az:['Birlikdə video izləməzsiniz?','Əlbəttə, izləyək.'],en:['watch a video together','Sure, let\'s watch.'],ru:['посмотреть видео вместе','Да, давайте посмотрим.']}];
+const D6=[['[月曜日:げつようび]','月',['Bazar ertəsi','Monday','понедельник'],['B.e.','Mon','Пн'],'в понедельник'],['[火曜日:かようび]','火',['Çərşənbə axşamı','Tuesday','вторник'],['Ç.a.','Tue','Вт'],'во вторник'],['[水曜日:すいようび]','水',['Çərşənbə','Wednesday','среда'],['Çər.','Wed','Ср'],'в среду'],['[木曜日:もくようび]','木',['Cümə axşamı','Thursday','четверг'],['C.a.','Thu','Чт'],'в четверг'],['[金曜日:きんようび]','金',['Cümə','Friday','пятница'],['Cümə','Fri','Пт'],'в пятницу'],['[土曜日:どようび]','土',['Şənbə','Saturday','суббота'],['Şən.','Sat','Сб'],'в субботу'],['[日曜日:にちようび]','日',['Bazar','Sunday','воскресенье'],['Baz.','Sun','Вс'],'в воскресенье']];
+const FR6=[{c:'#ec6a9c',h:'#5a3a2a'},{c:'#4a90d9',h:'#2b2b33'},{c:'#e0a030',h:'#7a4a22'}];
+const S6={mode:'learn',cal:Array(7).fill(null),rot:0,spin:false,inv:null,rep:null,q:null,pick:-1,score:0,msg:'',tries:0,fr:0,mood:'neutral'};
+const a6inv=(a,d)=>`${D6[d][0]}{に} いっしょ{に} ${a.o}${a.v}ませんか。`;
+const a6acc=a=>`ええ、${a.v}ましょう。`;
+const a6trI=(a,d)=>{const i=SLI(),x=a[['az','en','ru'][i]];return [`${D6[d][2][0]} günü ${x[0].charAt(0).toLowerCase()+x[0].slice(1)}`,`On ${D6[d][2][1]}, would you like to ${x[0]}?`,`${D6[d][4].charAt(0).toUpperCase()+D6[d][4].slice(1)} не хотите ${x[0]}?`][i]};
+const a6trA=a=>a[['az','en','ru'][SLI()]][1];
+const D6DEC=()=>T('Bir az çətindir… (nəzakətli imtina)','Hmm, that is a bit difficult… (polite no)','Э-э, это немного сложно… (вежливый отказ)');
+function a6ico(a,s=30){return `<svg viewBox="-20 -22 40 42" width="${s}" height="${s}" aria-hidden="true">${a.ic}</svg>`}
+function wheel6(){const R=100,n=7,sg=360/n,col=['#fde68a','#fbcfe8','#bfdbfe','#bbf7d0','#fed7aa','#ddd6fe','#fecaca'];let s='';
+ for(let i=0;i<n;i++){const a0=(-90+i*sg)*Math.PI/180,a1=(-90+(i+1)*sg)*Math.PI/180,am=(-90+(i+.5)*sg)*Math.PI/180,f=v=>+v.toFixed(1);
+  s+=`<path d="M110 110L${f(110+R*Math.cos(a0))} ${f(110+R*Math.sin(a0))}A${R} ${R} 0 0 1 ${f(110+R*Math.cos(a1))} ${f(110+R*Math.sin(a1))}z" fill="${col[i]}" stroke="#fff" stroke-width="2"/><g transform="translate(${f(110+66*Math.cos(am))} ${f(110+66*Math.sin(am))}) rotate(${f((i+.5)*sg)}) scale(.95)">${A6[i].ic}</g>`}
+ return `<svg class="sa-wheel" viewBox="0 0 220 230" role="img" aria-label="roulette"><g id="sa6w" style="transform-origin:110px 110px;transform:rotate(${S6.rot}deg)">${s}<circle cx="110" cy="110" r="14" fill="#fff" stroke="#bbb" stroke-width="2"/></g><path d="M110 226l-12-26h24z" fill="#e11d74" transform="translate(0 -14)"/><circle cx="110" cy="110" r="102" fill="none" stroke="#8a6a4a" stroke-width="4" style="pointer-events:none"/></svg>`}
+function friend6(mood){const f=FR6[S6.fr];return `<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="${f.c}" opacity=".25"/>${head(32,30,20,mood,f.h)}<path d="M10 62q4-16 22-16t22 16z" fill="${f.c}"/></svg>`}
+function cal6(cur){return `<div class="sa-cal">${D6.map((d,i)=>{const a=S6.cal[i];return `<div class="sa-day${a?' full':''}${cur===i?' now':''}"><b class="jp">${d[1]}</b><small>${d[3][SLI()]}</small>${a?a6ico(a)+`<span class="jp">${a.s}</span>`:''}</div>`}).join('')}</div>`}
+function s6UI(){const b=$('saBox6');if(!b)return;let h=modeTabs(6,S6);
+ if(S6.mode==='learn'){
+  const full=S6.cal.every(x=>x);
+  h+=`<div class="sa-grid2"><div>${wheel6()}<div class="tools" style="justify-content:center"><button class="btn fill" data-sa="spin" style="--c:var(--pnk)"${S6.spin||S6.inv&&!S6.rep||full?' disabled':''}>${T('Fırlat','Spin','Крутить')}</button><button class="btn" data-sa="reset" style="--c:var(--vio)">${T('Sıfırla','Reset','Сбросить')}</button></div></div><div>`;
+  if(S6.inv){const a=S6.inv.a,d=S6.inv.d;
+   h+=`<div class="sa-friend">${friend6(S6.mood)}<div>${sx(a6inv(a,d),a6trI(a,d))}</div></div>`;
+   if(!S6.rep)h+=`<div class="sa-sec">${T('Cavabın:','Your reply:','Ваш ответ:')}</div><div class="sa-opts"><button class="btn" data-sa="rep" data-v="acc" style="--c:#15803d"><span class="jp">${J(a6acc(a)).h}</span></button><button class="btn" data-sa="rep" data-v="acc2" style="--c:#15803d"><span class="jp">ええ、いいですね。</span></button><button class="btn" data-sa="rep" data-v="no" style="--c:#b45309"><span class="jp">ちょっと…。</span></button></div>`;
+   else h+=sx(S6.rep==='no'?'ちょっと…。':S6.rep==='acc2'?'ええ、いいですね。':a6acc(a),S6.rep==='no'?D6DEC():a6trA(a))+(S6.rep==='no'?`<p class="sa-cap">${T('Nəzakətli imtina: səbəb deməyə ehtiyac yoxdur.','A polite refusal: no need to give the reason.','Вежливый отказ: объяснять причину не нужно.')}</p>`:`<p class="sa-cap">${T('Plan təqvimə yazıldı.','The plan is on your calendar.','План добавлен в календарь.')}</p>`);
+  }else h+=`<p class="sa-cap">${full?T('Həftə doludur.','The week is full.','Неделя заполнена.'):T('Çarxı fırlat: dostun dəvət göndərir.','Spin the wheel: a friend sends an invitation.','Крутите колесо: друг пришлёт приглашение.')}</p>`;
+  h+=`</div></div>`+cal6(S6.inv?S6.inv.d:-1);
+ }else{
+  const q=S6.q,a=A6[q.a],d=q.d;
+  h+=scoreBar('s6',S6)+`<div class="sa-friend">${friend6(S6.mood)}<div>${sx(a6inv(a,d),a6trI(a,d))}</div></div><p class="kqp"><b>${q.want?T('Sən getmək istəyirsən.','You want to go.','Вы хотите пойти.'):T('Həmin gün məşğulsan.','You are busy that day.','В этот день вы заняты.')}</b> ${T('Təbii cavabı seç.','Pick the natural reply.','Выберите естественный ответ.')}</p>
+  <div class="ct-opts">${q.opts.map((o,i)=>`<button class="btn${S6.pick===i?(i===q.ans?' ok':' no'):''}" data-sa="opt" data-v="${i}" style="--c:var(--vio)"><span class="jp">${J(o).h}</span></button>`).join('')}</div><p class="sa-msg">${S6.msg}</p>${S6.pick===q.ans?`<div class="tools">${nextBtn()}</div>`:''}`+cal6(d)}
+ b.innerHTML=h}
+function s6freeDays(){return S6.cal.map((x,i)=>x?-1:i).filter(i=>i>=0)}
+function s6newQ(){let fd=s6freeDays();if(!fd.length){S6.cal=Array(7).fill(null);fd=[0,1,2,3,4,5,6]}
+ const d=pick(fd),ai=Math.floor(Math.random()*A6.length),a=A6[ai],want=Math.random()<.55;let other;do{other=pick(A6)}while(other===a);
+ const acc=Math.random()<.7?a6acc(a):'ええ、いいですね。';
+ const opts=want?shuf([acc,'ちょっと…。',`ええ、${other.v}ましょう。`]):shuf(['ちょっと…。',a6acc(a),`いいえ、${a.v}ません。`]);
+ S6.q={a:ai,d,want,opts,ans:opts.indexOf(want?acc:'ちょっと…。')};S6.pick=-1;S6.msg='';S6.tries=0;S6.fr=Math.floor(Math.random()*FR6.length);S6.mood='neutral'}
+const H6=(a,v)=>{
+ if(a==='mode'){S6.mode=v;S6.score=0;S6.inv=null;S6.rep=null;S6.mood='neutral';if(v==='test')s6newQ();return s6UI()}
+ if(a==='reset'){S6.cal=Array(7).fill(null);S6.inv=null;S6.rep=null;S6.mood='neutral';return s6UI()}
+ if(a==='spin'){if(S6.spin)return;const fd=s6freeDays();if(!fd.length)return;const ai=Math.floor(Math.random()*A6.length),sg=360/7,c=ai*sg+sg/2,delta=((360-c)-(S6.rot%360)+720)%360;S6.rot+=1080+delta;S6.spin=true;S6.rep=null;S6.inv=null;
+  const w=$('sa6w');if(w){w.style.transition='transform 2.2s cubic-bezier(.15,.7,.2,1)';w.style.transform=`rotate(${S6.rot}deg)`}
+  setTimeout(()=>{S6.spin=false;S6.inv={a:A6[ai],d:pick(fd)};S6.fr=Math.floor(Math.random()*FR6.length);S6.mood='neutral';s6UI();say(J(a6inv(S6.inv.a,S6.inv.d)).t)},2300);const bt=document.querySelector('[data-sa="spin"]');if(bt)bt.disabled=true;return}
+ if(a==='rep'){if(!S6.inv||S6.rep)return;S6.rep=v;if(v==='no'){S6.mood='sad';say('ちょっと')}else{S6.cal[S6.inv.d]=S6.inv.a;S6.mood='happy';say(J(v==='acc'?a6acc(S6.inv.a):'ええ、いいですね。').t)}return s6UI()}
+ if(a==='opt'){const q=S6.q;if(S6.pick===q.ans)return;S6.pick=+v;if(+v===q.ans){S6.msg=OKM();win('s6',S6);S6.mood=q.want?'happy':'sad';if(q.want)S6.cal[q.d]=A6[q.a];say(J(q.opts[+v]).t)}else{S6.tries++;S6.msg=NOM()+' '+(q.want?T('Getmək istəyirsən: razılıq bildir.','You want to go: accept.','Вы хотите пойти: примите приглашение.'):T('Nəzakətlə imtina et: ちょっと…','Decline politely: ちょっと…','Откажите вежливо: ちょっと…'));S6.mood='neutral'}return s6UI()}
+ if(a==='next'){s6newQ();return s6UI()}};
+
+/* ================= 7. Hədiyyə tərəzisi + genkan ================= */
+const N7=[{m:'わたし',x:400,y:268,c:'#3b6fc4'},{m:'[友達:ともだち]',x:130,y:108,c:'#d9547f'},{m:'[母:はは]',x:670,y:108,c:'#e0a030'}];
+const NA={az:{nom:['Mən','Dostum','Anam'],dat:['mənə','dostuma','anama'],abl:['məndən','dostumdan','anamdan'],vg:['verirəm','verir','verir'],vr:['alıram','alır','alır']},
+ en:{sub:['I','My friend','My mother'],obj:['me','my friend','my mother'],vg:['give','gives','gives'],vr:['receive','receives','receives']},
+ ru:{nom:['Я','Друг','Мама'],dat:['мне','другу','маме'],gen:['от меня','от друга','от мамы'],vg:['дарю','дарит','дарит'],vr:['получаю','получает','получает']}};
+const I7=[{m:'[花:はな]',az:'bir gül',en:'a flower',ru:'цветок',ic:'<g fill="#f8a8c8" stroke="#e57aa6"><circle cy="-8" r="6"/><circle cx="8" cy="-3" r="6"/><circle cx="5" cy="7" r="6"/><circle cx="-5" cy="7" r="6"/><circle cx="-8" cy="-3" r="6"/></g><circle r="3.5" fill="#f4c04a"/>'},
+ {m:'~シャツ',az:'bir köynək',en:'a shirt',ru:'рубашку',ic:'<path d="M-8-14l-12 6 4 8 5-3v16h22V-3l5 3 4-8-12-6q-4 5-8 0q-4 5-8 0z" fill="#6aa7e6" stroke="#4a7fb8" stroke-width="1.5"/>'},
+ {m:'~プレゼント',az:'bir hədiyyə',en:'a present',ru:'подарок',ic:'<rect x="-14" y="-6" width="28" height="20" rx="2" fill="#e8745a"/><rect x="-16" y="-12" width="32" height="8" rx="2" fill="#f08a70"/><path d="M0-12V14" stroke="#fde68a" stroke-width="4"/><path d="M0-12q-8-10-12-4t12 4q8-10 12-4t-12 4" fill="none" stroke="#fde68a" stroke-width="3"/>'},
+ {m:'[切符:きっぷ]',az:'bir bilet',en:'a ticket',ru:'билет',ic:'<path d="M-18-9h36v6a3 3 0 0 0 0 6v6h-36v-6a3 3 0 0 0 0-6z" fill="#f4d675" stroke="#c9a23a" stroke-width="1.5"/><path d="M-8-9v18" stroke="#c9a23a" stroke-dasharray="2 2"/><path d="M0-2h12M0 3h8" stroke="#8a6a1f" stroke-width="2"/>'}];
+const S7={mode:'learn',sub:'gift',item:0,from:-1,arr:[],q:null,pick:-1,score:0,msg:'',tries:0,tilt:0,shoe:0,shoeDone:false,done:false};
+const kure=(g,r)=>r===0&&g!==0||r===2&&g===1;
+function s7sent(g,r,it,v){const N=N7.map(n=>n.m),I=I7[it].m;
+ if(v==='gu')return `${N[g]}{は} ${N[r]}{に} ${I}{を} ${kure(g,r)?'くれます':'あげます'}。`;
+ return `${N[r]}{は} ${N[g]}{に} ${I}{を} もらいます。`}
+function s7tr(g,r,it,v){const i=SLI(),X=I7[it],c=s=>s.charAt(0).toUpperCase()+s.slice(1);
+ if(v==='gu')return [`${NA.az.nom[g]} ${NA.az.dat[r]} ${X.az} ${NA.az.vg[g]}.`,`${NA.en.sub[g]} ${NA.en.vg[g]} ${NA.en.obj[r]} ${X.en}.`,`${NA.ru.nom[g]} ${NA.ru.vg[g]} ${NA.ru.dat[r]} ${X.ru}.`][i];
+ return [`${NA.az.nom[r]} ${NA.az.abl[g]} ${X.az} ${NA.az.vr[r]}.`,`${NA.en.sub[r]} ${NA.en.vr[r]} ${X.en} from ${NA.en.obj[g]}.`,`${NA.ru.nom[r]} ${NA.ru.vr[r]} ${NA.ru.gen[g]} ${X.ru}.`][i]}
+const ARW=c=>`<marker id="saar${c.slice(1)}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="${c}"/></marker>`;
+function arrow7(g,r,it,col,k){const a=N7[g],b=N7[r],dx=b.x-a.x,dy=b.y-a.y,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,off=k*0,sx_=a.x+ux*50,sy=a.y+uy*50,ex=b.x-ux*54,ey=b.y-uy*54,nx=-uy*26,ny=ux*26,mx=(sx_+ex)/2+nx,my=(sy+ey)/2+ny;
+ return `<path d="M${sx_.toFixed(0)} ${sy.toFixed(0)}Q${mx.toFixed(0)} ${my.toFixed(0)} ${ex.toFixed(0)} ${ey.toFixed(0)}" fill="none" stroke="${col}" stroke-width="5" stroke-linecap="round" marker-end="url(#saar${col.slice(1)})"/><g transform="translate(${((sx_+ex)/2+nx*.55).toFixed(0)} ${((sy+ey)/2+ny*.55).toFixed(0)})"><circle r="19" fill="#fff" stroke="${col}" stroke-width="3"/><g transform="scale(.7)">${I7[it].ic}</g></g>`}
+function scene7(arrs,sel,mood){const cols=['#e11d74','#2563eb','#15803d','#c2410c','#7c3aed','#0e7490'];
+ return `<svg class="sa-svg" id="sa7svg" viewBox="0 0 800 340" role="img" aria-label="gift"><rect width="800" height="340" fill="#f7efe1"/><defs>${cols.map(ARW).join('')}</defs>
+ ${arrs.map((a,i)=>arrow7(a.g,a.r,a.it,cols[i%cols.length],i)).join('')}
+ ${N7.map((n,i)=>`<g class="sa-node" data-sa="node" data-v="${i}" tabindex="0" role="button" aria-label="${J(n.m).t}"><circle cx="${n.x}" cy="${n.y}" r="${sel===i?46:42}" fill="${n.c}" opacity=".2" stroke="${sel===i?'#e11d74':n.c}" stroke-width="${sel===i?5:3}"/>${head(n.x,n.y-6,22,i===0?mood||'happy':'happy',i===2?'#9a9aa6':'#2b2b33')}<path d="M${n.x-30} ${n.y+40}q2-24 30-24t30 24z" fill="${n.c}"/><text x="${n.x}" y="${n.y+60}" text-anchor="middle" font-size="16" font-weight="800" fill="#2b2b33" font-family="'Noto Sans JP',sans-serif">${J(n.m).t}</text></g>`).join('')}
+ </svg>`}
+function bal7(tilt,gv,rc){const ang=tilt!==0?tilt*14:Math.max(-16,Math.min(16,(gv-rc)*6)),rd=ang*Math.PI/180,L=110,ex=L*Math.cos(rd),ey=L*Math.sin(rd),w=tilt!==0?'#dc2626':'#5a4632';
+ const box=(n,x,y)=>Array.from({length:Math.min(n,4)},(_,i)=>`<rect x="${x-14+(i%2)*16}" y="${y-30-Math.floor(i/2)*14}" width="13" height="13" rx="2" fill="#e8745a" stroke="#b9503a"/>`).join('');
+ return `<svg class="sa-svg" viewBox="0 0 400 190" style="background:#f7efe1;max-width:420px;margin:8px auto" aria-label="balance"><path d="M200 60V168M160 172h80" stroke="#8a6a4a" stroke-width="8" stroke-linecap="round"/><g style="transition:all .5s"><path d="M${200-ex} ${60-ey}L${200+ex} ${60+ey}" stroke="${w}" stroke-width="7" stroke-linecap="round"/>
+ ${[[-1,T('もらう','もらう','もらう'),rc],[1,'あげる',gv]].map(([s,l,n])=>{const px=200+s*ex,py=60+s*ey;return `<path d="M${px} ${py}L${px-24} ${py+42}M${px} ${py}L${px+24} ${py+42}" stroke="${w}" stroke-width="2"/><path d="M${px-34} ${py+42}h68a34 20 0 0 1-68 0z" fill="#c9a96b" stroke="#8a6a4a" stroke-width="2"/>${box(n,px,py+42)}<text x="${px}" y="${py+80}" text-anchor="middle" font-size="14" font-weight="800" fill="#5a4632" font-family="'Noto Sans JP',sans-serif">${l}</text>`}).join('')}</g><circle cx="200" cy="60" r="9" fill="#e0a030" stroke="#8a6a4a" stroke-width="2"/></svg>`}
+function shoes7(a){const sh=x=>`<g transform="translate(${x} 0)"><path d="M0-36C12-36 17-26 17-14C17 0 12 14 11 24C10 32 6 34 0 34C-6 34-10 32-11 24C-12 14-17 0-17-14C-17-26-12-36 0-36Z" fill="#7b4a2a" stroke="#4d2c16" stroke-width="2.5"/><path d="M-12-14h24M-12-6h24M-11 2h22" stroke="#e8d3b0" stroke-width="2.5" stroke-linecap="round"/><path d="M-9 20q9 6 18 0" stroke="#4d2c16" stroke-width="2.5" fill="none"/></g>`;return `<g id="sa7shoe" class="sa-node" data-sa="turn" role="button" tabindex="0" aria-label="shoes" transform="translate(260 190) rotate(${a})"><circle r="58" fill="#fff" opacity=".001"/>${sh(-24)}${sh(24)}</g>`}
+function genkan7(mood){return `<svg class="sa-svg" id="sa7gen" viewBox="0 0 520 290" role="img" aria-label="genkan"><rect width="520" height="290" fill="#cfc8bb"/>
+ <rect width="520" height="118" fill="#d9a066"/>${Array.from({length:13},(_,i)=>`<path d="M${i*40} 0v118" stroke="#c18c55" stroke-width="2"/>`).join('')}<rect y="118" width="520" height="16" fill="#8a5a36"/><rect y="134" width="520" height="6" fill="#000" opacity=".12"/>
+ <rect x="190" y="252" width="140" height="38" fill="#fff8d6"/><rect x="180" y="248" width="160" height="6" fill="#7a5a3a"/><path d="M190 290l-14-36M330 290l14-36" stroke="#fff8d6" stroke-width="3" opacity=".6"/>
+ <g>${head(260,52,26,mood)}<path d="M214 118q4-36 46-36t46 36z" fill="#d9547f"/></g>
+ <path d="M60 86l60 0" stroke="none"/>
+ ${shoes7(S7.shoe)}
+ <text x="260" y="276" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a3a" font-family="'Noto Sans JP',sans-serif">ドア</text></svg>`}
+const shoeOK=()=>((S7.shoe%360)+360)%360===180;
+function s7genUI(live){const ok=shoeOK(),mood=live||S7.shoeDone?(ok?'happy':'neutral'):(ok?'happy':'uneasy');
+ return `<div class="sa-grid2" style="grid-template-columns:1fr">${genkan7(S7.mode==='test'&&!S7.shoeDone?'neutral':(ok?'happy':'uneasy'))}</div>
+ <div class="tools"><button class="btn" data-sa="turn" style="--c:var(--pnk)">${T('Ayaqqabını çevir','Turn the shoes','Повернуть обувь')}</button>${S7.mode==='test'?`<button class="btn fill" data-sa="shoechk" style="--c:var(--vio)"${S7.shoeDone?' disabled':''}>${T('Təsdiq et','Confirm','Подтвердить')}</button>`:''}</div>
+ ${sx('どうぞ おあがりください。',T('Buyurun, içəri keçin.','Please come in.','Проходите, пожалуйста.'))}${sx('しつれいします。',T('İcazənizlə. (içəri girərkən)','Excuse me. (when entering)','Разрешите. (входя)'))}
+ <p class="sa-msg">${S7.mode==='learn'?(ok?`<b class="vok">${T('Ayaqqabının ucu qapıya baxır: nəzakətli.','Toes toward the door: polite.','Носки к двери: вежливо.')}</b>`:T('Ayaqqabının ucu evə baxır. Qapıya tərəf çevir.','The toes point into the house. Turn them to the door.','Носки смотрят в дом. Поверните к двери.')):S7.msg}</p>`}
+function s7UI(){const b=$('saBox7');if(!b)return;let h=modeTabs(7,S7);
+ if(S7.mode==='learn'){
+  h+=`<div class="tools dtabs">${[['gift',T('Hədiyyə','Gifts','Подарки')],['gen','玄関 · genkan']].map(([k,l])=>`<button class="btn${S7.sub===k?' fill':''}" data-sa="sub" data-v="${k}" style="--c:var(--vio)">${l}</button>`).join('')}</div>`;
+  if(S7.sub==='gift'){
+   const last=S7.arr[S7.arr.length-1];
+   let gv=0,rc=0;S7.arr.forEach(a=>{if(a.g===0)gv++;if(a.r===0)rc++});
+   h+=scene7(S7.arr,S7.from,'happy')+`<div class="sa-tray">${I7.map((x,i)=>`<button class="sa-it${S7.item===i?' on':''}" data-sa="item" data-v="${i}"><svg viewBox="-20 -20 40 40">${x.ic}</svg><span class="jp">${J(x.m).h}</span></button>`).join('')}<button class="btn" data-sa="clear" style="--c:var(--pnk)">${T('Təmizlə','Clear','Очистить')}</button></div>
+   <p class="sa-cap">${S7.from<0?T('Verənə, sonra alana toxun.','Tap the giver, then the receiver.','Нажмите на дарителя, затем на получателя.'):T('Alanı seç…','Now pick the receiver…','Теперь выберите получателя…')}</p>`;
+   if(last){const k=kure(last.g,last.r);
+    h+=sx(s7sent(last.g,last.r,last.it,'gu'),s7tr(last.g,last.r,last.it,'gu'))+(k?`<p class="sa-cap"><span class="sa-new">${T('bonus','bonus','бонус')}</span> ${T('Mənə / ailəmə verəndə bu fel くれます olur (sonrakı dərslərdə).','When someone gives to me or my family the verb is くれます (later lessons).','Когда дают мне или моей семье, глагол – くれます (в следующих уроках).')}</p>`:'')+sx(s7sent(last.g,last.r,last.it,'mo'),s7tr(last.g,last.r,last.it,'mo'))}
+   h+=bal7(0,gv,rc)+`<p class="sa-cap">${T('Mən: verdim','Me: given','Я: подарено')} ${gv} · ${T('aldım','received','получено')} ${rc}</p>`;
+  }else h+=s7genUI(true);
+ }else{
+  const q=S7.q;h+=scoreBar('s7',S7);
+  if(q.type==='shoe')h+=`<p class="kqp">${T('Qonaq içəri keçdi. Ayaqqabını qaydaya sal.','The guest has stepped up. Put the shoes in order.','Гость прошёл в дом. Поставьте обувь как положено.')}</p>`+s7genUI(false)+(S7.shoeDone?`<div class="tools">${nextBtn()}</div>`:'');
+  else if(q.type==='arrow'){
+   h+=`<p class="kqp">${T('Cümləyə uyğun ox çək və əşyanı seç.','Draw the arrow that matches the sentence and pick the item.','Нарисуйте стрелку по предложению и выберите предмет.')}</p>${sx(q.sent,q.tr)}`+scene7(S7.arr,S7.from,S7.tilt?'sad':'happy')+`<div class="sa-tray">${q.items.map(i=>`<button class="sa-it${S7.item===i?' on':''}" data-sa="item" data-v="${i}"><svg viewBox="-20 -20 40 40">${I7[i].ic}</svg><span class="jp">${J(I7[i].m).h}</span></button>`).join('')}</div>`+bal7(S7.tilt,0,0)+`<p class="sa-msg">${S7.msg}</p><div class="tools">${S7.done?nextBtn():`<button class="btn fill" data-sa="chk" style="--c:var(--vio)">${T('Təsdiq et','Confirm','Подтвердить')}</button><button class="btn" data-sa="clear" style="--c:var(--pnk)">${T('Təmizlə','Clear','Очистить')}</button>`}</div>`;
+  }else{
+   h+=`<p class="kqp">${T('Oxa uyğun cümləni seç.','Pick the sentence that matches the arrow.','Выберите предложение по стрелке.')}</p>`+scene7([q.a],-1,'happy')+bal7(S7.tilt,0,0)+`<div class="ct-opts">${q.opts.map((o,i)=>`<button class="btn${S7.pick===i?(i===q.ans?' ok':' no'):''}" data-sa="opt" data-v="${i}" style="--c:var(--vio)"><span class="jp">${J(o).h}</span></button>`).join('')}</div><p class="sa-msg">${S7.msg}</p>${S7.pick===q.ans?`<div class="tools">${nextBtn()}</div>`:''}`}
+ }
+ b.innerHTML=h}
+function s7newQ(){S7.arr=[];S7.from=-1;S7.tilt=0;S7.pick=-1;S7.msg='';S7.tries=0;S7.done=false;S7.shoeDone=false;
+ const r=Math.random();
+ if(r<.2){S7.q={type:'shoe'};S7.shoe=pick([0,90,270])}
+ else{const pairs=[[0,1],[0,2],[1,0],[2,0],[1,2],[2,1]],[g,rr]=pick(pairs),it=Math.floor(Math.random()*I7.length);
+  if(r<.6){const v=Math.random()<.55||kure(g,rr)&&false?'gu':'mo',vv=v;const items=shuf([it,...shuf([0,1,2,3].filter(x=>x!==it)).slice(0,2)]);
+   S7.q={type:'arrow',g,r:rr,it,items,sent:s7sent(g,rr,it,vv),tr:s7tr(g,rr,it,vv)};S7.item=-1}
+  else{const sub=Math.random()<.5?'gu':'mo',ans=s7sent(g,rr,it,sub);
+   const wrongDir=s7sent(rr,g,it,sub),wrongVerb=sub==='gu'?s7sent(g,rr,it,'mo'):s7sent(g,rr,it,'gu'),wrongItem=s7sent(g,rr,(it+1)%4,sub);
+   const cands=[wrongDir,wrongItem,wrongVerb].filter((x,i,a)=>x!==ans&&a.indexOf(x)===i),opts=shuf([ans,...cands.slice(0,2)]);
+   S7.q={type:'sent',a:{g,r:rr,it},opts,ans:opts.indexOf(ans)}}}}
+const H7=(a,v)=>{
+ if(a==='mode'){S7.mode=v;S7.score=0;S7.arr=[];S7.from=-1;S7.tilt=0;S7.sub='gift';S7.shoe=0;if(v==='test')s7newQ();return s7UI()}
+ if(a==='sub'){S7.sub=v;S7.shoe=S7.shoe||0;return s7UI()}
+ if(a==='item'){S7.item=+v;return s7UI()}
+ if(a==='clear'){S7.arr=[];S7.from=-1;if(S7.mode==='test'){S7.tilt=0;S7.msg=''}return s7UI()}
+ if(a==='node'){const n=+v;if(S7.mode==='test'&&(S7.done||S7.q.type!=='arrow'))return;
+  if(S7.from<0){S7.from=n;return s7UI()}
+  if(S7.from===n){S7.from=-1;return s7UI()}
+  const it=S7.item<0?-1:S7.item;
+  if(S7.mode==='learn'){S7.arr.push({g:S7.from,r:n,it});if(S7.arr.length>6)S7.arr.shift();const l=S7.arr[S7.arr.length-1];S7.from=-1;s7UI();say(J(s7sent(l.g,n,it,'gu')).t);return}
+  S7.arr=[{g:S7.from,r:n,it:it<0?0:it}];S7.from=-1;S7.tilt=0;S7.msg='';return s7UI()}
+ if(a==='chk'){const q=S7.q,A=S7.arr[0];if(!A||S7.item<0){S7.msg=T('Əvvəlcə ox çək və əşya seç.','First draw an arrow and pick an item.','Сначала нарисуйте стрелку и выберите предмет.');return s7UI()}
+  if(A.g===q.g&&A.r===q.r&&S7.item===q.it){S7.done=true;S7.tilt=0;S7.msg=OKM();win('s7',S7);say(J(q.sent).t)}
+  else{S7.tries++;S7.tilt=(A.g===q.g&&A.r===q.r)?-1:1;S7.msg=NOM()+' '+((A.g===q.g&&A.r===q.r)?T('Əşya səhvdir.','Wrong item.','Не тот предмет.'):T('Ox səhv istiqamətdədir.','The arrow is wrong.','Стрелка неверна.'));S7.arr=[];S7.from=-1}
+  return s7UI()}
+ if(a==='opt'){const q=S7.q;if(S7.pick===q.ans)return;S7.pick=+v;if(+v===q.ans){S7.tilt=0;S7.msg=OKM();win('s7',S7);say(J(q.opts[+v]).t)}else{S7.tries++;S7.tilt=1;S7.msg=NOM()}return s7UI()}
+ if(a==='turn'){S7.shoe=(S7.shoe+90)%360;if(S7.mode==='test'&&S7.shoeDone)return;return s7UI()}
+ if(a==='shoechk'){if(S7.shoeDone)return;if(shoeOK()){S7.shoeDone=true;S7.msg=OKM()+' '+T('Ucu qapıya baxır.','Toes toward the door.','Носки к двери.');win('s7',S7)}else{S7.tries++;S7.msg=NOM()+' '+T('Ayaqqabının ucu qapıya baxmalıdır.','The toes should face the door.','Носки должны смотреть на дверь.')}return s7UI()}
+ if(a==='next'){s7newQ();return s7UI()}};
+
+/* ---- ortaq klik ---- */
+const HS={1:H1,2:H2,6:H6,7:H7};
+addEventListener('click',e=>{const t=e.target;if(!t.closest)return;const box=t.closest('.sa-box');if(!box)return;const a=t.closest('[data-sa]');if(!a||!box.contains(a))return;
+ if(a.disabled)return;const h=HS[+box.dataset.n];if(h)h(a.dataset.sa,a.dataset.v,a)},true);
+addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const a=e.target.closest&&e.target.closest('.sa-node[data-sa]');if(a){e.preventDefault();a.dispatchEvent(new MouseEvent('click',{bubbles:true}))}},true);
+
+/* ---- qoşulma ---- */
+setTimeout(()=>{
+ const M={1:{lbl:['Tanışlıq səhnəsi','Meeting scene','Сцена знакомства'],t:['Vizit kartı və təqdimat','Business card and introduction','Визитка и представление'],jp:'はじめまして',ui:s1UI,init:()=>{if(!S1.seq.length)s1newTiles()}},
+  2:{lbl:['Bit bazarı','Flea market','Барахолка'],t:['Bu nədir?','What is this?','Что это?'],jp:'これ・それ・あれ',ui:s2UI},
+  6:{lbl:['Dəvət ruleti','Invitation roulette','Рулетка приглашений'],t:['Dəvət ruleti','Invitation roulette','Рулетка приглашений'],jp:'いっしょに ～ませんか',ui:s6UI},
+  7:{lbl:['Hədiyyə tərəzisi','Gift balance','Весы подарков'],t:['Hədiyyə tərəzisi və genkan','Gift balance and genkan','Весы подарков и гэнкан'],jp:'あげます・もらいます',ui:s7UI}};
+ for(const n in M){const L=LS[n],d=M[n];if(!L)continue;
+  Object.defineProperty(L,'playLabel',{get:()=>SL({az:d.lbl[0],en:d.lbl[1],ru:d.lbl[2]}),configurable:true});
+  L.play=()=>{if(d.init)d.init();return playSec(SL({az:d.t[0],en:d.t[1],ru:d.t[2]}),`<span class="jp">${d.jp}</span>`,'',`<div id="saBox${n}" class="sa-box" data-n="${n}"></div>`)};
+  L.init=()=>{if($('saBox'+n))d.ui()}}
+ try{if(HS[C.n])render()}catch(_){}},0);
+})();
+
+/* ===== Səhnələr B: 9 Hobbi radarı, 13 İzakaya, 14 Taksi naviqatoru, 15 Ailə ağacı ===== */
+(()=>{
+const U={free:{az:'Öyrən',en:'Learn',ru:'Учиться'},test:{az:'Yoxla',en:'Check',ru:'Проверка'},ok:{az:'Düzdür!',en:'Correct!',ru:'Верно!'},no:{az:'Yox, bir də bax.',en:'No, look again.',ru:'Нет, посмотрите ещё.'},
+ next:{az:'Növbəti',en:'Next',ru:'Дальше'},score:{az:'Xal',en:'Score',ru:'Счёт'},best:{az:'Rekord',en:'Best',ru:'Рекорд'}};
+const u=k=>SL(U[k]);
+const rnd=n=>Math.floor(Math.random()*n),pick=a=>a[rnd(a.length)];
+const SH={},SR={};
+const bestOf=k=>{try{return +localStorage.getItem('kotoba-sb-'+k)||0}catch(_){return 0}};
+function addScore(k,st,p){if(p<=0)return;st.score+=p;if(st.score>st.best){st.best=st.score;try{localStorage.setItem('kotoba-sb-'+k,st.best)}catch(_){}}}
+const tabs=(cur)=>`<div class="tools dtabs">${['free','test'].map(m=>`<button class="btn${cur===m?' fill':''}" data-sb="m" data-v="${m}" style="--c:var(--pnk)">${u(m)}</button>`).join('')}</div>`;
+const foot=(st,nx)=>`<div class="tools">${nx?`<button class="btn fill" data-sb="next" style="--c:var(--vio)">${u('next')}</button>`:''}<span class="role">${u('score')}: ${st.score} · ${u('best')}: ${st.best}</span></div>`;
+const jh=m=>J(m).h;
+const msgOk=()=>`<b class="vok">${u('ok')}</b>`,msgNo=()=>`<b class="vno">${u('no')}</b>`;
+
+/* ---- CSS ---- */
+const st=document.createElement('style');st.textContent=`
+.sb-box{--sbc:var(--pnk);max-width:680px;margin:0 auto}
+.sb-card{border:2px solid var(--line);background:var(--paper,var(--bg));border-radius:16px;padding:10px;margin:8px 0}
+.sb-pers{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:6px 0}
+.sb-pb{border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:14px;padding:4px 6px 5px;display:flex;flex-direction:column;align-items:center;gap:1px;font-weight:800;font-size:12px;min-width:74px;cursor:pointer}
+.sb-pb.on{border-color:var(--sbc);box-shadow:0 0 0 2px var(--sbc)}
+.sb-pb svg{width:44px;height:44px}
+.sb-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;align-items:center}
+.sb-radar{width:100%;max-width:260px;height:auto;margin:0 auto;display:block;color:var(--ink)}
+.sb-ft{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:6px 0}
+.sb-prev{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;font-size:20px;margin:8px 0;min-height:44px}
+.sb-sl{min-width:54px;padding:2px 8px;border-radius:10px;border:2px dashed var(--line);text-align:center}
+.sb-sl.f{border-style:solid;border-color:var(--vio)}
+.sb-sl.ok{border-style:solid;border-color:#16a34a;background:rgba(22,163,74,.12)}
+.sb-sl.no{border-style:solid;border-color:var(--hanko,#d33);background:rgba(220,50,50,.1)}
+.sb-cap{font-size:12px;color:var(--mut);font-weight:800;margin:6px 0 2px}
+.sb-opts{display:flex;flex-wrap:wrap;gap:6px}
+.sb-opts .btn{font-size:15px}
+.sb-opts .btn.on{background:var(--c);color:#fff}
+.sb-clubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:8px 0}
+.sb-club{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;text-align:center;font-size:13px}
+.sb-club svg{width:44px;height:44px}
+.sb-fact{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.sb-prof{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;text-align:center;font-size:12px;font-weight:800}
+.sb-prof>div{border:1px solid var(--line);border-radius:10px;padding:4px 2px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.sb-prof svg{width:34px;height:34px}
+.sb-menu{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0}
+.sb-mi{display:flex;flex-direction:column;align-items:center;gap:1px;padding:5px 2px;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;font-weight:800;font-size:12px;cursor:pointer}
+.sb-mi svg{width:38px;height:38px}
+.sb-mi small{color:var(--mut);font-weight:800}
+.sb-mi:active{transform:scale(.96)}
+.sb-tbl{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sb-tbl>div{border:2px solid var(--line);border-radius:14px;padding:6px 4px;text-align:center;font-size:12px;font-weight:800;background:var(--bg)}
+.sb-tbl.sel>div{cursor:pointer}
+.sb-tbl>div.on{border-color:var(--sbc);box-shadow:0 0 0 2px var(--sbc)}
+.sb-tbl svg.fc{width:40px;height:40px}
+.sb-ch{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:10px;padding:1px 5px 1px 1px;margin:2px;font-size:11px;background:var(--paper,var(--bg))}
+.sb-ch svg{width:22px;height:22px}
+.sb-share{margin:8px auto 0;max-width:260px;border:2px dashed var(--line);border-radius:14px;padding:4px;text-align:center;font-size:12px;font-weight:800;display:flex;align-items:center;gap:6px;justify-content:center}
+.sb-share svg{width:30px;height:30px}
+.sb-yen{font-size:19px}
+.sb-map{display:block;width:100%;height:auto;background:#cfe8c2}
+.sb-cmds{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:8px 0}
+.sb-cmds .btn{font-size:15px;padding:6px 6px;text-align:center}
+.sb-log{display:flex;gap:4px;flex-wrap:wrap;align-items:center;min-height:26px;margin:4px 0}
+.sb-lg{width:24px;height:24px;border-radius:7px;background:var(--vio);color:#fff;display:grid;place-items:center}
+.sb-lg svg{width:16px;height:16px}
+.sb-dst{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:4px 0}
+.sb-dst .btn{font-size:13px;padding:3px 9px}
+#sbTaxi{transition:transform .45s ease}
+.sb-pulse{animation:sbpl 1.2s ease-in-out infinite}
+@keyframes sbpl{0%,100%{opacity:1}50%{opacity:.35}}
+.sb-tree{position:relative;height:348px;margin:6px 0}
+.sb-tree>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sb-nd{position:absolute;width:19%;height:92px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;text-align:center;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:14px;padding:3px 1px;font-size:11px;font-weight:800;cursor:pointer;line-height:1.15;overflow:hidden}
+.sb-nd svg{flex:0 0 auto}
+.sb-nd .jp{font-size:15px;margin-top:2px}
+.sb-nd small{color:var(--mut);font-size:10.5px;font-weight:800}
+.sb-nd.on{border-color:var(--sbc);box-shadow:0 0 0 2px var(--sbc)}
+.sb-nd.empty{border-style:dashed}
+.sb-nd.ok{border-color:#16a34a;background:rgba(22,163,74,.12)}
+.sb-nd.bad{border-color:var(--hanko,#d33);background:rgba(220,50,50,.1)}
+.sb-nd.me{cursor:default;background:var(--paper,var(--bg))}
+.sb-bank{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.sb-bank .btn{font-size:16px;padding:3px 10px}
+.sb-bank .btn.on{background:var(--c);color:#fff}
+.sb-bank .btn.on .jp{color:#fff}
+.sb-2f{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0}
+.sb-2f>div{border:2px solid var(--line);border-radius:12px;padding:6px;text-align:center}
+.sb-2f>div.on{border-color:var(--sbc);background:rgba(232,85,142,.08)}
+.sb-2f small{display:block;font-size:11px;color:var(--mut);font-weight:800}
+.sb-2f .jp{font-size:20px}
+@media(max-width:480px){.sb-nd{font-size:10px}.sb-nd .jp{font-size:13px}.sb-menu{grid-template-columns:repeat(4,1fr)}}
+`;document.head.appendChild(st);
+
+/* ---- Ortaq SVG ---- */
+function face(f,s){const sk=f.skin,h=f.hair;let back='',front='';
+ if(f.style==='long')back=`<path d="M14 36c-2-20 7-26 16-26s18 6 16 26c0 6-2 9-4 11H18c-2-2-4-5-4-11z" fill="${h}"/>`;
+ if(f.style==='pig')back=`<circle cx="12" cy="33" r="6" fill="${h}"/><circle cx="48" cy="33" r="6" fill="${h}"/>`;
+ if(f.style==='bun')back=`<circle cx="30" cy="9" r="6" fill="${h}"/>`;
+ if(f.style==='short')front=`<path d="M17 28c-2-14 8-18 13-18s15 4 13 18c-3-7-8-9-13-9s-10 2-13 9z" fill="${h}"/>`;
+ else if(f.style==='bald')front=`<path d="M17 25c1-9 7-13 13-13s12 4 13 13c-4-5-8-6-13-6s-9 1-13 6z" fill="${h}"/>`;
+ else front=`<path d="M17 29c-2-14 8-19 13-19s15 5 13 19c-2-6-7-9-13-9s-11 3-13 9z" fill="${h}"/>`;
+ return `<svg viewBox="0 0 60 60" width="${s||44}" height="${s||44}" aria-hidden="true"><path d="M5 60c0-14 10-19 25-19s25 5 25 19z" fill="${f.shirt}"/>${f.coat?'<path d="M24 42l6 12 6-12 6 4v14H18V46z" fill="#fff"/><path d="M30 54v6" stroke="#dde" stroke-width="1.5"/>':''}${f.tie?'<path d="M30 44l-3 5 3 9 3-9z" fill="#e23b4e"/>':''}${back}<rect x="26" y="36" width="8" height="8" rx="3" fill="${sk}"/><circle cx="30" cy="28" r="13" fill="${sk}"/>${front}<circle cx="25" cy="29" r="1.7" fill="#2b2118"/><circle cx="35" cy="29" r="1.7" fill="#2b2118"/><path d="M26 35q4 3 8 0" stroke="#8a4b3a" fill="none" stroke-width="1.6" stroke-linecap="round"/>${f.gl?'<circle cx="25" cy="29" r="4.6" fill="none" stroke="#333" stroke-width="1.3"/><circle cx="35" cy="29" r="4.6" fill="none" stroke="#333" stroke-width="1.3"/><path d="M29.6 29h.8" stroke="#333" stroke-width="1.3"/>':''}</svg>`}
+const PERS=[
+ {k:'stu',j:'[学生:がくせい]',n:['Tələbə','The student','Студент'],g:['Tələbənin','The student','студента'],col:'#3b82f6',f:{skin:'#f6d3b0',hair:'#2b2118',style:'short',shirt:'#3b82f6'}},
+ {k:'tea',j:'[先生:せんせい]',n:['Müəllim','The teacher','Учитель'],g:['Müəllimin','The teacher','учителя'],col:'#e8558e',f:{skin:'#f2c9a0',hair:'#4a2c1a',style:'long',shirt:'#e8558e',gl:1}},
+ {k:'off',j:'[会社員:かいしゃいん]',n:['Ofis işçisi','The office worker','Сотрудник офиса'],g:['Ofis işçisinin','The office worker','сотрудника офиса'],col:'#16a34a',f:{skin:'#e9bd94',hair:'#1c1c1c',style:'short',shirt:'#475569',tie:1}},
+ {k:'doc',j:'[医者:いしゃ]',n:['Həkim','The doctor','Врач'],g:['Həkimin','The doctor','врача'],col:'#f59e0b',f:{skin:'#f6d3b0',hair:'#7a4a22',style:'bun',shirt:'#2aa8a0',coat:1}}];
+const pName=P=>P.n[SLI()];
+
+/* ---- Hobbi / ikon kitabxanası ---- */
+const IC={
+ soc:'<circle cx="24" cy="24" r="18" fill="#fff" stroke="#333" stroke-width="2"/><path d="M24 14l7 5-3 8h-8l-3-8z" fill="#333"/><path d="M24 14V7M31 19l7-3M28 27l5 8M20 27l-5 8M17 19l-7-3" stroke="#333" stroke-width="2"/>',
+ kar:'<circle cx="19" cy="15" r="10" fill="#c9ced8" stroke="#444" stroke-width="2"/><path d="M13 12h12M13 17h12" stroke="#8a8f9a" stroke-width="1.5"/><path d="M25 22l12 20a3 3 0 0 0 5-3L31 18z" fill="#444"/><path d="M38 6q4 3 0 8M43 3q7 6 0 14" stroke="#e8558e" stroke-width="2.5" fill="none" stroke-linecap="round"/>',
+ che:'<circle cx="24" cy="12" r="6" fill="#333"/><path d="M19 21h10l-2 5c4 3 5 8 6 14H15c1-6 2-11 6-14z" fill="#333"/><rect x="11" y="40" width="26" height="5" rx="2" fill="#333"/>',
+ cook:'<path d="M9 24h30v11a7 7 0 0 1-7 7H16a7 7 0 0 1-7-7z" fill="#d9534f" stroke="#8c2f2c" stroke-width="2"/><rect x="5" y="21" width="38" height="5" rx="2.5" fill="#b03a37"/><path d="M17 17q-4-5 0-10M25 17q-4-5 0-10M33 17q-4-5 0-10" stroke="#9aa3ad" stroke-width="2.5" fill="none" stroke-linecap="round"/>',
+ jp:'<path d="M4 6h40a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H22l-8 9v-9H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z" fill="#e23b4e"/><text x="24" y="26" font-size="19" font-weight="900" text-anchor="middle" fill="#fff" font-family="sans-serif">日</text>',
+ en:'<path d="M4 6h40a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H22l-8 9v-9H4a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z" fill="#2f80ed"/><text x="24" y="26" font-size="20" font-weight="900" text-anchor="middle" fill="#fff" font-family="sans-serif">A</text>',
+ money:'<circle cx="24" cy="24" r="18" fill="#f5b301" stroke="#b07d00" stroke-width="2.5"/><circle cx="24" cy="24" r="13" fill="none" stroke="#b07d00" stroke-width="1.5"/><text x="24" y="31" font-size="20" font-weight="900" text-anchor="middle" fill="#8a5f00" font-family="sans-serif">¥</text>',
+ time:'<circle cx="24" cy="24" r="18" fill="#fff" stroke="#444" stroke-width="3"/><path d="M24 12v12l8 5" stroke="#444" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+ beer:'<rect x="9" y="15" width="22" height="27" rx="3" fill="#f5b83b" stroke="#a8730d" stroke-width="2"/><path d="M31 20h6a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-6" fill="none" stroke="#a8730d" stroke-width="3"/><path d="M8 15c0-6 6-8 9-5 3-4 10-2 10 3 2 0 4 2 4 4H8z" fill="#fff" stroke="#c9ced8" stroke-width="1.5"/>',
+ wine:'<path d="M14 6h20c1 14-2 22-10 22S13 20 14 6z" fill="#fff" stroke="#8a8f9a" stroke-width="2"/><path d="M15 14h18c0 9-3 14-9 14s-9-5-9-14z" fill="#9b1c3a"/><path d="M24 28v13M16 42h16" stroke="#8a8f9a" stroke-width="3" stroke-linecap="round"/>',
+ juice:'<path d="M12 13h24l-3 29H15z" fill="#ffb347" stroke="#c77a0a" stroke-width="2"/><path d="M27 13l6-10" stroke="#e23b4e" stroke-width="3" stroke-linecap="round"/><circle cx="13" cy="13" r="6" fill="#ffd36b" stroke="#c77a0a" stroke-width="1.5"/>',
+ tea:'<path d="M7 19h28v10a12 12 0 0 1-12 12h-4A12 12 0 0 1 7 29z" fill="#fff" stroke="#6b7a5a" stroke-width="2"/><path d="M35 22h3a5 5 0 0 1 0 10h-4" fill="none" stroke="#6b7a5a" stroke-width="2.5"/><path d="M9 21h24" stroke="#7bb661" stroke-width="5"/><path d="M15 13q-3-3 0-7M24 13q-3-3 0-7" stroke="#9aa3ad" stroke-width="2" fill="none" stroke-linecap="round"/>',
+ tempura:'<ellipse cx="24" cy="35" rx="21" ry="8" fill="#fff" stroke="#c9ced8" stroke-width="2"/><path d="M7 31q6-15 19-10 8 3 6 12-8-6-15-4z" fill="#f2b84b" stroke="#b97b14" stroke-width="2"/><path d="M19 36q9-11 21-6 2 4 0 8-10-4-21-2z" fill="#f6c862" stroke="#b97b14" stroke-width="2"/>',
+ sashimi:'<ellipse cx="24" cy="35" rx="21" ry="8" fill="#fff" stroke="#c9ced8" stroke-width="2"/><rect x="9" y="17" width="10" height="20" rx="3" fill="#ff8a8a" transform="rotate(-12 14 27)"/><rect x="18" y="16" width="10" height="21" rx="3" fill="#ff6f78" transform="rotate(-4 23 27)"/><rect x="27" y="17" width="10" height="20" rx="3" fill="#ff8a8a" transform="rotate(6 32 27)"/><circle cx="40" cy="34" r="4" fill="#7bb661"/>',
+ gyudon:'<path d="M4 22h40c0 13-8 21-20 21S4 35 4 22z" fill="#d9534f" stroke="#8c2f2c" stroke-width="2"/><path d="M8 22c3-9 29-9 32 0z" fill="#f4f4f0"/><path d="M11 22c2-5 8-6 12-5 6-1 11 0 14 5z" fill="#8a5a36"/><path d="M17 19h6M28 19h6" stroke="#c98a56" stroke-width="2.5" stroke-linecap="round"/>',
+ teishoku:'<rect x="3" y="12" width="42" height="28" rx="4" fill="#8a5a36" stroke="#5b3a21" stroke-width="2"/><circle cx="15" cy="26" r="9" fill="#fff"/><circle cx="15" cy="26" r="6" fill="#f4f4f0" stroke="#ddd"/><rect x="27" y="17" width="15" height="10" rx="2" fill="#e8a33d"/><circle cx="34" cy="34" r="4" fill="#7bb661"/>'};
+const ic=(k,s)=>`<svg viewBox="0 0 48 48" width="${s||44}" height="${s||44}" aria-hidden="true">${IC[k]}</svg>`;
+const heart=v=>`<svg viewBox="0 0 28 28" width="34" height="34" aria-hidden="true"><path d="M14 25C3 17 1 9 6 5c3-3 7-1 8 2 1-3 5-5 8-2 5 4 3 12-8 20z" fill="${v>0?'#e23b4e':'#aeb4bf'}"/>${v<0?'<path d="M3 3l22 22" stroke="#333" stroke-width="3" stroke-linecap="round"/>':''}</svg>`;
+const star=v=>`<svg viewBox="0 0 28 32" width="34" height="34" aria-hidden="true"><path d="M14 1l3.6 7.6 8.2 1-6 5.7 1.6 8.1L14 19.4 6.6 23.4l1.6-8.1-6-5.7 8.2-1z" fill="${v>0?'#f5b301':'#b8bdc7'}"/>${v<0?'<path d="M8 26h12l-6 6z" fill="#e23b4e"/>':''}</svg>`;
+const bar=n=>`<svg viewBox="0 0 52 14" width="52" height="14" aria-hidden="true">${[0,1,2,3].map(i=>`<rect x="${i*13}" y="1" width="11" height="12" rx="3" fill="${i<n?(n>=3?'#16a34a':n===2?'#e6a817':'#e23b4e'):'#d5d9e0'}"/>`).join('')}</svg>`;
+const sbSay=m=>{try{say(J(m).t)}catch(_){}};
+const jpBox=m=>S(m,'');
+
+/* ===================== 9: Hobbi radarı ===================== */
+const H9=[{k:'soc',j:'~サッカー',n:['futbol','football','футбол'],club:['Futbol klubu','Football club','Футбольный клуб'],acc:'futbolu',v:'futbol oynayır',rI:'играть в футбол',rV:'играет в футбол'},
+ {k:'kar',j:'~カラオケ',n:['karaoke','karaoke','караоке'],club:['Karaoke klubu','Karaoke club','Караоке-клуб'],acc:'karaokeni',v:'karaoke oxuyur',rI:'петь караоке',rV:'поёт караоке'},
+ {k:'che',j:'~チェス',n:['şahmat','chess','шахматы'],club:['Şahmat klubu','Chess club','Шахматный клуб'],acc:'şahmatı',v:'şahmat oynayır',rI:'играть в шахматы',rV:'играет в шахматы'},
+ {k:'cook',j:'[料理:りょうり]',n:['yemək hazırlamaq','cooking','кулинария'],club:['Yemək klubu','Cooking club','Кулинарный клуб'],acc:'yemək bişirməyi',v:'yemək bişirir',rI:'готовить',rV:'готовит'}];
+const hob9=k=>H9.find(h=>h.k===k);
+const LG9=[{k:'jp',j:'^[日本語:にほんご]',az:'yapon dilini',en:'Japanese',ru:'японский'},{k:'en',j:'^[英語:えいご]',az:'ingilis dilini',en:'English',ru:'английский'}];
+const IT9=[{k:'money',j:'お[金:かね]',az:'pulu',en:'money',ru:'денег'},{k:'time',j:'[時間:じかん]',az:'vaxtı',en:'time',ru:'времени'}];
+const D9={yoku:{j:'よく',pos:1,lv:4},sukoshi:{j:'[少:すこ]し',pos:1,lv:2},amari:{j:'あまり',pos:0,lv:1},zenzen:{j:'[全然:ぜんぜん]',pos:0,lv:0}};
+const val9=h=>2+1.2*h[0]+.8*h[1];
+const bestHob=hob=>{let b=null,bv=-9;H9.forEach(h=>{const v=val9(hob[h.k]);if(v>bv){bv=v;b=h.k}});return b};
+const F9=[{p:'stu',hob:{soc:[1,1],kar:[1,-1],che:[0,0],cook:[-1,0]},und:['en','yoku'],has:['money','amari']},
+ {p:'tea',hob:{soc:[0,0],kar:[-1,-1],che:[1,1],cook:[1,0]},und:['jp','yoku'],has:['time','amari']},
+ {p:'off',hob:{soc:[1,0],kar:[1,1],che:[0,-1],cook:[0,0]},und:['en','sukoshi'],has:['money','yoku']},
+ {p:'doc',hob:{soc:[-1,0],kar:[0,0],che:[1,0],cook:[1,1]},und:['jp','sukoshi'],has:['time','zenzen']}];
+const P9=k=>PERS.find(p=>p.k===k);
+function s9m(P,f){const S0=P.j+'{は} ';
+ if(f.t==='like')return S0+hob9(f.h).j+'{が} '+s9pred(f)+'。';
+ if(f.t==='skill')return S0+hob9(f.h).j+'{が} '+s9pred(f)+'。';
+ if(f.t==='und')return S0+LG9.find(x=>x.k===f.l).j+'{が} '+s9pred(f)+'。';
+ return S0+IT9.find(x=>x.k===f.i).j+'{が} '+s9pred(f)+'。'}
+function s9pred(f){if(f.t==='like')return f.v>0?'[好:す]き|です':'[嫌:きら]い|です';if(f.t==='skill')return f.v>0?'[上手:じょうず]|です':'[下手:へた]|です';
+ const d=D9[f.d];return d.j+' '+(f.t==='und'?(d.pos?'わかります':'わかりません'):(d.pos?'あります':'ありません'))}
+function s9t(P,f){const li=SLI(),n=P.n[li],ax=P.g[li];
+ if(f.t==='like'){const h=hob9(f.h);return li===0?`${n} ${h.acc} ${f.v>0?'sevir':'sevmir'}.`:li===1?`${n} ${f.v>0?'likes':'dislikes'} ${h.n[1]}.`:`${n} ${f.v>0?'любит':'не любит'} ${h.rI}.`}
+ if(f.t==='skill'){const h=hob9(f.h);return li===0?`${n} ${f.v>0?'yaxşı':'zəif'} ${h.v}.`:li===1?`${n} is ${f.v>0?'good':'bad'} at ${h.n[1]}.`:`${n} ${f.v>0?'хорошо':'плохо'} ${h.rV}.`}
+ if(f.t==='und'){const g=LG9.find(x=>x.k===f.l);
+  if(li===0)return `${n} ${g.az} ${{yoku:'yaxşı başa düşür',sukoshi:'bir az başa düşür',amari:'o qədər də başa düşmür',zenzen:'heç başa düşmür'}[f.d]}.`;
+  if(li===1)return `${n} ${{yoku:'understands '+g.en+' well',sukoshi:'understands '+g.en+' a little',amari:'does not understand '+g.en+' very well',zenzen:'does not understand '+g.en+' at all'}[f.d]}.`;
+  return `${n} ${{yoku:'хорошо понимает ',sukoshi:'немного понимает ',amari:'не очень хорошо понимает ',zenzen:'совсем не понимает '}[f.d]}${g.ru}.`}
+ const it=IT9.find(x=>x.k===f.i);
+ if(li===0)return `${ax} ${{yoku:'çoxlu '+it.az+' var',sukoshi:'bir az '+it.az+' var',amari:'o qədər də '+it.az+' yoxdur',zenzen:'heç '+it.az+' yoxdur'}[f.d]}.`;
+ if(li===1)return `${n} ${{yoku:'has a lot of '+it.en,sukoshi:'has a little '+it.en,amari:'does not have much '+it.en,zenzen:'has no '+it.en+' at all'}[f.d]}.`;
+ return `У ${ax} ${{yoku:'много ',sukoshi:'немного ',amari:'не так много ',zenzen:'совсем нет '}[f.d]}${it.ru}.`}
+function facts9(F){const o={like:[],skill:[],und:[],has:[]};
+ H9.forEach(h=>{const v=F.hob[h.k];if(v[0])o.like.push({t:'like',h:h.k,v:v[0]});if(v[1])o.skill.push({t:'skill',h:h.k,v:v[1]})});
+ o.und.push({t:'und',l:F.und[0],d:F.und[1]});o.has.push({t:'has',i:F.has[0],d:F.has[1]});return o}
+function radar(hob,col){const c=120,R=74,A=[-90,0,90,180].map(a=>a*Math.PI/180);const pt=(i,r)=>[c+r*Math.cos(A[i]),c+r*Math.sin(A[i])];
+ const poly=H9.map((h,i)=>pt(i,R*val9(hob[h.k])/4).map(x=>x.toFixed(1)).join(',')).join(' ');
+ const g=[1,2,3,4].map(k=>`<polygon points="${[0,1,2,3].map(i=>pt(i,R*k/4).map(x=>x.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="currentColor" stroke-opacity=".2"/>`).join('');
+ const ax=[0,1,2,3].map(i=>{const p=pt(i,R);return `<line x1="${c}" y1="${c}" x2="${p[0].toFixed(1)}" y2="${p[1].toFixed(1)}" stroke="currentColor" stroke-opacity=".2"/>`}).join('');
+ const lb=H9.map((h,i)=>{const p=pt(i,R+22);return `<g transform="translate(${(p[0]-14).toFixed(1)},${(p[1]-14).toFixed(1)}) scale(.58)">${IC[h.k]}</g>`}).join('');
+ const dots=H9.map((h,i)=>{const p=pt(i,R*val9(hob[h.k])/4);return `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4" fill="${col}"/>`}).join('');
+ return `<svg class="sb-radar" viewBox="0 0 240 240" role="img" aria-label="radar">${g}${ax}<polygon points="${poly}" fill="${col}" fill-opacity=".28" stroke="${col}" stroke-width="2.5" stroke-linejoin="round"/>${dots}${lb}</svg>`}
+const U9={tap:{az:'Şəxs seç: radar və cümlələr görünəcək.',en:'Pick a person: the radar and the sentences appear.',ru:'Выберите человека: появятся радар и предложения.'},
+ like:{az:'Xoşlayır',en:'Likes',ru:'Любит'},skill:{az:'Bacarır',en:'Skill',ru:'Умеет'},und:{az:'Başa düşür',en:'Understands',ru:'Понимает'},has:{az:'Var',en:'Has',ru:'Есть'},
+ best:{az:'Ən uyğun klub',en:'Best-fit club',ru:'Лучший клуб'},
+ bq:{az:'Profilə uyğun cümləni qur.',en:'Build the sentence that fits the profile.',ru:'Составьте предложение по профилю.'},
+ cq:{az:'Bu insana hansı klub daha çox uyğundur?',en:'Which club suits this person best?',ru:'Какой клуб лучше всего подходит этому человеку?'},
+ sw:{az:'nə',en:'what',ru:'что'},sp:{az:'ədat',en:'particle',ru:'частица'},se:{az:'xəbər',en:'ending',ru:'сказуемое'},
+ rad:{az:'Radar: hər istiqamət üzrə maraq və bacarıq',en:'Radar: interest and skill per activity',ru:'Радар: интерес и умение по видам'},
+ leg:{az:'Şkala: dolu xanalar çox, boş xanalar az deməkdir.',en:'Scale: more filled boxes means more.',ru:'Шкала: больше закрашенных клеток значит больше.'}};
+const u9=k=>SL(U9[k]);
+let S9={mode:'free',p:0,ft:'like',t:null,score:0,best:bestOf('9')};
+function t9new(){const P=pick(PERS);let hob,g=0;
+ do{hob={};H9.forEach(h=>hob[h.k]=[rnd(3)-1,rnd(3)-1]);const v=H9.map(h=>val9(hob[h.k])).sort((a,b)=>b-a);if(v[0]>v[1]&&v[0]>=3)break}while(++g<500);
+ const nz1=H9.filter(h=>hob[h.k][0]),nz2=H9.filter(h=>hob[h.k][1]);
+ let ts=['und','has'];if(nz1.length)ts.push('like','like');if(nz2.length)ts.push('skill','skill');const t=pick(ts);let f;
+ if(t==='like'){const h=pick(nz1);f={t,h:h.k,v:hob[h.k][0]}}else if(t==='skill'){const h=pick(nz2);f={t,h:h.k,v:hob[h.k][1]}}
+ else if(t==='und')f={t,l:pick(LG9).k,d:pick(Object.keys(D9))};else f={t,i:pick(IT9).k,d:pick(Object.keys(D9))};
+ let items,ia,preds;
+ if(t==='like'||t==='skill'){items=H9.map(h=>({id:h.k,m:h.j}));ia=f.h;preds=[['l+','[好:す]き|です'],['l-','[嫌:きら]い|です'],['s+','[上手:じょうず]|です'],['s-','[下手:へた]|です']].map(([id,m])=>({id,m}));f.pa=(t==='like'?'l':'s')+(f.v>0?'+':'-')}
+ else{const und=t==='und',vp=und?['わかります','わかりません']:['あります','ありません'];
+  items=(und?LG9:IT9).map(x=>({id:x.k,m:x.j}));ia=und?f.l:f.i;
+  preds=[...Object.keys(D9).map(k=>({id:k,m:D9[k].j+' '+vp[D9[k].pos?0:1]})),{id:'trap',m:(f.d==='zenzen'?'あまり':'全然')+' '+vp[0]}];f.pa=f.d}
+ S9.t={P,hob,f,items:shuf(items),ia,preds:shuf(preds),parts:[{id:'が',m:'が'},{id:'を',m:'を'},{id:'に',m:'に'}],sel:{},bad:{},tries:0,step:'b',cpick:-1,cmiss:false,msg:''}}
+function fact9vis(f){let a='';
+ if(f.t==='like')a=ic(f.h,54)+heart(f.v);else if(f.t==='skill')a=ic(f.h,54)+star(f.v);
+ else if(f.t==='und')a=ic(f.l,54)+bar(D9[f.d].lv);else a=ic(f.i,54)+bar(D9[f.d].lv);return `<div class="sb-fact">${a}</div>`}
+function ui9(){const b=$('sbB9');if(!b)return;const S=S9;let h=tabs(S.mode);
+ if(S.mode==='free'){const F=F9[S.p],P=P9(F.p);
+  h+=`<div class="sb-pers">${F9.map((x,i)=>{const q=P9(x.p);return `<button class="sb-pb${i===S.p?' on':''}" data-sb="p" data-v="${i}" style="--sbc:${q.col}">${face(q.f,44)}<span>${pName(q)}</span></button>`}).join('')}</div>`;
+  const fs=facts9(F),best=bestHob(F.hob),H=hob9(best);
+  h+=`<div class="sb-card sb-two"><div>${radar(F.hob,P.col)}<p class="kqp" style="margin:2px 0">${u9('rad')}</p></div><div><div class="sb-club" style="border:2px solid var(--line);border-radius:14px">${ic(best,44)}<span>${u9('best')}</span><b class="jp">${jh(H.j)}</b><small>${H.club[SLI()]}</small></div></div></div>`;
+  h+=`<div class="sb-ft">${['like','skill','und','has'].map(k=>`<button class="btn${S.ft===k?' fill':''}" data-sb="ft" data-v="${k}" style="--c:${P.col}">${u9(k)}</button>`).join('')}</div>`;
+  h+=`<div>${fs[S.ft].map(f=>window.S(s9m(P,f),s9t(P,f))).join('')}</div>`;
+  if(S.ft==='und'||S.ft==='has')h+=`<p class="kqp">${u9('leg')}</p><div class="sb-ft">${Object.keys(D9).map(k=>`<span class="sb-ch" style="padding:2px 8px">${bar(D9[k].lv)} <span class="jp">${jh(D9[k].j)}</span></span>`).join('')}</div>`}
+ else{const T=S.t;
+  if(!T){t9new()}const q=S.t;
+  h+=`<div class="sb-card"><div class="sb-fact"><div style="text-align:center">${face(q.P.f,56)}<div class="role">${pName(q.P)}</div></div>${q.step==='b'?fact9vis(q.f):''}</div>`;
+  if(q.step==='b'){
+   const sl=(k,m)=>{const id=q.sel[k];const c=q.bad[k]===0?' ok':q.bad[k]===1?' no':id?' f':'';return `<span class="sb-sl jp${c}">${id?jh(m):'&nbsp;'}</span>`};
+   const find=(arr,id)=>(arr.find(x=>x.id===id)||{}).m;
+   h+=`<p class="kqp">${u9('bq')}</p><div class="sb-prev"><span class="jp">${jh(q.P.j+'{は}')}</span>${sl('i',find(q.items,q.sel.i))}${sl('p',q.sel.p?'{'+q.sel.p+'}':'')}${sl('e',find(q.preds,q.sel.e))}</div>`;
+   const row=(k,cap,arr)=>`<div class="sb-cap">${cap}</div><div class="sb-opts">${arr.map(o=>`<button class="btn${q.sel[k]===o.id?' on':''}" data-sb="o" data-v="${k}|${o.id}" style="--c:var(--vio)"><span class="jp">${jh(o.m)}</span></button>`).join('')}</div>`;
+   h+=row('i',u9('sw'),q.items)+row('p',u9('sp'),q.parts)+row('e',u9('se'),q.preds)}
+  else{
+   h+=`<div class="sb-prof">${H9.map(x=>`<div>${ic(x.k,34)}<span class="jp">${jh(x.j)}</span>${q.hob[x.k][0]?heart(q.hob[x.k][0]):'<span style="height:34px;opacity:.4">–</span>'}${q.hob[x.k][1]?star(q.hob[x.k][1]):'<span style="height:34px;opacity:.4">–</span>'}</div>`).join('')}</div>`;
+   h+=`<p class="kqp">${u9('cq')}</p><div class="sb-clubs">${H9.map((x,i)=>`<button class="btn sb-club${q.cpick===i?(x.k===bestHob(q.hob)?' ok':' no'):''}" data-sb="c" data-v="${i}" style="--c:var(--vio)">${ic(x.k,44)}<b>${x.club[SLI()]}</b></button>`).join('')}</div>`}
+  h+=`</div><p class="kqp">${q.msg}</p>${foot(S,q.step==='c'&&q.cpick>=0&&H9[q.cpick].k===bestHob(q.hob))}`}
+ b.innerHTML=h}
+SR[9]=ui9;
+SH[9]=(a,v)=>{const S=S9;
+ if(a==='m'){S.mode=v;if(v==='test')t9new();ui9();return}
+ if(a==='p'){S.p=+v;ui9();return}
+ if(a==='ft'){S.ft=v;ui9();return}
+ if(a==='next'){t9new();ui9();return}
+ const q=S.t;if(!q)return;
+ if(a==='o'&&q.step==='b'){const[k,id]=v.split('|');q.sel[k]=id;delete q.bad[k];q.msg='';
+  if(q.sel.i&&q.sel.p&&q.sel.e){q.tries++;const ok={i:q.sel.i===q.ia,p:q.sel.p==='が',e:q.sel.e===q.f.pa};q.bad={i:ok.i?0:1,p:ok.p?0:1,e:ok.e?0:1};
+   if(ok.i&&ok.p&&ok.e){if(q.tries===1)addScore('9',S,1);q.msg=msgOk();sbSay(s9m(q.P,q.f).replace(/^[^ ]+ /,'')===''?'':s9m(q.P,q.f));q.step='c';q.bad={}}else q.msg=msgNo()}
+  ui9();return}
+ if(a==='c'&&q.step==='c'&&!(q.cpick>=0&&H9[q.cpick].k===bestHob(q.hob))){const i=+v;q.cpick=i;if(H9[i].k===bestHob(q.hob)){if(!q.cmiss)addScore('9',S,1);q.msg=msgOk()}else{q.cmiss=true;q.msg=msgNo()}ui9()}};
+
+/* ===================== 13: İzakaya ===================== */
+const M13=[{k:'beer',j:'~ビール',p:500,d:1,n:['pivə','beer','пиво'],ru:'пиво'},{k:'wine',j:'~ワイン',p:600,d:1,n:['şərab','wine','вино'],ru:'вино'},
+ {k:'juice',j:'~ジュース',p:300,d:1,n:['meyvə şirəsi','juice','сок'],ru:'сок'},{k:'tea',j:'お[茶:ちゃ]',p:200,d:1,n:['çay','tea','чай'],ru:'чай'},
+ {k:'tempura',j:'てんぷら',p:800,d:0,n:['tempura','tempura','тэмпура'],ru:'тэмпуру'},{k:'sashimi',j:'さしみ',p:900,d:0,n:['sashimi','sashimi','сашими'],ru:'сашими'},
+ {k:'gyudon',j:'[牛丼:ぎゅうどん]',p:700,d:0,n:['mal ətli düyü (gyudon)','gyudon (beef bowl)','гюдон (рис с говядиной)'],ru:'гюдон'},{k:'teishoku',j:'[定食:ていしょく]',p:1000,d:0,n:['set menyu (teişoku)','set meal (teishoku)','комплексный обед (тэйсёку)'],ru:'комплексный обед'}];
+const m13=k=>M13.find(x=>x.k===k);
+const KN=['','一','二','三','四','五','六','七','八','九'];
+function yen(n){let k='',r='';const man=Math.floor(n/10000);n%=10000;
+ if(man){k+=KN[man]+'万';r+=['','いち','に','さん','よん','ご','ろく','なな','はち','きゅう'][man]+'まん'}
+ const th=Math.floor(n/1000);n%=1000;if(th){k+=(th>1?KN[th]:'')+'千';r+=(th>1?['','','に','さん','よん','ご','ろく','なな','はっ','きゅう'][th]:'')+(th===3?'ぜん':'せん')}
+ const hu=Math.floor(n/100);if(hu){k+=(hu>1?KN[hu]:'')+'百';r+=(hu>1?['','','に','さん','よん','ご','ろっ','なな','はっ','きゅう'][hu]:'')+(hu===3?'びゃく':(hu===6||hu===8)?'ぴゃく':'ひゃく')}
+ return `[${k}:${r}][円:えん]`}
+const num=n=>n.toLocaleString('en-US')+'円';
+function sent13(it,pat){return pat==='w'?`${it.j}{が} [欲:ほ]しい|です。`:`${it.j}{を} ${it.d?'[飲:の]み':'[食:た]べ'}|たいです。`}
+function tr13(it,pat){const li=SLI(),N=it.n[li];
+ if(pat==='w')return li===0?`${N} istəyirəm.`:li===1?`I want ${N}.`:`Я хочу ${it.ru}.`;
+ if(li===0)return `${N} ${it.d?'içmək':'yemək'} istəyirəm.`;if(li===1)return `I want to ${it.d?'drink':'eat'} ${N}.`;return `Я хочу ${it.d?'выпить':'поесть'} ${it.ru}.`}
+const U13={tap:{az:'Qonağı seç, qəlibi seç, sonra menyuya toxun.',en:'Pick a diner and a pattern, then tap the menu.',ru:'Выберите гостя и модель, затем нажмите блюдо.'},
+ w:{az:'〜が 欲しいです',en:'〜が 欲しいです',ru:'〜が 欲しいです'},t:{az:'〜を 〜たいです',en:'〜を 〜たいです',ru:'〜を 〜たいです'},
+ tot:{az:'Cəmi',en:'Total',ru:'Итого'},clr:{az:'Təmizlə',en:'Clear',ru:'Очистить'},
+ spl:{az:'Hesab ayrı-ayrı ödənilir',en:'Everyone pays separately',ru:'Платим раздельно'},empty:{az:'Boşdur',en:'Empty',ru:'Пусто'},
+ oq:{az:'Şəkildəki şeyi bu qəlibdə istə:',en:'Ask for the item in the picture with this pattern:',ru:'Закажите блюдо с картинки по этой модели:'},
+ bq:{az:'Hər kəs ayrıca ödəyir. Bu şəxs nə qədər ödəyir?',en:'Everyone pays separately. How much does this person pay?',ru:'Каждый платит отдельно. Сколько платит этот человек?'},
+ sh:{az:'üçü bölüşür',en:'shared by all three',ru:'делят на троих'},
+ clk:{az:'Sifarişi hesabdan çıxarmaq üçün çipə toxun.',en:'Tap a chip to remove it.',ru:'Нажмите на значок, чтобы убрать.'}};
+const u13=k=>SL(U13[k]);
+let S13={mode:'free',d:0,pat:'w',ord:{stu:[],tea:[],off:[]},last:null,split:false,t:null,score:0,best:bestOf('13')};
+const D13=PERS.slice(0,3);
+const sub13=(arr)=>arr.reduce((s,k)=>s+m13(k).p,0);
+function t13new(){const od={stu:[],tea:[],off:[]};const sh=Math.random()<.5;
+ D13.forEach(P=>{const n=1+rnd(2);while(od[P.k].length<n){const k=pick(M13).k;if(k!=='sashimi'&&!od[P.k].includes(k))od[P.k].push(k)}});
+ const pay=D13.map(P=>sub13(od[P.k])+(sh?300:0));
+ const who=rnd(3),oi=rnd(od[D13[who].k].length),it=m13(od[D13[who].k][oi]),pat=Math.random()<.5?'w':'t';
+ const ans=pay[who];let c=new Set([ans]);const want=[...pay.filter((x,i)=>i!==who),ans+100,ans-100,ans+200,ans-200,sh?ans-300:ans+300,sh?ans+600:ans+500];
+ shuf(want).forEach(x=>{if(c.size<4&&x>0)c.add(x)});
+ const opts=shuf([...c]);
+ let ob=[sent13(it,pat)],bad=[];
+ if(pat==='w'){bad=[`${it.j}{を} [欲:ほ]しい|です。`,`${it.j}{が} [欲:ほ]しくない|です。`,`${pick(M13.filter(x=>x.k!==it.k)).j}{が} [欲:ほ]しい|です。`]}
+ else{const alt=`${it.j}{を} ${it.d?'[食:た]べ':'[飲:の]み'}|たいです。`;bad=[alt,`${it.j}{を} [欲:ほ]しい|です。`,`${it.j}{を} ${it.d?'[飲:の]み':'[食:た]べ'}|たくない|です。`]}
+ S13.t={od,sh,pay,who,it,pat,oopts:shuf([ob[0],...bad]),oans:ob[0],opick:-1,omiss:false,opts,ans,bpick:-1,bmiss:false,step:'o',msg:''}}
+function ui13(){const b=$('sbB13');if(!b)return;const S=S13;let h=tabs(S.mode);
+ if(S.mode==='free'){
+  h+=`<div class="sb-tbl sel">${D13.map((P,i)=>`<div class="${i===S.d?'on':''}" data-sb="d" data-v="${i}" style="--sbc:${P.col}">${face(P.f,44)}<div>${pName(P)}</div><div class="sb-yen">${num(sub13(S.ord[P.k]))}</div></div>`).join('')}</div>`;
+  h+=`<div class="sb-ft">${['w','t'].map(p=>`<button class="btn${S.pat===p?' fill':''}" data-sb="pat" data-v="${p}" style="--c:var(--pnk)"><span class="jp">${jh(p==='w'?'〜が [欲:ほ]しいです':'〜を 〜たいです')}</span></button>`).join('')}</div>`;
+  h+=`<div class="sb-menu">${M13.map(m=>`<button class="sb-mi" data-sb="add" data-v="${m.k}">${ic(m.k,38)}<span class="jp">${jh(m.j)}</span><small>${num(m.p)}</small></button>`).join('')}</div>`;
+  h+=`<div class="pout">${S.last?window.S(sent13(S.last,S.pat),tr13(S.last,S.pat)):`<p class="kqp">${u13('tap')}</p>`}</div>`;
+  h+=`<div class="sb-card">${D13.map(P=>`<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:2px 0">${face(P.f,30)}<b style="min-width:50px;font-size:12px">${pName(P)}</b>${S.ord[P.k].length?S.ord[P.k].map((k,i)=>`<button class="sb-ch" data-sb="rm" data-v="${P.k}|${i}" style="color:var(--ink)">${ic(k,22)}${num(m13(k).p)}</button>`).join(''):`<small style="color:var(--mut)">${u13('empty')}</small>`}</div>`).join('')}
+   <div class="tools"><button class="btn fill" data-sb="split" style="--c:var(--vio)"><span class="jp">${jh('[別々:べつべつ]に お[願:ねが]いします')}</span></button><button class="btn" data-sb="clr" style="--c:var(--mut)">${u13('clr')}</button></div></div>`;
+  if(S.split){const all=D13.reduce((s,P)=>s+sub13(S.ord[P.k]),0);
+   h+=`<div>${D13.map(P=>window.S(`${P.j}{は} ${sub13(S.ord[P.k])?yen(sub13(S.ord[P.k])):'ゼロ[円:えん]'}です。`,`${pName(P)}: ${num(sub13(S.ord[P.k]))}`)).join('')}${window.S(`ぜんぶで ${all?yen(all):'ゼロ[円:えん]'}です。`,`${u13('tot')}: ${num(all)}`)}</div>`}}
+ else{if(!S.t)t13new();const q=S.t;
+  h+=`<div class="sb-card"><div class="sb-tbl">${D13.map((P,i)=>`<div class="${q.step==='b'&&i===q.who?'on':''}" style="--sbc:${P.col}">${face(P.f,40)}<div>${pName(P)}</div>${q.od[P.k].map(k=>`<span class="sb-ch" style="color:var(--ink)">${ic(k,22)}${num(m13(k).p)}</span>`).join('')}</div>`).join('')}</div>${q.sh?`<div class="sb-share">${ic('sashimi',30)}<span>${num(900)} · ${u13('sh')}</span></div>`:''}</div>`;
+  if(q.step==='o'){
+   h+=`${window.S('ご[注文:ちゅうもん]は？','')}<div class="sb-fact" style="margin:6px 0">${ic(q.it.k,54)}<span class="btn fill" style="--c:var(--pnk);pointer-events:none"><span class="jp">${jh(q.pat==='w'?'〜が [欲:ほ]しいです':'〜を 〜たいです')}</span></span></div><p class="kqp">${u13('oq')}</p>`;
+   h+=`<div class="ct-opts">${q.oopts.map((t,i)=>`<button class="btn${q.opick===i?(t===q.oans?' ok':' no'):''}" data-sb="oo" data-v="${i}"><span class="jp">${jh(t)}</span></button>`).join('')}</div>`}
+  else{
+   h+=`${window.S('[別々:べつべつ]に お[願:ねが]いします。','')}<p class="kqp">${u13('bq')}</p><div class="sb-fact">${face(D13[q.who].f,44)}<b>${pName(D13[q.who])}</b></div>`;
+   h+=`<div class="ct-opts">${q.opts.map((n,i)=>`<button class="btn${q.bpick===i?(n===q.ans?' ok':' no'):''}" data-sb="bb" data-v="${i}"><span class="jp">${jh(yen(n))}</span></button>`).join('')}</div>`}
+  h+=`<p class="kqp">${q.msg}</p>${foot(S,q.step==='b'&&q.bpick>=0&&q.opts[q.bpick]===q.ans)}`}
+ b.innerHTML=h}
+SR[13]=ui13;
+SH[13]=(a,v)=>{const S=S13;
+ if(a==='m'){S.mode=v;if(v==='test')t13new();ui13();return}
+ if(a==='d'){S.d=+v;ui13();return}if(a==='pat'){S.pat=v;if(S.last)S.last=S.last;ui13();return}
+ if(a==='add'){const m=m13(v);const P=D13[S.d];if(S.ord[P.k].length<4)S.ord[P.k].push(v);S.last=m;S.split=false;ui13();sbSay(sent13(m,S.pat));return}
+ if(a==='rm'){const[p,i]=v.split('|');S.ord[p].splice(+i,1);S.split=false;ui13();return}
+ if(a==='clr'){S.ord={stu:[],tea:[],off:[]};S.last=null;S.split=false;ui13();return}
+ if(a==='split'){S.split=true;ui13();return}
+ if(a==='next'){t13new();ui13();return}
+ const q=S.t;if(!q)return;
+ if(a==='oo'&&q.step==='o'){const i=+v,t=q.oopts[i];q.opick=i;if(t===q.oans){if(!q.omiss)addScore('13',S,1);q.msg=msgOk();q.step='b';sbSay(t)}else{q.omiss=true;q.msg=msgNo()}ui13();return}
+ if(a==='bb'&&q.step==='b'&&!(q.bpick>=0&&q.opts[q.bpick]===q.ans)){const i=+v;q.bpick=i;if(q.opts[i]===q.ans){if(!q.bmiss)addScore('13',S,1);q.msg=msgOk()}else{q.bmiss=true;q.msg=msgNo()}ui13()}};
+
+/* ===================== 14: Taksi naviqatoru ===================== */
+const CW=5,CH=4,X0=75,Y0=62,DX=104,DY=92;
+const px=x=>X0+x*DX,py=y=>Y0+y*DY;
+const LM=[{k:'eki',j:'[駅:えき]',g:'駅',x:4,y:0,c:'#d33f49',n:['Qatar stansiyası','Station','Вокзал']},{k:'hotel',j:'~ホテル',g:'ホ',x:1,y:0,c:'#8e44ad',n:['Otel','Hotel','Отель']},
+ {k:'byo',j:'[病院:びょういん]',g:'病',x:3,y:1,c:'#16a085',n:['Xəstəxana','Hospital','Больница']},{k:'to',j:'[図書館:としょかん]',g:'図',x:0,y:2,c:'#2e6fd0',n:['Kitabxana','Library','Библиотека']},
+ {k:'koen',j:'[公園:こうえん]',g:'公',x:2,y:2,c:'#2f9e44',n:['Park','Park','Парк']},{k:'gin',j:'[銀行:ぎんこう]',g:'銀',x:4,y:3,c:'#c77d0a',n:['Bank','Bank','Банк']},
+ {k:'yu',j:'[郵便局:ゆうびんきょく]',g:'郵',x:1,y:3,c:'#e8558e',n:['Poçt','Post office','Почта']}];
+LM[0].n[0]='Dəmir yol stansiyası';
+const lm14=k=>LM.find(l=>l.k===k);
+const lmAt=(x,y)=>LM.find(l=>l.x===x&&l.y===y);
+const DV=[[0,-1],[1,0],[0,1],[-1,0]];
+const CMD={F:{m:'まっすぐ [行:い]って ください。',b:'まっすぐ [行:い]って',tr:{az:'Düz gedin, zəhmət olmasa.',en:'Please go straight.',ru:'Поезжайте прямо, пожалуйста.'}},
+ R:{m:'[右:みぎ]に [曲:ま]がって ください。',b:'[右:みぎ]に [曲:ま]がって',tr:{az:'Sağa dönün, zəhmət olmasa.',en:'Please turn right.',ru:'Поверните направо, пожалуйста.'}},
+ L:{m:'[左:ひだり]に [曲:ま]がって ください。',b:'[左:ひだり]に [曲:ま]がって',tr:{az:'Sola dönün, zəhmət olmasa.',en:'Please turn left.',ru:'Поверните налево, пожалуйста.'}},
+ S:{m:'ここで [止:と]めて ください。',b:'ここで [止:と]めて',tr:{az:'Burada saxlayın, zəhmət olmasa.',en:'Please stop here.',ru:'Остановитесь здесь, пожалуйста.'}}};
+const ARW={F:'<path d="M12 20V5M5 11l7-7 7 7" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',R:'<path d="M5 20V10a4 4 0 0 1 4-4h9M13 1l5 5-5 5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(0,2)"/>',
+ L:'<path d="M19 20V10a4 4 0 0 0-4-4H6M11 1L6 6l5 5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(0,2)"/>',S:'<rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor"/>'};
+const lg=c=>`<span class="sb-lg"><svg viewBox="0 0 24 24" aria-hidden="true">${ARW[c]}</svg></span>`;
+const U14={tap:{az:'Düymələrə toxun: taksi sözlərinə uyğun hərəkət edəcək.',en:'Tap the phrases: the taxi follows your words.',ru:'Нажимайте фразы: такси выполнит ваши слова.'},
+ dest:{az:'Təyinat yeri',en:'Destination',ru:'Пункт назначения'},cnt:{az:'Əmr sayı',en:'Instructions',ru:'Команд'},min:{az:'Ən qısa',en:'Shortest',ru:'Минимум'},
+ rs:{az:'Yenidən',en:'Restart',ru:'Заново'},wall:{az:'Bu yol yoxdur.',en:'There is no road that way.',ru:'Там нет дороги.'},closed:{az:'Yol bağlıdır (təmir).',en:'Road closed (works).',ru:'Дорога закрыта (ремонт).'},
+ arr:{az:'Çatdınız!',en:'You have arrived!',ru:'Приехали!'},wrong:{az:'Burası təyinat yeri deyil. Taksi başlanğıca qayıtdı.',en:'This is not the destination. The taxi went back to the start.',ru:'Это не пункт назначения. Такси вернулось к старту.'},
+ hereis:{az:'Burada:',en:'Here:',ru:'Здесь:'},nop:{az:'Burada heç bir yer yoxdur.',en:'There is no place here.',ru:'Здесь ничего нет.'},
+ tq:{az:'Taksiçiyə yolu söylə və təyinat yerində saxlat.',en:'Direct the driver and stop at the destination.',ru:'Направьте водителя и остановитесь у пункта назначения.'},
+ pts:{az:'xal',en:'pts',ru:'очк.'}};
+const u14=k=>SL(U14[k]);
+let S14={mode:'free',pos:{x:0,y:3},rot:0,log:[],dest:null,blocked:[],start:null,min:0,msg:'',last:null,done:false,miss:false,score:0,best:bestOf('14')};
+const ekey=(a,b,c,d)=>{const p=a+','+b,q=c+','+d;return p<q?p+'|'+q:q+'|'+p};
+function step14(s,blocked){const d=((s.r%4)+4)%4,nx=s.x+DV[d][0],ny=s.y+DV[d][1];if(nx<0||ny<0||nx>=CW||ny>=CH)return null;if(blocked.includes(ekey(s.x,s.y,nx,ny)))return null;return{x:nx,y:ny,r:s.r}}
+function bfs14(st0,dst,blocked){const key=s=>s.x+','+s.y+','+(((s.r%4)+4)%4);const seen=new Set([key(st0)]);let fr=[{s:st0,n:0}];
+ while(fr.length){const nx=[];for(const{s,n}of fr){if(s.x===dst.x&&s.y===dst.y)return n+1;
+  for(const t of[step14(s,blocked),{x:s.x,y:s.y,r:s.r+1},{x:s.x,y:s.y,r:s.r+3}]){if(t&&!seen.has(key(t))){seen.add(key(t));nx.push({s:t,n:n+1})}}}fr=nx}return 99}
+function t14new(){const S=S14;let g=0;
+ do{const d=pick(LM),sx=rnd(CW),sy=rnd(CH),r=rnd(4);if(lmAt(sx,sy)||Math.abs(sx-d.x)+Math.abs(sy-d.y)<4)continue;
+  const nb=[];for(let i=0;i<2;i++){const x=rnd(CW),y=rnd(CH),dd=pick([1,2]),x2=dd===1?x+1:x,y2=dd===2?y+1:y;if(x2<CW&&y2<CH)nb.push(ekey(x,y,x2,y2))}
+  const m=bfs14({x:sx,y:sy,r},d,nb);if(m>=6&&m<=12){Object.assign(S,{dest:d.k,start:{x:sx,y:sy,r:r*1},blocked:nb,min:m});break}}while(++g<2000);
+ resetRun14();S.msg=''}
+function resetRun14(){const S=S14;if(S.mode==='test'&&S.start){S.pos={x:S.start.x,y:S.start.y};S.rot=S.start.r*90}else{S.pos={x:0,y:3};S.rot=0}S.log=[];S.last=null;S.done=false}
+function mapSvg14(){const S=S14;let s=`<svg class="sb-map" viewBox="0 0 560 390" role="img" aria-label="map"><rect width="560" height="390" fill="#cfe8c2"/>`;
+ for(let i=-1;i<CW;i++)for(let j=-1;j<CH;j++){const x=px(i)+16,y=py(j)+16,w=DX-32,h=DY-32;if(i<CW-1&&j<CH-1||true){const a=(i*7+j*3+9)%3;s+=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="${a===0?'#f1e6cf':a===1?'#e9dcc2':'#f4ecd9'}"/><rect x="${x+8}" y="${y+8}" width="${w/2-12}" height="${h/2-6}" rx="3" fill="${a===0?'#d98d6c':a===1?'#8fb0d8':'#c9a86c'}" opacity=".85"/><rect x="${x+w/2+4}" y="${y+h/2}" width="${w/2-14}" height="${h/2-8}" rx="3" fill="${a===0?'#9bbf8a':a===1?'#d98d6c':'#8fb0d8'}" opacity=".85"/>`}}
+ for(let y=0;y<CH;y++)s+=`<rect x="${px(0)-34}" y="${py(y)-13}" width="${(CW-1)*DX+68}" height="26" fill="#6b7280"/><path d="M${px(0)-34} ${py(y)}H${px(CW-1)+34}" stroke="#fff" stroke-width="2" stroke-dasharray="10 8" opacity=".7"/>`;
+ for(let x=0;x<CW;x++)s+=`<rect x="${px(x)-13}" y="${py(0)-34}" width="26" height="${(CH-1)*DY+68}" fill="#6b7280"/><path d="M${px(x)} ${py(0)-34}V${py(CH-1)+34}" stroke="#fff" stroke-width="2" stroke-dasharray="10 8" opacity=".7"/>`;
+ for(let x=0;x<CW;x++)for(let y=0;y<CH;y++)s+=`<rect x="${px(x)-13}" y="${py(y)-13}" width="26" height="26" fill="#6b7280"/>`;
+ S.blocked.forEach(k=>{const[a,b]=k.split('|').map(p=>p.split(',').map(Number));const mx=(px(a[0])+px(b[0]))/2,my=(py(a[1])+py(b[1]))/2;
+  s+=`<g transform="translate(${mx},${my})"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#ff8c1a" stroke="#fff" stroke-width="2"/><path d="M-9 -9L9 9M9 -9L-9 9" stroke="#fff" stroke-width="4"/></g>`});
+ LM.forEach(l=>{const t=S.dest===l.k;s+=`<g>${t?`<circle class="sb-pulse" cx="${px(l.x)}" cy="${py(l.y)}" r="25" fill="none" stroke="#e23b4e" stroke-width="4"/>`:''}<circle cx="${px(l.x)}" cy="${py(l.y)}" r="17" fill="${l.c}" stroke="#fff" stroke-width="3"/><text x="${px(l.x)}" y="${py(l.y)+6}" font-size="17" font-weight="900" text-anchor="middle" fill="#fff" font-family="sans-serif">${l.g}</text></g>`});
+ s+=`<g id="sbTaxi" style="transform:translate(${px(S.pos.x)}px,${py(S.pos.y)}px) rotate(${S.rot}deg)"><rect x="-9" y="-17" width="18" height="34" rx="6" fill="#ffc20e" stroke="#8a5d00" stroke-width="1.6"/><rect x="-6.5" y="-9" width="13" height="7" rx="2" fill="#8fd0f5"/><rect x="-6.5" y="5" width="13" height="5" rx="2" fill="#8fd0f5"/><rect x="-4" y="-1.5" width="8" height="4" rx="1" fill="#fff" stroke="#8a5d00" stroke-width=".8"/><circle cx="-5.5" cy="-16" r="1.6" fill="#fff7b0"/><circle cx="5.5" cy="-16" r="1.6" fill="#fff7b0"/><path d="M-9 13h18" stroke="#111" stroke-width="1.5" stroke-dasharray="3 2"/></g></svg>`;return s}
+function out14(){const o=$('sbO14');if(!o)return;const S=S14;let h='';
+ if(S.mode==='test'&&S.dest){const l=lm14(S.dest);h+=`<div class="sb-card" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="sb-lg" style="width:34px;height:34px;background:${l.c}"><b style="font-size:17px">${l.g}</b></span><div><div class="role">${u14('dest')}</div>${window.S(`${l.j}{まで} お[願:ねが]いします。`,'')}</div></div>`}
+ else if(S.mode==='free'){h+=`<div class="sb-dst">${LM.map(l=>`<button class="btn${S.dest===l.k?' fill':''}" data-sb="dst" data-v="${l.k}" style="--c:${l.c}"><span class="jp">${jh(l.j)}</span></button>`).join('')}</div>`}
+ h+=`<div class="sb-log">${S.log.map(lg).join('')||`<small style="color:var(--mut)">${u14('tap')}</small>`}<span class="role" style="margin-left:auto">${u14('cnt')}: ${S.log.length}${S.mode==='test'&&S.done?` · ${u14('min')}: ${S.min}`:''}</span></div>`;
+ if(S.last)h+=window.S(CMD[S.last].m,SL(CMD[S.last].tr));
+ h+=`<p class="kqp">${S.msg}</p>`;
+ if(S.mode==='test')h+=foot(S,S.done);else h+=`<div class="tools"><button class="btn" data-sb="rs" style="--c:var(--mut)">${u14('rs')}</button></div>`;
+ o.innerHTML=h}
+function ui14(){const b=$('sbB14');if(!b)return;const S=S14;
+ if(S.mode==='test'&&!S.dest)t14new();
+ b.innerHTML=tabs(S.mode)+`<div class="ct-wrap" style="touch-action:auto">${mapSvg14()}</div><div class="sb-cmds">${['F','R','L','S'].map(c=>`<button class="btn" data-sb="cmd" data-v="${c}" style="--c:${c==='S'?'var(--hanko,#d33)':'var(--vio)'}"><span class="jp">${jh(CMD[c].b)}</span></button>`).join('')}</div><div id="sbO14"></div>`;out14()}
+function mv14(){const t=$('sbTaxi');if(t)t.style.transform=`translate(${px(S14.pos.x)}px,${py(S14.pos.y)}px) rotate(${S14.rot}deg)`}
+SR[14]=ui14;
+SH[14]=(a,v)=>{const S=S14;
+ if(a==='m'){S.mode=v;S.msg='';if(v==='test')t14new();else{S.dest=null;S.blocked=[];resetRun14()}ui14();return}
+ if(a==='dst'){S.dest=S.dest===v?null:v;ui14();return}
+ if(a==='rs'){resetRun14();S.msg='';if(S.mode==='test')S.miss=false;ui14();return}
+ if(a==='next'){t14new();S.miss=false;ui14();return}
+ if(a==='cmd'){if(S.done)return;S.msg='';const c=v;S.last=c;
+  if(c==='F'){const n=step14({x:S.pos.x,y:S.pos.y,r:S.rot/90},S.blocked);
+   if(!n){S.msg=`<b class="vno">${(()=>{const d=((S.rot/90)%4+4)%4,nx=S.pos.x+DV[d][0],ny=S.pos.y+DV[d][1];return nx>=0&&ny>=0&&nx<CW&&ny<CH?u14('closed'):u14('wall')})()}</b>`}
+   else{S.pos.x=n.x;S.pos.y=n.y;S.log.push('F')}}
+  else if(c==='R'){S.rot+=90;S.log.push('R')}else if(c==='L'){S.rot-=90;S.log.push('L')}
+  else{S.log.push('S');const l=lmAt(S.pos.x,S.pos.y);
+   if(S.mode==='test'){if(l&&l.k===S.dest){S.done=true;const n=S.log.length,p=n<=S.min?2:n<=S.min+2?1:0;const pp=S.miss?0:p;addScore('14',S,pp);S.msg=`<b class="vok">${u14('arr')} +${pp} ${u14('pts')}</b>`}
+    else{S.msg=`<b class="vno">${u14('wrong')}</b>`;S.miss=true;resetRun14();S.last='S'}}
+   else{S.msg=l?(l.k===S.dest?`<b class="vok">${u14('arr')}</b> ${jh(l.j)}`:`${u14('hereis')} ${jh(l.j)} · ${l.n[SLI()]}`):u14('nop')}}
+  mv14();out14();sbSay(CMD[c].m);return}};
+
+/* ===================== 15: Ailə ağacı ===================== */
+const FAM=[{k:'gf',hu:'[祖父:そふ]',re:'おじいさん',x:18,row:0,n:['baba','grandfather','дедушка'],f:{skin:'#efc9a0',hair:'#cfd3da',style:'bald',shirt:'#6b7a8f',gl:1},s:38,job:'[医者:いしゃ]'},
+ {k:'gm',hu:'[祖母:そぼ]',re:'おばあさん',x:42,row:0,n:['nənə','grandmother','бабушка'],f:{skin:'#efc9a0',hair:'#cfd3da',style:'bun',shirt:'#b07ab8'},s:38,job:'[先生:せんせい]'},
+ {k:'fa',hu:'[父:ちち]',re:'お[父:とう]さん',x:30,row:1,n:['ata','father','отец'],f:{skin:'#e9bd94',hair:'#2b2118',style:'short',shirt:'#3b6bb5'},s:40,job:'[会社員:かいしゃいん]'},
+ {k:'mo',hu:'[母:はは]',re:'お[母:かあ]さん',x:70,row:1,n:['ana','mother','мать'],f:{skin:'#f2c9a0',hair:'#3a2418',style:'long',shirt:'#d9648f'},s:40,job:'[先生:せんせい]'},
+ {k:'ob',hu:'[兄:あに]',re:'お[兄:にい]さん',x:10,row:2,n:['böyük qardaş','older brother','старший брат'],f:{skin:'#e9bd94',hair:'#1c1c1c',style:'short',shirt:'#2f9e8f'},s:40,job:'[銀行員:ぎんこういん]'},
+ {k:'os',hu:'[姉:あね]',re:'お[姉:ねえ]さん',x:30,row:2,n:['böyük bacı','older sister','старшая сестра'],f:{skin:'#f2c9a0',hair:'#5a3220',style:'long',shirt:'#e8873a',gl:1},s:40,job:'[医者:いしゃ]'},
+ {k:'me',x:50,row:2,me:1,f:{skin:'#f6d3b0',hair:'#2b2118',style:'short',shirt:'#7b61ff'},s:36},
+ {k:'yb',hu:'[弟:おとうと]',re:'[弟:おとうと]さん',x:70,row:2,n:['kiçik qardaş','younger brother','младший брат'],f:{skin:'#f6d3b0',hair:'#3a2418',style:'short',shirt:'#e0b02e'},s:32,job:'[学生:がくせい]'},
+ {k:'ys',hu:'[妹:いもうと]',re:'[妹:いもうと]さん',x:90,row:2,n:['kiçik bacı','younger sister','младшая сестра'],f:{skin:'#f6d3b0',hair:'#4a2c1a',style:'pig',shirt:'#e8558e'},s:32,job:'[学生:がくせい]'}];
+const fam=k=>FAM.find(x=>x.k===k);
+const RY=[0,128,256];
+function treeLines(){const y1=[46,174,302];
+ const L=(a,b,c,d)=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="currentColor" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`;
+ return `<svg viewBox="0 0 100 348" preserveAspectRatio="none" aria-hidden="true" style="color:var(--ink)">${L(18,46,42,46)}${L(30,46,30,128)}${L(30,174,70,174)}${L(50,174,50,236)}${L(10,236,90,236)}${[10,30,50,70,90].map(x=>L(x,236,x,256)).join('')}</svg>`}
+const U15={tap:{az:'Qohumun üzərinə toxun: iki forma və nümunə görünəcək.',en:'Tap a relative: both forms and an example appear.',ru:'Нажмите на родственника: появятся обе формы и пример.'},
+ mine:{az:'Öz ailəm',en:'My family',ru:'Моя семья'},their:{az:'Başqasının ailəsi',en:"Someone else's family",ru:'Чужая семья'},
+ hum:{az:'Öz ailəm (təvazökar)',en:'My own (humble)',ru:'Своя (скромная)'},res:{az:'Başqasının (hörmətli)',en:"Someone else's (respectful)",ru:'Чужая (почтительная)'},
+ note:{az:'Öz ailənizdən kənar adama danışanda 母, başqasının ailəsi üçün お母さん deyilir. Öz anasına birbaşa müraciətdə də お母さん işlədilir.',en:'Use 母 for your own family when talking to others, and お母さん for someone else\'s. You also call your own mother お母さん when speaking to her directly.',ru:'О своей семье говорят 母, о чужой お母さん. К собственной маме при обращении тоже говорят お母さん.'},
+ q1:{az:'Öz ailənin ağacını doldur.',en:'Fill in the tree of your own family.',ru:'Заполните дерево своей семьи.'},q2:{az:'Başqasının ailə ağacını doldur.',en:"Fill in the tree of someone else's family.",ru:'Заполните дерево чужой семьи.'},
+ pick:{az:'Qohumu və sözü seç.',en:'Pick the relative and the word.',ru:'Выберите родственника и слово.'},
+ wrel:{az:'Bu başqa qohumdur.',en:'That is a different relative.',ru:'Это другой родственник.'},wform:{az:'Doğru qohumdur, amma forma səhvdir.',en:'Right relative, wrong form.',ru:'Родственник верный, форма неверная.'},
+ done:{az:'Ağac tamamdır!',en:'The tree is complete!',ru:'Дерево заполнено!'}};
+const u15=k=>SL(U15[k]);
+let S15={mode:'free',other:false,sel:null,t:null,score:0,best:bestOf('15')};
+function t15new(){const other=Math.random()<.5;const chips=[];FAM.filter(x=>!x.me).forEach(x=>{chips.push({id:x.k+'h',k:x.k,o:0,m:x.hu});chips.push({id:x.k+'r',k:x.k,o:1,m:x.re})});
+ S15.t={other,chips:shuf(chips),placed:{},bad:{},miss:{},sel:null,msg:'',all:false}}
+function sent15(x,other){return other?`パーカー|さん{の} ${x.re}{は} ${x.job}です。`:`わたし{の} ${x.hu}{は} ${x.job}です。`}
+function tr15(x,other){const li=SLI(),r=x.n[li];
+ if(li===0)return other?`Parkerin ${r}sı/si ${{'[医者:いしゃ]':'həkimdir','[先生:せんせい]':'müəllimdir','[会社員:かいしゃいん]':'ofis işçisidir','[銀行員:ぎんこういん]':'bank işçisidir','[学生:がくせい]':'tələbədir'}[x.job]}.`:`Mənim ${r}m ${{'[医者:いしゃ]':'həkimdir','[先生:せんせい]':'müəllimdir','[会社員:かいしゃいん]':'ofis işçisidir','[銀行員:ぎんこういん]':'bank işçisidir','[学生:がくせい]':'tələbədir'}[x.job]}.`;
+ return '';}
+const JOB15={'[医者:いしゃ]':['həkim','doctor','врач'],'[先生:せんせい]':['müəllim','teacher','учитель'],'[会社員:かいしゃいん]':['ofis işçisi','office worker','сотрудник компании'],'[銀行員:ぎんこういん]':['bank işçisi','bank clerk','банковский работник'],'[学生:がくせい]':['tələbə','student','студент']};
+const AZP={gf:['babam','babası'],gm:['nənəm','nənəsi'],fa:['atam','atası'],mo:['anam','anası'],ob:['böyük qardaşım','böyük qardaşı'],os:['böyük bacım','böyük bacısı'],yb:['kiçik qardaşım','kiçik qardaşı'],ys:['kiçik bacım','kiçik bacısı']};
+const ENP={gf:'grandfather',gm:'grandmother',fa:'father',mo:'mother',ob:'older brother',os:'older sister',yb:'younger brother',ys:'younger sister'};
+const RUP={gf:['Мой дедушка','Дедушка Паркера'],gm:['Моя бабушка','Бабушка Паркера'],fa:['Мой отец','Отец Паркера'],mo:['Моя мама','Мама Паркера'],ob:['Мой старший брат','Старший брат Паркера'],os:['Моя старшая сестра','Старшая сестра Паркера'],yb:['Мой младший брат','Младший брат Паркера'],ys:['Моя младшая сестра','Младшая сестра Паркера']};
+function tr15b(x,other){const li=SLI(),j=JOB15[x.job][li],o=other?1:0;
+ if(li===0){const a=AZP[x.k][o],ja=x.job==='[会社員:かいしゃいん]'?'ofis işçisidir':x.job==='[銀行員:ぎんこういん]'?'bank işçisidir':x.job==='[先生:せんせい]'?'müəllimdir':x.job==='[医者:いしゃ]'?'həkimdir':'tələbədir';return `${other?'Parkerin ':'Mənim '}${a} ${ja}.`}
+ if(li===1)return `${other?"Parker's":'My'} ${ENP[x.k]} is ${/^[aeiou]/.test(j)?'an':'a'} ${j}.`;
+ const jr={'[医者:いしゃ]':'врач','[先生:せんせい]':'учитель','[会社員:かいしゃいん]':'сотрудник компании','[銀行員:ぎんこういん]':'банковский работник','[学生:がくせい]':'студент'}[x.job];
+ const fem=['gm','mo','os','ys'].includes(x.k);const jf={'врач':'врач','учитель':'учительница','сотрудник компании':'сотрудница компании','банковский работник':'банковская работница','студент':'студентка'}[jr];
+ return `${RUP[x.k][o]} – ${fem?jf:jr}.`}
+function nodeHtml(x,mode){const S=S15,sz=x.s;let inner,cls='sb-nd';const sty=`left:${x.x}%;top:${RY[x.row]}px`;
+ if(x.me){const q=mode==='test'?S.t.other:S.other;return `<div class="${cls} me" style="${sty}">${face(x.f,sz+6)}<span class="jp">${jh(q?'パーカー|さん':'わたし')}</span></div>`}
+ if(mode==='free'){const form=S.other?x.re:x.hu;return `<button class="${cls}${S.sel===x.k?' on':''}" data-sb="nd" data-v="${x.k}" style="${sty}">${face(x.f,sz+4)}<span class="jp">${jh(form)}</span><small>${x.n[SLI()]}</small></button>`}
+ const T=S.t,pl=T.placed[x.k];const c=pl?' ok':T.bad[x.k]?' bad':!pl?' empty':'';
+ return `<button class="${cls}${c}${T.sel&&T.sel.t==='s'&&T.sel.id===x.k?' on':''}" data-sb="sl" data-v="${x.k}" style="${sty}">${face(x.f,sz+4)}<span class="jp">${pl?jh(pl):'？'}</span><small>${x.n[SLI()]}</small></button>`}
+function ui15(){const b=$('sbB15');if(!b)return;const S=S15;let h=tabs(S.mode);
+ if(S.mode==='free'){
+  h+=`<div class="sb-ft">${[false,true].map(o=>`<button class="btn${S.other===o?' fill':''}" data-sb="fo" data-v="${o?1:0}" style="--c:var(--pnk)"><span class="jp">${jh(o?'パーカー|さん{の} ご[家族:かぞく]':'わたし{の} [家族:かぞく]')}</span></button>`).join('')}</div>`;
+  h+=`<div class="sb-tree">${treeLines()}${FAM.map(x=>nodeHtml(x,'free')).join('')}</div>`;
+  const x=S.sel&&fam(S.sel);
+  if(x){h+=`<div class="sb-2f"><div class="${!S.other?'on':''}"><small>${u15('hum')}</small><span class="jp">${jh(x.hu)}</span></div><div class="${S.other?'on':''}"><small>${u15('res')}</small><span class="jp">${jh(x.re)}</span></div></div>${window.S(sent15(x,S.other),tr15b(x,S.other))}`}
+  else h+=`<p class="kqp">${u15('tap')}</p>`;
+  h+=`<p class="kqp" style="font-size:13px"><span class="jp">${u15('note')}</span></p>`}
+ else{if(!S.t)t15new();const T=S.t;
+  h+=`<p class="kqp"><b>${T.other?u15('q2'):u15('q1')}</b></p><div class="sb-ft"><span class="btn fill" style="--c:var(--pnk);pointer-events:none"><span class="jp">${jh(T.other?'パーカー|さん{の} ご[家族:かぞく]':'わたし{の} [家族:かぞく]')}</span></span></div>`;
+  h+=`<div class="sb-tree">${treeLines()}${FAM.map(x=>nodeHtml(x,'test')).join('')}</div>`;
+  if(!T.all)h+=`<p class="kqp">${u15('pick')}</p><div class="sb-bank">${T.chips.filter(c=>!T.placed[c.k]||false).map(c=>`<button class="btn${T.sel&&T.sel.t==='c'&&T.sel.id===c.id?' on':''}" data-sb="ch" data-v="${c.id}" style="--c:var(--vio)"><span class="jp">${jh(c.m)}</span></button>`).join('')}</div>`;
+  h+=`<p class="kqp">${T.msg}</p>${foot(S,T.all)}`}
+ b.innerHTML=h}
+SR[15]=ui15;
+function try15(T,slot,chip){const S=S15;
+ if(chip.k===slot){const x=fam(slot),right=chip.o===(T.other?1:0);
+  if(right){T.placed[slot]=chip.m;delete T.bad[slot];if(!T.miss[slot])addScore('15',S,1);T.msg=msgOk();
+   if(FAM.filter(x=>!x.me).every(x=>T.placed[x.k])){T.all=true;T.msg=`<b class="vok">${u15('done')}</b>`}sbSay(chip.m)}
+  else{T.miss[slot]=true;T.msg=`<b class="vno">${u15('wform')}</b>`}}
+ else{T.miss[slot]=true;T.msg=`<b class="vno">${u15('wrel')}</b>`}
+ T.sel=null}
+SH[15]=(a,v)=>{const S=S15;
+ if(a==='m'){S.mode=v;if(v==='test')t15new();ui15();return}
+ if(a==='fo'){S.other=v==='1';ui15();return}
+ if(a==='nd'){S.sel=v;ui15();const x=fam(v);sbSay(S.other?x.re:x.hu);return}
+ if(a==='next'){t15new();ui15();return}
+ const T=S.t;if(!T||T.all)return;
+ if(a==='sl'){if(T.placed[v])return;if(T.sel&&T.sel.t==='c'){try15(T,v,T.chips.find(c=>c.id===T.sel.id))}else T.sel=T.sel&&T.sel.t==='s'&&T.sel.id===v?null:{t:'s',id:v};ui15();return}
+ if(a==='ch'){if(T.sel&&T.sel.t==='s'){try15(T,T.sel.id,T.chips.find(c=>c.id===v))}else T.sel=T.sel&&T.sel.t==='c'&&T.sel.id===v?null:{t:'c',id:v};ui15()}};
+
+/* ---- ortaq klik ---- */
+addEventListener('click',e=>{const t=e.target;if(!t.closest)return;const box=t.closest('.sb-box');if(!box)return;const a=t.closest('[data-sb]');if(!a||!box.contains(a))return;
+ const h=SH[box.dataset.sc];if(h)h(a.dataset.sb,a.dataset.v)},true);
+
+/* ---- dərsə qoşulma ---- */
+const DEF={9:{lbl:{az:'Hobbi radarı',en:'Hobby radar',ru:'Радар увлечений'},ttl:{az:'Kimə hansı klub uyğundur?',en:'Which club fits whom?',ru:'Кому какой клуб подходит?'},jp:'好きです・上手です・分かります・あります'},
+ 13:{lbl:{az:'İzakaya: sifariş və hesab',en:'Izakaya: order and bill',ru:'Идзакая: заказ и счёт'},ttl:{az:'Sifariş ver, sonra hesabı böl',en:'Order, then split the bill',ru:'Закажите и поделите счёт'},jp:'別々に お願いします'},
+ 14:{lbl:{az:'Taksi naviqatoru',en:'Taxi navigator',ru:'Навигатор такси'},ttl:{az:'Taksiçiyə yolu göstər',en:'Direct the taxi driver',ru:'Укажите водителю путь'},jp:'〜て ください'},
+ 15:{lbl:{az:'Ailə ağacı',en:'Family tree',ru:'Семейное древо'},ttl:{az:'Öz ailəm, yoxsa başqasının ailəsi?',en:'My family or someone else\'s?',ru:'Своя семья или чужая?'},jp:'母・お母さん'}};
+setTimeout(()=>{for(const n of [9,13,14,15]){const L=LS[n];if(!L)continue;const D=DEF[n];
+  try{Object.defineProperty(L,'playLabel',{get:()=>SL(D.lbl),configurable:true})}catch(_){}
+  L.play=()=>playSec(SL(D.ttl),`<span class="jp">${D.jp}</span>`,'',`<div id="sbB${n}" class="sb-box" data-sc="${n}"></div>`);
+  L.init=()=>{if($('sbB'+n))SR[n]()}}
+ try{if([9,13,14,15].includes(C.n))render()}catch(_){}},0);
+})();
+
+/* ================= Səhnələr C: 18 hobbi klubu, 19 pəhriz gündəliyi, 21 rəy sorğusu, 23 yol tapıcı ================= */
+(()=>{
+const t3=(az,en,ru)=>({az,en,ru}),T=o=>SL(o);
+const U={free:t3('Sərbəst','Free play','Свободно'),test:t3('Yoxla','Check','Проверка'),ok:t3('Düzdür!','Correct!','Верно!'),no:t3('Yox, bir də bax.','No, look again.','Нет, посмотрите ещё.'),
+ next:t3('Növbəti','Next','Дальше'),score:t3('Xal','Score','Счёт'),best:t3('Rekord','Best','Рекорд'),listen:t3('Səsləndir','Listen','Озвучить')};
+const bestGet=n=>{try{return +localStorage.getItem('kotoba-sc2-best'+n)||0}catch(_){return 0}};
+const bestSet=(n,v)=>{try{localStorage.setItem('kotoba-sc2-best'+n,v)}catch(_){}};
+const stGet=n=>{try{return JSON.parse(localStorage.getItem('kotoba-sc2-st'+n)||'null')}catch(_){return null}};
+const stSet=(n,o)=>{try{localStorage.setItem('kotoba-sc2-st'+n,JSON.stringify(o))}catch(_){}};
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+/* ---------- CSS ---------- */
+if(!document.getElementById('sc2-css')){const s=document.createElement('style');s.id='sc2-css';s.textContent=`
+.sc2-box{--a:#7c3aed}
+.sc2-paper{background:#fffdf6;color:#2b2420;border:2px solid #e3d7bd;border-radius:16px;padding:12px 14px;margin:10px 0;box-shadow:0 2px 0 rgba(0,0,0,.06)}
+.sc2-paper .jp,.sc2-paper .az{color:#2b2420}
+.sc2-paper rt{color:#7a6a58}
+.sc2-paper .ro{color:#8a7b66;font-size:.78em;margin-top:1px}
+.sc2-ph{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:800;border-bottom:2px dashed #e3d7bd;padding-bottom:8px;margin-bottom:8px}
+.sc2-fl{font-weight:800;font-size:.82em;color:#7a6a58;margin:10px 0 6px;letter-spacing:.02em}
+.sc2-fl .jp{font-weight:600;margin-left:6px;color:#9a8a74}
+.sc2-chips{display:flex;flex-wrap:wrap;gap:7px}
+.sc2-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border:2px solid var(--line,#cdbfa5);border-radius:14px;background:transparent;color:inherit;font:inherit;cursor:pointer;text-align:left;line-height:1.2;transition:transform .12s,background .15s}
+.sc2-chip:hover{transform:translateY(-1px)}
+.sc2-chip small{display:block;font-size:.72em;opacity:.78;margin-top:1px}
+.sc2-chip[aria-pressed=true]{background:var(--a);border-color:var(--a);color:#fff}
+.sc2-chip[aria-pressed=true] rt,.sc2-chip[aria-pressed=true] .jp{color:#fff}
+.sc2-paper .sc2-chip{border-color:#d8cbb0;color:#2b2420}
+.sc2-paper .sc2-chip[aria-pressed=true]{background:var(--a);border-color:var(--a);color:#fff}
+.sc2-paper .sc2-chip[aria-pressed=true] .jp,.sc2-paper .sc2-chip[aria-pressed=true] rt{color:#fff}
+.sc2-ln{display:flex;gap:8px;align-items:flex-start;padding:5px 0;border-bottom:1px dotted #e3d7bd}
+.sc2-ln:last-child{border-bottom:0}
+.sc2-ln .say{flex:none;width:28px;height:28px;padding:5px;border-radius:50%;border:1.5px solid #d8cbb0;background:#fff;color:#7c3aed;cursor:pointer}
+.sc2-ln .say svg{width:100%;height:100%;display:block}
+.sc2-ln .jp{font-size:1.05em;line-height:1.9}
+.sc2-tr{font-size:.82em;color:#7a6a58}
+.sc2-written{margin-top:12px;border-top:2px dashed #e3d7bd;padding-top:6px}
+.sc2-club{display:flex;align-items:center;gap:14px;border:2.5px solid var(--cc,#7c3aed);border-radius:18px;padding:12px 14px;margin:10px 0;background:rgba(124,58,237,.07)}
+.sc2-club svg{flex:none;filter:drop-shadow(0 3px 0 rgba(0,0,0,.14))}
+.sc2-club small{display:block;font-weight:800;opacity:.7;margin-bottom:2px}
+.sc2-club .jp{font-size:1.25em;font-weight:800}
+.sc2-club .sc2-tr{color:inherit;opacity:.8}
+.sc2-ban{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.sc2-ban svg{opacity:.4;transform:scale(.86);transition:all .25s}
+.sc2-ban svg.on{opacity:1;transform:scale(1.08)}
+.sc2-pill{display:inline-block;padding:2px 10px;border-radius:10px;background:rgba(124,58,237,.14);border:2px solid #7c3aed;font-weight:800}
+.sc2-given{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0}
+.sc2-opts .btn{align-items:flex-start}
+.sc2-ol{flex:none;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(124,58,237,.16);font-weight:800;font-size:.85em;margin-right:8px}
+.sc2-cht{display:block;width:100%;height:auto;border-radius:16px;border:2px solid #cfe5d8}
+.sc2-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin:8px 0}
+.sc2-day{min-width:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 2px;border:2px solid var(--line,#cdbfa5);border-radius:12px;background:transparent;color:inherit;font:inherit;cursor:pointer;line-height:1.1}
+.sc2-day b{font-size:1.15em}
+.sc2-day small{font-size:.66em;opacity:.8}
+.sc2-day i{display:flex;gap:3px;margin-top:3px}
+.sc2-day i s{width:7px;height:7px;border-radius:50%;background:rgba(120,120,120,.35);text-decoration:none}
+.sc2-day i s.f{background:#22c55e}
+.sc2-day[aria-pressed=true]{border-color:var(--a);box-shadow:0 0 0 2px var(--a) inset}
+.sc2-dl{padding:5px 8px;border-radius:10px;cursor:pointer;border-bottom:1px dotted #e3d7bd}
+.sc2-dl.sel{background:rgba(124,58,237,.12)}
+.sc2-dl.emp{opacity:.5}
+.sc2-dl .jp{font-size:1.02em;line-height:1.9}
+.sc2-msg{margin:6px 2px;font-weight:700}
+.sc2-exp{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:6px 0;border-bottom:1px dotted #e3d7bd}
+.sc2-exp:last-child{border-bottom:0}
+.sc2-yn{display:flex;gap:6px}
+.sc2-yn .sc2-chip{padding:4px 10px}
+.sc2-news{border:2px solid #cfc7b4;border-radius:14px;background:#faf6ea;color:#2b2420;overflow:hidden;margin:8px 0}
+.sc2-news .jp{color:#2b2420}
+.sc2-mast{display:flex;justify-content:space-between;align-items:center;background:#2b2420;color:#faf6ea;padding:4px 12px;font-weight:800;font-size:.85em}
+.sc2-mast .jp{color:#faf6ea}
+.sc2-nb{display:flex;gap:12px;align-items:center;padding:10px 12px}
+.sc2-nb svg{flex:none;border-radius:10px;width:120px;height:80px}
+.sc2-nh{font-size:1.25em;font-weight:800;line-height:1.9}
+.sc2-poll{margin:8px 0}
+.sc2-pr{display:grid;grid-template-columns:minmax(80px,34%) 1fr 42px;gap:8px;align-items:center;margin:4px 0;font-size:.95em}
+.sc2-pb{height:14px;border-radius:7px;background:rgba(120,120,120,.18);overflow:hidden}
+.sc2-pb i{display:block;height:100%;background:#94a3b8;border-radius:7px;transition:width .5s}
+.sc2-pr.me .sc2-pb i{background:#7c3aed}
+.sc2-pr.me{font-weight:800}
+.sc2-relay{display:grid;gap:8px;margin:8px 0}
+.sc2-rl{display:flex;gap:10px;align-items:flex-start;opacity:.35;transition:opacity .3s}
+.sc2-rl.on{opacity:1}
+.sc2-rl svg{flex:none;width:48px;height:48px}
+.sc2-bub{position:relative;flex:1;border:2px solid #cfc7b4;border-radius:14px;background:#faf6ea;color:#2b2420;padding:4px 10px}
+.sc2-bub .jp{color:#2b2420}
+.sc2-bub:before{content:"";position:absolute;left:-8px;top:14px;border:7px solid transparent;border-right-color:#cfc7b4;border-left:0}
+.sc2-bub .sc2-tr{color:#7a6a58}
+.sc2-bub rt{color:#7a6a58}
+.sc2-map{display:block;width:100%;height:auto;border-radius:16px;border:2px solid #b9d9a3;background:#e8f3d6}
+.sc2-lbl{font-size:14px;font-weight:800;fill:#1f2937;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.sc2-pulse{animation:sc2P 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes sc2P{50%{transform:scale(1.18);opacity:.6}}
+.sc2-tok{transition:transform .9s cubic-bezier(.45,.05,.3,1)}
+.sc2-tokh{transition:transform .45s ease}
+.sc2-cf1{opacity:0;transition:opacity .6s}
+.sc2-rev .sc2-cf1{opacity:1}
+.sc2-rev .sc2-cf0{opacity:0}
+.sc2-cf0{transition:opacity .4s}
+.sc2-leg{display:flex;flex-wrap:wrap;gap:4px 12px;margin:6px 2px;font-size:.85em}
+.sc2-leg b{font-weight:800}
+.sc2-st{display:flex;gap:8px;align-items:flex-start;padding:6px 8px;border-radius:10px;cursor:pointer;opacity:.5;border:2px solid transparent}
+.sc2-st.done{opacity:.85}
+.sc2-st.cur{opacity:1;border-color:#7c3aed;background:rgba(124,58,237,.1)}
+.sc2-st em{flex:none;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(124,58,237,.18);font-style:normal;font-weight:800;font-size:.8em;margin-top:5px}
+.sc2-st .jp{line-height:1.9}
+.sc2-win{margin:8px 0;padding:8px 12px;border-radius:12px;border:2px solid #16a34a;background:rgba(22,163,74,.12);font-weight:800}
+.sc2-lead{margin:2px 2px 6px;opacity:.85}
+@media (prefers-reduced-motion:reduce){.sc2-tok,.sc2-tokh,.sc2-pulse,.sc2-pb i{transition:none;animation:none}}
+@media (max-width:480px){.sc2-nb{flex-direction:column;align-items:flex-start}.sc2-pr{grid-template-columns:minmax(70px,38%) 1fr 36px}}
+`;document.head.appendChild(s)}
+
+/* ---------- ümumi ---------- */
+const tabs=(m)=>`<div class="tools dtabs">${['free','test'].map(k=>`<button class="btn${m===k?' fill':''}" data-a="mode" data-m="${k}" style="--c:var(--pnk)">${T(U[k])}</button>`).join('')}</div>`;
+const ln=(m,tr,extra='')=>{const j=J(m);return `<div class="sc2-ln${extra}"><button class="say" data-say="${esc(j.t)}" aria-label="${T(U.listen)}">${SPK}</button><div><div class="jp">${j.h}</div><div class="ro">${j.r}</div>${tr?`<div class="sc2-tr">${tr}</div>`:''}</div></div>`};
+const jh=m=>`<span class="jp">${J(m).h}</span>`;
+const ST={18:{mode:'free'},19:{mode:'free'},21:{mode:'free'},23:{mode:'free'}};
+const TS={18:{score:0},19:{score:0},21:{score:0},23:{score:0}};
+const GEN={},UI={},H={};
+function tNew(n){const s=TS[n];s.q=GEN[n]();s.pick=-1;s.msg='';s.miss=false}
+function testHTML(n){const s=TS[n];if(!s.q)tNew(n);const q=s.q,done=q.once?s.pick>=0:s.pick===q.ans;
+ return `${q.p(s)}<div class="ct-opts sc2-opts">${q.opts.map((o,i)=>`<button class="btn${s.pick===i?(i===q.ans?' ok':' no'):''}" data-a="opt" data-i="${i}">${q.r(o,i)}</button>`).join('')}</div><p class="kqp">${s.msg}</p><div class="tools">${done?`<button class="btn fill" data-a="nx" style="--c:var(--vio)">${T(U.next)}</button>`:''}<span class="role">${T(U.score)}: ${s.score} · ${T(U.best)}: ${bestGet(n)}</span></div>`}
+addEventListener('click',e=>{const t=e.target;if(!t.closest)return;const box=t.closest('.sc2-box');if(!box)return;const n=+box.dataset.n,el=t.closest('[data-a]');if(!el)return;const a=el.dataset.a;
+ if(a==='mode'){ST[n].mode=el.dataset.m;if(el.dataset.m==='test')tNew(n);UI[n]();return}
+ if(a==='nx'){tNew(n);UI[n]();return}
+ if(a==='opt'){const s=TS[n],q=s.q;if(!q||(q.once?s.pick>=0:s.pick===q.ans))return;const i=+el.dataset.i;s.pick=i;
+  if(i===q.ans){if(!s.miss){s.score++;if(s.score>bestGet(n))bestSet(n,s.score)}s.msg=`<b class="vok">${T(U.ok)}</b>`;const sy=q.say&&q.say(q.opts[i]);if(sy)say(sy)}
+  else{s.miss=true;s.msg=q.wm?q.wm(q.opts[i]):`<b class="vno">${T(U.no)}</b>`}
+  UI[n]();return}
+ H[n]&&H[n](a,el)},true);
+
+/* ================= 18: hobbi klubu ================= */
+const CLUB={
+ sport:{c:'#f59e0b',j:'~スポーツ ~クラブ',n:t3('İdman klubu','Sports club','Спортивный клуб'),ic:'<circle cx="40" cy="40" r="22" fill="#fff"/><path d="M18 40h44M40 18c-12 12-12 32 0 44M40 18c12 12 12 32 0 44" stroke="#f59e0b" stroke-width="3" fill="none"/>'},
+ music:{c:'#8b5cf6',j:'[音楽:おんがく] ~クラブ',n:t3('Musiqi klubu','Music club','Музыкальный клуб'),ic:'<path d="M34 56V24l24-6v32" stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"/><ellipse cx="28" cy="57" rx="8" ry="6" fill="#fff"/><ellipse cx="52" cy="51" rx="8" ry="6" fill="#fff"/>'},
+ art:{c:'#ec4899',j:'[絵:え]と [写真:しゃしん]{の} ~クラブ',n:t3('Rəsm və foto klubu','Art and photo club','Клуб рисунка и фото'),ic:'<path d="M40 16C25 16 15 27 15 40s9 24 22 24c5 0 6-4 3-7-3-4-1-8 5-8h8c7 0 12-5 12-11 0-12-11-22-25-22z" fill="#fff"/><circle cx="29" cy="34" r="4" fill="#ef4444"/><circle cx="41" cy="27" r="4" fill="#3b82f6"/><circle cx="53" cy="34" r="4" fill="#22c55e"/>'},
+ cook:{c:'#ef4444',j:'[料理:りょうり] ~クラブ',n:t3('Kulinariya klubu','Cooking club','Кулинарный клуб'),ic:'<path d="M20 38h40v12a12 12 0 0 1-12 12H32a12 12 0 0 1-12-12z" fill="#fff"/><rect x="16" y="34" width="48" height="6" rx="3" fill="#fff"/><path d="M30 28c-4-5 4-7 0-12M42 28c-4-5 4-7 0-12M54 28c-4-5 4-7 0-12" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>'},
+ book:{c:'#0ea5e9',j:'[本:ほん]と [映画:えいが]{の} ~クラブ',n:t3('Kitab və kino klubu','Book and film club','Клуб книг и кино'),ic:'<path d="M40 24c-8-5-18-5-26-2v34c8-3 18-3 26 2z" fill="#fff"/><path d="M40 24c8-5 18-5 26-2v34c-8-3-18-3-26 2z" fill="#e0f2fe"/><path d="M40 24v34" stroke="#0ea5e9" stroke-width="2"/>'},
+ travel:{c:'#10b981',j:'[旅行:りょこう] ~クラブ',n:t3('Səyahət klubu','Travel club','Клуб путешествий'),ic:'<rect x="16" y="28" width="48" height="34" rx="6" fill="#fff"/><path d="M32 28v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6" stroke="#fff" stroke-width="4" fill="none"/><path d="M28 28v34M52 28v34" stroke="#10b981" stroke-width="3"/>'}};
+const clubSvg=(k,s=64,cls='')=>`<svg class="${cls}" viewBox="0 0 80 80" width="${s}" height="${s}" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="${CLUB[k].c}"/>${CLUB[k].ic}</svg>`;
+const V18=[
+ {o:'',d:'[泳:およ]ぐ',m:'[泳:およ]ぎます',w:['[泳:およ]ぎる','[泳:およ]ぶ'],c:'sport',n:t3('üzmək','swimming','плавание'),can:t3('Üzə bilirəm.','I can swim.','Я умею плавать.'),hob:t3('Mənim hobbim üzməkdir.','My hobby is swimming.','Моё хобби – плавание.')},
+ {o:'',d:'[走:はし]る',m:'[走:はし]ります',w:['[走:はし]りる','[走:はし]く'],c:'sport',n:t3('qaçmaq','running','бег'),can:t3('Qaça bilirəm.','I can run.','Я умею бегать.'),hob:t3('Mənim hobbim qaçmaqdır.','My hobby is running.','Моё хобби – бег.')},
+ {o:'[歌:うた]{を} ',d:'[歌:うた]う',m:'[歌:うた]います',w:['[歌:うた]いる','[歌:うた]く'],c:'music',n:t3('mahnı oxumaq','singing','пение'),can:t3('Mahnı oxuya bilirəm.','I can sing.','Я умею петь.'),hob:t3('Mənim hobbim mahnı oxumaqdır.','My hobby is singing.','Моё хобби – пение.')},
+ {o:'~ピアノ{を} ',d:'[弾:ひ]く',m:'[弾:ひ]きます',w:['[弾:ひ]きる','[弾:ひ]る'],c:'music',n:t3('piano çalmaq','playing the piano','игра на пианино'),can:t3('Pianoda çala bilirəm.','I can play the piano.','Я умею играть на пианино.'),hob:t3('Mənim hobbim piano çalmaqdır.','My hobby is playing the piano.','Моё хобби – игра на пианино.')},
+ {o:'[絵:え]{を} ',d:'[描:か]く',m:'[描:か]きます',w:['[描:か]きる','[描:か]ぶ'],c:'art',n:t3('rəsm çəkmək','drawing','рисование'),can:t3('Rəsm çəkə bilirəm.','I can draw.','Я умею рисовать.'),hob:t3('Mənim hobbim rəsm çəkməkdir.','My hobby is drawing.','Моё хобби – рисование.')},
+ {o:'[写真:しゃしん]{を} ',d:'[撮:と]る',m:'[撮:と]ります',w:['[撮:と]ぶ','[撮:と]りる'],c:'art',n:t3('şəkil çəkmək','taking photos','фотографирование'),can:t3('Şəkil çəkə bilirəm.','I can take photos.','Я умею фотографировать.'),hob:t3('Mənim hobbim şəkil çəkməkdir.','My hobby is taking photos.','Моё хобби – фотографирование.')},
+ {o:'[料理:りょうり]{を} ',d:'[作:つく]る',m:'[作:つく]ります',w:['[作:つく]ぶ','[作:つく]りる'],c:'cook',n:t3('yemək hazırlamaq','cooking','приготовление еды'),can:t3('Yemək hazırlaya bilirəm.','I can cook.','Я умею готовить.'),hob:t3('Mənim hobbim yemək hazırlamaqdır.','My hobby is cooking.','Моё хобби – приготовление еды.')},
+ {o:'おいしい もの{を} ',d:'[食:た]べる',m:'[食:た]べます',w:['[食:た]べう','[食:た]べく'],c:'cook',n:t3('dadlı yeməklər yemək','eating tasty food','вкусно поесть'),can:t3('Dadlı yeməklər yeyə bilirəm.','I can eat tasty food.','Я могу есть вкусные блюда.'),hob:t3('Mənim hobbim dadlı yeməklər yeməkdir.','My hobby is eating tasty food.','Моё хобби – вкусно поесть.')},
+ {o:'[本:ほん]{を} ',d:'[読:よ]む',m:'[読:よ]みます',w:['[読:よ]みる','[読:よ]ぶ'],c:'book',n:t3('kitab oxumaq','reading','чтение'),can:t3('Kitab oxuya bilirəm.','I can read books.','Я умею читать книги.'),hob:t3('Mənim hobbim kitab oxumaqdır.','My hobby is reading.','Моё хобби – чтение.')},
+ {o:'[映画:えいが]{を} ',d:'[見:み]る',m:'[見:み]ます',w:['[見:み]う','[見:み]く'],c:'book',n:t3('film izləmək','watching movies','просмотр фильмов'),can:t3('Film izləyə bilirəm.','I can watch movies.','Я могу смотреть фильмы.'),hob:t3('Mənim hobbim film izləməkdir.','My hobby is watching movies.','Моё хобби – просмотр фильмов.')},
+ {o:'',d:'[旅行:りょこう]する',m:'[旅行:りょこう]します',w:['[旅行:りょこう]しる','[旅行:りょこう]す'],c:'travel',n:t3('səyahət etmək','travelling','путешествия'),can:t3('Səyahət edə bilirəm.','I can travel.','Я могу путешествовать.'),hob:t3('Mənim hobbim səyahət etməkdir.','My hobby is travelling.','Моё хобби – путешествия.')},
+ {o:'',d:'[運転:うんてん]する',m:'[運転:うんてん]します',w:['[運転:うんてん]しる','[運転:うんてん]す'],c:'travel',n:t3('maşın sürmək','driving','вождение'),can:t3('Maşın sürə bilirəm.','I can drive.','Я умею водить машину.'),hob:t3('Mənim hobbim maşın sürməkdir.','My hobby is driving.','Моё хобби – вождение.')}];
+const U18={title:t3('Klub qeydiyyat anketi','Club application form','Анкета для вступления в клуб'),can:t3('Edə bildiklərim','What I can do','Что я умею'),hob:t3('Mənim hobbim','My hobby','Моё хобби'),
+ rec:t3('Sənə uyğun klub','Your matching club','Ваш клуб'),why:t3('Hobbinə və bacarıqlarına görə','Based on your hobby and skills','По вашему хобби и умениям'),
+ none:t3('Klubu tapmaq üçün hobbini və bacarıqlarını seç.','Pick a hobby and skills to find your club.','Выберите хобби и умения, чтобы найти клуб.'),
+ pq:t3('Fel ます-formadadır. Cümləni lüğət formasında düzgün yazılmış variantı seç.','The verb is in ます-form. Pick the sentence with the dictionary form.','Глагол стоит в форме ます. Выберите предложение со словарной формой.'),
+ verb:t3('Fel','Verb','Глагол')};
+const S18=Object.assign({can:[],hob:-1},stGet(18)||{});
+const canS=v=>`${v.o}${v.d} こと{が} できます。`,hobS=v=>`わたし{の} [趣味:しゅみ]{は} ${v.o}${v.d} こと|です。`;
+function club18(){const sc={};V18.forEach((v,i)=>{if(S18.can.includes(i))sc[v.c]=(sc[v.c]||0)+1;if(S18.hob===i)sc[v.c]=(sc[v.c]||0)+3});
+ let best=null,bv=0;for(const k in sc)if(sc[k]>bv){bv=sc[k];best=k}return best}
+UI[18]=()=>{const b=$('sc2Box18');if(!b)return;const m=ST[18].mode;let h=tabs(m);
+ if(m==='free'){
+  const chips=kind=>V18.map((v,i)=>{const on=kind==='can'?S18.can.includes(i):S18.hob===i;return `<button class="sc2-chip" data-a="${kind}" data-i="${i}" aria-pressed="${on}"><span><span class="jp">${J(v.o+v.d).h}</span><small>${T(v.n)}</small></span></button>`}).join('');
+  const lines=(S18.hob>=0?ln(hobS(V18[S18.hob]),T(V18[S18.hob].hob)):'')+S18.can.map(i=>ln(canS(V18[i]),T(V18[i].can))).join('');
+  const rc=club18();
+  h+=`<div class="sc2-paper"><div class="sc2-ph"><span>${T(U18.title)}</span>${clubSvg(rc||'sport',34)}</div>
+  <div class="sc2-fl">${T(U18.can)}<span class="jp">〜こと が できます</span></div><div class="sc2-chips">${chips('can')}</div>
+  <div class="sc2-fl">${T(U18.hob)}<span class="jp">趣味は 〜ことです</span></div><div class="sc2-chips">${chips('hob')}</div>
+  ${lines?`<div class="sc2-written">${lines}</div>`:''}</div>`;
+  h+=`<div class="sc2-ban">${Object.keys(CLUB).map(k=>clubSvg(k,44,k===rc?'on':'')).join('')}</div>`;
+  h+=rc?`<div class="sc2-club" style="--cc:${CLUB[rc].c}">${clubSvg(rc,72)}<div><small>${T(U18.rec)}</small><div class="jp">${J(CLUB[rc].j).h}</div><div class="sc2-tr">${T(CLUB[rc].n)} · ${T(U18.why)}</div></div></div>`:`<p class="kqp">${T(U18.none)}</p>`;
+ }else h+=testHTML(18);
+ b.innerHTML=h};
+H[18]=(a,el)=>{const i=+el.dataset.i;
+ if(a==='can'){const k=S18.can.indexOf(i);if(k>=0)S18.can.splice(k,1);else{S18.can.push(i);say(J(canS(V18[i])).t)}}
+ else if(a==='hob'){if(S18.hob===i)S18.hob=-1;else{S18.hob=i;say(J(hobS(V18[i])).t)}}
+ else return;stSet(18,{can:S18.can,hob:S18.hob});UI[18]()};
+GEN[18]=()=>{const v=rnd(V18),kind=Math.random()<.5?'can':'hob',mk=f=>kind==='can'?`${v.o}${f} こと{が} できます。`:`わたし{の} [趣味:しゅみ]{は} ${v.o}${f} こと|です。`;
+ const right=mk(v.d),opts=shuf([right,mk(v.m),mk(rnd(v.w))]);
+ return{opts,ans:opts.indexOf(right),r:o=>`<span class="jp">${J(o).h}</span>`,say:o=>J(o).t,
+  p:()=>`<p class="kqp">${T(U18.pq)}</p><div class="sc2-given"><span>${T(U18.verb)}:</span><span class="sc2-pill jp">${J(v.m).h}</span><span class="sc2-tr" style="color:inherit;opacity:.8">${T(kind==='can'?v.can:v.hob)}</span></div>`}};
+
+/* ================= 19: pəhriz gündəliyi ================= */
+const IC19={
+ cake:'<rect x="4" y="12" width="16" height="8" rx="2" fill="#fbcfe8"/><path d="M4 14q2-3 4 0t4 0 4 0 4 0v-2H4z" fill="#fff"/><circle cx="12" cy="8.5" r="3" fill="#ef4444"/><path d="M12 5.5V3" stroke="#16a34a" stroke-width="1.6"/>',
+ salad:'<path d="M3 12h18a9 9 0 0 1-18 0z" fill="#fde68a"/><path d="M6 12c-1.5-5 4-6.500 6-3.500 2-3 7.500-1.500 6 3.500z" fill="#4ade80"/>',
+ juice:'<path d="M6 7h12l-1.500 13h-9z" fill="#fb923c"/><path d="M14 3l-1.500 8" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>',
+ run:'<circle cx="15" cy="5" r="2.500" fill="#334155"/><path d="M14 8l-3 5 4 3 1 5M11 13l-5 1M14 8l4 3 3-1" stroke="#334155" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+ walk:'<ellipse cx="9" cy="16" rx="3" ry="5" fill="#64748b"/><ellipse cx="16" cy="9" rx="3" ry="5" fill="#64748b"/>',
+ swim:'<circle cx="8" cy="8" r="2.500" fill="#334155"/><path d="M10 9l7 1" stroke="#334155" stroke-width="2" stroke-linecap="round"/><path d="M2 14q2-2 4 0t4 0 4 0 4 0M2 19q2-2 4 0t4 0 4 0 4 0" stroke="#38bdf8" stroke-width="2" fill="none"/>',
+ sleep:'<rect x="3" y="13" width="18" height="5" rx="1" fill="#a78bfa"/><rect x="3" y="9" width="7" height="4" rx="2" fill="#ddd6fe"/><path d="M3 18v2M21 18v2" stroke="#6d28d9" stroke-width="2"/><path d="M14 4h4l-4 4h4" stroke="#6d28d9" stroke-width="1.500" fill="none"/>',
+ tv:'<rect x="3" y="5" width="18" height="12" rx="2" fill="#475569"/><rect x="5" y="7" width="14" height="8" rx="1" fill="#7dd3fc"/><path d="M9 20h6" stroke="#475569" stroke-width="2" stroke-linecap="round"/>',
+ friend:'<circle cx="8" cy="8" r="3" fill="#fbbf24"/><circle cx="16" cy="8" r="3" fill="#f472b6"/><path d="M3 19c0-4 3-6 5-6s5 2 5 6zM11 19c0-4 3-6 5-6s5 2 5 6z" fill="#94a3b8"/>',
+ read:'<path d="M12 6c-2-1.500-5-2-8-1v13c3-1 6-.5 8 1z" fill="#60a5fa"/><path d="M12 6c2-1.500 5-2 8-1v13c-3-1-6-.5-8 1z" fill="#93c5fd"/>'};
+const ic19=(k,s=22)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" aria-hidden="true">${IC19[k]}</svg>`;
+const A19=[
+ {id:'cake',o:'~ケーキ{を} ',d:'[食:た]べる',t:'[食:た]べた',te:'[食:た]べて',w:2,e:5,n:t3('tort yemək','eat cake','есть торт'),p:t3('tort yedim','ate cake','ел(а) торт')},
+ {id:'salad',o:'~サラダ{を} ',d:'[食:た]べる',t:'[食:た]べた',te:'[食:た]べて',w:-1,e:4,n:t3('salat yemək','eat salad','есть салат'),p:t3('salat yedim','ate salad','ел(а) салат')},
+ {id:'juice',o:'~ジュース{を} ',d:'[飲:の]む',t:'[飲:の]んだ',te:'[飲:の]んで',w:1,e:3,n:t3('şirə içmək','drink juice','пить сок'),p:t3('şirə içdim','drank juice','пил(а) сок')},
+ {id:'run',o:'',d:'[走:はし]る',t:'[走:はし]った',te:'[走:はし]って',w:-2,e:-4,n:t3('qaçmaq','run','бегать'),p:t3('qaçdım','ran','бегал(а)')},
+ {id:'walk',o:'',d:'[歩:ある]く',t:'[歩:ある]いた',te:'[歩:ある]いて',w:-1,e:2,n:t3('gəzmək','walk','гулять'),p:t3('gəzdim','walked','гулял(а)')},
+ {id:'swim',o:'',d:'[泳:およ]ぐ',t:'[泳:およ]いだ',te:'[泳:およ]いで',w:-2,e:-4,n:t3('üzmək','swim','плавать'),p:t3('üzdüm','swam','плавал(а)')},
+ {id:'sleep',o:'たくさん ',d:'[寝:ね]る',t:'[寝:ね]た',te:'[寝:ね]て',w:0,e:9,n:t3('çox yatmaq','sleep a lot','много спать'),p:t3('çox yatdım','slept a lot','много спал(а)')},
+ {id:'tv',o:'~テレビ{を} ',d:'[見:み]る',t:'[見:み]た',te:'[見:み]て',w:0,e:-1,n:t3('televizora baxmaq','watch TV','смотреть телевизор'),p:t3('televizora baxdım','watched TV','смотрел(а) телевизор')},
+ {id:'friend',o:'[友達:ともだち]{に} ',d:'[会:あ]う',t:'[会:あ]った',te:'[会:あ]って',w:0,e:6,n:t3('dostla görüşmək','meet a friend','встретиться с другом'),p:t3('dostla görüşdüm','met a friend','встречался(ась) с другом')},
+ {id:'read',o:'[本:ほん]{を} ',d:'[読:よ]む',t:'[読:よ]んだ',te:'[読:よ]んで',w:0,e:2,n:t3('kitab oxumaq','read a book','читать книгу'),p:t3('kitab oxudum','read a book','читал(а) книгу')}];
+const X19=[
+ {o:'[納豆:なっとう]{を} ',m:'[食:た]べ',t:'[食:た]べた',w:['[食:た]べって','[食:た]べるた'],y:t3('Natto yemişəm.','I have eaten natto.','Я ел(а) натто.'),no:t3('Natto yeməmişəm.','I have never eaten natto.','Я никогда не ел(а) натто.')},
+ {o:'[馬:うま]{に} ',m:'[乗:の]り',t:'[乗:の]った',w:['[乗:の]んだ','[乗:の]りた'],y:t3('Ata minmişəm.','I have ridden a horse.','Я ездил(а) на лошади.'),no:t3('Ata minməmişəm.','I have never ridden a horse.','Я никогда не ездил(а) на лошади.')},
+ {o:'[高:たか]い [山:やま]{に} ',m:'[登:のぼ]り',t:'[登:のぼ]った',w:['[登:のぼ]んだ','[登:のぼ]りた'],y:t3('Hündür dağa qalxmışam.','I have climbed a high mountain.','Я поднимался(ась) на высокую гору.'),no:t3('Hündür dağa heç qalxmamışam.','I have never climbed a high mountain.','Я никогда не поднимался(ась) на высокую гору.')},
+ {o:'[外国:がいこく]{へ} ',m:'[行:い]き',t:'[行:い]った',w:['[行:い]いた','[行:い]きた'],y:t3('Xaricə getmişəm.','I have been abroad.','Я был(а) за границей.'),no:t3('Xaricə heç getməmişəm.','I have never been abroad.','Я никогда не был(а) за границей.')},
+ {o:'すし{を} ',m:'[作:つく]り',t:'[作:つく]った',w:['[作:つく]んだ','[作:つく]りた'],y:t3('Sushi hazırlamışam.','I have made sushi.','Я готовил(а) суши.'),no:t3('Sushi hazırlamamışam.','I have never made sushi.','Я никогда не готовил(а) суши.')},
+ {o:'[海:うみ]{で} ',m:'[泳:およ]ぎ',t:'[泳:およ]いだ',w:['[泳:およ]いた','[泳:およ]った'],y:t3('Dənizdə üzmüşəm.','I have swum in the sea.','Я плавал(а) в море.'),no:t3('Dənizdə üzməmişəm.','I have never swum in the sea.','Я никогда не плавал(а) в море.')},
+ {o:'お[茶:ちゃ]{を} ',m:'[飲:の]み',t:'[飲:の]んだ',w:['[飲:の]った','[飲:の]みた'],y:t3('Çay içmişəm.','I have drunk tea.','Я пил(а) чай.')},
+ {o:'[手紙:てがみ]{を} ',m:'[書:か]き',t:'[書:か]いた',w:['[書:か]った','[書:か]きた'],y:t3('Məktub yazmışam.','I have written a letter.','Я писал(а) письмо.')},
+ {o:'[日本語:にほんご]{で} ',m:'[話:はな]し',t:'[話:はな]した',w:['[話:はな]って','[話:はな]いた'],y:t3('Yapon dilində danışmışam.','I have spoken in Japanese.','Я говорил(а) по-японски.')},
+ {o:'~カメラ{を} ',m:'[買:か]い',t:'[買:か]った',w:['[買:か]いた','[買:か]うた'],y:t3('Kamera almışam.','I have bought a camera.','Я покупал(а) камеру.')},
+ {o:'~スキー{を} ',m:'し',t:'した',w:['して','すた'],y:t3('Xizək sürmüşəm.','I have skied.','Я катался(ась) на лыжах.')},
+ {o:'[日本:にほん]{へ} ',m:'[来:き]',t:'[来:き]た',w:['[来:き]った','[来:き]て'],y:t3('Yaponiyaya gəlmişəm.','I have come to Japan.','Я приезжал(а) в Японию.')}];
+const DAY19=[
+ {j:'[月曜日:げつようび]',k:'月',az:'Bazar ertəsi',en:'Monday',ru:'в понедельник',ab:t3('B.e.','Mon','Пн')},
+ {j:'[火曜日:かようび]',k:'火',az:'Çərşənbə axşamı',en:'Tuesday',ru:'во вторник',ab:t3('Ç.a.','Tue','Вт')},
+ {j:'[水曜日:すいようび]',k:'水',az:'Çərşənbə',en:'Wednesday',ru:'в среду',ab:t3('Çər.','Wed','Ср')},
+ {j:'[木曜日:もくようび]',k:'木',az:'Cümə axşamı',en:'Thursday',ru:'в четверг',ab:t3('C.a.','Thu','Чт')},
+ {j:'[金曜日:きんようび]',k:'金',az:'Cümə',en:'Friday',ru:'в пятницу',ab:t3('Cü.','Fri','Пт')},
+ {j:'[土曜日:どようび]',k:'土',az:'Şənbə',en:'Saturday',ru:'в субботу',ab:t3('Şə.','Sat','Сб')},
+ {j:'[日曜日:にちようび]',k:'日',az:'Bazar',en:'Sunday',ru:'в воскресенье',ab:t3('Baz.','Sun','Вс')}];
+const U19={e:t3('Enerji','Energy','Энергия'),w:t3('Çəki balansı','Weight balance','Баланс веса'),x:t3('Təcrübələr','Experiences','Опыт'),
+ pick2:t3('Hər gün üçün iki fəaliyyət seç.','Pick two activities for each day.','Выберите по два занятия на каждый день.'),
+ diary:t3('Gündəlik','Diary','Дневник'),expH:t3('Nə vaxtsa etmişəm?','Have I ever done it?','Приходилось ли мне?'),
+ m0:t3('Balanslı və enerjili həftə!','A balanced, energetic week!','Сбалансированная и бодрая неделя!'),
+ m1:t3('Bir az yorğun həftə. Yuxu və istirahət enerji qaytarır.','A slightly tired week. Sleep and rest bring energy back.','Немного усталая неделя. Сон и отдых вернут энергию.'),
+ m2:t3('Şirin həftə oldu. Pəhriz sabahdan, həmişə olduğu kimi!','A sweet week. The diet starts tomorrow, as always!','Сладкая неделя. Диета начнётся завтра, как всегда!'),
+ m3:t3('Çox hərəkətli həftə! Bir az istirahət də yaxşıdır.','A very active week! A little rest is good too.','Очень активная неделя! Немного отдыха тоже полезно.'),
+ m4:t3('Sakit, balanslı həftə.','A calm, balanced week.','Спокойная, сбалансированная неделя.'),
+ ta:t3('Təcrübədən danış: feili た-formaya çevir.','Talk about experience: change the verb to た-form.','Расскажите об опыте: поставьте глагол в форму た.'),
+ tari:t3('Nümunə kimi sadala (〜たり 〜たり).','List examples (〜たり 〜たり).','Перечислите примеры (〜たり 〜たり).'),
+ ex:t3('Məsələn','For example','Например'),etc:t3('və s.','and so on','и так далее')};
+const S19=Object.assign({week:[[],[],[],[],[],[],[]],sel:0,exp:{}},stGet(19)||{});
+const dl19=(d,i)=>{const a=A19.find(x=>x.id===d[0]),b=A19.find(x=>x.id===d[1]);return{jp:`${DAY19[i].j}{は} ${a.o}${a.t}り、${b.o}${b.t}り しました。`,
+ tr:SLI()===0?`${DAY19[i].az}: ${T(a.p)}, ${T(b.p)} və s.`:SLI()===1?`On ${DAY19[i].en} I ${T(a.p)}, ${T(b.p)}, and so on.`:`${DAY19[i].ru[0].toUpperCase()+DAY19[i].ru.slice(1)}: ${T(a.p)}, ${T(b.p)} и так далее.`}};
+function calc19(){let e=50,w=0,full=0;S19.week.forEach(d=>{if(d.length===2)full++;d.forEach(id=>{const a=A19.find(x=>x.id===id);e+=a.e;w+=a.w})});
+ return{e:clamp(e,5,100),w:clamp(w,-10,10),full,x:Object.values(S19.exp).filter(v=>v===1).length}}
+function svg19(){const c=calc19(),mood=c.e>=65?'hi':c.e>=35?'mid':'lo';
+ const eyes=mood==='hi'?'<path d="M44 76q6-8 12 0M70 76q6-8 12 0" stroke="#064e3b" stroke-width="3.500" fill="none" stroke-linecap="round"/>':mood==='mid'?'<circle cx="50" cy="75" r="4" fill="#064e3b"/><circle cx="76" cy="75" r="4" fill="#064e3b"/>':'<path d="M44 75h12M70 75h12" stroke="#064e3b" stroke-width="3.500" stroke-linecap="round"/>';
+ const mouth=mood==='hi'?'<path d="M50 88q13 16 26 0z" fill="#7f1d1d"/><path d="M55 94q8 6 16 0" fill="#fca5a5"/>':mood==='mid'?'<path d="M52 89q11 9 22 0" stroke="#064e3b" stroke-width="3.500" fill="none" stroke-linecap="round"/>':'<ellipse cx="63" cy="92" rx="5" ry="4" fill="#7f1d1d"/>';
+ const extra=mood==='hi'?'<path d="M18 40l-8-6M108 40l8-6M14 62l-9-1M112 62l9-1" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>':mood==='lo'?'<text x="98" y="38" font-size="18" font-weight="800" fill="#6d28d9">z</text><text x="110" y="24" font-size="14" font-weight="800" fill="#6d28d9">z</text>':'';
+ const ec=c.e<35?'#f59e0b':'#22c55e',mx=190+(c.w+10)/20*200;
+ const dots=Array.from({length:6},(_,i)=>`<circle cx="${200+i*34}" cy="146" r="10" fill="${i<c.x?'#f59e0b':'#e2e8f0'}" stroke="#cbd5e1"/>${i<c.x?`<path d="M${195+i*34} 146l4 4 7-8" stroke="#fff" stroke-width="2.500" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`:''}`).join('');
+ return `<svg class="sc2-cht" viewBox="0 0 420 170" role="img" aria-label="${T(U19.e)}"><defs><linearGradient id="sc2g19" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eefaf3"/><stop offset="1" stop-color="#d6efe2"/></linearGradient></defs>
+ <rect width="420" height="170" fill="url(#sc2g19)"/><ellipse cx="68" cy="152" rx="52" ry="8" fill="#b6dcc8"/>
+ <g transform="translate(5,6)"><path d="M63 34q-4-14 8-18" stroke="#16a34a" stroke-width="3.500" fill="none" stroke-linecap="round"/><ellipse cx="74" cy="17" rx="9" ry="5" fill="#4ade80" transform="rotate(-25 74 17)"/>
+ <ellipse cx="45" cy="138" rx="15" ry="8" fill="#10b981"/><ellipse cx="81" cy="138" rx="15" ry="8" fill="#10b981"/>
+ <ellipse cx="63" cy="88" rx="50" ry="50" fill="#34d399"/><ellipse cx="63" cy="100" rx="32" ry="30" fill="#a7f3d0"/>
+ <ellipse cx="15" cy="96" rx="9" ry="15" fill="#10b981" transform="rotate(18 15 96)"/><ellipse cx="111" cy="96" rx="9" ry="15" fill="#10b981" transform="rotate(-18 111 96)"/>
+ ${eyes}<circle cx="38" cy="86" r="6" fill="#fda4af" opacity=".7"/><circle cx="88" cy="86" r="6" fill="#fda4af" opacity=".7"/>${mouth}${extra}</g>
+ <g font-family="inherit" font-size="13" font-weight="800" fill="#1f3a2f"><text x="190" y="38">${T(U19.e)}</text><text x="390" y="38" text-anchor="end">${c.e}%</text>
+ <text x="190" y="92">${T(U19.w)}</text><text x="190" y="138" font-size="12">${T(U19.x)}</text><text x="398" y="150" text-anchor="end" font-size="12">${c.x}/6</text></g>
+ <rect x="190" y="46" width="200" height="16" rx="8" fill="#cfe3d8"/><rect x="190" y="46" width="${c.e*2}" height="16" rx="8" fill="${ec}" style="transition:width .5s"/>
+ <rect x="190" y="100" width="200" height="16" rx="8" fill="#cfe3d8"/><rect x="270" y="100" width="40" height="16" fill="#86efac"/><rect x="190" y="100" width="200" height="16" rx="8" fill="none" stroke="#a7c9b8"/>
+ <path d="M${mx} 99l-8-12h16z" fill="#7c3aed"/><path d="M${mx} 99v18" stroke="#7c3aed" stroke-width="3"/></svg>`}
+function msg19(){const c=calc19();if(c.full<7)return `${c.full}/7 · ${T(U19.pick2)}`;return c.w>3?T(U19.m2):c.e<35?T(U19.m1):c.w<-3?T(U19.m3):c.e>=60?T(U19.m0):T(U19.m4)}
+UI[19]=()=>{const b=$('sc2Box19');if(!b)return;const m=ST[19].mode;let h=tabs(m);
+ if(m==='free'){
+  const d=S19.week[S19.sel];
+  h+=svg19()+`<p class="sc2-msg">${msg19()}</p>`;
+  h+=`<div class="sc2-days">${DAY19.map((x,i)=>`<button class="sc2-day" data-a="day" data-i="${i}" aria-pressed="${i===S19.sel}"><b class="jp">${x.k}</b><small>${T(x.ab)}</small><i><s class="${S19.week[i].length>0?'f':''}"></s><s class="${S19.week[i].length>1?'f':''}"></s></i></button>`).join('')}</div>`;
+  h+=`<div class="sc2-chips">${A19.map((a,i)=>`<button class="sc2-chip" data-a="act" data-i="${i}" aria-pressed="${d.includes(a.id)}">${ic19(a.id)}<span><span class="jp">${J(a.o+a.d).h}</span><small>${T(a.n)}</small></span></button>`).join('')}</div>`;
+  h+=`<div class="sc2-paper"><div class="sc2-ph"><span>${T(U19.diary)}</span><span class="jp">〜たり 〜たり します</span></div>${S19.week.map((w,i)=>{if(w.length===2){const x=dl19(w,i);return `<div class="sc2-dl${i===S19.sel?' sel':''}" data-a="day" data-i="${i}" data-say="${esc(J(x.jp).t)}"><div class="jp">${J(x.jp).h}</div><div class="sc2-tr">${x.tr}</div></div>`}return `<div class="sc2-dl emp${i===S19.sel?' sel':''}" data-a="day" data-i="${i}"><span class="jp">${J(DAY19[i].j).h}</span> …</div>`}).join('')}</div>`;
+  h+=`<div class="sc2-paper"><div class="sc2-ph"><span>${T(U19.expH)}</span><span class="jp">〜た こと が あります</span></div>${X19.slice(0,6).map((x,i)=>{const v=S19.exp[i],tail=v===1?'あります':v===0?'ありません':'＿＿＿',tr=v===1?T(x.y):v===0?T(x.no):'';
+   return `<div class="sc2-exp"><div><div class="jp">${J(x.o+x.t+' こと{が} '+tail+'。').h}</div><div class="sc2-tr">${tr||'&nbsp;'}</div></div><div class="sc2-yn"><button class="sc2-chip" data-a="exp" data-i="${i}" data-v="1" aria-pressed="${v===1}"><span class="jp">あります</span></button><button class="sc2-chip" data-a="exp" data-i="${i}" data-v="0" aria-pressed="${v===0}"><span class="jp">ありません</span></button></div></div>`}).join('')}</div>`;
+ }else h+=testHTML(19);
+ b.innerHTML=h};
+H[19]=(a,el)=>{
+ if(a==='day'){S19.sel=+el.dataset.i;if(el.dataset.say)say(el.dataset.say)}
+ else if(a==='act'){const d=S19.week[S19.sel],id=A19[+el.dataset.i].id,k=d.indexOf(id);if(k>=0)d.splice(k,1);else{if(d.length>=2)d.shift();d.push(id)}
+  if(d.length===2){const x=dl19(d,S19.sel);say(J(x.jp).t);if(S19.week.every(w=>w.length===2)){}}}
+ else if(a==='exp'){const i=+el.dataset.i,v=+el.dataset.v;S19.exp[i]=S19.exp[i]===v?undefined:v;if(S19.exp[i]===undefined)delete S19.exp[i];else say(J(X19[i].o+X19[i].t+' こと{が} '+(v?'あります':'ありません')+'。').t)}
+ else return;stSet(19,{week:S19.week,sel:S19.sel,exp:S19.exp});UI[19]()};
+GEN[19]=()=>{
+ if(Math.random()<.6){const x=rnd(X19),opts=shuf([x.t,...x.w]);
+  return{opts,ans:opts.indexOf(x.t),r:o=>`<span class="jp">${J(o).h}</span>`,say:o=>J(x.o+o+' こと{が} あります。').t,
+   p:()=>`<p class="kqp">${T(U19.ta)}</p><div class="sc2-given"><span class="sc2-pill jp">${J(x.o+x.m+'ます').h}</span><span>→</span><span class="jp">${J(x.o+'＿＿＿ こと{が} あります。').h}</span></div><p class="sc2-tr" style="opacity:.8">${T(x.y)}</p>`}}
+ const a=rnd(A19);let b;do{b=rnd(A19)}while(b===a||b.id==='cake'&&a.id==='salad'||b.id==='salad'&&a.id==='cake');
+ const right=`${a.o}${a.t}り、${b.o}${b.t}り します。`,opts=shuf([right,`${a.o}${a.te}、${b.o}${b.te} します。`,`${a.o}${a.t}、${b.o}${b.t} します。`]);
+ return{opts,ans:opts.indexOf(right),r:o=>`<span class="jp">${J(o).h}</span>`,say:o=>J(o).t,
+  p:()=>`<p class="kqp">${T(U19.tari)}</p><div class="sc2-given">${ic19(a.id,44)}${ic19(b.id,44)}<span class="sc2-tr" style="color:inherit;opacity:.85">${T(U19.ex)}: ${T(a.n)}, ${T(b.n)}, ${T(U19.etc)}</span></div>`}};
+
+/* ================= 21: rəy sorğusu / xarab telefon ================= */
+const IC21={
+ piano:'<rect width="120" height="80" rx="10" fill="#fde68a"/><circle cx="60" cy="20" r="13" fill="#c08457"/><ellipse cx="45" cy="14" rx="6" ry="9" fill="#7c4a2a" transform="rotate(20 45 14)"/><ellipse cx="75" cy="14" rx="6" ry="9" fill="#7c4a2a" transform="rotate(-20 75 14)"/><circle cx="55" cy="19" r="2" fill="#2b2420"/><circle cx="65" cy="19" r="2" fill="#2b2420"/><ellipse cx="60" cy="25" rx="4" ry="3" fill="#2b2420"/><rect x="18" y="38" width="84" height="34" rx="4" fill="#fff" stroke="#334155" stroke-width="2"/><path d="M34 38v34M50 38v34M66 38v34M82 38v34" stroke="#334155" stroke-width="1.500"/><rect x="30" y="38" width="8" height="20" fill="#334155"/><rect x="46" y="38" width="8" height="20" fill="#334155"/><rect x="78" y="38" width="8" height="20" fill="#334155"/>',
+ moon:'<rect width="120" height="80" rx="10" fill="#1e293b"/><circle cx="20" cy="14" r="1.500" fill="#fff"/><circle cx="100" cy="20" r="1.500" fill="#fff"/><circle cx="90" cy="64" r="1.500" fill="#fff"/><circle cx="60" cy="42" r="30" fill="#e2e8f0"/><circle cx="44" cy="34" r="5" fill="#cbd5e1"/><circle cx="76" cy="54" r="6" fill="#cbd5e1"/><path d="M44 38h32a16 16 0 0 1-32 0z" fill="#f59e0b"/><path d="M52 34c-3-4 3-5 0-9M62 34c-3-4 3-5 0-9M72 34c-3-4 3-5 0-9" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>',
+ robot:'<rect width="120" height="80" rx="10" fill="#bfdbfe"/><path d="M60 8v10" stroke="#475569" stroke-width="3"/><circle cx="60" cy="8" r="4" fill="#ef4444"/><rect x="36" y="18" width="48" height="34" rx="8" fill="#94a3b8"/><circle cx="50" cy="33" r="6" fill="#fde047"/><circle cx="70" cy="33" r="6" fill="#fde047"/><circle cx="50" cy="33" r="2.500" fill="#2b2420"/><circle cx="70" cy="33" r="2.500" fill="#2b2420"/><path d="M50 44h20" stroke="#334155" stroke-width="3" stroke-linecap="round"/><rect x="44" y="54" width="32" height="20" rx="5" fill="#64748b"/>',
+ panda:'<rect width="120" height="80" rx="10" fill="#bbf7d0"/><circle cx="42" cy="18" r="8" fill="#1f2937"/><circle cx="78" cy="18" r="8" fill="#1f2937"/><circle cx="60" cy="34" r="22" fill="#fff" stroke="#e5e7eb"/><ellipse cx="51" cy="32" rx="6" ry="8" fill="#1f2937" transform="rotate(15 51 32)"/><ellipse cx="69" cy="32" rx="6" ry="8" fill="#1f2937" transform="rotate(-15 69 32)"/><circle cx="52" cy="32" r="2" fill="#fff"/><circle cx="68" cy="32" r="2" fill="#fff"/><ellipse cx="60" cy="42" rx="4" ry="3" fill="#1f2937"/><circle cx="30" cy="66" r="9" fill="none" stroke="#334155" stroke-width="3"/><circle cx="90" cy="66" r="9" fill="none" stroke="#334155" stroke-width="3"/><path d="M30 66l22-10h24l14 10M52 56l-4 10" stroke="#334155" stroke-width="3" fill="none"/>',
+ snow:'<rect width="120" height="80" rx="10" fill="#e0f2fe"/><path d="M10 80q50-56 100 0z" fill="#fff"/><path d="M22 20v14M15 27h14M17 22l10 10M27 22l-10 10M96 14v12M90 20h12" stroke="#7dd3fc" stroke-width="2.500" stroke-linecap="round"/><path d="M78 24l-16 30" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/><ellipse cx="82" cy="19" rx="9" ry="7" fill="#cbd5e1" transform="rotate(30 82 19)"/><path d="M40 62c0-5 7-5 7 0 0-5 7-5 7 0 0 5-7 9-7 9s-7-4-7-9z" fill="#fb7185"/>',
+ boss:'<rect width="120" height="80" rx="10" fill="#fecaca"/><path d="M38 28l-4-18 16 10zM82 28l4-18-16 10z" fill="#fbbf24"/><circle cx="60" cy="38" r="24" fill="#fbbf24"/><circle cx="51" cy="35" r="3" fill="#2b2420"/><circle cx="69" cy="35" r="3" fill="#2b2420"/><path d="M57 42l3 3 3-3z" fill="#f472b6"/><path d="M60 45v4M54 49q6 4 6 0q0 4 6 0" stroke="#2b2420" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M26 40l14 3M26 48l14-2M94 40l-14 3M94 48l-14-2" stroke="#7c4a2a" stroke-width="1.500"/><path d="M60 62l-6 4 6 12 6-12z" fill="#dc2626"/><rect x="48" y="60" width="24" height="5" rx="2" fill="#fff"/>'};
+const ic21=k=>`<svg viewBox="0 0 120 80" width="120" height="80" role="img" aria-hidden="true">${IC21[k]}</svg>`;
+const H21=[
+ {ic:'piano',v:['[犬:いぬ]{が} ~ピアノ{を} [弾:ひ]いた','[猫:ねこ]{が} ~ピアノ{を} [弾:ひ]いた','[猫:ねこ]{が} ~ピアノ{を} [食:た]べた'],
+  tr:[t3('Bir it piano çaldı.','A dog played the piano.','Собака сыграла на пианино.'),t3('Bir pişik piano çaldı.','A cat played the piano.','Кошка сыграла на пианино.'),t3('Bir pişik pianonu yedi.','A cat ate the piano.','Кошка съела пианино.')],poll:[9,4,3,7]},
+ {ic:'moon',v:['[月:つき]{に} ~ラーメン{の} [店:みせ]{が} ある','[月:つき]{に} ~カレー{の} [店:みせ]{が} ある','[月:つき]{に} ~カレー{の} [学校:がっこう]{が} ある'],
+  tr:[t3('Ayda ramen restoranı var.','There is a ramen shop on the moon.','На Луне есть лапшичная.'),t3('Ayda karri restoranı var.','There is a curry shop on the moon.','На Луне есть кафе с карри.'),t3('Ayda karri məktəbi var.','There is a curry school on the moon.','На Луне есть школа карри.')],poll:[6,6,2,8]},
+ {ic:'robot',v:['~ロボット{が} [料理:りょうり]{を} [作:つく]った','~ロボット{が} [料理:りょうり]{を} [食:た]べた','~ロボット{が} [会社:かいしゃ]{を} [食:た]べた'],
+  tr:[t3('Robot yemək hazırladı.','A robot cooked a meal.','Робот приготовил еду.'),t3('Robot yeməyi yedi.','A robot ate the meal.','Робот съел еду.'),t3('Robot şirkəti yedi.','A robot ate a company.','Робот съел компанию.')],poll:[5,7,4,5]},
+ {ic:'panda',v:['~パンダ{が} [自転車:じてんしゃ]{に} [乗:の]った','~パンダ{が} [電車:でんしゃ]{に} [乗:の]った','~パンダ{が} [電車:でんしゃ]{を} [運転:うんてん]した'],
+  tr:[t3('Panda velosiped sürdü.','A panda rode a bicycle.','Панда ехала на велосипеде.'),t3('Panda qatara mindi.','A panda took a train.','Панда села в поезд.'),t3('Panda qatar sürdü.','A panda drove a train.','Панда вела поезд.')],poll:[8,3,6,4]},
+ {ic:'snow',v:['[雪:ゆき]{が} あまかった','[雪:ゆき]{が} おいしかった','[猫:ねこ]{が} [雪:ゆき]{を} [食:た]べた'],
+  tr:[t3('Qar şirin idi.','The snow was sweet.','Снег был сладким.'),t3('Qar dadlı idi.','The snow was tasty.','Снег был вкусным.'),t3('Pişik qar yedi.','A cat ate snow.','Кошка съела снег.')],poll:[4,9,2,6]},
+ {ic:'boss',v:['[猫:ねこ]{が} [社長:しゃちょう]|に なった','[犬:いぬ]{が} [社長:しゃちょう]|に なった','[犬:いぬ]{が} [先生:せんせい]|に なった'],
+  tr:[t3('Pişik şirkət direktoru oldu.','A cat became a company president.','Кошка стала директором компании.'),t3('İt şirkət direktoru oldu.','A dog became a company president.','Собака стала директором компании.'),t3('İt müəllim oldu.','A dog became a teacher.','Собака стала учителем.')],poll:[7,5,3,5]}];
+const O21=[
+ {j:'おもしろい',tr:t3('Məncə, maraqlıdır.','I think it is interesting.','Думаю, это интересно.')},
+ {j:'[変:へん]だ',tr:t3('Məncə, qəribədir.','I think it is strange.','Думаю, это странно.')},
+ {j:'[本当:ほんとう]だ',tr:t3('Məncə, düzdür.','I think it is true.','Думаю, это правда.')},
+ {j:'すごい',tr:t3('Məncə, möhtəşəmdir.','I think it is amazing.','Думаю, это потрясающе.')}];
+const R21=[{j:'[友達:ともだち]',n:t3('Dost','The friend','Друг'),f:0},{j:'[先生:せんせい]',n:t3('Müəllim','The teacher','Учитель'),f:1},{j:'[母:はは]',n:t3('Ana','The mother','Мама'),f:2}];
+const FACE21=[
+ '<circle cx="24" cy="26" r="16" fill="#fcd9b6"/><path d="M8 25c0-13 8-17 16-17s16 4 16 17c-4-6-10-8-16-8s-12 2-16 8z" fill="#3b2f2f"/><circle cx="18" cy="28" r="2" fill="#2b2420"/><circle cx="30" cy="28" r="2" fill="#2b2420"/><path d="M19 35q5 4 10 0" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>',
+ '<circle cx="24" cy="26" r="16" fill="#f5cba7"/><path d="M8 26c0-12 6-18 16-18s16 6 16 18c-2-6-6-9-16-9s-14 3-16 9z" fill="#cbd5e1"/><circle cx="18" cy="28" r="5" fill="none" stroke="#334155" stroke-width="1.800"/><circle cx="30" cy="28" r="5" fill="none" stroke="#334155" stroke-width="1.800"/><path d="M23 28h2" stroke="#334155" stroke-width="1.800"/><path d="M19 37q5 3 10 0" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>',
+ '<circle cx="24" cy="12" r="6" fill="#7c4a2a"/><circle cx="24" cy="27" r="16" fill="#fcd9b6"/><path d="M8 27c0-13 7-17 16-17s16 4 16 17c-3-7-9-9-16-9s-13 2-16 9z" fill="#7c4a2a"/><circle cx="18" cy="29" r="2" fill="#2b2420"/><circle cx="30" cy="29" r="2" fill="#2b2420"/><circle cx="14" cy="33" r="3" fill="#fda4af" opacity=".7"/><circle cx="34" cy="33" r="3" fill="#fda4af" opacity=".7"/><path d="M19 36q5 4 10 0" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>'];
+const face21=i=>`<svg viewBox="0 0 48 48" aria-hidden="true">${FACE21[i]}</svg>`;
+const U21={news:t3('Xəbər','News','Новости'),op:t3('Sənin fikrin?','What do you think?','Ваше мнение?'),poll:t3('Sorğunun nəticəsi','Poll result','Итоги опроса'),relay:t3('Xəbər əldən-ələ gedir','The news is passed along','Новость передают дальше'),
+ pass:t3('Xəbəri ötür','Pass it on','Передать дальше'),newH:t3('Yeni xəbər','New headline','Новая новость'),
+ chg:t3('Xəbər dəyişdi! "Xarab telefon" belə işləyir.','The news changed! That is how "broken telephone" works.','Новость изменилась! Так работает "испорченный телефон".'),
+ pS:t3('Dostun bunu dedi. Sözünü sadə formada çatdır.','Your friend said this. Pass it on in plain form.','Друг сказал это. Передайте его слова в простой форме.'),
+ pT:t3('Bu sənin fikrindir. Onu sadə formada ifadə et.','This is your thought. Put it in plain form.','Это ваше мнение. Выразите его в простой форме.'),
+ qS:t3('Dostun dedi','Your friend said','Друг сказал'),qT:t3('Sən düşünürsən','You think','Вы думаете')};
+const S21=Object.assign({hi:0,op:-1,step:0},stGet(21)||{});S21.step=0;
+const say21=(R,k,h)=>{const v=h.v[k],tr=h.tr[k];return{jp:`${R.j}{は} ${v}{と} [言:い]いました。`,tr:SLI()===0?`${T(R.n)} dedi ki: ${T(tr)}`:SLI()===1?`${T(R.n)} said: ${T(tr)}`:`${T(R.n)} ${R.f===2?'сказала':'сказал'}: ${T(tr)}`}};
+UI[21]=()=>{const b=$('sc2Box21');if(!b)return;const m=ST[21].mode;let h=tabs(m);
+ if(m==='free'){const H=H21[S21.hi];
+  h+=`<div class="sc2-news"><div class="sc2-mast"><span class="jp">${J('[新聞:しんぶん]').h}</span><span>${T(U21.news)} ${S21.hi+1}/${H21.length}</span></div><div class="sc2-nb">${ic21(H.ic)}<div><div class="sc2-nh jp">${J(H.v[0]).h}</div><div class="sc2-tr">${T(H.tr[0])}</div></div></div></div>`;
+  h+=`<div class="sc2-fl" style="font-weight:800;opacity:.75">${T(U21.op)} <span class="jp">〜と 思います</span></div><div class="sc2-chips">${O21.map((o,i)=>`<button class="sc2-chip" data-a="op" data-i="${i}" aria-pressed="${S21.op===i}"><span class="jp">${J(o.j).h}</span></button>`).join('')}</div>`;
+  if(S21.op>=0){const o=O21[S21.op],tot=H.poll.reduce((a,b)=>a+b,0)+1;
+   h+=`<div class="sc2-paper">${ln(o.j+'{と} [思:おも]います。',T(o.tr))}</div>`;
+   h+=`<div class="sc2-poll"><div class="sc2-fl" style="font-weight:800;opacity:.75">${T(U21.poll)}</div>${O21.map((q,i)=>{const c=H.poll[i]+(i===S21.op?1:0),pc=Math.round(c/tot*100);return `<div class="sc2-pr${i===S21.op?' me':''}"><span class="jp">${J(q.j).h}</span><div class="sc2-pb"><i style="width:${pc}%"></i></div><span>${pc}%</span></div>`}).join('')}</div>`;
+   h+=`<div class="sc2-fl" style="font-weight:800;opacity:.75">${T(U21.relay)} <span class="jp">〜と 言いました</span></div><div class="sc2-relay">${R21.map((R,k)=>{const s=say21(R,k,H);return `<div class="sc2-rl${S21.step>k?' on':''}">${face21(R.f)}<div class="sc2-bub">${S21.step>k?`<div class="jp">${J(s.jp).h}</div><div class="sc2-tr">${s.tr}</div>`:'<div class="jp">…</div>'}</div></div>`}).join('')}</div>`;
+   h+=`<div class="tools">${S21.step<3?`<button class="btn fill" data-a="pass" style="--c:var(--vio)">${T(U21.pass)}</button>`:`<span class="sc2-win">${T(U21.chg)}</span>`}<button class="btn" data-a="newh" style="--c:var(--pnk)">${T(U21.newH)}</button></div>`;
+  }else h+=`<div class="tools"><button class="btn" data-a="newh" style="--c:var(--pnk)">${T(U21.newH)}</button></div>`;
+ }else h+=testHTML(21);
+ b.innerHTML=h};
+H[21]=(a,el)=>{const H=H21[S21.hi];
+ if(a==='op'){S21.op=+el.dataset.i;S21.step=0;say(J(O21[S21.op].j+'{と} [思:おも]います。').t)}
+ else if(a==='pass'){const k=S21.step;if(k<3){S21.step++;say(J(say21(R21[k],k,H).jp).t)}}
+ else if(a==='newh'){S21.hi=(S21.hi+1)%H21.length;S21.op=-1;S21.step=0}
+ else return;stSet(21,{hi:S21.hi});UI[21]()};
+const P21=[
+ {pre:'あした [雨:あめ]{が} ',pol:'[降:ふ]ります',pl:'[降:ふ]る',w:['[降:ふ]ります','[降:ふ]るです'],tr:t3('Sabah yağış yağacaq.','It will rain tomorrow.','Завтра будет дождь.')},
+ {pre:'この [本:ほん]{は} ',pol:'[高:たか]いです',pl:'[高:たか]い',w:['[高:たか]いです','[高:たか]いだ'],tr:t3('Bu kitab bahadır.','This book is expensive.','Эта книга дорогая.')},
+ {pre:'ここ{は} ',pol:'[静:しず]かです',pl:'[静:しず]かだ',w:['[静:しず]かです','[静:しず]かい'],tr:t3('Burası sakitdir.','It is quiet here.','Здесь тихо.')},
+ {pre:'[明日:あした]{は} ',pol:'[休:やす]みです',pl:'[休:やす]みだ',w:['[休:やす]みです','[休:やす]みる'],tr:t3('Sabah istirahət günüdür.','Tomorrow is a day off.','Завтра выходной.')},
+ {pre:'パーカー|さん{は} きのう [映画:えいが]{を} ',pol:'[見:み]ました',pl:'[見:み]た',w:['[見:み]ました','[見:み]るた'],tr:t3('Cənab Parker dünən film izləyib.','Mr. Parker watched a film yesterday.','Господин Паркер вчера смотрел фильм.')},
+ {pre:'パーカー|さん{は} [今日:きょう]{は} ',pol:'[来:き]ません',pl:'[来:こ]ない',w:['[来:き]ません','[来:き]ない'],tr:t3('Cənab Parker bu gün gəlməyəcək.','Mr. Parker is not coming today.','Господин Паркер сегодня не придёт.')},
+ {pre:'ラモス|さん{は} [日曜日:にちようび]{は} ',pol:'[行:い]きません',pl:'[行:い]かない',w:['[行:い]きません','[行:い]きない'],tr:t3('Cənab Ramos bazar günü getmir.','Mr. Ramos does not go on Sunday.','Господин Рамос по воскресеньям не ходит.')},
+ {pre:'この ~ケーキ{は} ',pol:'おいしくないです',pl:'おいしくない',w:['おいしくないです','おいしくなかった'],tr:t3('Bu tort dadlı deyil.','This cake is not tasty.','Этот торт невкусный.')},
+ {pre:'[試験:しけん]{は} ',pol:'[難:むずか]しかったです',pl:'[難:むずか]しかった',w:['[難:むずか]しかったです','[難:むずか]しいだった'],tr:t3('İmtahan çətin idi.','The exam was difficult.','Экзамен был трудным.')}];
+GEN[21]=()=>{const it=rnd(P21),say_=Math.random()<.6,opts=shuf([it.pl,...it.w]);
+ const frame=say_?`[友達:ともだち]{は} ${it.pre}`:`わたし{は} ${it.pre}`,end=say_?' [言:い]いました。':' [思:おも]います。';
+ return{opts,ans:opts.indexOf(it.pl),r:o=>`<span class="jp">${J(o+'{と}').h}</span>`,say:o=>J(frame+o+'{と}'+end).t,
+  p:()=>`<p class="kqp">${T(say_?U21.pS:U21.pT)}</p><div class="sc2-paper"><small style="font-weight:800;color:#7a6a58">${T(say_?U21.qS:U21.qT)}:</small><div class="jp" style="font-size:1.1em;line-height:1.9">${J('「'+it.pre+it.pol+'。」').h}</div><div class="sc2-tr">${T(it.tr)}</div></div><div class="r28l" style="font-size:1.15em"><span class="jp">${J(frame).h}<b class="sc2-pill">＿＿＿</b>${J(end).h}</span></div>`}};
+
+/* ================= 23: yol tapıcı ================= */
+const N23={
+ ST:{x:70,y:340,by:356,ly:402,k:'駅',j:'[駅:えき]',n:t3('stansiya','station','станция')},
+ PO:{x:210,y:340,by:356,ly:402,k:'郵便局',j:'[郵便局:ゆうびんきょく]',n:t3('poçt','post office','почта')},
+ BK:{x:350,y:340,by:356,ly:402,k:'銀行',j:'[銀行:ぎんこう]',n:t3('bank','bank','банк')},
+ HS:{x:520,y:340,by:356,ly:402,k:'病院',j:'[病院:びょういん]',n:t3('xəstəxana','hospital','больница')},
+ BS:{x:210,y:285,bx:150,by:268,ly:316,k:'本屋',j:'[本屋:ほんや]',n:t3('kitab mağazası','bookshop','книжный магазин')},
+ PK:{x:350,y:110,by:56,ly:48,k:'公園',j:'[公園:こうえん]',n:t3('park','park','парк')},
+ LB:{x:170,y:110,by:56,ly:48,k:'図書館',j:'[図書館:としょかん]',n:t3('kitabxana','library','библиотека')},
+ SM:{x:520,y:110,by:56,ly:48,k:'スーパー',j:'~スーパー',n:t3('supermarket','supermarket','супермаркет')},
+ CF:{x:170,y:170,bx:222,by:150,ly:144,k:'カフェ',j:'~カフェ',n:t3('kafe','café','кафе')}};
+const E23=[['ST','PO'],['PO','BK'],['BK','HS'],['PO','BS'],['BK','PK','br'],['PK','LB'],['PK','SM'],['LB','CF']];
+const ADJ={};E23.forEach(([a,b,t])=>{(ADJ[a]=ADJ[a]||[]).push([b,!!t]);(ADJ[b]=ADJ[b]||[]).push([a,!!t])});
+function path23(to,from='ST',seen={}){if(from===to)return[from];seen[from]=1;for(const[n]of ADJ[from]){if(seen[n])continue;const r=path23(to,n,seen);if(r)return[from,...r]}return null}
+const dir23=(a,b)=>({x:Math.sign(N23[b].x-N23[a].x),y:Math.sign(N23[b].y-N23[a].y)});
+const isBr=(a,b)=>E23.some(e=>e[2]&&((e[0]===a&&e[1]===b)||(e[1]===a&&e[0]===b)));
+const turn23=(h1,h2)=>{const c=h1.x*h2.y-h1.y*h2.x;return c<0?-1:c>0?1:0};
+function ins23(p){const E=[];for(let i=0;i<p.length-1;i++)E.push({a:p[i],b:p[i+1],br:isBr(p[i],p[i+1]),d:dir23(p[i],p[i+1])});
+ const out=[];let i=0,ang=0;const N=id=>N23[id].j;
+ const foot={x:350,y:252};
+ while(i<E.length){
+  if(E[i].br){out.push({k:'br1',jp:'まっすぐ [行:い]くと、[橋:はし]{が} あります。',to:foot,ang,nm:E[i].b});
+   out.push({k:'br2',jp:`[橋:はし]{を} [渡:わた]ると、${N(E[i].b)}{が} あります。`,to:N23[E[i].b],ang,nm:E[i].b});i++}
+  else{let j=i;while(j+1<E.length&&!E[j+1].br&&turn23(E[j].d,E[j+1].d)===0)j++;
+   out.push({k:'go',jp:`まっすぐ [行:い]くと、${N(E[j].b)}{が} あります。`,to:N23[E[j].b],ang,nm:E[j].b});i=j+1}
+  if(i<E.length){const t=turn23(E[i-1].d,E[i].d);if(t!==0){ang+=t*90;out.push({k:'turn',jp:`${N(E[i-1].b)}{を} ${t<0?'[左:ひだり]':'[右:みぎ]'}{へ} [曲:ま]がります。`,to:N23[E[i-1].b],ang,nm:E[i-1].b,t})}}}
+ return out}
+function tr23(s){const li=SLI(),nm=s.nm?N23[s.nm].n[['az','en','ru'][li]]:'';
+ if(s.k==='go')return li===0?`Düz getsən, qarşıda ${nm} var.`:li===1?`If you go straight, you will see the ${nm}.`:`Если идти прямо, впереди ${nm}.`;
+ if(s.k==='turn')return li===0?`${s.t<0?'Sola':'Sağa'} dön (${nm}).`:li===1?`Turn ${s.t<0?'left':'right'} at the ${nm}.`:`Поверните ${s.t<0?'налево':'направо'} (${nm}).`;
+ if(s.k==='br1')return li===0?'Düz getsən, qarşıda körpü var.':li===1?'If you go straight, you will see a bridge.':'Если идти прямо, впереди мост.';
+ return li===0?`Körpüdən keçsən, ${nm} var.`:li===1?`If you cross the bridge, you will find the ${nm}.`:`Если перейти мост, там ${nm}.`}
+const U23={prev:t3('Geri','Back','Назад'),next:t3('İrəli','Next','Дальше'),reset:t3('Yenidən','Restart','Сначала'),
+ target:t3('Hədəf','Destination','Цель'),pq:t3('Hansı göstəriş hədəfə aparır?','Which directions lead there?','Какие указания ведут туда?'),
+ ends:t3('Bu yol buraya aparır','This route leads to','Этот маршрут ведёт сюда'),found:t3('Gizli kafe tapıldı!','You found the hidden café!','Скрытое кафе найдено!'),
+ hid:t3('gizli kafe','the hidden café','скрытое кафе'),
+ tip1:t3('Yolu bilmirsənsə, soruş.','If you do not know the way, ask.','Если не знаете дорогу, спросите.'),tip2:t3('Körpüdən keçəndə yavaş get.','Walk slowly when crossing the bridge.','На мосту идите медленно.')};
+const S23={step:0};
+function bld23(id,vis){const N=N23[id],x=N.bx!=null?N.bx:N.x,y=N.by;let g='';
+ switch(id){
+  case'ST':g=`<path d="M${x-28} ${y+2}L${x} ${y-12}L${x+28} ${y+2}z" fill="#475569"/><rect x="${x-24}" y="${y+2}" width="48" height="26" rx="3" fill="#94a3b8"/><circle cx="${x}" cy="${y+14}" r="7" fill="#fff"/><path d="M${x} ${y+9}v5h4" stroke="#334155" stroke-width="2" fill="none"/>`;break;
+  case'PO':g=`<rect x="${x-22}" y="${y}" width="44" height="28" rx="4" fill="#fca5a5"/><rect x="${x-26}" y="${y-5}" width="52" height="8" rx="3" fill="#ef4444"/><text x="${x}" y="${y+23}" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">〒</text>`;break;
+  case'BK':g=`<path d="M${x-26} ${y+4}L${x} ${y-10}L${x+26} ${y+4}z" fill="#b45309"/><rect x="${x-22}" y="${y+4}" width="44" height="24" fill="#fde68a"/><path d="M${x-13} ${y+8}v16M${x} ${y+8}v16M${x+13} ${y+8}v16" stroke="#fff" stroke-width="5"/>`;break;
+  case'HS':g=`<rect x="${x-22}" y="${y}" width="44" height="28" rx="4" fill="#fff" stroke="#94a3b8" stroke-width="2"/><rect x="${x-3.500}" y="${y+5}" width="7" height="18" fill="#16a34a"/><rect x="${x-9}" y="${y+10.500}" width="18" height="7" fill="#16a34a"/>`;break;
+  case'BS':g=`<rect x="${x-22}" y="${y}" width="44" height="28" rx="4" fill="#fdba74"/><rect x="${x-26}" y="${y-5}" width="52" height="8" rx="3" fill="#c2410c"/><rect x="${x-14}" y="${y+9}" width="7" height="15" fill="#2563eb"/><rect x="${x-5}" y="${y+11}" width="7" height="13" fill="#16a34a"/><rect x="${x+4}" y="${y+8}" width="7" height="16" fill="#ef4444"/>`;break;
+  case'PK':g=`<ellipse cx="${x}" cy="${y+22}" rx="40" ry="9" fill="#86efac"/><rect x="${x-14}" y="${y+10}" width="4" height="14" fill="#92400e"/><circle cx="${x-12}" cy="${y+8}" r="13" fill="#22c55e"/><rect x="${x+12}" y="${y+8}" width="4" height="16" fill="#92400e"/><circle cx="${x+14}" cy="${y+4}" r="14" fill="#16a34a"/>`;break;
+  case'LB':g=`<path d="M${x-26} ${y+5}L${x} ${y-10}L${x+26} ${y+5}z" fill="#6366f1"/><rect x="${x-22}" y="${y+5}" width="44" height="23" fill="#c7d2fe"/><rect x="${x-5}" y="${y+14}" width="10" height="14" fill="#4338ca"/><path d="M${x-16} ${y+9}v14M${x+16} ${y+9}v14" stroke="#fff" stroke-width="4"/>`;break;
+  case'SM':g=`<rect x="${x-22}" y="${y+6}" width="44" height="22" rx="3" fill="#a7f3d0"/>${[0,1,2,3].map(i=>`<rect x="${x-22+i*11}" y="${y-2}" width="11" height="10" fill="${i%2?'#fff':'#ef4444'}"/>`).join('')}<rect x="${x-7}" y="${y+14}" width="14" height="14" fill="#059669"/>`;break;
+  case'CF':return `<g class="sc2-cf0"><rect x="${x-22}" y="${y}" width="44" height="28" rx="6" fill="none" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6 5"/><text x="${x}" y="${y+22}" text-anchor="middle" font-size="22" font-weight="800" fill="#7c3aed">？</text></g>
+   <g class="sc2-cf1"><rect x="${x-22}" y="${y}" width="44" height="28" rx="5" fill="#fcd5b0"/><rect x="${x-26}" y="${y-5}" width="52" height="8" rx="3" fill="#9a3412"/><path d="M${x-9} ${y+11}h16v5a8 8 0 0 1-8 8h0a8 8 0 0 1-8-8z" fill="#fff"/><path d="M${x+7} ${y+13}h3a3 3 0 0 1 0 6h-3" stroke="#fff" stroke-width="2.500" fill="none"/><path d="M${x-4} ${y+8}c-2-3 2-3 0-6M${x+2} ${y+8}c-2-3 2-3 0-6" stroke="#9a3412" stroke-width="1.800" fill="none" stroke-linecap="round"/></g>
+   <text x="${x}" y="${N.ly}" text-anchor="middle" class="sc2-lbl jp sc2-cf1">${N.k}</text>`}
+ return g+`<text x="${x}" y="${N.ly}" text-anchor="middle" class="sc2-lbl jp">${N.k}</text>`}
+const pts23=a=>a.map(p=>`${p.x},${p.y}`).join(' ');
+function map23(o){const ids=Object.keys(N23);
+ const roads=E23.map(([a,b,t])=>{const A=N23[a],B=N23[b];if(t)return `<path d="M${A.x} ${A.y}V246M${B.x} 184V${B.y}" /><path d="M${A.x} 246V184"/>`.replace('<path d="M350 246V184"/>','');return `<path d="M${A.x} ${A.y}L${B.x} ${B.y}"/>`}).join('');
+ const deck=`<rect x="334" y="182" width="32" height="66" rx="3" fill="#a16207"/><rect x="338" y="182" width="24" height="66" fill="#d6a85a"/><path d="M334 190h32M334 200h32M334 210h32M334 220h32M334 230h32M334 240h32" stroke="#a16207" stroke-width="1.500"/><path d="M334 182v66M366 182v66" stroke="#78350f" stroke-width="3"/>`;
+ return `<svg class="sc2-map${o.rev?' sc2-rev':''}" id="sc2Map23" viewBox="0 0 640 420" role="img" aria-label="map">
+ <rect width="640" height="420" fill="#e8f3d6"/><circle cx="40" cy="60" r="16" fill="#bfe3a0"/><circle cx="600" cy="230" r="14" fill="#bfe3a0"/><circle cx="600" cy="300" r="18" fill="#bfe3a0"/><circle cx="90" cy="215" r="0" />
+ <rect y="188" width="640" height="54" fill="#9fd3f0"/><path d="M0 200q20-6 40 0t40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0M0 228q20-6 40 0t40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0" stroke="#d3eefb" stroke-width="3" fill="none"/>
+ <g stroke="#c9bda5" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round">${roads}</g><g stroke="#fffaf0" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round">${roads}</g>${deck}
+ ${ids.map(id=>`<circle cx="${N23[id].x}" cy="${N23[id].y}" r="7" fill="#fff" stroke="#94a3b8" stroke-width="2.500"/>`).join('')}
+ ${ids.map(id=>bld23(id)).join('')}
+ ${o.route?`<polyline points="${pts23(o.route)}" fill="none" stroke="${o.rc||'#7c3aed'}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>`:''}
+ ${o.learn?`<polyline id="sc2Trail23" points="${pts23(o.trail)}" fill="none" stroke="#7c3aed" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>`:''}
+ ${o.target?(()=>{const N=N23[o.target],x=N.bx!=null?N.bx:N.x;return `<circle class="sc2-pulse" cx="${x}" cy="${N.by+14}" r="34" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="7 5"/>`})():''}
+ ${o.end?`<circle cx="${o.end.x}" cy="${o.end.y}" r="13" fill="${o.ec}" stroke="#fff" stroke-width="3"/>`:''}
+ <g class="sc2-tok" id="sc2Tok23" style="transform:translate(${o.tok.x}px,${o.tok.y}px)"><circle r="14" fill="#7c3aed" stroke="#fff" stroke-width="3.500"/><g class="sc2-tokh" id="sc2TokH23" style="transform:rotate(${o.tok.a}deg)"><path d="M8 0L-3 -7V7z" fill="#fff"/></g></g></svg>`}
+const legend23=()=>`<div class="sc2-leg">${Object.keys(N23).filter(k=>k!=='CF').map(k=>`<span><b class="jp">${J(N23[k].j).h}</b> ${T(N23[k].n)}</span>`).join('')}</div>`;
+let R23=null;
+function route23(){if(!R23){const p=path23('CF');R23={p,ins:ins23(p)}}return R23}
+function pos23(step){const r=route23();if(step===0)return{x:N23.ST.x,y:N23.ST.y,a:0};const s=r.ins[step-1];return{x:s.to.x,y:s.to.y,a:s.ang}}
+function trail23(step){const r=route23(),o=[{x:N23.ST.x,y:N23.ST.y}];for(let i=0;i<step;i++){const s=r.ins[i];if(s.k!=='turn')o.push({x:s.to.x,y:s.to.y})}return o}
+function upd23(){const r=route23(),n=r.ins.length,st=S23.step,p=pos23(st);
+ const tk=$('sc2Tok23');if(!tk)return;tk.style.transform=`translate(${p.x}px,${p.y}px)`;$('sc2TokH23').style.transform=`rotate(${p.a}deg)`;
+ $('sc2Trail23').setAttribute('points',pts23(trail23(st)));const mp=$('sc2Map23');if(mp)mp.classList.toggle('sc2-rev',st>=n);
+ document.querySelectorAll('#sc2Box23 .sc2-st').forEach((e,i)=>{e.classList.toggle('done',i<st-1);e.classList.toggle('cur',i===st-1)});
+ const cur=st>0?r.ins[st-1]:null,tl=$('sc2Tr23');if(tl)tl.innerHTML=st>=n?`<span class="sc2-win">${T(U23.found)}</span>`:cur?tr23(cur):'&nbsp;';
+ const tp=$('sc2Tip23');if(tp)tp.innerHTML=ln(cur&&cur.k.startsWith('br')?'[橋:はし]{を} [渡:わた]る とき、ゆっくり [歩:ある]きます。':'[道:みち]{が} わからない とき、[人:ひと]{に} [聞:き]いて ください。',T(cur&&cur.k.startsWith('br')?U23.tip2:U23.tip1));
+ const bn=$('sc2Nx23'),bp=$('sc2Pv23');if(bn)bn.disabled=st>=n;if(bp)bp.disabled=st<=0}
+UI[23]=()=>{const b=$('sc2Box23');if(!b)return;const m=ST[23].mode;let h=tabs(m);
+ if(m==='free'){const r=route23(),p=pos23(S23.step);
+  h+=map23({learn:1,trail:trail23(S23.step),tok:p,rev:S23.step>=r.ins.length})+legend23();
+  h+=`<div class="tools"><button class="btn" id="sc2Pv23" data-a="prev" style="--c:var(--vio)">${T(U23.prev)}</button><button class="btn fill" id="sc2Nx23" data-a="step" style="--c:var(--vio)">${T(U23.next)}</button><button class="btn" data-a="rst" style="--c:var(--pnk)">${T(U23.reset)}</button></div>`;
+  h+=`<p class="sc2-msg" id="sc2Tr23">&nbsp;</p><div class="sc2-paper">${r.ins.map((s,i)=>`<div class="sc2-st" data-a="jump" data-i="${i}"><em>${i+1}</em><div class="jp">${J(s.jp).h}</div></div>`).join('')}</div><div class="sc2-paper" id="sc2Tip23"></div>`;
+  b.innerHTML=h;upd23();return}
+ h+=testHTML(23);b.innerHTML=h};
+H[23]=(a,el)=>{const r=route23(),n=r.ins.length;
+ if(a==='step'){if(S23.step<n){S23.step++;say(J(r.ins[S23.step-1].jp).t)}}
+ else if(a==='prev'){if(S23.step>0)S23.step--}
+ else if(a==='rst'){S23.step=0}
+ else if(a==='jump'){S23.step=+el.dataset.i+1;say(J(r.ins[S23.step-1].jp).t)}
+ else return;upd23()};
+GEN[23]=()=>{const ids=Object.keys(N23).filter(k=>k!=='ST'),tg=rnd(ids),oth=shuf(ids.filter(k=>k!==tg)).slice(0,2);
+ const opts=shuf([tg,...oth]).map(d=>{const p=path23(d);return{dest:d,p,ins:ins23(p)}});
+ const nm=id=>id==='CF'?T(U23.hid):T(N23[id].n);
+ return{opts,ans:opts.findIndex(o=>o.dest===tg),once:true,say:o=>J(o.ins.map(s=>s.jp).join('')).t,
+  r:(o,i)=>`<span class="sc2-ol">${'ABC'[i]}</span><span>${o.ins.map(s=>`<span class="jp">${J(s.jp).h}</span>`).join('<br>')}</span>`,
+  wm:o=>`<b class="vno">${T(U.no)}</b> ${T(U23.ends)}: <span class="jp">${J(N23[o.dest].j).h}</span> (${nm(o.dest)})`,
+  p:s=>{const done=s.pick>=0,ch=done?s.q.opts[s.pick]:null,ok=done&&ch.dest===tg;
+   const mapO={tok:{x:N23.ST.x,y:N23.ST.y,a:0},target:tg,rev:done&&(tg==='CF'||(ch&&ch.dest==='CF'))};
+   if(done){const pp=ch.p.map(id=>N23[id]);mapO.route=pp;mapO.rc=ok?'#16a34a':'#dc2626';mapO.end=N23[ch.dest];mapO.ec=ok?'#16a34a':'#dc2626'}
+   return `<p class="kqp">${T(U23.pq)}</p><p class="sc2-msg">${T(U23.target)}: <span class="jp">${J(N23[tg].j).h}</span> (${nm(tg)})</p>${map23(mapO)}`}}};
+
+/* ---------- qoşulma ---------- */
+setTimeout(()=>{
+ const defs=[
+  [18,t3('Hobbi klubu','Hobby club','Клуб по интересам'),t3('Anketi doldur, klubunu tap','Fill in the form and find your club','Заполните анкету и найдите клуб'),'趣味は 〜ことです'],
+  [19,t3('Pəhriz gündəliyi','Diet diary','Дневник диеты'),t3('Bir həftə, bir gündəlik','One week, one diary','Неделя в дневнике'),'〜たり 〜たり・〜た ことが あります'],
+  [21,t3('Rəy sorğusu','Opinion poll','Опрос мнений'),t3('Xəbər, fikir və xarab telefon','Headlines, opinions and broken telephone','Новости, мнения и испорченный телефон'),'〜と 思います・〜と 言いました'],
+  [23,t3('Yol tapıcı','Path finder','Поиск пути'),t3('Göstərişlərlə gizli kafeyə get','Follow directions to the hidden café','По указаниям – к скрытому кафе'),'〜と、〜とき']];
+ for(const[n,lbl,sub,jp]of defs){const L=LS[n];if(!L)continue;
+  Object.defineProperty(L,'playLabel',{get:()=>SL(lbl),configurable:true});
+  L.play=()=>playSec(SL(sub),`<span class="jp">${jp}</span>`,'',`<div id="sc2Box${n}" class="sc2-box" data-n="${n}"></div>`);
+  L.init=()=>{if($('sc2Box'+n))UI[n]()}}
+ try{if(UI[C.n])render()}catch(_){}},0);
+})();
+
 /* ================= Səhnə ikonları: emoji yerinə SVG ================= */
 (function(){
 const sv=(b,vb)=>`<svg class="sci" viewBox="${vb||'0 0 24 24'}" aria-hidden="true">${b}</svg>`;
