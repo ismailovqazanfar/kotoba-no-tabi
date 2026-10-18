@@ -6231,6 +6231,180 @@ setTimeout(()=>{
  try{if(UI[C.n])render()}catch(_){}},0);
 })();
 
+/* scene K: lesson 35 keigo converter */
+(()=>{
+const TT=(a,e,r)=>SL({az:a,en:e,ru:r});
+const bestGet=()=>{try{return +localStorage.getItem('kotoba-sk-best')||0}catch(_){return 0}};
+const bestSet=v=>{try{localStorage.setItem('kotoba-sk-best',v)}catch(_){}};
+const jpx=m=>`<span class="jp">${J(m).h}</span>`;
+const CSS=`
+.sk-box{--sk-pl:#6b7280;--sk-po:#0f766e;--sk-so:#1d4ed8;--sk-ke:#b45309;margin-top:6px}
+html[data-theme=dark] .sk-box{--sk-pl:#aab1bd;--sk-po:#5eead4;--sk-so:#93c5fd;--sk-ke:#fbbf24}
+.sk-tabs,.sk-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.sk-lab{font-size:.74rem;color:var(--mut);margin:10px 0 0;letter-spacing:.02em}
+.sk-chip{font:inherit;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
+.sk-chip small{display:block;font-size:.68em;color:var(--mut);line-height:1.1}
+.sk-chip.on{border-color:var(--c,var(--ink));background:color-mix(in srgb,var(--c,var(--ink)) 16%,var(--paper));font-weight:700}
+.sk-reg{flex:1 1 90px;border-radius:12px;text-align:center}
+.sk-stage{border:1.5px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.sk-stage svg{display:block;width:100%;height:auto;max-width:460px;margin:0 auto}
+.sk-card{border:1.5px solid var(--line);border-radius:14px;background:var(--paper);padding:12px 14px;margin:8px 0}
+.sk-sent{font-size:1.45rem;line-height:2.3}.sk-sent .say{margin-left:8px;vertical-align:middle}.sk-tr{font-size:.92rem;margin:2px 0 0}
+.sk-ch{color:inherit;background:color-mix(in srgb,var(--c,var(--ink)) 20%,transparent);border-radius:6px;padding:0 4px;box-shadow:inset 0 -2px 0 var(--c,var(--ink))}
+.sk-rom{font-size:.8rem;color:var(--mut);margin-top:-6px}
+.sk-ar{color:var(--mut);margin:0 4px}
+.sk-tag{display:inline-block;font-size:.72rem;border-radius:999px;padding:2px 9px;border:1px solid var(--c,var(--line));color:var(--c,var(--ink));margin:4px 4px 0 0}
+.sk-why{font-size:.9rem;margin:6px 0 0;color:var(--ink)}
+.sk-v{margin:8px 0 2px;font-weight:700}
+.sk-v.g{color:var(--gf,#15803d)}.sk-v.b{color:var(--sgc,#b91c1c)}.sk-v.m{color:var(--sk-ke)}
+.sk-opts{display:grid;gap:8px;margin:8px 0}
+.sk-opt{font:inherit;text-align:left;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:10px 14px;cursor:pointer;font-size:1.15rem}
+.sk-opt.ok{border-color:var(--gf,#15803d);background:color-mix(in srgb,var(--gf,#15803d) 16%,var(--paper))}
+.sk-opt.no{border-color:var(--sgc,#b91c1c);background:color-mix(in srgb,var(--sgc,#b91c1c) 14%,var(--paper))}
+.sk-top{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mut)}
+.sk-sit{font-size:.9rem;margin:6px 0}
+.sk-go{font:inherit;font-weight:700;border:0;border-radius:999px;padding:9px 18px;background:var(--ink);color:var(--bg);cursor:pointer}
+.sk-sum{text-align:center;padding:14px 4px}.sk-sum b{font-size:2rem}
+@keyframes skbow{0%{transform:rotate(0)}35%,70%{transform:rotate(27deg)}100%{transform:rotate(0)}}
+@keyframes skshake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}45%{transform:translateX(5px)}70%{transform:translateX(-3px)}}
+@keyframes skhop{0%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+.sk-sp{transform-origin:90px 130px}
+.sk-bow .sk-sp{animation:skbow 1s ease-in-out}
+.sk-bad .sk-ls{animation:skshake .6s}
+.sk-hop .sk-ls{animation:skhop .6s}
+@media (prefers-reduced-motion:reduce){.sk-bow .sk-sp,.sk-bad .sk-ls,.sk-hop .sk-ls{animation:none}}
+`;
+const REG=['pl','po','so','ke'];
+const RN={pl:{t:['Dost','Casual','Дружеский'],j:'くだけた'},po:{t:['Nəzakətli','Polite','Вежливый'],j:'丁寧語'},so:{t:['Hörmət','Respectful','Почтительный'],j:'尊敬語'},ke:{t:['Təvazökar','Humble','Скромный'],j:'謙譲語'}};
+const A={cust:{m:'お[客:きゃく]さま',n:['Qonaq','Customer','Клиент'],hi:1,sc:'hotel'},boss:{m:'[社長:しゃちょう]',n:['Direktor','President','Директор'],hi:1,sc:'office'},
+ teach:{m:'[先生:せんせい]',n:['Müəllim','Teacher','Учитель'],hi:1,sc:'school'},me:{m:'わたし',n:['Mən','Me','Я'],hi:0,sc:'hotel'},fr:{m:'[友達:ともだち]',n:['Dost','Friend','Друг'],hi:0,sc:'office'}};
+const AK=['cust','boss','teach','me','fr'];
+const V=[
+ {pl:['[行:い]く','iku'],po:['[行:い]きます','ikimasu'],so:[['いらっしゃいます','irasshaimasu','sp'],['[行:い]かれます','ikaremasu','re']],ke:[['[参:まい]ります','mairimasu','sp'],['[伺:うかが]います','ukagaimasu','sp']],o:'[会議室:かいぎしつ]{へ}',tr:['getmək','go','идти']},
+ {pl:['[来:く]る','kuru'],po:['[来:き]ます','kimasu'],so:[['いらっしゃいます','irasshaimasu','sp'],['[来:こ]られます','koraremasu','re']],ke:[['[参:まい]ります','mairimasu','sp']],o:'ここ{へ}',tr:['gəlmək','come','приходить']},
+ {pl:['いる','iru'],po:['います','imasu'],so:[['いらっしゃいます','irasshaimasu','sp']],ke:[['おります','orimasu','sp']],o:'ここ{に}',tr:['olmaq (burada)','be (here)','быть (здесь)']},
+ {pl:['[食:た]べる','taberu'],po:['[食:た]べます','tabemasu'],so:[['[召:め]し[上:あ]がります','meshiagarimasu','sp'],['[食:た]べられます','taberaremasu','re']],ke:[['いただきます','itadakimasu','sp']],o:'ケーキ{を}',tr:['yemək','eat','есть']},
+ {pl:['[飲:の]む','nomu'],po:['[飲:の]みます','nomimasu'],so:[['[召:め]し[上:あ]がります','meshiagarimasu','sp'],['[飲:の]まれます','nomaremasu','re']],ke:[['いただきます','itadakimasu','sp']],o:'お[茶:ちゃ]{を}',tr:['içmək','drink','пить']},
+ {pl:['[言:い]う','iu'],po:['[言:い]います','iimasu'],so:[['おっしゃいます','osshaimasu','sp'],['[言:い]われます','iwaremasu','re']],ke:[['[申:もう]します','mooshimasu','sp']],o:'そう',tr:['demək','say','говорить']},
+ {pl:['[見:み]る','miru'],po:['[見:み]ます','mimasu'],so:[['ご[覧:らん]に なります','goran ni narimasu','sp'],['[見:み]られます','miraremasu','re']],ke:[['[拝見:はいけん]します','haiken shimasu','sp']],o:'[資料:しりょう]{を}',tr:['baxmaq','look','смотреть']},
+ {pl:['する','suru'],po:['します','shimasu'],so:[['なさいます','nasaimasu','sp'],['されます','saremasu','re']],ke:[['いたします','itashimasu','sp']],o:'[説明:せつめい]{を}',tr:['etmək','do','делать']},
+ {pl:['[会:あ]う','au'],po:['[会:あ]います','aimasu'],so:[['お[会:あ]いに なります','oai ni narimasu','o'],['[会:あ]われます','awaremasu','re']],ke:[['お[目:め]に かかります','ome ni kakarimasu','sp'],['お[会:あ]いします','oai shimasu','ki']],o:'[部長:ぶちょう]{に}',tr:['görüşmək','meet','встречаться']},
+ {pl:['[待:ま]つ','matsu'],po:['[待:ま]ちます','machimasu'],so:[['お[待:ま]ちに なります','omachi ni narimasu','o'],['[待:ま]たれます','mataremasu','re']],ke:[['お[待:ま]ちします','omachi shimasu','ki'],['お[待:ま]ちいたします','omachi itashimasu','it']],o:'ロビー{で}',tr:['gözləmək','wait','ждать']},
+ {pl:['[聞:き]く','kiku'],po:['[聞:き]きます','kikimasu'],so:[['お[聞:き]きに なります','okiki ni narimasu','o'],['[聞:き]かれます','kikaremasu','re']],ke:[['[伺:うかが]います','ukagaimasu','sp'],['お[聞:き]きします','okiki shimasu','ki']],o:'[話:はなし]{を}',tr:['dinləmək, soruşmaq','listen, ask','слушать, спрашивать']},
+ {pl:['[知:し]っている','shitteiru'],po:['[知:し]っています','shitteimasu'],so:[['ご[存:ぞん]じです','gozonji desu','sp']],ke:[['[存:ぞん]じております','zonjite orimasu','sp']],o:'その[話:はなし]{を}',tr:['bilmək','know','знать']}];
+const TYPE={sp:['Xüsusi fel: adi felin sabit əvəzi.','Special verb: a fixed replacement for the plain verb.','Особый глагол: готовая замена обычному.'],
+ o:['お + fel kökü + に なります.','お + stem + に なります.','お + основа + に なります.'],
+ re:['-れる・-られる forması: yumşaq hörmət.','れる・られる form: a softer respectful style.','Форма れる・られる: мягкий почтительный стиль.'],
+ ki:['お + fel kökü + します.','お + stem + します.','お + основа + します.'],
+ it:['お + fel kökü + いたします (daha təvazökar).','お + stem + いたします (more humble).','お + основа + いたします (скромнее).'],
+ po:['丁寧語: ます forması, nəzakətli amma neytral.','丁寧語: the ます form, polite but neutral.','丁寧語: форма ます, вежливо, но нейтрально.'],
+ pl:['Lüğət forması, yaxınlar arasında.','Dictionary form, among close people.','Словарная форма, между близкими.']};
+const TL={sp:['Xüsusi fel','Special verb','Особый глагол'],o:['お〜になる','お〜になる','お〜になる'],re:['れる・られる','れる・られる','れる・られる'],ki:['お〜する','お〜する','お〜する'],it:['お〜いたす','お〜いたす','お〜いたす'],po:['丁寧語','丁寧語','丁寧語'],pl:['Adi forma','Plain form','Простая форма']};
+const WHO={hi:['Hərəkəti edən üstündür: onu ucaldırıq (尊敬語).','The doer is above me: I raise them (尊敬語).','Действует старший: возвышаем его (尊敬語).'],
+ me:['Hərəkəti mən edirəm: özümü aşağı tuturam (謙譲語).','I am the doer: I lower myself (謙譲語).','Действую я: скромно принижаю себя (謙譲語).'],
+ fr:['Yaxın dost: adi forma kifayətdir.','A close friend: plain form is enough.','Близкий друг: хватает простой формы.']};
+/* rating: lvl 2 right, 1 flat, 0 wrong; face */
+function rate(a,r){const k=A[a].hi?'hi':a==='me'?'me':'fr';
+ const M={hi:{so:[2,'smile',['Düzdür: üstünə hörmət göstərdin.','Right: you showed respect to them.','Верно: вы проявили почтение.']],
+   po:[1,'neutral',['Nəzakətlidir, amma hörmət yoxdur.','Polite, but no respect is shown.','Вежливо, но без почтения.']],
+   pl:[0,'frown',['Çox sadə: üstünlə belə danışmazlar.','Too casual for someone above you.','Слишком просто для старшего.']],
+   ke:[0,'surprise',['Səhv istiqamət: üstünü aşağı saldın.','Wrong direction: you lowered them.','Не туда: вы принизили его.']]},
+  me:{ke:[2,'smile',['Düzdür: özünü təvazökar tutdun.','Right: you stayed humble.','Верно: вы проявили скромность.']],
+   po:[1,'neutral',['Nəzakətlidir, amma təvazökarlıq yoxdur.','Polite, but not humble.','Вежливо, но без скромности.']],
+   pl:[0,'frown',['Qonağa sadə forma olmaz.','A plain form to a guest is not right.','Простая форма гостю не подходит.']],
+   so:[0,'surprise',['Səhv istiqamət: özünü ucaltdın.','Wrong direction: you raised yourself.','Не туда: вы возвысили себя.']]},
+  fr:{pl:[2,'smile',['Düzdür: dostla sadə danışılır.','Right: casual with a friend.','Верно: с другом просто.']],
+   po:[1,'neutral',['Dosta nəzakətli forma da olar.','Polite is fine with a friend too.','Другу можно и вежливо.']],
+   so:[0,'surprise',['Dosta çox rəsmi.','Far too formal for a friend.','Для друга слишком официально.']],
+   ke:[0,'surprise',['Dosta çox rəsmi.','Far too formal for a friend.','Для друга слишком официально.']]}};
+ const x=M[k][r];return{lvl:x[0],face:x[1],txt:x[2],k}}
+
+const TRD={az:[['iclas otağına','gedirəm','gedir','buyururlar'],['bura','gəlirəm','gəlir','buyururlar'],['','buradayam','buradadır','buradadırlar'],['tort','yeyirəm','yeyir','nuş edirlər'],['çay','içirəm','içir','nuş edirlər'],['belə','deyirəm','deyir','buyururlar'],['sənədlərə','baxıram','baxır','nəzər salırlar'],['izahat','verirəm','verir','verirlər'],['şöbə müdiri ilə','görüşürəm','görüşür','görüşürlər'],['lobbidə','gözləyirəm','gözləyir','gözləyirlər'],['söhbətə','qulaq asıram','qulaq asır','qulaq asırlar'],['o söhbəti','bilirəm','bilir','bilirlər']],
+ en:[['go','goes','to the meeting room'],['come','comes','here'],['am','is','here'],['eat','eats','cake'],['drink','drinks','tea'],['say','says','so'],['look at','looks at','the materials'],['give','gives','an explanation'],['meet','meets','the department head'],['wait','waits','in the lobby'],['listen to','listens to','the talk'],['know','knows','that story']],
+ ru:[['иду','идёт','в зал заседаний'],['прихожу','приходит','сюда'],['нахожусь','находится','здесь'],['ем','ест','торт'],['пью','пьёт','чай'],['говорю','говорит','так'],['смотрю','смотрит','материалы'],['даю','даёт','объяснение'],['встречаюсь','встречается','с начальником отдела'],['жду','ждёт','в холле'],['слушаю','слушает','рассказ'],['знаю','знает','эту историю']]};
+const TRS={az:['Qonaq','Direktor','Müəllim','Mən','Dost'],en:['The customer','The president','The teacher','I','My friend'],ru:['Клиент','Директор','Учитель','Я','Друг']};
+const TRT={pl:['sadə dil','casual','простая речь'],po:['nəzakətli','polite','вежливо'],so:['hörmət dili','honorific','почтительно'],ke:['təvazökar dil','humble','скромно']};
+function trl(a,v,r){const i=SLI(),l=['az','en','ru'][i],sb=TRS[l][AK.indexOf(a)],d=TRD[l][v],me=a==='me';let t;
+ if(l==='az')t=`${sb} ${d[0]?d[0]+' ':''}${me?d[1]:(r==='so'?d[3]:d[2])}`;else t=`${sb} ${me?d[0]:d[1]} ${d[2]}`;
+ return t+'. ('+TRT[r][i]+')'}
+const formOf=(v,r,vi)=>{if(r==='pl'||r==='po')return[V[v][r][0],V[v][r][1],r];const l=V[v][r];const f=l[Math.min(vi,l.length-1)];return[f[0],f[1],f[2]]};
+const sentOf=(a,v,f,hl)=>{const o=V[v].o;const pre=`${A[a].m}{は}${o?' '+o:''}`;return{h:J(pre).h+' '+(hl?`<mark class="sk-ch" style="--c:var(--sk-${hl})">${J(f).h}</mark>`:J(f).h)+'。',t:J(pre+' '+f+'。').t}};
+/* stage */
+function stage(a,face,anim,sc){const k=A[a],lk=a==='me'?{cust:'cust',boss:'boss',teach:'teach'}[sc==='hotel'?'cust':sc==='office'?'boss':'teach']:a==='fr'?'fr':a;
+ const col={cust:'#d97706',boss:'#475569',teach:'#7c3aed',fr:'#16a34a'}[lk],hair={cust:'#6b3d1e',boss:'#9ca3af',teach:'#3b2f2f',fr:'#1f2937'}[lk];
+ let ey='<circle cx="229" cy="64" r="1.8" fill="#222"/><circle cx="241" cy="64" r="1.8" fill="#222"/>',mo,br='',ex='';
+ if(face==='smile')mo='<path d="M227 71q8 8 16 0" stroke="#7a2e2e" stroke-width="2" fill="none" stroke-linecap="round"/>';
+ else if(face==='neutral')mo='<path d="M228 74h14" stroke="#7a2e2e" stroke-width="2" stroke-linecap="round"/>';
+ else if(face==='frown'){mo='<path d="M227 77q8-7 16 0" stroke="#7a2e2e" stroke-width="2" fill="none" stroke-linecap="round"/>';br='<path d="M223 56l9 4M247 56l-9 4" stroke="#222" stroke-width="2.2" stroke-linecap="round"/>';ex='<path d="M258 46l5-6-3 8 5-2" stroke="#dc2626" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'}
+ else{ey='<circle cx="229" cy="64" r="2.8" fill="#222"/><circle cx="241" cy="64" r="2.8" fill="#222"/>';mo='<ellipse cx="235" cy="76" rx="3.5" ry="4.5" fill="#7a2e2e"/>';br='<path d="M225 55q4-4 8 0M237 55q4-4 8 0" stroke="#222" stroke-width="2" fill="none" stroke-linecap="round"/>';ex='<path d="M255 50q-4 7 0 9 4-2 0-9z" fill="#38bdf8"/><text x="262" y="44" font-size="16" font-weight="700" fill="#b45309">?</text>'}
+ const acc=lk==='boss'?'<path d="M235 82l-4 8 4 14 4-14z" fill="#b91c1c"/>':lk==='cust'?'<rect x="252" y="104" width="14" height="16" rx="3" fill="#92400e"/><path d="M255 104v-4h8v4" stroke="#92400e" stroke-width="2" fill="none"/>':lk==='teach'?'<g stroke="#222" stroke-width="1.4" fill="none"><circle cx="229" cy="64" r="5"/><circle cx="241" cy="64" r="5"/><path d="M234 64h2"/></g>':'<path d="M227 84v10M243 84v10" stroke="#fff" stroke-width="1.5"/>';
+ const prop=sc==='hotel'?'<rect x="135" y="122" width="50" height="30" rx="3" fill="#8b5e34"/><path d="M152 122a8 6 0 0 1 16 0z" fill="#facc15"/><rect x="158" y="114" width="4" height="3" fill="#a16207"/>'
+  :sc==='school'?'<rect x="125" y="20" width="76" height="44" rx="3" fill="#14532d" stroke="#8b5e34" stroke-width="3"/><path d="M135 34h30M135 46h46" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round"/>'
+  :'<rect x="130" y="126" width="60" height="6" rx="2" fill="#8b5e34"/><rect x="136" y="132" width="4" height="20" fill="#8b5e34"/><rect x="180" y="132" width="4" height="20" fill="#8b5e34"/><path d="M148 126l4-14h16l4 14z" fill="#64748b"/>';
+ const ax=A[a].hi||a==='fr'?235:90;
+ const arrow=`<path d="M${ax-6} 20h12l-6 8z" style="fill:var(--sk-${A[a].hi?'so':a==='me'?'ke':'po'})"/>`;
+ return `<div class="sk-stage ${anim}"><svg viewBox="0 0 320 160" role="img" aria-label="${esc(TT('Səhnə','Scene','Сцена'))}"><rect width="320" height="152" style="fill:var(--paper)"/><rect y="150" width="320" height="10" style="fill:var(--line)"/>${prop}${arrow}
+ <rect x="78" y="128" width="9" height="22" rx="3" fill="#1e293b"/><rect x="93" y="128" width="9" height="22" rx="3" fill="#1e293b"/>
+ <g class="sk-sp"><rect x="68" y="84" width="44" height="48" rx="14" fill="#1e3a8a"/><rect x="76" y="94" width="14" height="8" rx="2" fill="#fff"/><circle cx="90" cy="66" r="17" fill="#f5cba7"/><path d="M73 62a17 17 0 0 1 34 0q-17-7-34 0z" fill="#2b2b2b"/><circle cx="84" cy="66" r="1.8" fill="#222"/><circle cx="96" cy="66" r="1.8" fill="#222"/><path d="M84 73q6 5 12 0" stroke="#7a2e2e" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+ <rect x="223" y="128" width="9" height="22" rx="3" fill="#334155"/><rect x="238" y="128" width="9" height="22" rx="3" fill="#334155"/>
+ <g class="sk-ls"><rect x="213" y="84" width="44" height="48" rx="14" fill="${col}"/>${acc}<circle cx="235" cy="66" r="17" fill="#f5cba7"/><path d="M218 62a17 17 0 0 1 34 0q-17-7-34 0z" fill="${hair}"/>${ey}${br}${mo}${ex}</g></svg></div>`}
+/* state */
+const K={mode:'conv',a:'cust',v:0,r:'so',vi:0,face:'neutral',anim:'',t:null};
+const animOf=lv=>lv===2?'sk-bow':lv===0?'sk-bad':'sk-hop';
+function chips(list,cur,att,sty){return `<div class="sk-row">${list.map(x=>`<button class="sk-chip${cur===x[0]?' on':''}" data-sk="${att}" data-v="${x[0]}" style="${x[2]||''}">${x[1]}</button>`).join('')}</div>`}
+function convUI(){const f=formOf(K.v,K.r,K.vi),vd=rate(K.a,K.r),s=sentOf(K.a,K.v,f[0],K.r==='pl'?'pl':K.r);
+ const plain=V[K.v].pl[0];const vars=(K.r==='so'||K.r==='ke')?V[K.v][K.r]:[];
+ let h=stage(K.a,K.face,K.anim,A[K.a].sc);
+ h+=`<div class="sk-lab">${TT('Kim edir?','Who acts?','Кто действует?')}</div>`+chips(AK.map(a=>[a,TT(...A[a].n)]),K.a,'a');
+ h+=`<div class="sk-lab">${TT('Dil səviyyəsi','Register','Регистр')}</div><div class="sk-row">${REG.map(r=>`<button class="sk-chip sk-reg${K.r===r?' on':''}" data-sk="r" data-v="${r}" style="--c:var(--sk-${r})">${TT(...RN[r].t)}<small>${RN[r].j}</small></button>`).join('')}</div>`;
+ h+=`<div class="sk-lab">${TT('Fel','Verb','Глагол')}</div><div class="sk-row">${V.map((x,i)=>`<button class="sk-chip jp${K.v===i?' on':''}" data-sk="v" data-v="${i}">${J(x.pl[0]).h}</button>`).join('')}</div>`;
+ if(vars.length>1)h+=`<div class="sk-lab">${TT('Forma','Form','Форма')}</div><div class="sk-row">${vars.map((x,i)=>`<button class="sk-chip jp${Math.min(K.vi,vars.length-1)===i?' on':''}" data-sk="vi" data-v="${i}" style="--c:var(--sk-${K.r})">${J(x[0]).h}</button>`).join('')}</div>`;
+ h+=`<div class="sk-card"><div class="sk-sent jp">${s.h}<button class="say" data-say="${esc(s.t)}" aria-label="${TT('Səsləndir','Play','Озвучить')}">${SPK}</button></div><div class="sk-rom">${esc(f[1])} · ${TT(...V[K.v].tr)}</div><p class="sk-tr">${esc(trl(K.a,K.v,K.r))}</p>
+ <div class="sk-sent jp" style="font-size:1.05rem;line-height:1.8;margin-top:4px;color:var(--mut)">${J(plain).h}<span class="sk-ar">→</span><mark class="sk-ch" style="--c:var(--sk-${K.r})">${J(f[0]).h}</mark></div>
+ <span class="sk-tag" style="--c:var(--sk-${K.r})">${TT(...RN[K.r].t)} · ${RN[K.r].j}</span><span class="sk-tag">${TT(...TL[f[2]])}</span>
+ <p class="sk-why">${TT(...TYPE[f[2]])}</p><p class="sk-why">${TT(...WHO[vd.k])}</p>
+ <p class="sk-v ${vd.lvl===2?'g':vd.lvl===1?'m':'b'}">${TT(...vd.txt)}</p></div>`;
+ return h}
+/* test */
+const NQ=8;
+function newRound(){const vs=shuf(V.map((_,i)=>i)).slice(0,NQ);const qs=vs.map(v=>{const hi=Math.random()<.5,sc=shuf(['hotel','office','school'])[0],a=hi?{hotel:'cust',office:'boss',school:'teach'}[sc]:'me';
+  const ok=hi?'so':'ke',bad=hi?'ke':'so',c=formOf(v,ok,0)[0];const o=[c,formOf(v,bad,0)[0],formOf(v,'po',0)[0]];
+  const opts=shuf([...new Set(o)]);return{v,a,sc,ok:opts.indexOf(c),opts,okR:ok,rs:[ok,bad,'po']}});
+ K.t={i:0,score:0,qs,pick:-1,fin:false};K.face='neutral';K.anim=''}
+const SIT={hotel:['Otel qəbulu. Qonaqla danışırsınız.','Hotel front desk. You are talking with a guest.','Стойка отеля. Вы говорите с гостем.'],office:['Ofis. Direktorla danışırsınız.','Office. You are talking with the president.','Офис. Вы говорите с директором.'],school:['Məktəb. Müəllimlə danışırsınız.','School. You are talking with your teacher.','Школа. Вы говорите с учителем.']};
+function testUI(){if(!K.t)newRound();const t=K.t;
+ if(t.fin){const b=bestGet();return `<div class="sk-card sk-sum"><b>${t.score} / ${NQ}</b><div>${TT('Rekord','Best','Рекорд')}: ${b}</div><p><button class="sk-go" data-sk="new">${TT('Yeni raund','New round','Новый раунд')}</button></p></div>`}
+ const q=t.qs[t.i],done=t.pick>=0;let h=stage(q.a,K.face,K.anim,q.sc);
+ const fill=done?formOf(q.v,q.rs[0],0)[0]:'＿＿＿＿';const pre=`${A[q.a].m}{は}${V[q.v].o?' '+V[q.v].o:''} `;
+ h+=`<div class="sk-top"><span>${t.i+1} / ${NQ}</span><span>${TT('Xal','Score','Счёт')}: ${t.score} · ${TT('Rekord','Best','Рекорд')}: ${bestGet()}</span></div>
+ <div class="sk-card"><div class="sk-sit">${TT(...SIT[q.sc])}</div><div class="sk-sent jp">${J(pre).h}${done?`<mark class="sk-ch" style="--c:var(--sk-${q.okR})">${J(fill).h}</mark>`:fill}。</div><div class="sk-rom">${TT(...V[q.v].tr)}</div></div>
+ <div class="sk-opts">${q.opts.map((o,i)=>`<button class="sk-opt jp${done?(i===q.ok?' ok':i===t.pick?' no':''):''}" data-sk="opt" data-v="${i}"${done?' disabled':''}>${J(o).h}</button>`).join('')}</div>`;
+ if(done){const vd=rate(q.a,t.pickR);
+  h+=`<div class="sk-card"><p class="sk-v ${vd.lvl===2?'g':vd.lvl===1?'m':'b'}">${TT(...vd.txt)}</p><p class="sk-why">${TT(...WHO[vd.k])}</p><p><button class="sk-go" data-sk="next">${TT('Növbəti','Next','Дальше')}</button></p></div>`}
+ return h}
+function ui(){const b=$('skBox');if(!b)return;
+ let h=`<div class="sk-tabs">${[['conv',TT('Çevirici','Converter','Конвертер')],['test',TT('Sınaq','Test','Тест')]].map(x=>`<button class="sk-chip${K.mode===x[0]?' on':''}" data-sk="mode" data-v="${x[0]}">${x[1]}</button>`).join('')}</div>`;
+ b.innerHTML=h+(K.mode==='conv'?convUI():testUI());K.anim=''}
+function react(r,a){const vd=rate(a,r);K.face=vd.face;K.anim=animOf(vd.lvl)}
+function H(a,v){
+ if(a==='mode'){K.mode=v;K.face='neutral';K.anim='';if(v==='test'&&!K.t)newRound();else if(v==='conv')react(K.r,K.a);return ui()}
+ if(a==='a'){K.a=v;react(K.r,K.a);return ui()}
+ if(a==='r'){K.r=v;K.vi=0;react(K.r,K.a);return ui()}
+ if(a==='v'){K.v=+v;K.vi=0;react(K.r,K.a);return ui()}
+ if(a==='vi'){K.vi=+v;react(K.r,K.a);return ui()}
+ if(a==='new'){newRound();return ui()}
+ if(a==='next'){const t=K.t;t.i++;t.pick=-1;K.face='neutral';K.anim='';if(t.i>=NQ){t.fin=true;if(t.score>bestGet())bestSet(t.score)}return ui()}
+ if(a==='opt'){const t=K.t,q=t.qs[t.i];if(t.pick>=0)return;t.pick=+v;t.pickR=q.rs[+v===q.ok?0:(q.opts[+v]===formOf(q.v,'po',0)[0]?2:1)];
+  if(+v===q.ok)t.score++;const vd=rate(q.a,t.pickR);K.face=vd.face;K.anim=animOf(vd.lvl);ui();say(sentOf(q.a,q.v,q.opts[q.ok],null).t);return}}
+addEventListener('click',e=>{const t=e.target;if(!t.closest)return;const box=t.closest('#skBox');if(!box)return;const a=t.closest('[data-sk]');if(!a||!box.contains(a)||a.disabled)return;H(a.dataset.sk,a.dataset.v)},true);
+setTimeout(()=>{const L=LS[35];if(!L)return;
+ Object.defineProperty(L,'playLabel',{get:()=>TT('Keigo çeviricisi','Keigo converter','Конвертер кэйго'),configurable:true});
+ L.play=()=>{if(!document.getElementById('sk-css')){const s=document.createElement('style');s.id='sk-css';s.textContent=CSS;document.head.appendChild(s)}
+  return playSec(TT('Keigo çeviricisi','Keigo converter','Конвертер кэйго'),'<span class="jp">尊敬語・謙譲語・丁寧語</span>','','<div id="skBox" class="sk-box"></div>')};
+ L.init=()=>{if($('skBox')){if(K.mode==='conv')react(K.r,K.a);ui()}};
+ try{if(C.n===35)render()}catch(_){}},0);
+})();
+
 /* ================= Səhnə ikonları: emoji yerinə SVG ================= */
 (function(){
 const sv=(b,vb)=>`<svg class="sci" viewBox="${vb||'0 0 24 24'}" aria-hidden="true">${b}</svg>`;
