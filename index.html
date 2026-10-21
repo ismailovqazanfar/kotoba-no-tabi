@@ -8177,7 +8177,7 @@ css.textContent=`
 .sh-sw{width:28px;height:28px;border-radius:50%;border:3px solid var(--line,#ccc);cursor:pointer;padding:0}
 .sh-sw.on{border-color:var(--sha)}
 .sh-opts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px auto;max-width:420px}
-.sh-o{border:2px solid var(--line,#ccc);background:var(--bg);color:var(--ink);border-radius:14px;font-size:34px;font-weight:700;padding:8px 0;cursor:pointer;font-family:'Noto Sans JP',sans-serif}
+.sh-o{border:2px solid var(--line,#ccc);background:var(--bg);color:var(--ink);border-radius:14px;font-size:24px;font-weight:800;padding:12px 0;cursor:pointer;font-family:inherit}
 .sh-o.ok{border-color:#16a34a;background:rgba(22,163,74,.14)}
 .sh-o.no{border-color:#dc2626;background:rgba(220,38,38,.12)}
 .sh-sc{text-align:center;font-weight:800;margin:6px 0}
@@ -8194,7 +8194,7 @@ const PARTS=[
  {c:'の',x:202,y:140,s:.8,k:'eye r',l:{az:'sağ göz',en:'right eye',ru:'правый глаз'}},
  {c:'も',x:167,y:186,s:.8,k:'',l:{az:'burun',en:'nose',ru:'нос'}},
  {c:'へ',x:167,y:232,s:.8,k:'',l:{az:'ağız',en:'mouth',ru:'рот'}},
- {c:'じ',x:150,y:158,s:4.2,k:"ji",l:{az:'üzün konturu və qulaq',en:'face outline and ear',ru:'контур лица и ухо'}}];
+ {c:'じ',x:150,y:158,s:4.2,k:"ji",l:{az:'üzün konturu və saç',en:'face outline and hair',ru:'контур лица и волосы'}}];
 const txt=(c,x,y,r,s,f,col,cls,idx)=>{const fill=COLS[col]?`style="fill:${COLS[col]}"`:'';
  return `<g class="sh-it" data-i="${idx}" transform="translate(${x} ${y}) rotate(${r}) scale(${f?-s:s} ${s})"><text class="${cls||''}" ${fill} font-size="60">${c}</text></g>`};
 const figure=(items,hi)=>`<svg class="sh-svg" viewBox="0 0 300 300" role="img">${items.map((a,i)=>{const g=txt(a[0],a[1],a[2],a[3],a[4],a[5],a[6],'',i).replace('class="sh-it"','class="sh-it" style="pointer-events:none;'+(hi>=0&&hi!==i?'opacity:.4':'')+'"');return g}).join('')}${hi>=0?`<circle cx="${items[hi][1]}" cy="${items[hi][2]}" r="${Math.max(26,items[hi][4]*30)}" fill="none" stroke="#e11d74" stroke-width="4" stroke-dasharray="8 6"><animate attributeName="stroke-dashoffset" from="0" to="28" dur="1.2s" repeatCount="indefinite"/></circle>`:''}</svg>`;
@@ -8228,7 +8228,7 @@ function newQ(){const ks=Object.keys(PRE),k=ks[Math.floor(Math.random()*ks.lengt
  H.q={it,i,c,o:shuf(o),pick:null}}
 function tst(){if(!H.q)newQ();const q=H.q;
  if(H.done)return `<div class="sh-sc" style="font-size:22px">${H.sc} / 8</div><div class="sh-sc">${T('Rekord','Best','Рекорд')}: ${bg()}</div><div class="sh-row"><button class="sh-b" data-sh="again">${T('Yenidən','Again','Заново')}</button></div>`;
- return `<div class="sh-sc">${H.n+1} / 8 · ${T('Xal','Score','Очки')}: ${H.sc} · ${T('Rekord','Best','Рекорд')}: ${bg()}</div>${figure(q.it,q.i)}<div class="sh-opts">${q.o.map(c=>`<button class="sh-o${q.pick?(c===q.c?' ok':c===q.pick?' no':''):''}" data-sh="ans" data-v="${c}"${q.pick?' disabled':''}>${c}</button>`).join('')}</div>${q.pick?`<div class="sh-msg">${q.c} – ${rom(q.c)}</div><div class="sh-row"><button class="sh-b" data-sh="next">${T('Növbəti','Next','Далее')}</button></div>`:''}`}
+ return `<div class="sh-sc">${H.n+1} / 8 · ${T('Xal','Score','Очки')}: ${H.sc} · ${T('Rekord','Best','Рекорд')}: ${bg()}</div>${figure(q.it,q.i)}<div class="sh-opts">${q.o.map(c=>`<button class="sh-o${q.pick?(c===q.c?' ok':c===q.pick?' no':''):''}" data-sh="ans" data-v="${c}"${q.pick?' disabled':''}>${rom(c)}</button>`).join('')}</div>${q.pick?`<div class="sh-msg">${q.c} – ${rom(q.c)}</div><div class="sh-row"><button class="sh-b" data-sh="next">${T('Növbəti','Next','Далее')}</button></div>`:''}`}
 function ui(){const b=$('shBox');if(!b)return;b.innerHTML=tabs()+(H.tab===0?tut():H.tab===1?bld():tst())}
 /* drag */
 let drag=null;
