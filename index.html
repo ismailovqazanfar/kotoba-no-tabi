@@ -3703,9 +3703,11 @@ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st));localStorage.se
 const $=id=>document.getElementById(id);
 const RMO=()=>((typeof PF!=='undefined'&&PF.rm)||matchMedia('(prefers-reduced-motion: reduce)').matches)?'auto':'smooth';
 let NAV=null;
+function lastPos(){try{const v=JSON.parse(localStorage.getItem('kotoba-last'));if(v&&LS[v.n])return v}catch(_){}return {n:0,y:0}}
+(()=>{let t=0;const sv=()=>{try{const v=lastPos();v.y=Math.round(scrollY);localStorage.setItem('kotoba-last',JSON.stringify(v))}catch(_){}};addEventListener('scroll',()=>{clearTimeout(t);t=setTimeout(sv,400)},{passive:true});addEventListener('pagehide',sv);addEventListener('load',()=>{if(location.hash)return;const y=lastPos().y;if(y>0)setTimeout(()=>scrollTo(0,y),600)})})();
 function goLesson(n){NAV=+n;try{if(location.hash!=='#l'+n)history.pushState(null,'','#l'+n)}catch(_){}if(typeof shadStop==='function')shadStop();render();if(!PEND)scrollTo(0,0)}
 function render(){
- const mh=location.hash.match(/^#l(\d+)/),n=NAV!=null?NAV:(mh?+mh[1]:1);C=LS[n]||L1;const N=C.n,o=ORD[N];
+ const mh=location.hash.match(/^#l(\d+)/),n=NAV!=null?NAV:(mh?+mh[1]:lastPos().n);C=LS[n]||L1;try{localStorage.setItem('kotoba-last',JSON.stringify({n:C.n,y:C.n===lastPos().n?lastPos().y:0}))}catch(_){}const N=C.n,o=ORD[N];
  document.title='Kotoba no Tabi';
  $('hanko').innerHTML=C.hanko?`<span class="v">${C.hanko}</span>`:`<span class="v">第<span class="n">${N}</span>課</span>`;$('hanko').setAttribute('aria-label',lname(N));
  $('line').innerHTML=Array.from({length:37},(_,k)=>{const t=k===0?({az:'G',en:'I',ru:'В'})[LANG()]||'G':k===36?({az:'Ə',en:'A',ru:'П'})[LANG()]||'Ə':k;return LS[k]?`<a class="st${k===N?' on':' av'}${k===0||k===36?' sx':''}" href="#l${k}" aria-label="${lname(k)}">${t}</a>`:`<span class="st">${t}</span>`}).join('');
