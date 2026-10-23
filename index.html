@@ -8289,6 +8289,83 @@ const ob=t2Build;t2Build=function(mode,n){if(mode!=='weak')return ob(mode,n);con
 const om=t2Menu;t2Menu=function(){const h=om(),c=weakList().length,i=h.indexOf('</div>');if(i<0)return h;
  return h.slice(0,i)+`<button class="t2m" data-t2go="weak"${c?'':' disabled'}><b>${L3('Zəif sözlər','Weak words','Слабые слова')}</b><small>${c?L3(c+' söz, son cavabın səhv idi',c+' words you last got wrong','слов с последним неверным ответом: '+c):tu('none')}</small></button>`+h.slice(i)}
 })();
+/* v112: 教室 Kyoushitsu – sadə, peşəkar rejim (html.kyo) + klaviatura qısayolları */
+(()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
+const css=document.createElement('style');css.id='kyo-css';css.textContent=`
+html.kyo{--k-bg:#f6f6f3;--k-card:#fff;--k-ink:#1d2127;--k-mut:#69707a;--k-line:#e3e3df;--k-acc:#b3262d;--k-acc2:#1f3a5f;--bg:var(--k-card);--ink:var(--k-ink);--mut:var(--k-mut);--line:var(--k-line);
+ --pnk:var(--k-acc);--vio:var(--k-acc2);--sky:var(--k-acc2);--cor:var(--k-acc);--amb:var(--k-acc2);--grn:var(--k-acc2);--tea:var(--k-acc2);--hanko:var(--k-acc)}
+html.kyo.kyo-d{--k-bg:#15171b;--k-card:#1d2026;--k-ink:#e8e9ec;--k-mut:#9aa1ab;--k-line:#2f333b;--k-acc:#e0565c;--k-acc2:#8fb0dc}
+html.kyo body{background:var(--k-bg)!important;color:var(--k-ink);font-feature-settings:"palt"}
+html.kyo .top{background:var(--k-card)!important;border-bottom:1px solid var(--k-line)!important;box-shadow:none!important}
+html.kyo .hero{background:var(--k-card)!important;border-bottom:1px solid var(--k-line)!important}
+html.kyo .hero::before,html.kyo .hero::after,html.kyo .hero .wrap::before,html.kyo .hero .wrap::after{display:none!important}
+html.kyo .hero h1,html.kyo .hero .ttl{font-size:clamp(30px,4vw,44px)!important;letter-spacing:-.5px}
+html.kyo .sec{margin:22px 0!important;border-radius:14px!important;border:1px solid var(--k-line)!important;box-shadow:none!important;background:var(--k-card)!important}
+html.kyo .hero .lesson,html.kyo .fact{border:1px solid var(--k-line)!important;box-shadow:none!important;border-radius:14px!important}
+html.kyo .chip,html.kyo .tog,html.kyo .btn,html.kyo .mapb,html.kyo .srch{border-width:1px!important;box-shadow:none!important;border-radius:10px!important}
+html.kyo .chip{--c:var(--k-mut)!important;background:transparent!important;color:var(--k-mut)!important;border-color:transparent!important;font-weight:700}
+html.kyo .chip.on,html.kyo .chip[aria-current]{color:var(--k-acc)!important;border-color:var(--k-acc)!important;background:color-mix(in srgb,var(--k-acc) 8%,transparent)!important}
+html.kyo .btn{--c:var(--k-acc2)!important}html.kyo .btn.fill{--c:var(--k-acc)!important}
+html.kyo #tFuri,html.kyo #tRo,html.kyo #tAz,html.kyo #tMute{display:none!important}
+#kyoShow{display:none}html.kyo #kyoShow{display:inline-flex;align-items:center;gap:6px}
+.kyo-dd{position:absolute;z-index:60;background:var(--k-card,#fff);border:1px solid var(--k-line,#ddd);border-radius:12px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.12);min-width:190px}
+.kyo-dd button{display:flex;justify-content:space-between;width:100%;gap:12px;border:0;background:none;padding:9px 10px;border-radius:8px;font:inherit;font-weight:700;color:var(--k-ink,#222);cursor:pointer}
+.kyo-dd button:hover{background:color-mix(in srgb,var(--k-acc) 8%,transparent)}.kyo-dd i{font-style:normal;color:var(--k-mut)}
+.kyo-dd button[aria-pressed=true] i{color:var(--k-acc)}
+#kyoGrp{display:none}html.kyo #kyoGrp{display:flex;gap:4px;padding:3px;border:1px solid var(--k-line);border-radius:12px;background:var(--k-bg);margin-right:8px}
+#kyoGrp button{border:0;background:none;padding:6px 14px;border-radius:9px;font:inherit;font-weight:800;color:var(--k-mut);cursor:pointer}
+#kyoGrp button.on{background:var(--k-card);color:var(--k-ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+html.kyo .chip.kyo-x,html.kyo .sec.kyo-x{display:none!important}
+html.kyo .schips{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+html.kyo .setp .wrap{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding-top:16px;padding-bottom:16px}
+html.kyo .setg{background:var(--k-card);border:1px solid var(--k-line);border-radius:14px;padding:14px 16px;margin:0!important}
+html.kyo .setg>b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--k-mut);margin-bottom:10px}
+.kyo-help{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px}
+.kyo-help>div{background:var(--k-card,#fff);color:var(--k-ink,#222);border-radius:16px;padding:20px 22px;max-width:440px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.kyo-help table{width:100%;border-collapse:collapse}.kyo-help td{padding:6px 4px;border-bottom:1px solid var(--k-line,#eee)}
+.kyo-help kbd{display:inline-block;min-width:24px;text-align:center;padding:2px 7px;border:1px solid var(--k-line,#ccc);border-bottom-width:2px;border-radius:6px;font:700 13px ui-monospace,monospace;background:var(--k-bg,#f6f6f6)}
+`;document.head.appendChild(css);
+const save=()=>{try{localStorage.setItem('kotoba-prefs',JSON.stringify(PF))}catch(_){}};
+const GR=[['learn',()=>L3('Öyrən','Learn','Учить'),['models','examples','dialog','grammar']],['prac',()=>L3('Məşq','Practice','Практика'),['play','vocab','cross','quiz']],['more',()=>L3('Əlavə','More','Ещё'),['ref','kanji']]];
+let G='learn';const gOf=id=>(GR.find(g=>g[2].includes(id))||GR[2])[0];
+function grp(){const nav=$('chips');if(!nav)return;let gb=$('kyoGrp');if(!gb){nav.insertAdjacentHTML('afterbegin','<div id="kyoGrp" role="tablist"></div>');gb=$('kyoGrp')}
+ gb.innerHTML=GR.map(([k,l])=>`<button data-kg="${k}" class="${G===k?'on':''}" role="tab" aria-selected="${G===k}">${l()}</button>`).join('');
+ const on=document.documentElement.classList.contains('kyo');
+ nav.querySelectorAll('.chip').forEach(c=>c.classList.toggle('kyo-x',on&&gOf(c.dataset.go)!==G));
+ document.querySelectorAll('section.sec').forEach(s=>s.classList.toggle('kyo-x',on&&gOf(s.id)!==G))}
+function hdr(){if($('kyoShow'))return;const t=$('tSet');if(!t)return;t.insertAdjacentHTML('beforebegin',`<button class="tog" id="kyoShow" aria-haspopup="true">${L3('Göstər','Display','Показ')} ▾</button>`)}
+function dd(){const o=$('kyoDD');if(o){o.remove();return}const b=$('kyoShow'),r=b.getBoundingClientRect();
+ const it=[['tFuri','Furigana','F'],['tRo','Romaji','R'],['tAz',L3('Tərcümə','Translation','Перевод'),'T'],['tMute',L3('Səs','Sound','Звук'),'S']];
+ document.body.insertAdjacentHTML('beforeend',`<div class="kyo-dd" id="kyoDD" style="top:${r.bottom+scrollY+6}px;left:${Math.max(8,r.right-200)}px">${it.map(([id,l,k])=>`<button data-kt="${id}" aria-pressed="${$(id)&&$(id).getAttribute('aria-pressed')}"><span>${l}</span><i>${$(id)&&$(id).getAttribute('aria-pressed')==='true'?'✓':''} <kbd style="font-size:11px">${k}</kbd></i></button>`).join('')}</div>`)}
+function setb(){if($('kyoSet'))return;const g=$('thm');if(!g)return;const sg=g.closest('.setg');sg.insertAdjacentHTML('beforebegin',`<div class="setg" id="kyoSetG"><b>${L3('Rejim','Mode','Режим')}</b><div class="setr"><button class="btn" id="kyoSet" aria-pressed="${!!PF.kyo}"><span class="jp">教室</span> Kyoushitsu</button><small style="display:block;color:var(--mut);margin-top:6px">${L3('Sadə və səliqəli görünüş: bölmələr üç qrupda, az rəng.','A clean, simple look: sections in three groups, fewer colours.','Строгий вид: разделы в трёх группах, меньше цвета.')}</small></div></div>`)}
+const dk=()=>PF.theme==='dark'||((!PF.theme||PF.theme==='auto')&&matchMedia('(prefers-color-scheme:dark)').matches);
+function apply(){const r=document.documentElement,on=!!PF.kyo;r.classList.toggle('kyo',on);r.classList.toggle('kyo-d',on&&dk());if(on)r.dataset.theme=dk()?'dark':'light';
+ const b=$('kyoSet');if(b){b.setAttribute('aria-pressed',on);b.classList.toggle('fill',on)}hdr();grp()}
+const aL=applyLook;applyLook=function(){const x=aL.apply(this,arguments);try{apply()}catch(_){}return x};
+const rd=render;render=function(){const x=rd.apply(this,arguments);try{grp()}catch(_){}return x};
+addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
+ const kg=t.closest('[data-kg]');if(kg){G=kg.dataset.kg;grp();const f=GR.find(g=>g[0]===G)[2].map(id=>document.getElementById(id)).find(x=>x);if(f)scrollTo({top:f.getBoundingClientRect().top+scrollY-130,behavior:'smooth'});return}
+ if(t.closest('#kyoShow')){dd();return}const kt=t.closest('[data-kt]');if(kt){$(kt.dataset.kt).click();$('kyoDD').remove();dd();return}
+ if(!t.closest('#kyoDD')&&$('kyoDD'))$('kyoDD').remove();
+ if(t.closest('#kyoSet')){PF.kyo=!PF.kyo;if(!PF.kyo&&PF.theme)document.documentElement.dataset.theme=PF.theme;save();applyLook();return}
+ const ch=t.closest('#chips .chip');if(ch&&document.documentElement.classList.contains('kyo')){G=gOf(ch.dataset.go);grp()}},true);
+/* klaviatura */
+function help(){const o=document.querySelector('.kyo-help');if(o){o.remove();return}const R=[['← →',L3('Əvvəlki / növbəti dərs','Previous / next lesson','Пред. / след. урок')],['/',L3('Axtarış','Search','Поиск')],['D',L3('Lüğət','Dictionary','Словарь')],['M',L3('Səyahət xəritəsi','Journey map','Карта')],['F',L3('Furigana','Furigana','Фуригана')],['R','Romaji'],['T',L3('Tərcümə','Translation','Перевод')],['S',L3('Səs aç/bağla','Sound on/off','Звук вкл/выкл')],['P',L3('Dialoqu dinlə','Play dialogue','Слушать диалог')],['1 2 3',L3('Öyrən / Məşq / Əlavə (Kyoushitsu)','Learn / Practice / More (Kyoushitsu)','Учить / Практика / Ещё')],['Home',L3('Girişə qayıt','Back to intro','К введению')],['?',L3('Bu siyahı','This list','Этот список')],['Esc',L3('Bağla','Close','Закрыть')]];
+ document.body.insertAdjacentHTML('beforeend',`<div class="kyo-help" role="dialog"><div><b style="font-size:18px">${L3('Klaviatura qısayolları','Keyboard shortcuts','Горячие клавиши')}</b><table>${R.map(([k,l])=>`<tr><td>${k.split(' ').map(x=>`<kbd>${x}</kbd>`).join(' ')}</td><td>${l}</td></tr>`).join('')}</table></div></div>`)}
+addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
+ const open=document.querySelector('.kyo-help');if(e.key==='Escape'&&open){open.remove();return}
+ if([...document.querySelectorAll('[role=dialog]:not(.kyo-help),.kpop,.setp')].some(x=>!x.hidden&&x.getClientRects().length&&getComputedStyle(x).visibility!=='hidden')&&e.key!=='?')return;
+ const k=e.key,n=C&&C.n;const click=id=>{const b=$(id);if(b){b.click();return true}};let ok=true;
+ if(k==='ArrowRight'&&LS[n+1])goLesson(n+1);else if(k==='ArrowLeft'&&n>0&&LS[n-1])goLesson(n-1);
+ else if(k==='/')click('sOpen');else if(k==='d'||k==='D')click('kOpen');else if(k==='m'||k==='M')click('mapOpen');
+ else if(k==='f'||k==='F')click('tFuri');else if(k==='r'||k==='R')click('tRo');else if(k==='t'||k==='T')click('tAz');else if(k==='s'||k==='S')click('tMute');
+ else if(k==='p'||k==='P'){const b=document.querySelector('#dialog .btn.fill');if(b)b.click();else ok=false}
+ else if(k==='Home')goLesson(0);else if(k==='?')help();
+ else if(/^[123]$/.test(k)&&document.documentElement.classList.contains('kyo')){G=GR[+k-1][0];grp()}
+ else ok=false;if(ok)e.preventDefault()});
+setTimeout(()=>{setb();apply()},0);
+})();
+
 
 
 
