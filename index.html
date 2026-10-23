@@ -9727,13 +9727,14 @@ function mk25(){const ev=[];L25.life.forEach(([,,,e])=>e.forEach(x=>ev.push(x)))
 const t4=q=>`[${q.pm?'午後':'午前'}:${q.pm?'ごご':'ごぜん'}] [${q.h}時:${HRR[q.h]}]${q.m?`|[${q.m}分:${minR(q.m)}]`:''}`;
 const sc=()=>`<div class="qzx-s"><span>${Q.k+1}/${Q.l.length}</span><b>${Q.ok}</b></div>`;
 function show(){const b=box();if(!b||!Q)return;if(Q.k>=Q.l.length){b.innerHTML=`<div class="qzx-end"><b>${Q.ok}/${Q.l.length}</b><button class="btn fill" data-qzm="1">${L('Yenidən','Again','Ещё раз')}</button></div>`;return}
- const q=Q.l[Q.k];Q.lock=false;
+ const q=Q.l[Q.k];Q.lock=false;Q.miss=0;
  if(Q.n===3){const j=J(q.x);b.innerHTML=sc()+`<div class="qzx-q jp">${j.h}</div>`;say(j.t)}
  else if(Q.n===4){const j=J(t4(q));b.innerHTML=sc()+`<div class="qzx-q jp"><button class="qzx-au" data-qzsay="1" aria-label="audio">🔊</button>${j.h}</div><div class="tools"><button class="btn fill" data-qzck="1">${L('Təsdiq','Check','Проверить')}</button></div>`;say(j.t)}
  else{const j=q.t==='a'?J(`${ageR(q.n)}`):J(q.m);b.innerHTML=sc()+`<div class="qzx-q jp"><button class="qzx-au" data-qzsay="1" aria-label="audio">🔊</button>${q.t==='a'?`<span class="kana">${j.h}</span>`:j.h}</div><div class="qzx-o">${q.o.map(x=>`<button class="btn" data-qzo="${esc(x)}">${x}</button>`).join('')}</div>`;say(j.t)}}
-function res(ok,el){if(Q.lock)return;Q.lock=true;if(ok)Q.ok++;const b=box();b.classList.remove('qzx-g','qzx-b');void b.offsetWidth;b.classList.add(ok?'qzx-g':'qzx-b');
- if(el)el.classList.add(ok?'qzx-y':'qzx-n');if(!ok&&Q.n===25){const a=Q.l[Q.k].a;b.querySelectorAll('[data-qzo]').forEach(x=>{if(x.dataset.qzo===a)x.classList.add('qzx-y')})}
- setTimeout(()=>{if(!Q)return;Q.k++;b.classList.remove('qzx-g','qzx-b');show()},ok?900:1700)}
+function res(ok,el){if(Q.lock)return;const b=box();b.classList.remove('qzx-g','qzx-b');void b.offsetWidth;b.classList.add(ok?'qzx-g':'qzx-b');
+ if(!ok){Q.miss=1;if(el){el.classList.add('qzx-n');if(Q.n===25)el.disabled=true;else setTimeout(()=>el.classList.remove('qzx-n'),900)}return}
+ Q.lock=true;if(!Q.miss)Q.ok++;if(el)el.classList.add('qzx-y');
+ setTimeout(()=>{if(!Q)return;Q.k++;b.classList.remove('qzx-g','qzx-b');show()},900)}
 function start(n){Q={n,k:0,ok:0,l:n===3?mk3():n===4?mk4():mk25()};const b=box();b.hidden=false;show()}
 document.addEventListener('click',e=>{const t=e.target;
  const m=t.closest('[data-qzm]');if(m){const bt=document.querySelector('.qzx-t'),n=+bt.dataset.qzt;bt.querySelectorAll('[data-qzm]').forEach(x=>x.classList.toggle('fill',x.dataset.qzm===m.dataset.qzm));if(m.dataset.qzm==='1')start(n);else{Q=null;box().hidden=true}return}
