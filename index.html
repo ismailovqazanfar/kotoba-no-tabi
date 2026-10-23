@@ -8292,34 +8292,40 @@ const om=t2Menu;t2Menu=function(){const h=om(),c=weakList().length,i=h.indexOf('
 /* v112: 教室 Kyoushitsu – sadə, peşəkar rejim (html.kyo) + klaviatura qısayolları */
 (()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
 const css=document.createElement('style');css.id='kyo-css';css.textContent=`
-html.kyo{--k-bg:#f6f6f3;--k-card:#fff;--k-ink:#1d2127;--k-mut:#69707a;--k-line:#e3e3df;--k-acc:#b3262d;--k-acc2:#1f3a5f;--bg:var(--k-card);--ink:var(--k-ink);--mut:var(--k-mut);--line:var(--k-line);
- --pnk:var(--k-acc);--vio:var(--k-acc2);--sky:var(--k-acc2);--cor:var(--k-acc);--amb:var(--k-acc2);--grn:var(--k-acc2);--tea:var(--k-acc2);--hanko:var(--k-acc)}
-html.kyo.kyo-d{--k-bg:#15171b;--k-card:#1d2026;--k-ink:#e8e9ec;--k-mut:#9aa1ab;--k-line:#2f333b;--k-acc:#e0565c;--k-acc2:#8fb0dc}
-html.kyo body{background:var(--k-bg)!important;color:var(--k-ink);font-feature-settings:"palt"}
-html.kyo .top{background:var(--k-card)!important;border-bottom:1px solid var(--k-line)!important;box-shadow:none!important}
-html.kyo .hero{background:var(--k-card)!important;border-bottom:1px solid var(--k-line)!important}
+html.kyo{--k-bg:#f3eee5;--k-card:#fffdf9;--k-ink:#22201d;--k-mut:#6f675d;--k-line:#e4dccf;--k-acc:#b8312f;--k-acc2:#2c4a7a;--k-soft:#f7e9e4;--k-soft2:#e8eef7;--bg:var(--k-card);--ink:var(--k-ink);--mut:var(--k-mut);--line:var(--k-line);
+ --pnk:var(--k-acc);--vio:var(--k-acc2);--sky:var(--k-acc2);--cor:var(--k-acc);--amb:#a8641a;--grn:#2f7a55;--tea:#25737a;--hanko:var(--k-acc)}
+html.kyo.kyo-d{--k-bg:#17181c;--k-card:#202228;--k-ink:#ecebe8;--k-mut:#a29d95;--k-line:#33353d;--k-acc:#e2615e;--k-acc2:#8fb0e0;--k-soft:#3a2526;--k-soft2:#22314a}
+html.kyo body{background:var(--k-bg)!important;color:var(--k-ink)}
+html.kyo .top{background:var(--k-card)!important;border-bottom:1px solid var(--k-line)!important;box-shadow:0 1px 0 rgba(0,0,0,.02)!important}
+html.kyo .top .wrap{gap:8px!important}html.kyo .top .wrap>*{margin-left:0!important;margin-right:0!important}html.kyo .top .brand{margin-right:auto!important}
+html.kyo .top .srch,html.kyo .top .mapb,html.kyo .top .tog{height:38px;min-height:38px;padding:0 14px!important;font-size:14px!important;font-weight:700;border:1px solid var(--k-line)!important;background:var(--k-card)!important;color:var(--k-ink)!important;border-radius:10px!important;box-shadow:none!important}
+html.kyo .top .tog .dot,html.kyo .top .tog::before{display:none!important}
+html.kyo .top #tSet{background:var(--k-acc2)!important;color:#fff!important;border-color:var(--k-acc2)!important}
+html.kyo .hero{background:linear-gradient(180deg,var(--k-card),var(--k-bg))!important;border-bottom:1px solid var(--k-line)!important}
 html.kyo .hero::before,html.kyo .hero::after,html.kyo .hero .wrap::before,html.kyo .hero .wrap::after{display:none!important}
-html.kyo .hero h1,html.kyo .hero .ttl{font-size:clamp(30px,4vw,44px)!important;letter-spacing:-.5px}
-html.kyo .sec{margin:22px 0!important;border-radius:14px!important;border:1px solid var(--k-line)!important;box-shadow:none!important;background:var(--k-card)!important}
-html.kyo .hero .lesson,html.kyo .fact{border:1px solid var(--k-line)!important;box-shadow:none!important;border-radius:14px!important}
-html.kyo .chip,html.kyo .tog,html.kyo .btn,html.kyo .mapb,html.kyo .srch{border-width:1px!important;box-shadow:none!important;border-radius:10px!important}
-html.kyo .chip{--c:var(--k-mut)!important;background:transparent!important;color:var(--k-mut)!important;border-color:transparent!important;font-weight:700}
-html.kyo .chip.on,html.kyo .chip[aria-current]{color:var(--k-acc)!important;border-color:var(--k-acc)!important;background:color-mix(in srgb,var(--k-acc) 8%,transparent)!important}
-html.kyo .btn{--c:var(--k-acc2)!important}html.kyo .btn.fill{--c:var(--k-acc)!important}
+html.kyo .sec{margin:20px 0!important;border-radius:16px!important;border:1px solid var(--k-line)!important;box-shadow:0 1px 2px rgba(60,40,20,.04)!important;background:var(--k-card)!important}
+html.kyo .sec .sico,html.kyo .sec h2 .ico,html.kyo .sec .ico{background:var(--k-acc2)!important;color:#fff!important}
+html.kyo .hero .lesson,html.kyo .fact{border:1px solid var(--k-line)!important;box-shadow:none!important;border-radius:16px!important;background:var(--k-card)!important}
+html.kyo .fact{background:var(--k-soft2)!important}
+html.kyo .btn,html.kyo .chip{box-shadow:none!important;border-radius:10px!important}
+html.kyo .btn{--c:var(--k-acc2)!important;border-width:1px!important;min-height:36px}html.kyo .btn.fill{--c:var(--k-acc)!important}
+html.kyo .schips{display:flex!important;align-items:center;flex-wrap:wrap;gap:6px!important;padding:8px 0!important}
+html.kyo .chip{--c:var(--k-acc2)!important;height:34px;display:inline-flex;align-items:center;padding:0 14px!important;font-size:14px!important;font-weight:700;color:var(--k-ink)!important;background:var(--k-card)!important;border:1px solid var(--k-line)!important}
+html.kyo .chip.on,html.kyo .chip[aria-current],html.kyo .chip.act{color:#fff!important;background:var(--k-acc2)!important;border-color:var(--k-acc2)!important}
 html.kyo #tFuri,html.kyo #tRo,html.kyo #tAz,html.kyo #tMute{display:none!important}
 #kyoShow{display:none}html.kyo #kyoShow{display:inline-flex;align-items:center;gap:6px}
 .kyo-dd{position:absolute;z-index:60;background:var(--k-card,#fff);border:1px solid var(--k-line,#ddd);border-radius:12px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.12);min-width:190px}
 .kyo-dd button{display:flex;justify-content:space-between;width:100%;gap:12px;border:0;background:none;padding:9px 10px;border-radius:8px;font:inherit;font-weight:700;color:var(--k-ink,#222);cursor:pointer}
 .kyo-dd button:hover{background:color-mix(in srgb,var(--k-acc) 8%,transparent)}.kyo-dd i{font-style:normal;color:var(--k-mut)}
 .kyo-dd button[aria-pressed=true] i{color:var(--k-acc)}
-#kyoGrp{display:none}html.kyo #kyoGrp{display:flex;gap:4px;padding:3px;border:1px solid var(--k-line);border-radius:12px;background:var(--k-bg);margin-right:8px}
-#kyoGrp button{border:0;background:none;padding:6px 14px;border-radius:9px;font:inherit;font-weight:800;color:var(--k-mut);cursor:pointer}
-#kyoGrp button.on{background:var(--k-card);color:var(--k-ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+#kyoGrp{display:none}html.kyo #kyoGrp{display:flex;gap:2px;padding:2px;border-radius:11px;background:var(--k-soft);margin-right:6px;height:38px;align-items:center}
+#kyoGrp button{border:0;background:none;height:34px;padding:0 16px;border-radius:9px;font:inherit;font-size:14px;font-weight:800;color:var(--k-acc);cursor:pointer}
+#kyoGrp button.on{background:var(--k-acc);color:#fff}
 html.kyo .chip.kyo-x,html.kyo .sec.kyo-x{display:none!important}
-html.kyo .schips{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
-html.kyo .setp .wrap{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding-top:16px;padding-bottom:16px}
-html.kyo .setg{background:var(--k-card);border:1px solid var(--k-line);border-radius:14px;padding:14px 16px;margin:0!important}
-html.kyo .setg>b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--k-mut);margin-bottom:10px}
+html.kyo .setp .wrap{display:block!important;column-width:320px;column-gap:14px;padding-top:16px;padding-bottom:16px}
+html.kyo .setg{break-inside:avoid;display:block;width:100%;box-sizing:border-box;background:var(--k-card);border:1px solid var(--k-line);border-radius:14px;padding:14px 16px;margin:0 0 14px!important;min-height:0!important}
+html.kyo .setg>b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--k-acc2);margin-bottom:10px}
+html.kyo .setg:has(#thm){display:none}
 .kyo-help{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px}
 .kyo-help>div{background:var(--k-card,#fff);color:var(--k-ink,#222);border-radius:16px;padding:20px 22px;max-width:440px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.3)}
 .kyo-help table{width:100%;border-collapse:collapse}.kyo-help td{padding:6px 4px;border-bottom:1px solid var(--k-line,#eee)}
@@ -8337,7 +8343,7 @@ function hdr(){if($('kyoShow'))return;const t=$('tSet');if(!t)return;t.insertAdj
 function dd(){const o=$('kyoDD');if(o){o.remove();return}const b=$('kyoShow'),r=b.getBoundingClientRect();
  const it=[['tFuri','Furigana','F'],['tRo','Romaji','R'],['tAz',L3('Tərcümə','Translation','Перевод'),'T'],['tMute',L3('Səs','Sound','Звук'),'S']];
  document.body.insertAdjacentHTML('beforeend',`<div class="kyo-dd" id="kyoDD" style="top:${r.bottom+scrollY+6}px;left:${Math.max(8,r.right-200)}px">${it.map(([id,l,k])=>`<button data-kt="${id}" aria-pressed="${$(id)&&$(id).getAttribute('aria-pressed')}"><span>${l}</span><i>${$(id)&&$(id).getAttribute('aria-pressed')==='true'?'✓':''} <kbd style="font-size:11px">${k}</kbd></i></button>`).join('')}</div>`)}
-function setb(){if($('kyoSet'))return;const g=$('thm');if(!g)return;const sg=g.closest('.setg');sg.insertAdjacentHTML('beforebegin',`<div class="setg" id="kyoSetG"><b>${L3('Rejim','Mode','Режим')}</b><div class="setr"><button class="btn" id="kyoSet" aria-pressed="${!!PF.kyo}"><span class="jp">教室</span> Kyoushitsu</button><small style="display:block;color:var(--mut);margin-top:6px">${L3('Sadə və səliqəli görünüş: bölmələr üç qrupda, az rəng.','A clean, simple look: sections in three groups, fewer colours.','Строгий вид: разделы в трёх группах, меньше цвета.')}</small></div></div>`)}
+function setb(){if($('kyoSet'))return;const g=$('setp');if(!g)return;const sg=g.querySelector('.setg');sg.insertAdjacentHTML('beforebegin',`<div class="setg" id="kyoSetG"><b>${L3('Rejim','Mode','Режим')}</b><div class="setr"><button class="btn" id="kyoSet" aria-pressed="${!!PF.kyo}"><span class="jp">教室</span> Kyoushitsu</button><small style="display:block;color:var(--mut);margin-top:6px">${L3('Sadə və səliqəli görünüş: bölmələr üç qrupda, az rəng.','A clean, simple look: sections in three groups, fewer colours.','Строгий вид: разделы в трёх группах, меньше цвета.')}</small></div></div>`)}
 const dk=()=>PF.theme==='dark'||((!PF.theme||PF.theme==='auto')&&matchMedia('(prefers-color-scheme:dark)').matches);
 function apply(){const r=document.documentElement,on=!!PF.kyo;r.classList.toggle('kyo',on);r.classList.toggle('kyo-d',on&&dk());if(on)r.dataset.theme=dk()?'dark':'light';
  const b=$('kyoSet');if(b){b.setAttribute('aria-pressed',on);b.classList.toggle('fill',on)}hdr();grp()}
