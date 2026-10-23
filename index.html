@@ -8321,7 +8321,8 @@ html.kyo #tFuri,html.kyo #tRo,html.kyo #tAz,html.kyo #tMute{display:none!importa
 #kyoGrp{display:none}html.kyo #kyoGrp{display:flex;gap:2px;padding:2px;border-radius:11px;background:var(--k-soft);margin-right:6px;height:38px;align-items:center}
 #kyoGrp button{border:0;background:none;height:34px;padding:0 16px;border-radius:9px;font:inherit;font-size:14px;font-weight:800;color:var(--k-acc);cursor:pointer}
 #kyoGrp button.on{background:var(--k-acc);color:#fff}
-html.kyo .chip.kyo-x,html.kyo .sec.kyo-x{display:none!important}
+html.kyo .chip.kyo-x,html.kyo .sec.kyo-x,html.kyo .fact.kyo-x{display:none!important}
+@media (min-width:900px){html.kyo .wrap{max-width:none!important;padding-left:clamp(20px,3vw,56px)!important;padding-right:clamp(20px,3vw,56px)!important}}
 html.kyo .setp .wrap{display:block!important;column-width:320px;column-gap:14px;padding-top:16px;padding-bottom:16px}
 html.kyo .setg{break-inside:avoid;display:block;width:100%;box-sizing:border-box;background:var(--k-card);border:1px solid var(--k-line);border-radius:14px;padding:14px 16px;margin:0 0 14px!important;min-height:0!important}
 html.kyo .setg>b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--k-acc2);margin-bottom:10px}
@@ -8338,12 +8339,13 @@ function grp(){const nav=$('chips');if(!nav)return;let gb=$('kyoGrp');if(!gb){na
  gb.innerHTML=GR.map(([k,l])=>`<button data-kg="${k}" class="${G===k?'on':''}" role="tab" aria-selected="${G===k}">${l()}</button>`).join('');
  const on=document.documentElement.classList.contains('kyo');
  nav.querySelectorAll('.chip').forEach(c=>c.classList.toggle('kyo-x',on&&gOf(c.dataset.go)!==G));
- document.querySelectorAll('section.sec').forEach(s=>s.classList.toggle('kyo-x',on&&gOf(s.id)!==G))}
+ document.querySelectorAll('section.sec').forEach(s=>s.classList.toggle('kyo-x',on&&gOf(s.id)!==G));
+ const F=[...document.querySelectorAll('.fact')];F.forEach((f,i)=>f.classList.toggle('kyo-x',on&&!((i===0&&G==='learn')||(i===1&&G==='more'))))}
 function hdr(){if($('kyoShow'))return;const t=$('tSet');if(!t)return;t.insertAdjacentHTML('beforebegin',`<button class="tog" id="kyoShow" aria-haspopup="true">${L3('Göstər','Display','Показ')} ▾</button>`)}
 function dd(){const o=$('kyoDD');if(o){o.remove();return}const b=$('kyoShow'),r=b.getBoundingClientRect();
  const it=[['tFuri','Furigana','F'],['tRo','Romaji','R'],['tAz',L3('Tərcümə','Translation','Перевод'),'T'],['tMute',L3('Səs','Sound','Звук'),'S']];
  document.body.insertAdjacentHTML('beforeend',`<div class="kyo-dd" id="kyoDD" style="top:${r.bottom+scrollY+6}px;left:${Math.max(8,r.right-200)}px">${it.map(([id,l,k])=>`<button data-kt="${id}" aria-pressed="${$(id)&&$(id).getAttribute('aria-pressed')}"><span>${l}</span><i>${$(id)&&$(id).getAttribute('aria-pressed')==='true'?'✓':''} <kbd style="font-size:11px">${k}</kbd></i></button>`).join('')}</div>`)}
-function setb(){if($('kyoSet'))return;const g=$('setp');if(!g)return;const sg=g.querySelector('.setg');sg.insertAdjacentHTML('beforebegin',`<div class="setg" id="kyoSetG"><b>${L3('Rejim','Mode','Режим')}</b><div class="setr"><button class="btn" id="kyoSet" aria-pressed="${!!PF.kyo}"><span class="jp">教室</span> Kyoushitsu</button><small style="display:block;color:var(--mut);margin-top:6px">${L3('Sadə və səliqəli görünüş: bölmələr üç qrupda, az rəng.','A clean, simple look: sections in three groups, fewer colours.','Строгий вид: разделы в трёх группах, меньше цвета.')}</small></div></div>`)}
+function setb(){if($('kyoSet'))return;const g=$('tRM');if(!g)return;const sg=g.closest('.setg');sg.insertAdjacentHTML('afterend',`<div class="setg" id="kyoSetG"><b>${L3('Rejim','Mode','Режим')}</b><div class="setr"><button class="btn" id="kyoSet" aria-pressed="${!!PF.kyo}"><span class="jp">教室</span> Kyoushitsu</button></div></div>`)}
 const dk=()=>PF.theme==='dark'||((!PF.theme||PF.theme==='auto')&&matchMedia('(prefers-color-scheme:dark)').matches);
 function apply(){const r=document.documentElement,on=!!PF.kyo;r.classList.toggle('kyo',on);r.classList.toggle('kyo-d',on&&dk());if(on)r.dataset.theme=dk()?'dark':'light';
  const b=$('kyoSet');if(b){b.setAttribute('aria-pressed',on);b.classList.toggle('fill',on)}hdr();grp()}
