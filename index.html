@@ -3674,7 +3674,10 @@ END_job:['💼',T("st2.e-job"),'Müdir sizə vizit kartını verir. Bir ay sonra
 END_tv:['📺',T("st2.e-tv"),'Studiyada işıqlar yanır. Nomura sizdən Osaka haqqında soruşur, siz hər şeyi yaponca danışırsınız. Saat 5-də qəsrin qarşısında Harada telefonu əlində sizə tərəf qaçır: 「テレビで 見ましたよ！有名人ですね！」 Həmin axşam restoranda iki nəfər sizdən şəkil istəyir.'],
 END_sumo:['💪',T("st2.e-sumo"),'Axşam bunu Haradaya danışanda o, yerindən sıçrayır: məlum olur ki, böyük sumo azarkeşidir! Səhər saat 6-da ikiniz də sumo məktəbindəsiniz. Takeşi sizə şiko etdirir, Harada isə onunla güləşib üç saniyəyə dairədən uçur. Hamı gülür.'],
 END_grandma:['👵',T("st2.e-grand"),'Harada sizi görəndə donub qalır: 「おばあちゃん？！」 Bütün günü kömək etdiyiniz qadın onun nənəsi imiş! Nənə nəvəsinə deyir: 「いい 友達ですね。」 Həmin axşam sizi evlərinə aparırlar, süfrədə nənənin öz əli ilə bişirdiyi Osaka yeməkləri var.']});}
-
+/* v122: məntiq düzəlişləri */
+{const me=TID("ui.you");ST.koban[1][3]=[me,'[青:あお]くて、[大:おお]きい かばん|です。','Göy, böyük çantadır.'];
+ENDS.END_bag[2]='Telefonunuz da çantada qalmışdı: nə xəritə var, nə də Haradanın nömrəsi. Günü şəhərdə dolaşaraq keçirirsiniz. Axşam otelə qayıdanda çantanız artıq resepsiyada sizi gözləyir: Yaponiyada itmiş əşyaların çoxu sahibinə qaytarılır! Amma Harada ilə görüşü qaçırdınız...';
+ENDS.END_friend[2]='Kafedə Nomura ilə saatlarla söhbət edirsiniz. Saat 5-də Haradaya zəng edib onu da kafeyə çağırırsınız. Axşam üçünüz gülə-gülə Osakanı gəzirsiniz: artıq burada yeni dostunuz var!';}
 
 let SS={node:'hub',flags:{},log:[]};
 const storyEnds=()=>{try{return JSON.parse(localStorage.getItem('kotoba-story')||'[]')}catch(_){return []}};
