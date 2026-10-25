@@ -4405,7 +4405,7 @@ try{new MutationObserver(()=>{if(!q){q=1;requestAnimationFrame(fixL)}}).observe(
 (function(){const P=()=>document.getElementById('setp');
  const fit=()=>{const p=P();if(p&&!p.hidden)document.documentElement.style.setProperty('--sph',Math.max(60,Math.round(p.getBoundingClientRect().top))+'px')};
  try{new MutationObserver(fit).observe(P(),{attributes:true,attributeFilter:['hidden']})}catch(_){}addEventListener('resize',fit);
- document.addEventListener('click',e=>{const p=P();if(p&&!p.hidden&&!(e.target.closest&&e.target.closest('.top'))&&!(e.target.closest&&e.target.closest('#tMuteF'))){e.preventDefault();e.stopPropagation();const t=document.getElementById('tSet');t&&t.click()}},true);
+ document.addEventListener('click',e=>{const p=P();if(p&&!p.hidden&&!(e.target.closest&&e.target.closest('.top,#setp,.mn-bd,#kySh,.ky-side,.ky-tabs'))&&!(e.target.closest&&e.target.closest('#tMuteF'))){e.preventDefault();e.stopPropagation();const t=document.getElementById('tSet');t&&t.click()}},true);
 })();
 
 /* ===== Kotoba no Tabi: study music (CC0 tracks, open-lofi) ===== */
@@ -10679,38 +10679,6 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;const w=docum
 bdBtn();bdEval(true);setInterval(()=>bdEval(),8000);
 window.bdDebug={stats,DEF,eval:bdEval,open:bdOpen};
 },0);
-/*DAILY*//* v132: Gündəlik təkrar kartı + baxılan dərslərin sözləri avtomatik təkrar dəstinə düşür */
-(()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
-const css=document.createElement('style');css.textContent=`
-.drv{display:flex;align-items:center;gap:14px;margin:18px 0 0;padding:14px 16px;border:1px solid var(--line,#ddd);border-radius:18px;background:var(--bg,#fff);box-shadow:0 1px 2px rgba(0,0,0,.04)}
-.drv[hidden]{display:none}
-.drv-ic{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--grn,#16a34a) 14%,transparent);color:var(--grn,#16a34a)}
-.drv-ic svg{width:24px;height:24px}
-.drv.ok .drv-ic{background:color-mix(in srgb,var(--sky,#0ea5e9) 14%,transparent);color:var(--sky,#0ea5e9)}
-.drv-t{flex:1;min-width:0}.drv-t b{display:block;font-size:15px}.drv-t small{display:block;font-size:13px;opacity:.7;margin-top:2px}
-.drv-b{flex:none;border:0;border-radius:12px;padding:10px 16px;font:inherit;font-weight:800;font-size:14px;background:var(--grn,#16a34a);color:#fff;cursor:pointer;white-space:nowrap}
-.drv-bar{height:5px;border-radius:9px;background:color-mix(in srgb,currentColor 12%,transparent);margin-top:8px;overflow:hidden}.drv-bar i{display:block;height:100%;background:var(--grn,#16a34a);border-radius:9px}
-html.kyo .drv{background:var(--k-card);border-color:var(--k-line);margin:16px 0 0}
-@media (max-width:520px){.drv{flex-wrap:wrap}.drv-b{width:100%}}
-`;document.head.appendChild(css);
-const sv=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
-const IR=sv('<path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4.5h-4.5"/>'),IOK=sv('<path d="m5 12.5 4.5 4.5L19 7.5"/>');
-function seed(n){if(!(n>=1))return;try{PF.dseed=PF.dseed||{};if(PF.dseed[n])return;const db=wbLoad(),t=Date.now()+864e5;let k=0;wAll().forEach(x=>{if(x.L!==n)return;const e=db[x.id];if(e&&(e.r||e.l))return;srsAdd(db,x.id,t+k*1000);k++});wbSave(db);PF.dseed[n]=1;save()}catch(_){}}
-function info(){try{const db=wbLoad(),now=Date.now(),day=now+864e5;let deck=0,due=0,tom=0,done=0;for(const id in db){const r=db[id].r;if(!r)continue;deck++;if(r.d<=now)due++;else if(r.d<=day)tom++}
- const k='kotoba-drv-'+(typeof msDay==='function'?msDay():new Date().toDateString());try{done=+localStorage.getItem(k)||0}catch(_){}return {deck,due,tom,done,k}}catch(_){return {deck:0,due:0,tom:0,done:0}}}
-function card(){const app=$('app');if(!app)return;let c=$('dRev');if(!c){app.insertAdjacentHTML('afterbegin','<div class="drv" id="dRev" hidden></div>');c=$('dRev')}
- const I=info();if(!I.deck){c.hidden=true;return}c.hidden=false;const tot=I.due+I.done;
- if(I.due){c.classList.remove('ok');c.innerHTML=`<span class="drv-ic">${IR}</span><span class="drv-t"><b>${L3('Gündəlik təkrar','Daily review','Ежедневное повторение')}</b><small>${L3(I.due+' söz bu gün təkrar gözləyir',I.due+(I.due===1?' word is':' words are')+' waiting for review today','Слов на повторение сегодня: '+I.due)}</small>${I.done?`<span class="drv-bar"><i style="width:${Math.round(I.done/tot*100)}%"></i></span>`:''}</span><button class="drv-b" id="dRevGo">${I.done?L3('Davam et','Continue','Продолжить'):L3('Başla','Start','Начать')}</button>`}
- else{c.classList.add('ok');c.innerHTML=`<span class="drv-ic">${IOK}</span><span class="drv-t"><b>${L3('Bu günün təkrarı bitib','Today’s review is done','Повторение на сегодня завершено')}</b><small>${I.tom?L3('Sabah '+I.tom+' söz qayıdacaq','Tomorrow '+I.tom+(I.tom===1?' word comes':' words come')+' back','Завтра вернётся слов: '+I.tom):L3('Yeni dərslərə baxdıqca sözlər bura düşəcək','Words from new lessons will appear here','Слова из новых уроков появятся здесь')}</small></span>`}
- const m=document.querySelector('[data-mnc="kOpen"]');if(m){let e=m.querySelector('em');if(!e){m.insertAdjacentHTML('beforeend','<em></em>');e=m.querySelector('em')}e.textContent=I.due||''}}
-const rd=render;render=function(){const x=rd.apply(this,arguments);try{seed(C.n);card()}catch(_){}return x};
-addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
- if(t.closest('#dRevGo')){e.preventDefault();try{dictOpen('r');setTimeout(()=>{const g=$('srsGo');if(g)g.click()},60)}catch(_){}return}
- const g=t.closest('[data-srsg]');if(g){const I=info();try{localStorage.setItem(I.k,String(I.done+1))}catch(_){}}
- if(t.closest('#kdX')||t.id==='kdict'||t.closest('#tSet'))setTimeout(card,80)},true);
-setInterval(()=>{if(!document.hidden)card()},20000);
-setTimeout(()=>{try{seed(C.n)}catch(_){}card()},400);
-})();/*/DAILY*/
 /*MENU*//* v131: Menyu – başlıq düymələri menyuya köçür, ayarlar bölmələrə ayrılır */
 (()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
 const css=document.createElement('style');css.id='mn-css';css.textContent=`
@@ -10815,6 +10783,42 @@ setTimeout(()=>{ui();const R=get();if(R.on){const M=MSG();N.setReminder(true,R.h
 /*TRX*//* v134: qalan tərcümələr */
 try{Object.assign(I18,{'Yaponca → Azərbaycanca':['Japanese → English','Японский → русский'],'Azərbaycanca → Yaponca':['English → Japanese','Русский → японский'],'上 Müdir':['上 Boss','上 Начальник'],'初 Yeni tanış':['初 New acquaintance','初 Новый знакомый'],'Düzdür!':['Correct!','Верно!'],'Səhvdir.':['Wrong.','Неверно.'],'Növbəti →':['Next →','Дальше →'],'Yenidən başla':['Start again','Начать заново']});
 Object.assign(I18H,{'Məbləğ düzgündürsə, <span class="jp"><ruby>確認<rt>かくにん</rt></ruby></span> (təsdiq) düyməsini basın.':['If the amount is correct, press <span class="jp"><ruby>確認<rt>かくにん</rt></ruby></span> (confirm).','Если сумма верна, нажмите <span class="jp"><ruby>確認<rt>かくにん</rt></ruby></span> (подтвердить).']})}catch(_){}/*/TRX*/
+/*DAILY*//* v132: Gündəlik təkrar kartı + baxılan dərslərin sözləri avtomatik təkrar dəstinə düşür */
+(()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
+const css=document.createElement('style');css.textContent=`
+.drv{display:flex;align-items:center;gap:14px;margin:18px 0 0;padding:14px 16px;border:1px solid var(--line,#ddd);border-radius:18px;background:var(--bg,#fff);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.drv[hidden]{display:none}
+.drv-ic{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--grn,#16a34a) 14%,transparent);color:var(--grn,#16a34a)}
+.drv-ic svg{width:24px;height:24px}
+.drv.ok .drv-ic{background:color-mix(in srgb,var(--sky,#0ea5e9) 14%,transparent);color:var(--sky,#0ea5e9)}
+.drv-t{flex:1;min-width:0}.drv-t b{display:block;font-size:15px}.drv-t small{display:block;font-size:13px;opacity:.7;margin-top:2px}
+.drv-b{flex:none;border:0;border-radius:12px;padding:10px 16px;font:inherit;font-weight:800;font-size:14px;background:var(--grn,#16a34a);color:#fff;cursor:pointer;white-space:nowrap}
+.drv-bar{height:5px;border-radius:9px;background:color-mix(in srgb,currentColor 12%,transparent);margin-top:8px;overflow:hidden}.drv-bar i{display:block;height:100%;background:var(--grn,#16a34a);border-radius:9px}
+html.kyo .drv{background:var(--k-card);border-color:var(--k-line);margin:16px 0 0}
+@media (max-width:520px){.drv{flex-wrap:wrap}.drv-b{width:100%}}
+`;document.head.appendChild(css);
+const sv=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const IR=sv('<path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4.5h-4.5"/>'),IOK=sv('<path d="m5 12.5 4.5 4.5L19 7.5"/>');
+function started(n){try{if(lessonDone(n))return true;const x=n===C.n?st:ldStore(n);return Object.values(x.got||{}).some(Boolean)||Object.keys(x.quiz||{}).length>0||(x.vbest||0)>0}catch(_){return false}}
+function seed(n){if(!(n>=1))return;try{PF.dseed=PF.dseed||{};if(PF.dseed[n]||!started(n))return;const db=wbLoad(),now=Date.now();let k=0;wAll().forEach(x=>{if(x.L!==n)return;const e=db[x.id];if(e&&(e.r||e.l))return;srsAdd(db,x.id,now-1000+Math.floor(k/15)*864e5);k++});wbSave(db);PF.dseed[n]=1;save()}catch(_){}}
+function migrate(){try{if(PF.dseed2)return;const S=PF.dseed||{},db=wbLoad();let ch=0;for(const n in S){if(started(+n))continue;for(const id in db){if(id.indexOf(n+':')!==0)continue;const e=db[id];if(e.r&&!e.d&&!e.l&&e.r.b===0){delete db[id];ch=1}}delete S[n]}if(ch)wbSave(db);PF.dseed=S;PF.dseed2=1;save()}catch(_){}}
+function seedAll(){for(let n=1;n<=35;n++)seed(n)}
+function info(){try{const db=wbLoad(),now=Date.now(),day=now+864e5;let deck=0,due=0,tom=0,done=0;for(const id in db){const r=db[id].r;if(!r)continue;deck++;if(r.d<=now)due++;else if(r.d<=day)tom++}
+ const k='kotoba-drv-'+(typeof msDay==='function'?msDay():new Date().toDateString());try{done=+localStorage.getItem(k)||0}catch(_){}return {deck,due,tom,done,k}}catch(_){return {deck:0,due:0,tom:0,done:0}}}
+function card(){const app=$('app');if(!app)return;let c=$('dRev');if(!c){app.insertAdjacentHTML('afterbegin','<div class="drv" id="dRev" hidden></div>');c=$('dRev')}
+ const I=info();if(!I.deck){c.hidden=true;return}c.hidden=false;const tot=I.due+I.done;
+ if(I.due){c.classList.remove('ok');c.innerHTML=`<span class="drv-ic">${IR}</span><span class="drv-t"><b>${L3('Gündəlik təkrar','Daily review','Ежедневное повторение')}</b><small>${L3(I.due+' söz bu gün təkrar gözləyir',I.due+(I.due===1?' word is':' words are')+' waiting for review today','Слов на повторение сегодня: '+I.due)}</small>${I.done?`<span class="drv-bar"><i style="width:${Math.round(I.done/tot*100)}%"></i></span>`:''}</span><button class="drv-b" id="dRevGo">${I.done?L3('Davam et','Continue','Продолжить'):L3('Başla','Start','Начать')}</button>`}
+ else{c.classList.add('ok');const tm=I.tom?L3('Sabah '+I.tom+' söz qayıdacaq','Tomorrow '+I.tom+(I.tom===1?' word comes':' words come')+' back','Завтра вернётся слов: '+I.tom):L3('Növbəti təkrar sonrakı günlərdədir','The next review is in a few days','Следующее повторение через несколько дней');c.innerHTML=`<span class="drv-ic">${IOK}</span><span class="drv-t"><b>${I.done?L3('Bu günün təkrarı bitib','Today\u2019s review is done','Повторение на сегодня завершено'):L3('Bu gün təkrar ediləcək söz yoxdur','No words to review today','Сегодня нечего повторять')}</b><small>${tm}</small></span>`}
+ const m=document.querySelector('[data-mnc="kOpen"]');if(m){let e=m.querySelector('em');if(!e){m.insertAdjacentHTML('beforeend','<em></em>');e=m.querySelector('em')}e.textContent=I.due||''}}
+const rd=render;render=function(){const x=rd.apply(this,arguments);try{seed(C.n);card()}catch(_){}return x};
+addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#app'))setTimeout(()=>{try{seed(C.n);card()}catch(_){}},400)});
+addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
+ if(t.closest('#dRevGo')){e.preventDefault();try{dictOpen('r');setTimeout(()=>{const g=$('srsGo');if(g)g.click()},60)}catch(_){}return}
+ const g=t.closest('[data-srsg]');if(g){const I=info();try{localStorage.setItem(I.k,String(I.done+1))}catch(_){}}
+ if(t.closest('#kdX')||t.id==='kdict'||t.closest('#tSet'))setTimeout(card,80)},true);
+setInterval(()=>{if(!document.hidden)card()},20000);
+setTimeout(()=>{try{migrate();seedAll()}catch(_){}card()},400);
+})();/*/DAILY*/
 render();a11yFix();
 
 </script>
