@@ -1,0 +1,13 @@
+name: Supabase keep-alive
+on:
+  schedule:
+    - cron: "17 6 */3 * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: |
+          curl -fsS "https://cjbnrweimmuubobgbiyc.supabase.co/rest/v1/progress?select=user_id&limit=1" \
+            -H "apikey: sb_publishable_EUieNxVQq1VZ2ZjQfWmDiA_wbV8iaRT" -o /dev/null -w "%{http_code}\n"
