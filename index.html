@@ -10819,6 +10819,65 @@ addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
 setInterval(()=>{if(!document.hidden)card()},20000);
 setTimeout(()=>{try{migrate();seedAll()}catch(_){}card()},400);
 })();/*/DAILY*/
+/*SYNC*//* v135: Hesab (Supabase, e-poçt kodu) + irəliləyişin bulud sinxronizasiyası */
+(()=>{const SB_URL='https://cjbnrweimmuubobgbiyc.supabase.co',SB_KEY='sb_publishable_EUieNxVQq1VZ2ZjQfWmDiA_wbV8iaRT';if(SB_URL.indexOf('__')===0)return;
+const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
+const AK='kotoba-auth',SK='kotoba-sync',DEV=['lang','theme','zoom','kyo','mute','tourDone','rm','musV','mus','voice','rate','devVoice'];
+const ls={g:k=>{try{return localStorage.getItem(k)}catch(_){return null}},s:(k,v)=>{try{localStorage.setItem(k,v)}catch(_){}},r:k=>{try{localStorage.removeItem(k)}catch(_){}}};
+const J=k=>{try{return JSON.parse(ls.g(k)||'null')}catch(_){return null}};
+let A=J(AK),S=J(SK)||{},busy=0,tmr=0,mute=0;
+const css=document.createElement('style');css.textContent=`#acctG .ac-r{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}#acctG input{flex:1;min-width:160px;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line,#ccc);border-radius:10px;background:var(--bg,#fff);color:inherit}#acctG input.code{letter-spacing:.3em;font-weight:800;text-align:center;max-width:180px}
+#acctG .ac-m{font-size:13px;margin:8px 0 0;opacity:.8}#acctG .ac-m.err{color:#dc2626;opacity:1}#acctG .ac-u{display:flex;align-items:center;gap:10px}#acctG .ac-av{width:40px;height:40px;border-radius:50%;background:var(--grn,#16a34a);color:#fff;display:grid;place-items:center;font-weight:800;font-size:17px;flex:none}#acctG .ac-u b{display:block;font-size:14px;word-break:break-all}#acctG .ac-u small{display:block;font-size:12px;opacity:.7}`;document.head.appendChild(css);
+async function api(path,opt={}){const h={'apikey':SB_KEY,'Content-Type':'application/json',...(opt.h||{})};if(opt.auth&&A)h.Authorization='Bearer '+A.at;const r=await fetch(SB_URL+path,{method:opt.m||'GET',headers:h,cache:'no-store',body:opt.b?JSON.stringify(opt.b):undefined});const t=await r.text();let d=null;try{d=t?JSON.parse(t):null}catch(_){}if(!r.ok){const e=new Error((d&&(d.msg||d.error_description||d.message||d.error))||('HTTP '+r.status));e.st=r.status;throw e}return d}
+const keep=d=>{A={at:d.access_token,rt:d.refresh_token,exp:Date.now()+(d.expires_in||3600)*1000-60000,uid:d.user&&d.user.id||A&&A.uid,email:d.user&&d.user.email||A&&A.email};ls.s(AK,JSON.stringify(A))};
+async function tok(){if(!A)return false;if(Date.now()<A.exp)return true;try{keep(await api('/auth/v1/token?grant_type=refresh_token',{m:'POST',b:{refresh_token:A.rt}}));return true}catch(e){if(e.st===400||e.st===401){A=null;ls.r(AK)}return false}}
+function snap(){const o={};try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(!k||k.indexOf('kotoba-')!==0||k===AK||k===SK||k==='kotoba-n4mig')continue;const v=localStorage.getItem(k);if(k==='kotoba-prefs'){let p={};try{p=JSON.parse(v)||{}}catch(_){}for(const f in p){if(DEV.includes(f))continue;o['kotoba-prefs#'+f]=JSON.stringify(p[f])}}else o[k]=v}}catch(_){}return o}
+const km=()=>(S.km=S.km||{});
+function writeKeys(m){mute=1;let pr=null;for(const k in m){if(k.indexOf('kotoba-prefs#')===0){if(!pr){try{pr=JSON.parse(ls.g('kotoba-prefs')||'{}')}catch(_){pr={}}}const f=k.slice(13);if(m[k]===null)delete pr[f];else{try{pr[f]=JSON.parse(m[k])}catch(_){}}}else if(m[k]===null)ls.r(k);else ls.s(k,m[k])}if(pr){ls.s('kotoba-prefs',JSON.stringify(pr));try{const P=JSON.parse(JSON.stringify(pr));for(const f in P)if(!DEV.includes(f))PF[f]=P[f]}catch(_){}}mute=0}
+const score=d=>{let n=0;for(const k in d){try{if(/^kotoba-l\d+$/.test(k)){const x=JSON.parse(d[k]);n+=Object.values(x.got||{}).filter(Boolean).length+Object.keys(x.quiz||{}).length}else if(k==='kotoba-ms'){const x=JSON.parse(d[k]);n+=Object.keys(x.w||{}).length}else if(k==='kotoba-story'||k==='kotoba-cert')n+=1}catch(_){}}return n};
+async function pull(){if(!(await tok()))return null;const r=await api('/rest/v1/progress?select=data,updated_at&user_id=eq.'+A.uid,{auth:1});const x=r&&r[0];if(!x)return null;const d=x.data||{};return {v:d.v||{},t:d.t||{},updated_at:x.updated_at}}
+function merge(R){const L=snap(),K=km(),out={v:{},t:{}},win={};const keys=new Set([...Object.keys(L),...Object.keys(R.v),...Object.keys(K),...Object.keys(R.t)]);
+ for(const k of keys){const lt=K[k]||'',rt=R.t[k]||'';const lv=k in L?L[k]:null,rv=k in R.v?R.v[k]:null;
+  if(rt>lt){out.t[k]=rt;if(rv!==null)out.v[k]=rv;if(rv!==lv)win[k]=rv}else{out.t[k]=lt||rt||'0';if(lv!==null)out.v[k]=lv}}
+ return {out,win}}
+async function sendRaw(payload){const now=new Date().toISOString();await api('/rest/v1/progress?on_conflict=user_id',{m:'POST',auth:1,h:{Prefer:'resolution=merge-duplicates,return=minimal'},b:{user_id:A.uid,data:payload,updated_at:now}});return now}
+async function push(reloadOnWin){if(busy||hold)return false;if(!(await tok()))return false;busy=1;let reloaded=false;try{const R=await pull()||{v:{},t:{}};const {out,win}=merge(R);
+ if(Object.keys(win).length){writeKeys(win);Object.keys(win).forEach(k=>{km()[k]=out.t[k]})}
+ const now=await sendRaw(out);S.at=now;S.dirty=0;S.km=out.t;ls.s(SK,JSON.stringify(S));ui();
+ if(reloadOnWin&&Object.keys(win).length){reloaded=true;location.reload()}}catch(e){msg(e.message,1)}finally{busy=0}return reloaded}
+const sched=()=>{if(!A||mute||hold)return;S.dirty=1;ls.s(SK,JSON.stringify(S));clearTimeout(tmr);tmr=setTimeout(()=>push(false),5000)};
+const oset=Storage.prototype.setItem,orm=Storage.prototype.removeItem;
+function touch(k,ov,nv){if(!A||mute||hold)return;const now=new Date().toISOString();if(k==='kotoba-prefs'){let a={},b={};try{a=JSON.parse(ov||'{}')||{}}catch(_){}try{b=JSON.parse(nv||'{}')||{}}catch(_){}let ch=0;new Set([...Object.keys(a),...Object.keys(b)]).forEach(f=>{if(DEV.includes(f))return;if(JSON.stringify(a[f])!==JSON.stringify(b[f])){km()['kotoba-prefs#'+f]=now;ch=1}});if(ch)sched()}else if(ov!==nv){km()[k]=now;sched()}}
+Storage.prototype.setItem=function(k,v){const watch=this===window.localStorage&&typeof k==='string'&&k.indexOf('kotoba-')===0&&k!==AK&&k!==SK;const ov=watch?this.getItem(k):null;const r=oset.apply(this,arguments);if(watch)touch(k,ov,String(v));return r};
+Storage.prototype.removeItem=function(k){const watch=this===window.localStorage&&typeof k==='string'&&k.indexOf('kotoba-')===0&&k!==AK&&k!==SK;const ov=watch?this.getItem(k):null;const r=orm.apply(this,arguments);if(watch&&ov!==null)touch(k,ov,null);return r};
+let hold=0;async function first(){hold=1;const R=await pull();const loc=snap(),lsc=score(loc);
+ if(!R||!Object.keys(R.v).length){hold=0;const now=new Date().toISOString();Object.keys(loc).forEach(k=>km()[k]=now);await push(false);msg(L3('Bu cihazdakı irəliləyiş hesabınıza yazıldı.','Progress on this device was saved to your account.','Прогресс с этого устройства сохранён в аккаунте.'));return}
+ const rsc=score(R.v);if(!lsc){hold=0;S.km={};await push(true);return}
+ const g=$('acctG');if(!g)return;g.querySelector('.ac-body').innerHTML=`<p class="ac-m">${L3('Həm bu cihazda, həm də hesabınızda irəliləyiş var. Nə edək?','There is progress both on this device and in your account. What should we do?','Прогресс есть и на устройстве, и в аккаунте. Что сделать?')}</p><div class="ac-r"><button class="btn fill" data-ac="useM" style="--c:var(--grn)">${L3('Birləşdir','Merge','Объединить')}</button><button class="btn" data-ac="useR">${L3('Hesabdakını saxla','Keep the account one','Оставить из аккаунта')}</button><button class="btn" data-ac="useL">${L3('Bu cihazdakını saxla','Keep this device','Оставить с устройства')}</button></div>`;window.__acR=R}
+async function boot(){if(!A)return;try{await push(true)}catch(_){}}
+function msg(t,err){const m=document.querySelector('#acctG .ac-msg');if(m){m.textContent=t;m.classList.toggle('err',!!err)}}
+let step='mail',mail='';
+function ui(){const sp=$('setp');if(!sp)return;let g=$('acctG');if(!g){const b=sp.querySelector('[data-mns="acc"] .mn-b');if(!b)return;b.insertAdjacentHTML('afterbegin','<div class="setg" id="acctG"></div>');g=$('acctG')}
+ let h=`<b>${L3('Hesab','Account','Аккаунт')}</b><div class="ac-body">`;
+ if(A){const t=S.at?new Date(S.at).toLocaleString([], {dateStyle:'short',timeStyle:'short'}):'–';h+=`<div class="ac-u"><span class="ac-av">${(A.email||'?')[0].toUpperCase()}</span><span><b>${A.email||''}</b><small>${S.dirty?L3('Sinxronlaşdırılır…','Syncing…','Синхронизация…'):L3('Son sinxron: ','Last sync: ','Синхронизация: ')+t}</small></span></div><div class="ac-r"><button class="btn" data-ac="sync">${L3('İndi sinxronlaşdır','Sync now','Синхронизировать')}</button><button class="btn" data-ac="out">${L3('Çıxış','Sign out','Выйти')}</button></div>`}
+ else if(step==='mail')h+=`<p class="ac-m" style="margin-top:0">${L3('Daxil olun ki, irəliləyişiniz bütün cihazlarda eyni olsun. Şifrə lazım deyil: e-poçtunuza 6 rəqəmli kod gələcək.','Sign in to keep your progress the same on every device. No password needed: we will email you a 6-digit code.','Войдите, чтобы прогресс был одинаковым на всех устройствах. Пароль не нужен: мы пришлём 6-значный код.')}</p><div class="ac-r"><input type="email" id="acE" placeholder="email@example.com" autocomplete="email" value="${mail}"><button class="btn fill" data-ac="send" style="--c:var(--grn)">${L3('Kod göndər','Send code','Отправить код')}</button></div>`;
+ else h+=`<p class="ac-m" style="margin-top:0">${L3(mail+' ünvanına kod göndərildi.','A code was sent to '+mail+'.','Код отправлен на '+mail+'.')}</p><div class="ac-r"><input class="code" id="acC" inputmode="numeric" maxlength="8" placeholder="••••••" autocomplete="one-time-code"><button class="btn fill" data-ac="verify" style="--c:var(--grn)">${L3('Təsdiqlə','Confirm','Подтвердить')}</button><button class="btn" data-ac="back">${L3('Geri','Back','Назад')}</button></div>`;
+ h+=`<p class="ac-m ac-msg"></p></div>`;g.innerHTML=h}
+addEventListener('click',async e=>{const t=e.target;if(!t.closest)return;if(t.closest('#tSet')||t.closest('[data-kyo=set]')){setTimeout(ui,130);return}
+ const b=t.closest('[data-ac]');if(!b)return;e.stopPropagation();const k=b.dataset.ac;b.disabled=true;
+ try{if(k==='send'){mail=($('acE').value||'').trim();if(!/^\S+@\S+\.\S+$/.test(mail)){msg(L3('E-poçt ünvanını düzgün yazın.','Enter a valid email address.','Введите корректный адрес.'),1);return}await api('/auth/v1/otp',{m:'POST',b:{email:mail,create_user:true}});step='code';ui();setTimeout(()=>$('acC')&&$('acC').focus(),50)}
+  else if(k==='verify'){const c=($('acC').value||'').replace(/\D/g,'');keep(await api('/auth/v1/verify',{m:'POST',b:{type:'email',email:mail,token:c}}));step='mail';ui();msg(L3('Daxil oldunuz. Yoxlanılır…','Signed in. Checking…','Вы вошли. Проверяем…'));await first();if(!hold)ui()}
+  else if(k==='back'){step='mail';ui()}
+  else if(k==='sync'){await push(true);msg(L3('Sinxronlaşdırıldı ✓','Synced ✓','Синхронизировано ✓'))}
+  else if(k==='out'){try{await api('/auth/v1/logout',{m:'POST',auth:1})}catch(_){}A=null;ls.r(AK);ls.r(SK);S={};ui()}
+  else if(k==='useR'){hold=0;const R=window.__acR;writeKeys(Object.fromEntries(Object.keys(snap()).filter(x=>!(x in R.v)).map(x=>[x,null])));writeKeys(R.v);S={at:R.updated_at,dirty:0,km:R.t};ls.s(SK,JSON.stringify(S));location.reload()}
+  else if(k==='useM'){hold=0;S.km={};const R=window.__acR;const L=snap();const now=new Date().toISOString();/* birləşdirmə: hər açarda daha çox irəliləyiş olanı */const pick={};for(const x of new Set([...Object.keys(L),...Object.keys(R.v)])){const a=L[x],b=R.v[x];if(a==null){pick[x]=b;continue}if(b==null){pick[x]=a;continue}pick[x]=score({[x]:b})>score({[x]:a})?b:(String(b).length>String(a).length&&score({[x]:a})===score({[x]:b})?b:a)}writeKeys(pick);Object.keys(pick).forEach(x=>km()[x]=now);await push(false);location.reload()}
+  else if(k==='useL'){hold=0;const now=new Date().toISOString();Object.keys(snap()).forEach(x=>km()[x]=now);await push(false);ui();msg(L3('Bu cihazdakı irəliləyiş hesaba yazıldı.','This device’s progress was saved to your account.','Прогресс с устройства сохранён.'))}}
+ catch(err){msg(/rate|limit|429/i.test(err.message)?L3('Çox tez-tez cəhd edildi. Bir az gözləyin.','Too many attempts. Please wait a bit.','Слишком много попыток. Подождите.'):/expired|invalid|token/i.test(err.message)?L3('Kod yanlışdır və ya vaxtı keçib.','The code is wrong or has expired.','Код неверный или истёк.'):err.message,1)}finally{b.disabled=false}},true);
+addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target&&(e.target.id==='acE'||e.target.id==='acC')){const b=document.querySelector(e.target.id==='acE'?'[data-ac=send]':'[data-ac=verify]');b&&b.click()}});
+document.addEventListener('visibilitychange',()=>{if(!A)return;if(document.hidden&&S.dirty){clearTimeout(tmr);push(false)}else if(!document.hidden)push(true)});
+setTimeout(boot,2500);setTimeout(ui,1700);
+})();/*/SYNC*/
 render();a11yFix();
 
 </script>
