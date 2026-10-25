@@ -5274,7 +5274,7 @@ const F1=p=>{const n=p.lat[SLI()];return [
  {l:T('Oxuyub adı deyir','Reads it and says the name','Читает и называет имя'),m:`${p.n}さん ですね。`,s:1,b:`${p.n}さん ですね。`,tr:T(`${n}-san, elədir?`,`${n}-san, right?`,`${n}-сан, так?`),r:T('Kart diqqətlə oxunur, ad -san ilə təkrar olunur.','The card is read and the name repeated with -san.','Визитку читают, имя повторяют с -сан.')},
  {l:T('Masaya qoyur','Places it on the table','Кладёт на стол'),m:'どうぞ よろしく お願いします。',s:1,b:'どうぞ よろしく おねがいします。',tr:T('Yaxşı tanışlıq olsun.','Pleased to meet you.','Рад знакомству.'),r:T('Kart dərhal cibə qoyulmur: söhbət boyu masada qalır.','The card is not pocketed at once: it stays on the table during the talk.','Визитку не прячут сразу: она лежит на столе во время беседы.')}]};
 function s1person(cx,suit,mood,ex){const hy=92;return `${ex||''}<path d="M${cx-46} 250V160q0-30 30-30h32q30 0 30 30V250z" fill="${suit}"/><path d="M${cx-10} 132l10 22 10-22z" fill="#fff"/><rect x="${cx-8}" y="116" width="16" height="16" fill="#f4cfa8"/>${head(cx,hy,28,mood)}`}
-function s1scene(fr,p,bub,mr){const gx=110,rx=410,SU='#2f4a7d',SG='#7a3f5b',A=(x1,y1,x2,y2,c)=>`<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${c}" stroke-width="15" stroke-linecap="round"/>`,Hd=(x,y)=>`<circle cx="${x}" cy="${y}" r="8" fill="#f4cfa8" stroke="#d9ab80"/>`,
+function s1scene(fr,p,bub,mr){if(window.scS1){const _r=window.scS1(fr,p,bub,mr);if(_r)return _r}const gx=110,rx=410,SU='#2f4a7d',SG='#7a3f5b',A=(x1,y1,x2,y2,c)=>`<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${c}" stroke-width="15" stroke-linecap="round"/>`,Hd=(x,y)=>`<circle cx="${x}" cy="${y}" r="8" fill="#f4cfa8" stroke="#d9ab80"/>`,
   dn=(cx,c)=>[A(cx-30,152,cx-36,222,c)+A(cx+30,152,cx+36,222,c),Hd(cx-36,226)+Hd(cx+36,226)],
   hold=(cx,c,x,y)=>[A(cx-30,152,x-46,y,c)+A(cx+30,152,x+46,y,c),Hd(x-46,y)+Hd(x+46,y)],
   cp=[null,[230,176],[300,176],[356,166]][fr]||null;
@@ -10878,6 +10878,30 @@ addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target&&(e.target.id==='acE
 document.addEventListener('visibilitychange',()=>{if(!A)return;if(document.hidden&&S.dirty){clearTimeout(tmr);push(false)}else if(!document.hidden)push(true)});
 setTimeout(boot,2500);setTimeout(ui,1700);
 })();/*/SYNC*/
+/*SCN*//* v136: Səhnə şəkilləri (AI illüstrasiyalar) – yükləyici + dərs səhnələrinə tətbiq */
+(()=>{let SC=null,SCL=null;const U={};
+window.scLoad=function(){if(SC)return Promise.resolve(SC);if(SCL)return SCL;SCL=new Promise(res=>{const done=o=>{SC=o||{};for(const k in SC){try{const b=atob(SC[k].d),u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);U[k]=URL.createObjectURL(new Blob([u],{type:'image/webp'}))}catch(_){}}res(SC)};
+ const inl=document.getElementById('scpack');if(inl&&inl.textContent.length>100){try{done(JSON.parse(inl.textContent))}catch(_){done({})}return}
+ if(window.KOTOBA_SC){done(window.KOTOBA_SC);return}const s=document.createElement('script');s.src='scenes.js?v=966143';s.onload=()=>done(window.KOTOBA_SC);s.onerror=()=>{SCL=null;res({})};document.head.appendChild(s)});return SCL};
+const has=k=>!!(SC&&SC[k]&&U[k]);
+/* SVG daxilində şəkil: (açar, mərkəz x, döşəmə y, hündürlük) */
+const img=(k,cx,fy,h)=>{const e=SC[k],w=e.w*h/e.h;return `<image href="${U[k]}" x="${(cx-w/2).toFixed(1)}" y="${(fy-h).toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}"/>`};
+window.scImg=img;window.scHas=has;
+/* ---- Dərs 1: vizit kartı ---- */
+try{const _s1=function(fr,p,bub,mr){
+ if(!p||p.n!=='パーカー')return null;
+ if(!has('L01/Parker A')){scLoad().then(()=>{if(has('L01/Parker A'))try{typeof s1UI==='function'?s1UI():render()}catch(_){}});return null}
+ const PM=[['B','A'],['C','A'],['A','D'],['A','D'],['A','A'],['A','A']][Math.max(0,Math.min(5,fr))];
+ const gx=118,rx=402,H=188,FY=242;
+ let bb='';if(bub){const sx0=bub.s?rx:gx,bw=Math.min(330,bub.t.length*13+28),bx=Math.max(8,Math.min(512-bw,sx0-bw/2)),tx=Math.max(bx+18,Math.min(bx+bw-18,sx0));
+  bb=`<g><rect x="${bx}" y="6" width="${bw}" height="30" rx="12" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><path d="M${tx-8} 35l8 14 8-14z" fill="#fff" stroke="#c9bfa8" stroke-width="2"/><rect x="${tx-9}" y="33" width="18" height="4" fill="#fff"/><text x="${bx+bw/2}" y="26" text-anchor="middle" font-size="13" fill="#2b2b33" font-weight="700" font-family="'Noto Sans JP',sans-serif">${bub.t}</text></g>`}
+ const flat=fr===4?`<g transform="translate(262 176)"><path d="M-26 0h52l-5-7h-42z" fill="#fffdf7" stroke="#bfb496" stroke-width="1.5"/></g>`:'';
+ const bg=has('L01/bg')?`<image href="${U['L01/bg']}" x="0" y="0" width="520" height="250" preserveAspectRatio="xMidYMid slice"/>`:
+  `<defs><linearGradient id="s1w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7efe1"/><stop offset="1" stop-color="#efe3cc"/></linearGradient><linearGradient id="s1f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcc196"/><stop offset="1" stop-color="#c9a877"/></linearGradient></defs><rect width="520" height="250" fill="url(#s1w)"/><rect x="214" y="44" width="92" height="96" rx="6" fill="#dcecf6" stroke="#b9a98a" stroke-width="3"/><path d="M260 44v96M214 92h92" stroke="#b9a98a" stroke-width="2"/><path d="M220 50l30 0-36 40z" fill="#fff" opacity=".45"/><rect y="226" width="520" height="24" fill="url(#s1f)"/><path d="M0 226h520" stroke="#a88a5c" stroke-width="2"/><rect x="200" y="204" width="124" height="8" rx="3" fill="#b3855a"/><rect x="210" y="212" width="6" height="18" fill="#9a6f47"/><rect x="308" y="212" width="6" height="18" fill="#9a6f47"/><ellipse cx="${gx}" cy="${FY-2}" rx="44" ry="6" fill="#000" opacity=".08"/><ellipse cx="${rx}" cy="${FY-2}" rx="44" ry="6" fill="#000" opacity=".08"/>`;
+ return `<svg class="sa-svg" viewBox="0 0 520 250" role="img" aria-label="meishi">${bg}${img('L01/Parker '+PM[0],gx,FY,H)}${img('L01/Emin '+PM[1],rx,FY,H)}${flat}<g font-family="'Noto Sans JP',sans-serif" font-size="11" font-weight="800"><rect x="${gx-34}" y="230" width="68" height="17" rx="8" fill="#fff" opacity=".92"/><text x="${gx}" y="242" text-anchor="middle" fill="#2b2b33">${p.n}</text><rect x="${rx-34}" y="230" width="68" height="17" rx="8" fill="#fff" opacity=".92"/><text x="${rx}" y="242" text-anchor="middle" fill="#2b2b33">${SL({az:'Mən',en:'Me',ru:'Я'})}</text></g>${bb}</svg>`};;window.scS1=function(){try{return _s1.apply(this,arguments)}catch(e){return null}}}catch(_){}
+setTimeout(()=>{try{if(C&&C.n===1)scLoad().then(()=>{try{typeof s1UI==='function'?s1UI():render()}catch(_){}})}catch(_){}},600);
+const rd=render;render=function(){const x=rd.apply(this,arguments);try{if(C.n===1&&!SC)scLoad().then(()=>{try{typeof s1UI==='function'?s1UI():render()}catch(_){}})}catch(_){}return x};
+})();/*/SCN*/
 render();a11yFix();
 
 </script>

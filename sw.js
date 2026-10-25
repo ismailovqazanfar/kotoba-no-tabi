@@ -1,4 +1,4 @@
-const V='kt-202610260040',M='kt-media-1',PRE=["./","index.html","tfonts.css","fonts.css","manifest.webmanifest","icons/icon-192.png","icons/icon-512.png","icons/maskable-512.png"],MED=/\/(audio\d?\.(js|bin)|k4\.(js|bin)|badges\.js|music\/[^/]+\.js)$/;
+const V='kt-202610260220',M='kt-media-1',PRE=["./","index.html","tfonts.css","fonts.css","manifest.webmanifest","icons/icon-192.png","icons/icon-512.png","icons/maskable-512.png"],MED=/\/(audio\d?\.(js|bin)|k4\.(js|bin)|badges\.js|scenes\.js|music\/[^/]+\.js)$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(PRE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V&&k!==M).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(r.cache==='no-store'||/supabase\.co$/.test(u.hostname)||r.headers.has('authorization'))return;
