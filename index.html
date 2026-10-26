@@ -10780,7 +10780,7 @@ setTimeout(()=>{try{migrate();seedAll()}catch(_){}card()},400);
 /*SYNC*//* v135: Hesab (Supabase, e-poçt kodu) + irəliləyişin bulud sinxronizasiyası */
 (()=>{const SB_URL='https://cjbnrweimmuubobgbiyc.supabase.co',SB_KEY='sb_publishable_EUieNxVQq1VZ2ZjQfWmDiA_wbV8iaRT';if(SB_URL.indexOf('__')===0)return;
 const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
-const AK='kotoba-auth',SK='kotoba-sync',DEV=['lang','theme','zoom','kyo','mute','tourDone','rm','musV','mus','mon','mvol','nat','natV','voice','rate','devVoice'];
+const AK='kotoba-auth',SK='kotoba-sync',DEV=['lang','theme','zoom','kyo','mute','tourDone','rm','musV','mus','mon','mvol','nat','natV','natGap','natVer','voice','rate','devVoice'];
 const ls={g:k=>{try{return localStorage.getItem(k)}catch(_){return null}},s:(k,v)=>{try{localStorage.setItem(k,v)}catch(_){}},r:k=>{try{localStorage.removeItem(k)}catch(_){}}};
 const J=k=>{try{return JSON.parse(ls.g(k)||'null')}catch(_){return null}};
 let A=J(AK),S=J(SK)||{},busy=0,tmr=0,mute=0;
@@ -10895,9 +10895,10 @@ const TR={
 const NS=['rain','leaves','thunder','waves','stream','wind','fire','birds','crickets','frogs','furin','temple'];
 const NN={rain:['Yağış','Rain','Дождь'],leaves:['Yarpaqda yağış','Rain on leaves','Дождь по листьям'],thunder:['İldırım','Thunder','Гроза'],waves:['Dəniz','Ocean waves','Море'],stream:['Çay axını','River','Река'],wind:['Ağaclarda külək','Wind in trees','Ветер в листве'],fire:['Ocaq','Campfire','Костёр'],birds:['Quşlar','Birds','Птицы'],crickets:['Cırcır böcəyi','Crickets','Сверчки'],frogs:['Qurbağalar','Frogs','Лягушки'],furin:['Külək zəngi','Wind chimes','Колокольчики'],temple:['Məbəd','Temple','Храм']};
 const s3=a=>T3(a[0],a[1],a[2]);
-if(PF.mvol==null)PF.mvol=.5;if(PF.natV==null)PF.natV=.8;
+if(PF.mvol==null)PF.mvol=.5;if(PF.natV==null)PF.natV=.65;if(PF.natGap==null)PF.natGap=true;
 if(!PF.nat||typeof PF.nat!=='object')PF.nat={};
-NS.forEach(k=>{const o=PF.nat[k];if(!o||typeof o!=='object')PF.nat[k]={on:false,v:.5};else{o.on=!!o.on;o.v=o.v==null?.5:clamp(o.v)}});
+NS.forEach(k=>{const o=PF.nat[k];if(!o||typeof o!=='object')PF.nat[k]={on:false,v:.4};else{o.on=!!o.on;o.v=o.v==null?.4:clamp(o.v)}});
+if(PF.natVer!==2){PF.natVer=2;if(PF.natV===.8)PF.natV=.65;NS.forEach(k=>{if(PF.nat[k].v===.5)PF.nat[k].v=.4})}
 Object.keys(PF.nat).forEach(k=>{if(!NS.includes(k))delete PF.nat[k]});
 if(PF.mus&&!TR[PF.mus])PF.mus='';
 const musOn=()=>!!(PF.mus&&TR[PF.mus]&&PF.mon!==false);
@@ -10946,7 +10947,14 @@ function musPlay(){if(!want())return;if(cur===PF.mus){if(stage>=2){if(wa){ctxRun
 
 /* ================= NATURE: real field recordings (Moodist · Pixabay Content License / CC0) ================= */
 const NX=OPUS?'webm':'mp3',NBASE='natsnd/';
-const NCFG={rain:{eq:-4},leaves:{eq:-2},thunder:{ev:1},waves:{eq:-1},stream:{eq:-2},wind:{eq:-3},fire:{eq:-3},birds:{eq:-1},crickets:{eq:-2},frogs:{},furin:{eq:-5,lp:9000},temple:{}};
+const NCFG={rain:{eq:-4,lp:5500,g:[.15,25,50,12,30]},leaves:{eq:-2,lp:6000,g:[.12,20,45,12,30]},thunder:{ev:1},waves:{eq:-1,lp:4800,g:[.15,25,50,10,25]},stream:{eq:-2,lp:5000,g:[.12,25,50,12,30]},wind:{eq:-3,lp:4500,g:[0,15,35,15,40]},fire:{eq:-3,lp:6000,g:[.1,25,50,15,35]},birds:{eq:-1,lp:8000,g:[0,10,25,20,50]},crickets:{eq:-2,lp:7500,g:[0,15,35,20,45]},frogs:{lp:6000,g:[0,10,25,25,55]},furin:{eq:-5,lp:6000,g:[0,8,20,25,60]},temple:{g:[.1,25,50,15,40]}};
+/* təbii fasilələr: hər qat dalğa kimi gəlib-gedir */
+function gateRun(S){const c=ctx,g=S.gate.gain,cf=NCFG[S.k].g;clearTimeout(S.tm3);if(!cf)return;
+ if(!PF.natGap){g.cancelScheduledValues(c.currentTime);g.setTargetAtTime(1,c.currentTime,1.2);return}
+ const cyc=up=>{if(!S.alive||!PF.natGap)return;if(c.state!=='running'){S.tm3=setTimeout(()=>cyc(up),2000);return}const t=c.currentTime;g.cancelScheduledValues(t);g.setValueAtTime(g.value,t);
+  if(up){const fi=R(4,8);g.setTargetAtTime(R(.85,1),t,fi/3);S.tm3=setTimeout(()=>cyc(false),(fi+R(cf[1],cf[2]))*1000)}
+  else{const fo=R(6,11);g.setTargetAtTime(cf[0],t,fo/3);S.tm3=setTimeout(()=>cyc(true),(fo+R(cf[3],cf[4]))*1000)}};
+ cyc(true)}
 const TCLIPS=[[0.7,19.5],[21.2,19.5],[41.6,26]];
 const NBUF={},NLOAD={},NREL={};let natG={};
 const R=(a,b)=>a+Math.random()*(b-a);
@@ -10976,15 +10984,15 @@ function thunderRun(S,b){const c=ctx;
 function driftRun(S){const step=()=>{if(!S.alive)return;if(ctx.state==='running')S.drift.gain.setTargetAtTime(R(.8,1.12),ctx.currentTime,R(3,6));S.tm2=setTimeout(step,R(6,14)*1000)};S.tm2=setTimeout(step,R(4,9)*1000)}
 function tile(k){const b=document.querySelector(`[data-nat-t="${k}"]`);return b&&b.closest('.nt')}
 function natStart(k){const c=AC();if(!c||natG[k])return;ctxRun();const cf=NCFG[k];
- const S={k,alive:true,tm:0,tm2:0,srcs:new Set(),cur:null,load:true,out:c.createGain(),drift:c.createGain()};natG[k]=S;
- S.out.gain.value=0;S.drift.connect(S.out);S.out.connect(natMaster);let h=S.drift;
+ const S={k,alive:true,tm:0,tm2:0,srcs:new Set(),cur:null,load:true,out:c.createGain(),drift:c.createGain(),gate:c.createGain()};natG[k]=S;
+ S.out.gain.value=0;S.gate.gain.value=cf.g&&PF.natGap?0:1;S.drift.connect(S.gate);S.gate.connect(S.out);S.out.connect(natMaster);let h=S.drift;
  if(cf.lp)h=filt('lowpass',cf.lp,.5,h);
  if(cf.eq){const f=c.createBiquadFilter();f.type='highshelf';f.frequency.value=6500;f.gain.value=cf.eq;f.connect(h);h=f}
  S.in=h;const t0=tile(k);if(t0)t0.classList.add('ld');
  natFetch(k).then(b=>{if(!S.alive)return;S.load=false;const t=tile(k);if(t)t.classList.remove('ld');
-  if(cf.ev)thunderRun(S,b);else chunkRun(S,b);S.out.gain.setTargetAtTime(PF.nat[k].v,c.currentTime,.7);driftRun(S)})
+  if(cf.ev)thunderRun(S,b);else chunkRun(S,b);S.out.gain.setTargetAtTime(PF.nat[k].v,c.currentTime,.7);driftRun(S);gateRun(S)})
  .catch(()=>{if(!S.alive)return;PF.nat[k].on=false;natStop(k);sv();musUI();const t=tile(k);if(t){t.classList.add('er');setTimeout(()=>t.classList.remove('er'),2500)}})}
-function natStop(k){const S=natG[k];if(!S)return;delete natG[k];S.alive=false;clearTimeout(S.tm);clearTimeout(S.tm2);const t=ctx.currentTime;
+function natStop(k){const S=natG[k];if(!S)return;delete natG[k];S.alive=false;clearTimeout(S.tm);clearTimeout(S.tm2);clearTimeout(S.tm3);const t=ctx.currentTime;
  try{S.out.gain.cancelScheduledValues(t);S.out.gain.setValueAtTime(S.out.gain.value,t);S.out.gain.linearRampToValueAtTime(0,t+.5)}catch(_){}
  setTimeout(()=>{S.srcs.forEach(s=>{try{s.stop()}catch(_){}});S.srcs.clear();try{S.out.disconnect()}catch(_){}
   if(!Object.keys(natG).length&&!wa&&ctx&&ctx.state==='running'){try{ctx.suspend()}catch(_){}}},600);
@@ -11021,6 +11029,7 @@ const css=document.createElement('style');css.textContent=`
 html.kyo .nt{background:var(--k-card,#fff);border-color:var(--k-line,#e5e5e5)}
 html.kyo .nt.on{border-color:var(--hanko,#c0392b);background:color-mix(in srgb,var(--hanko,#c0392b) 9%,var(--k-card,#fff))}
 @keyframes ntl{50%{opacity:.35}}.nt.ld .nt-b i{animation:ntl 1s ease-in-out infinite}.nt.er{border-color:#d33;animation:none}.nt-cr{font-size:11.5px;opacity:.55;margin:2px 0 4px}
+.nt-sw{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;border:0;background:none;color:inherit;font:inherit;text-align:left;padding:6px 0;cursor:pointer}.nt-sw b{display:block;font-size:14px}.nt-sw small{display:block;font-size:12px;opacity:.65;margin-top:2px}.nt-sw i{flex:none;width:42px;height:24px;border-radius:12px;background:color-mix(in srgb,currentColor 22%,transparent);position:relative;transition:background .2s}.nt-sw i::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3);transition:left .2s}.nt-sw[aria-checked=true] i{background:var(--hanko,#c0392b)}.nt-sw[aria-checked=true] i::after{left:21px}.nt-sw:focus-visible{outline:2px solid var(--hanko,#c0392b);outline-offset:2px}
 @media (max-width:340px){.nsx{grid-template-columns:repeat(2,minmax(0,1fr))}}`;document.head.appendChild(css);
 const sv2=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 const IC={rain:'<path d="M20 16.6A5 5 0 0 0 18 7h-1.3A8 8 0 1 0 4 15.3"/><path d="M8 14v6M12 16v6M16 14v6"/>',
@@ -11042,7 +11051,7 @@ function musUI(){if(!ensure())return;const box=document.getElementById('musS'),o
  <div class="setr"><label class="mpr"><span>${T3('Musiqinin səsi','Music volume','Громкость музыки')}</span><input type="range" min="0" max="1" step="0.05" value="${clamp(PF.mvol)}" data-mus-v></label>
  <label class="mpr"><input type="checkbox" data-mus-voice ${!PF.vmute?'checked':''}><span>${T3('Danışıq səsləri','Spoken audio','Озвучка')}</span></label></div>
  <div class="snd-h">${T3('Təbiət səsləri','Nature sounds','Звуки природы')}</div><div class="nsx">${NS.map(k=>{const a=PF.nat[k].on;return `<div class="nt${a?' on':''}${natG[k]&&natG[k].load?' ld':''}"><button type="button" class="nt-b" data-nat-t="${k}" aria-pressed="${a}"><i>${sv2(IC[k])}</i><span>${s3(NN[k])}</span></button>${a?`<input type="range" class="nt-v" min="0" max="1" step="0.05" value="${PF.nat[k].v}" data-nat-v="${k}" aria-label="${s3(NN[k])}">`:''}</div>`}).join('')}</div>
- ${natAny()?`<div class="nt-ft"><label class="mpr"><span>${T3('Ümumi səs','Overall volume','Общая громкость')}</span><input type="range" min="0" max="1" step="0.05" value="${clamp(PF.natV)}" data-nat-m></label><button type="button" class="nt-off" data-nat-off>${T3('Hamısını söndür','Turn all off','Выключить всё')}</button></div>`:''}
+ ${natAny()?`<div class="nt-ft"><button type="button" class="nt-sw" role="switch" aria-checked="${!!PF.natGap}" data-nat-gap><span><b>${T3('Təbii fasilələr','Natural pauses','Естественные паузы')}</b><small>${T3('Səslər dalğa kimi gəlib-gedir, arada sakitlik olur','Sounds come and go in waves, with quiet in between','Звуки приходят и уходят волнами, между ними тишина')}</small></span><i></i></button><label class="mpr"><span>${T3('Ümumi səs','Overall volume','Общая громкость')}</span><input type="range" min="0" max="1" step="0.05" value="${clamp(PF.natV)}" data-nat-m></label><button type="button" class="nt-off" data-nat-off>${T3('Hamısını söndür','Turn all off','Выключить всё')}</button></div>`:''}
  <p class="nt-cr">${T3('Səs qeydləri: Moodist (Pixabay Content License, CC0)','Recordings: Moodist (Pixabay Content License, CC0)','Записи: Moodist (Pixabay Content License, CC0)')}</p>`}
 document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
  const tb=t.closest('[data-mus-t]');if(tb){e.stopPropagation();armed=true;const k=tb.dataset.musT;
@@ -11050,6 +11059,7 @@ document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
   sv();musSync();try{muteUI()}catch(_){}return}
  const nb=t.closest('[data-nat-t]');if(nb){e.stopPropagation();armed=true;const k=nb.dataset.natT,o=PF.nat[k];o.on=!o.on||!!PF.mute;
   if(o.on){PF.mute=false;if(musOn())PF.mon=false}sv();musSync();try{muteUI()}catch(_){}return}
+ if(t.closest('[data-nat-gap]')){e.stopPropagation();PF.natGap=!PF.natGap;sv();Object.values(natG).forEach(S=>{if(!S.load)gateRun(S)});t.closest('[data-nat-gap]').setAttribute('aria-checked',String(PF.natGap));return}
  if(t.closest('[data-nat-off]')){e.stopPropagation();natAllOff();sv();musUI();return}
  if(t.closest('.nt-v,[data-nat-m],[data-mus-v]'))e.stopPropagation()},true);
 document.addEventListener('change',e=>{const t=e.target;if(!t.matches)return;
