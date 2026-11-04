@@ -8880,7 +8880,7 @@ html.kyo .setg:has(#thm){display:none}
 .ky-l.done .ky-ln{background:var(--grn);color:#fff}.ky-ln svg{width:15px;height:15px}
 .ky-lt{min-width:0;display:flex;flex-direction:column}.ky-lt small{font-size:11px;color:var(--k-mut);font-weight:600}.ky-lt b{font-size:13.5px;font-weight:600;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ky-sfoot{border-top:1px solid var(--k-line);padding:10px}
-.ky-disp{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:6px}
+.ky-disp{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:6px}.ky-side .ky-dt{font-size:9.5px;height:48px}
 .ky-dt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:52px;border:1px solid var(--k-line);background:var(--k-card);border-radius:10px;font:inherit;font-size:10.5px;font-weight:700;color:var(--k-mut);cursor:pointer;padding:0}
 .ky-dt b{font-size:15px;color:var(--k-ink);font-weight:700;line-height:1}.ky-dt svg{width:17px;height:17px;color:var(--k-ink)}
 .ky-dt[aria-pressed=true]{border-color:var(--k-acc2);background:var(--k-soft2);color:var(--k-acc2)}.ky-dt[aria-pressed=true] b,.ky-dt[aria-pressed=true] svg{color:var(--k-acc2)}
@@ -8943,6 +8943,7 @@ let G='learn';const gOf=id=>{for(const g of GR)if(g[2].includes(id))return g[0];
 const isOn=()=>document.documentElement.classList.contains('kyo');
 const sv=(d,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w||1.9}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 const IC={
+ moon:sv('<path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z"/>'),
  search:sv('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
  book:sv('<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20v-3"/><path d="M8 7h8M8 10.5h5"/>'),
  dict:sv('<path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/>'),
@@ -8962,7 +8963,7 @@ function lp(n){try{if(lessonDone(n))return 1;const L=LS[n];const s=n===C.n?st:ld
 const UN=[[0,[0]]];for(let u=1;u<=7;u++){const a=[];for(let n=u*5-4;n<=u*5;n++)if(LS[n])a.push(n);UN.push([u,a])}
 function lrow(n,cls){const p=lp(n),d=p>=1;return `<button class="ky-l${n===C.n?' on':''}${d?' done':''}${cls||''}" data-kl="${n}"><span class="ky-ln" style="--p:${p.toFixed(2)}">${d?IC.check:(n||'<span class="jp">入</span>')}</span><span class="ky-lt"><small>${lnum(n)}</small><b>${esc2(ttl(n))}</b></span></button>`}
 function outline(){return UN.map(([u,ls])=>`<div class="ky-u">${u?L3('Bölmə '+u,'Unit '+u,'Раздел '+u):L3('Başlanğıc','Start','Начало')}${u?`<span>${ls[0]}–${ls[ls.length-1]}</span>`:''}</div>`+ls.map(n=>lrow(n)).join('')).join('')}
-const DISP=[['tFuri','<b class="jp">あ</b>','Furigana'],['tRo','<b>Ro</b>','Romaji'],['tAz','<b>Tr</b>',()=>L3('Tərcümə','Translation','Перевод')],['tMute',IC.sound,()=>L3('Səs','Sound','Звук')]];
+const DISP=[['kyTh',IC.moon,()=>L3('Tünd','Dark','Тёмн.')],['tFuri','<b class="jp">あ</b>','Furigana'],['tRo','<b>Ro</b>','Romaji'],['tAz','<b>Tr</b>',()=>L3('Tərcümə','Translation','Перевод')],['tMute',IC.sound,()=>L3('Səs','Sound','Звук')]];
 const pr=id=>{const b=$(id);return !!b&&b.getAttribute('aria-pressed')==='true'};
 function disp(){return DISP.map(([id,i,l])=>`<button class="ky-dt" data-kt="${id}" aria-pressed="${pr(id)}">${i}<span>${typeof l==='function'?l():l}</span></button>`).join('')}
 const TOOLS=[['sOpen','search',()=>L3('Axtarış','Search','Поиск'),'/'],['kOpen','dict',()=>L3('Lüğət','Dictionary','Словарь'),'D'],['mapOpen','map',()=>L3('Səyahət xəritəsi','Journey map','Карта путешествия'),'M'],['bdOpen','trophy',()=>L3('Nailiyyətlər','Achievements','Достижения'),'']];
@@ -9001,8 +9002,8 @@ function grp(){const nav=$('chips');if(!nav)return;let gb=$('kyoGrp');if(gb&&gb.
  document.querySelectorAll('#app>section.sec').forEach(s=>s.classList.toggle('kyo-x',on&&gOf(s.id)!==G));
  const F=[...document.querySelectorAll('#app>.fact')];F.forEach(f=>{let p=f.previousElementSibling;while(p&&!p.matches('section.sec'))p=p.previousElementSibling;f.classList.toggle('kyo-x',on&&!!p&&gOf(p.id)!==G)})}
 function setb(){if($('kyoSet'))return;const g=$('tRM');if(!g)return;const sg=g.closest('.setg');sg.insertAdjacentHTML('afterend',`<div class="setg" id="kyoSetG"><b>${L3('Rejim','Mode','Режим')}</b><div class="setr"><button class="btn" id="kyoSet" aria-pressed="${!!PF.kyo}"><span class="jp">教室</span> Kyoushitsu</button></div></div>`)}
-const dk=()=>PF.theme==='dark'||((!PF.theme||PF.theme==='auto')&&matchMedia('(prefers-color-scheme:dark)').matches);
-function apply(){const r=document.documentElement,on=!!PF.kyo;r.classList.toggle('kyo',on);r.classList.toggle('kyo-d',on&&dk());if(on)r.dataset.theme=dk()?'dark':'light';
+const dk=()=>PF.kyoT?PF.kyoT==='dark':(PF.theme==='dark'||((!PF.theme||PF.theme==='auto')&&matchMedia('(prefers-color-scheme:dark)').matches));
+function apply(){const r=document.documentElement,on=!!PF.kyo;r.classList.toggle('kyo',on);r.classList.toggle('kyo-d',on&&dk());if(on)r.dataset.theme=dk()?'dark':'light';let th=$('kyTh');if(!th){document.body.insertAdjacentHTML('beforeend','<button id="kyTh" hidden></button>');th=$('kyTh');th.onclick=()=>{PF.kyoT=dk()?'light':'dark';try{save()}catch(_){}apply()}}th.setAttribute('aria-pressed',dk());
  const b=$('kyoSet');if(b){b.setAttribute('aria-pressed',on);b.classList.toggle('fill',on)}if(!on){sheet(null);r.classList.remove('ky-up');}grp();refresh()}
 const aL=applyLook;applyLook=function(){const x=aL.apply(this,arguments);try{apply()}catch(_){}return x};
 const rd=render;render=function(){const x=rd.apply(this,arguments);try{grp();refresh()}catch(_){}return x};
