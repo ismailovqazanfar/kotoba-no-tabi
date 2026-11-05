@@ -11300,8 +11300,9 @@ const W={clock:['時計','とけい','tokei','saat','clock','часы'],umbrella
  sensu:['扇子','せんす','sensu','yelpik','folding fan','веер'],uchiwa:['うちわ','','uchiwa','dəyirmi yelpik','round fan','круглый веер'],candle:['ろうそく','','rousoku','şam','candle','свеча'],teacup:['湯のみ','ゆのみ','yunomi','çay fincanı','teacup','чашка'],
  teapot:['急須','きゅうす','kyuusu','dəmlik','teapot','заварник'],mikan:['みかん','','mikan','naringi','mandarin','мандарин'],apple:['りんご','','ringo','alma','apple','яблоко'],remote:['リモコン','','rimokon','pult','remote','пульт'],
  phone:['電話','でんわ','denwa','telefon','telephone','телефон'],radio:['ラジオ','','rajio','radio','radio','радио'],camera:['カメラ','','kamera','fotoaparat','camera','фотоаппарат'],cat:['猫','ねこ','neko','pişik','cat','кошка'],
+ dog:['犬','いぬ','inu','it','dog','собака'],owl:['ふくろう','','fukurou','bayquş','owl','сова'],fox:['きつね','','kitsune','tülkü','fox','лиса'],
  hat:['帽子','ぼうし','boushi','şlyapa','hat','шляпа'],bag:['かばん','','kaban','çanta','bag','сумка'],letter:['手紙','てがみ','tegami','məktub','letter','письмо'],postcard:['はがき','','hagaki','açıqca','postcard','открытка'],pen:['ペン','','pen','qələm','pen','ручка']};
-const RN={r1:['Yaponsayağı qonaq otağı','Japanese living room','Японская гостиная']};
+const RN={r1:['Yaponsayağı qonaq otağı','Japanese living room','Японская гостиная'],m1:['Tülkü ruhunun çay köşkü','The fox spirit’s tea pavilion','Чайный павильон лисы-духа']};
 const tr=w=>w[{az:3,en:4,ru:5}[LG()]||3];
 const N=10,DEC=8,SC=1.45;
 const st=document.createElement('style');st.textContent=
@@ -11340,21 +11341,24 @@ const NOFLIP=['newspaper','magazine','postcard','letter','clock'];
 const R=(a,b)=>a+Math.random()*(b-a);
 function poseRot(it,m,fl){const th=fl?-(it.th||0):(it.th||0);if(m==='v'){const a=-90-th,b=90-th;return Math.abs(a)<=Math.abs(b)?a:b}if(m==='h')return -th;if(m==='lean'){const a=-90-th,b=90-th;return (Math.abs(a)<=Math.abs(b)?a:b)+(Math.random()<.5?-1:1)*R(3,6)}if(m==='j')return R(-7,7);return 0}
 const bw=k=>k.replace(/_\d+$/,'');
-function layout(room){const keys=shuf(Object.keys(room.it).filter(k=>W[bw(k)])),spots=shuf(room.s.map((s,i)=>i)),used=new Set(),placed=[],seen=new Set();
- for(const k of keys){if(placed.length>=N+DEC)break;if(seen.has(bw(k)))continue;const it=room.it[k],poses=shuf((it.p||'T:0').split(' ').map(x=>x.split(':')));let cand=null;
+const POOL=r=>(D.pools&&D.pools[r.pool])||r.it||{};
+const OK=r=>new Set(Object.keys(POOL(r)).map(bw).filter(w=>W[w]&&!(r.ex||[]).includes(w))).size>=N+2;
+const ROOMS=()=>D.rooms.map((r,i)=>i).filter(i=>OK(D.rooms[i]));
+function layout(room){const IT=POOL(room),keys=shuf(Object.keys(IT).filter(k=>W[bw(k)]&&!(room.ex||[]).includes(bw(k)))),spots=shuf(room.s.map((s,i)=>i)),used=new Set(),placed=[],seen=new Set();
+ for(const k of keys){if(placed.length>=N+DEC)break;if(seen.has(bw(k)))continue;const it=IT[k],poses=shuf((it.p||'T:0').split(' ').map(x=>x.split(':')));let cand=null;
   const fl=!NOFLIP.includes(bw(k))&&Math.random()<.5;for(const [pt,pm] of poses){for(const i of spots){if(used.has(i)||room.s[i][3]!==pt)continue;const [x,y,h]=room.s[i],sz=R(.78,1.24),H=h*it.f*SC*sz,Wd=H*it.a,rot=poseRot(it,pm,fl),rr=rot*Math.PI/180,c=Math.abs(Math.cos(rr)),sn=Math.abs(Math.sin(rr));
-    const BW=Wd*c+H*sn,BH=Wd*sn+H*c;let cx=x,cy=pt==='W'?y:pt==='H'?y+BH/2:y-BH/2;cx=Math.max(BW/2+2,Math.min(room.w-BW/2-2,cx));const L=cx-BW/2,T=cy-BH/2,m=6;
+    const BW=Wd*c+H*sn,BH=Wd*sn+H*c;let cx=x,cy=pt==='W'||pt==='A'?y:pt==='H'?y+BH/2:y-BH/2;cx=Math.max(BW/2+2,Math.min(room.w-BW/2-2,cx));const L=cx-BW/2,T=cy-BH/2,m=6;
     if(placed.some(q=>L<q.L+q.BW+m&&L+BW+m>q.L&&T<q.T+q.BH+m&&T+BH+m>q.T))continue;
     cand={i,k,cx,cy,Wd,H,BW,BH,L,T,rot,t:pt,fl};break}if(cand)break}
   if(!cand)continue;used.add(cand.i);seen.add(bw(k));placed.push(cand)}
  return placed}
-function start(ri){const room=D.rooms[ri||0],pl=layout(room);G={room,ri:ri||0,pl,targets:pl.slice(0,N).map(p=>bw(p.k)),i:0,miss:0,hint:0,t0:Date.now(),done:[],err:false,z:1,last:0};draw()}
+function start(ri){if(ri==null){const L=ROOMS();ri=L[Math.random()*L.length|0]||0}const room=D.rooms[ri],pl=layout(room);G={room,ri:ri||0,pl,targets:pl.slice(0,N).map(p=>bw(p.k)),i:0,miss:0,hint:0,t0:Date.now(),done:[],err:false,z:1,last:0};draw()}
 function stars(){const s=(Date.now()-G.t0)/1000,p=G.miss+G.hint*2;return s<120&&p<=2?3:s<240&&p<=6?2:1}
 function word(k,big){const w=W[k],fur=!!($('tFuri')&&$('tFuri').getAttribute('aria-pressed')==='true')||!$('tFuri');const ro=$('tRo')&&$('tRo').getAttribute('aria-pressed')==='true';
  return `<span class="jp" lang="ja">${w[1]&&fur?`<ruby>${E(w[0])}<rt>${E(w[1])}</rt></ruby>`:E(w[0])}</span>${ro?`<small>${E(w[2])}</small>`:''}`}
 function draw(){let w=$('hoW');if(!w){document.body.insertAdjacentHTML('beforeend','<div class="ho-w" id="hoW" role="dialog" aria-modal="true"></div>');w=$('hoW');document.documentElement.classList.add('bd-lock')}
  const R=G.room;w.innerHTML=`<div class="ho-hd"><span class="jp" lang="ja" style="font-size:18px">探し物</span><b>${E(L3(...(RN[R.id]||['','',''])))}</b><div class="ho-st"><span class="ho-tm" id="hoTm">0:00</span><span>✕ <b id="hoMs">0</b></span></div><button class="ho-ib" data-ho="zo" aria-label="−">−</button><button class="ho-ib" data-ho="zi" aria-label="+">+</button><button class="ho-ib" data-ho="x" aria-label="✕">✕</button></div>
- <div class="ho-vp" id="hoVp"><div class="ho-sc" id="hoSc"><img class="ho-bg" alt="" src="data:image/webp;base64,${R.bg}">${G.pl.map((p,j)=>('TFL'.includes(p.t)?`<i class="ho-sh" data-sj="${j}" style="left:${(p.cx-p.BW*.4)/R.w*100}%;width:${p.BW*.8/R.w*100}%;top:${(p.cy+p.BH/2-p.BH*.09)/R.h*100}%;height:${Math.max(6,p.BH*.14)/R.h*100}%"></i>`:'')+`<div class="ho-it ${p.t}" data-j="${j}" style="left:${(p.cx-p.Wd/2)/R.w*100}%;top:${(p.cy-p.H/2)/R.h*100}%;width:${p.Wd/R.w*100}%;height:${p.H/R.h*100}%;transform:rotate(${p.rot.toFixed(1)}deg)${p.fl?' scaleX(-1)':''}"><img alt="" src="data:image/webp;base64,${R.it[p.k].i}"></div>`).join('')}</div></div>
+ <div class="ho-vp" id="hoVp"><div class="ho-sc" id="hoSc"><img class="ho-bg" alt="" src="data:image/webp;base64,${R.bg}">${G.pl.map((p,j)=>('TFL'.includes(p.t)?`<i class="ho-sh" data-sj="${j}" style="left:${(p.cx-p.BW*.4)/R.w*100}%;width:${p.BW*.8/R.w*100}%;top:${(p.cy+p.BH/2-p.BH*.09)/R.h*100}%;height:${Math.max(6,p.BH*.14)/R.h*100}%"></i>`:'')+`<div class="ho-it ${p.t}" data-j="${j}" style="left:${(p.cx-p.Wd/2)/R.w*100}%;top:${(p.cy-p.H/2)/R.h*100}%;width:${p.Wd/R.w*100}%;height:${p.H/R.h*100}%;transform:rotate(${p.rot.toFixed(1)}deg)${p.fl?' scaleX(-1)':''}"><img alt="" src="data:image/webp;base64,${POOL(R)[p.k].i}"></div>`).join('')}</div></div>
  <div class="ho-ft"><div class="ho-tg" id="hoTg"></div><button class="ho-ib" data-ho="say" aria-label="▶" title="${E(L3('Dinlə','Listen','Слушать'))}">♪</button><button class="ho-ib" data-ho="hint" aria-label="?" title="${E(L3('İpucu','Hint','Подсказка'))}">?</button><span class="ho-pg" id="hoPg"></span></div>`;
  fit(true);const vp0=$('hoVp');vp0.scrollLeft=(vp0.scrollWidth-vp0.clientWidth)/2;tgt();clearInterval(G.tm);G.tm=setInterval(()=>{const e=$('hoTm');if(!e||G.end){clearInterval(G.tm);return}const s=(Date.now()-G.t0)/1000|0;e.textContent=(s/60|0)+':'+String(s%60).padStart(2,'0')},1000)}
 function fit(first){const vp=$('hoVp'),sc=$('hoSc');if(!vp||!sc)return;const r=G.room,ar=r.w/r.h,bw=Math.min(vp.clientWidth,vp.clientHeight*ar);if(first&&vp.clientWidth/vp.clientHeight<ar*.8)G.z=Math.min(3,vp.clientHeight*ar/vp.clientWidth*.92);const w=bw*G.z;sc.style.width=w+'px';sc.style.height=w/ar+'px'}
@@ -11378,16 +11382,16 @@ function finish(){G.end=1;clearInterval(G.tm);const s=(Date.now()-G.t0)/1000|0,n
  <ul>${G.done.map(k=>`<li><b lang="ja">${E(W[k][0])}</b> ${W[k][1]?'<small lang="ja">'+E(W[k][1])+'</small> ':''}– ${E(tr(W[k]))}</li>`).join('')}</ul>
  <button class="btn fill" data-ho="again" style="--c:var(--pnk)">${E(L3('Yenidən oyna','Play again','Играть ещё'))}</button><button class="btn" data-ho="x">${E(L3('Bağla','Close','Закрыть'))}</button></div></div>`)}
 function close(){const w=$('hoW');if(w)w.remove();if(G)clearInterval(G.tm);G=null;if(!$('bdw'))document.documentElement.classList.remove('bd-lock')}
-async function open(){const d=await load();if(!d||!d.rooms||!d.rooms.length){try{toast(L3('Oyun yüklənmədi','Game failed to load','Игра не загрузилась'))}catch(_){}return}start(Math.random()*d.rooms.length|0)}
+async function open(){const d=await load();if(!d||!d.rooms||!d.rooms.length){try{toast(L3('Oyun yüklənmədi','Game failed to load','Игра не загрузилась'))}catch(_){}return}start()}
 document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;if(t.closest('#hoOpen')){open();return}
- if(!$('hoW'))return;const b=t.closest('[data-ho]');if(b){const a=b.dataset.ho;if(a==='x')close();else if(a==='again')start(Math.random()*D.rooms.length|0);else if(a==='say'){try{say(W[G.targets[G.i]][0])}catch(_){}}else if(a==='hint')hint();else if(a==='zi'||a==='zo'){const vp=$('hoVp'),cx=(vp.scrollLeft+vp.clientWidth/2)/vp.scrollWidth,cy=(vp.scrollTop+vp.clientHeight/2)/vp.scrollHeight;G.z=Math.max(1,Math.min(3,G.z*(a==='zi'?1.4:1/1.4)));fit();vp.scrollLeft=cx*vp.scrollWidth-vp.clientWidth/2;vp.scrollTop=cy*vp.scrollHeight-vp.clientHeight/2}return}
+ if(!$('hoW'))return;const b=t.closest('[data-ho]');if(b){const a=b.dataset.ho;if(a==='x')close();else if(a==='again')start();else if(a==='say'){try{say(W[G.targets[G.i]][0])}catch(_){}}else if(a==='hint')hint();else if(a==='zi'||a==='zo'){const vp=$('hoVp'),cx=(vp.scrollLeft+vp.clientWidth/2)/vp.scrollWidth,cy=(vp.scrollTop+vp.clientHeight/2)/vp.scrollHeight;G.z=Math.max(1,Math.min(3,G.z*(a==='zi'?1.4:1/1.4)));fit();vp.scrollLeft=cx*vp.scrollWidth-vp.clientWidth/2;vp.scrollTop=cy*vp.scrollHeight-vp.clientHeight/2}return}
  if(t.closest('#hoSc'))click(e)});
 addEventListener('resize',()=>{if(G&&$('hoW'))fit()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&$('hoW')){e.stopPropagation();close()}},true);
 /* başlıqda gizli düymə (menyu və Kyoushitsu bunu çağırır) */
 function btn(){if($('hoOpen'))return;const m=$('bdOpen')||$('mapOpen');if(!m)return;const b=document.createElement('button');b.id='hoOpen';b.className='mapb kob';b.hidden=true;b.textContent='探';m.after(b)}
 const rd=render;render=function(){const x=rd.apply(this,arguments);try{btn()}catch(_){}return x};btn();
-window.hoOpen=open;window.hoDbg=()=>G;
+window.hoOpen=open;window.hoDbg=()=>G;window.hoStart=ri=>load().then(()=>start(ri));
 },0);/*/HO*/
 render();a11yFix();
 
