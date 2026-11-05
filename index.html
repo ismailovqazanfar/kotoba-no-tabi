@@ -11301,6 +11301,10 @@ const W={clock:['時計','とけい','tokei','saat','clock','часы'],umbrella
  teapot:['急須','きゅうす','kyuusu','dəmlik','teapot','заварник'],mikan:['みかん','','mikan','naringi','mandarin','мандарин'],apple:['りんご','','ringo','alma','apple','яблоко'],remote:['リモコン','','rimokon','pult','remote','пульт'],
  phone:['電話','でんわ','denwa','telefon','telephone','телефон'],radio:['ラジオ','','rajio','radio','radio','радио'],camera:['カメラ','','kamera','fotoaparat','camera','фотоаппарат'],cat:['猫','ねこ','neko','pişik','cat','кошка'],
  dog:['犬','いぬ','inu','it','dog','собака'],owl:['ふくろう','','fukurou','bayquş','owl','сова'],fox:['きつね','','kitsune','tülkü','fox','лиса'],
+ rabbit:['兎','うさぎ','usagi','dovşan','rabbit','кролик'],frog:['蛙','かえる','kaeru','qurbağa','frog','лягушка'],bird:['鳥','とり','tori','quş','bird','птица'],fish:['魚','さかな','sakana','balıq','fish','рыба'],mouse:['鼠','ねずみ','nezumi','siçan','mouse','мышь'],turtle:['亀','かめ','kame','tısbağa','turtle','черепаха'],tanuki:['狸','たぬき','tanuki','tanuki (yenot iti)','tanuki (raccoon dog)','тануки (енотовидная собака)'],monkey:['猿','さる','saru','meymun','monkey','обезьяна'],
+ lantern:['ランタン','','rantan','fənər','lantern','фонарь'],cup:['カップ','','kappu','fincan','cup','чашка'],tpot:['ティーポット','','tiipotto','çaydan','teapot','чайник'],mirror:['鏡','かがみ','kagami','güzgü','mirror','зеркало'],mask:['お面','おめん','omen','maska','mask','маска'],fan:['扇','おうぎ','ougi','yelpik','fan','веер'],scroll:['巻物','まきもの','makimono','tumar','scroll','свиток'],map:['地図','ちず','chizu','xəritə','map','карта'],
+ compass:['方位磁石','ほういじしゃく','houijishaku','kompas','compass','компас'],shoe:['靴','くつ','kutsu','ayaqqabı','shoe','обувь'],bottle:['瓶','びん','bin','şüşə qab','bottle','бутылка'],crystal:['水晶玉','すいしょうだま','suishoudama','büllur kürə','crystal ball','хрустальный шар'],ring:['指輪','ゆびわ','yubiwa','üzük','ring','кольцо'],coin:['硬貨','こうか','kouka','sikkə','coin','монета'],feather:['羽','はね','hane','lələk','feather','перо'],
+ peach:['桃','もも','momo','şaftalı','peach','персик'],mushroom:['茸','きのこ','kinoko','göbələk','mushroom','гриб'],flower:['花','はな','hana','çiçək','flower','цветок'],doll:['人形','にんぎょう','ningyou','kukla','doll','кукла'],toy:['玩具','おもちゃ','omocha','oyuncaq','toy','игрушка'],instrument:['楽器','がっき','gakki','musiqi aləti','musical instrument','музыкальный инструмент'],crown:['王冠','おうかん','oukan','tac','crown','корона'],sword:['刀','かたな','katana','qılınc','sword','меч'],hourglass:['砂時計','すなどけい','sunadokei','qum saatı','hourglass','песочные часы'],telescope:['望遠鏡','ぼうえんきょう','bouenkyou','teleskop','telescope','телескоп'],
  hat:['帽子','ぼうし','boushi','şlyapa','hat','шляпа'],bag:['かばん','','kaban','çanta','bag','сумка'],letter:['手紙','てがみ','tegami','məktub','letter','письмо'],postcard:['はがき','','hagaki','açıqca','postcard','открытка'],pen:['ペン','','pen','qələm','pen','ручка']};
 const RN={r1:['Yaponsayağı qonaq otağı','Japanese living room','Японская гостиная'],m1:['Tülkü ruhunun çay köşkü','The fox spirit’s tea pavilion','Чайный павильон лисы-духа']};
 const tr=w=>w[{az:3,en:4,ru:5}[LG()]||3];
@@ -11337,7 +11341,8 @@ function load(){if(D)return Promise.resolve(D);if(DL)return DL;DL=new Promise(re
 /* --- oyun vəziyyəti --- */
 let G=null;
 const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
-const NOFLIP=['newspaper','magazine','postcard','letter','clock'];
+const NOFLIP=['newspaper','magazine','postcard','letter','clock','map','compass'];
+const SIM=[['clock','compass'],['clock','hourglass'],['scroll','map'],['candle','lantern'],['scroll','letter']],sim=(a,b)=>SIM.some(p=>p.includes(a)&&p.includes(b));
 const R=(a,b)=>a+Math.random()*(b-a);
 function poseRot(it,m,fl){const th=fl?-(it.th||0):(it.th||0);if(m==='v'){const a=-90-th,b=90-th;return Math.abs(a)<=Math.abs(b)?a:b}if(m==='h')return -th;if(m==='lean'){const a=-90-th,b=90-th;return (Math.abs(a)<=Math.abs(b)?a:b)+(Math.random()<.5?-1:1)*R(3,6)}if(m==='j')return R(-7,7);return 0}
 const bw=k=>k.replace(/_\d+$/,'');
@@ -11345,7 +11350,7 @@ const POOL=r=>(D.pools&&D.pools[r.pool])||r.it||{};
 const OK=r=>new Set(Object.keys(POOL(r)).map(bw).filter(w=>W[w]&&!(r.ex||[]).includes(w))).size>=N+2;
 const ROOMS=()=>D.rooms.map((r,i)=>i).filter(i=>OK(D.rooms[i]));
 function layout(room){const IT=POOL(room),keys=shuf(Object.keys(IT).filter(k=>W[bw(k)]&&!(room.ex||[]).includes(bw(k)))),spots=shuf(room.s.map((s,i)=>i)),used=new Set(),placed=[],seen=new Set();
- for(const k of keys){if(placed.length>=N+DEC)break;if(seen.has(bw(k)))continue;const it=IT[k],poses=shuf((it.p||'T:0').split(' ').map(x=>x.split(':')));let cand=null;
+ for(const k of keys){if(placed.length>=N+DEC)break;const w0=bw(k);if(seen.has(w0))continue;const it=IT[k],cw=it.c||[],TG=placed.slice(0,N).map(q=>bw(q.k));if(cw.some(x=>TG.includes(x)))continue;if(placed.length<N&&(TG.some(x=>sim(x,w0))||placed.some(q=>(IT[q.k].c||[]).includes(w0))))continue;poses=shuf((it.p||'T:0').split(' ').map(x=>x.split(':')));let cand=null;
   const fl=!NOFLIP.includes(bw(k))&&Math.random()<.5;for(const [pt,pm] of poses){for(const i of spots){if(used.has(i)||room.s[i][3]!==pt)continue;const [x,y,h]=room.s[i],sz=R(.78,1.24),H=h*it.f*SC*sz,Wd=H*it.a,rot=poseRot(it,pm,fl),rr=rot*Math.PI/180,c=Math.abs(Math.cos(rr)),sn=Math.abs(Math.sin(rr));
     const BW=Wd*c+H*sn,BH=Wd*sn+H*c;let cx=x,cy=pt==='W'||pt==='A'?y:pt==='H'?y+BH/2:y-BH/2;cx=Math.max(BW/2+2,Math.min(room.w-BW/2-2,cx));const L=cx-BW/2,T=cy-BH/2,m=6;
     if(placed.some(q=>L<q.L+q.BW+m&&L+BW+m>q.L&&T<q.T+q.BH+m&&T+BH+m>q.T))continue;
