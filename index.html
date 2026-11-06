@@ -11344,15 +11344,15 @@ const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i]
 const NOFLIP=['newspaper','magazine','postcard','letter','clock','map','compass'];
 const SIM=[['clock','compass'],['clock','hourglass'],['scroll','map'],['candle','lantern'],['scroll','letter']],sim=(a,b)=>SIM.some(p=>p.includes(a)&&p.includes(b));
 const R=(a,b)=>a+Math.random()*(b-a);
-function poseRot(it,m,fl){const th=fl?-(it.th||0):(it.th||0);if(m==='v'){const a=-90-th,b=90-th;return Math.abs(a)<=Math.abs(b)?a:b}if(m==='h')return -th;if(m==='lean'){const a=-90-th,b=90-th;return (Math.abs(a)<=Math.abs(b)?a:b)+(Math.random()<.5?-1:1)*R(3,6)}if(m==='j')return R(-7,7);if(m==='p')return R(-60,60);return 0}
+function poseRot(it,m,fl){const th=fl?-(it.th||0):(it.th||0);if(m==='v'){const a=-90-th,b=90-th;return Math.abs(a)<=Math.abs(b)?a:b}if(m==='h')return -th;if(m==='lean'){const a=-90-th,b=90-th;return (Math.abs(a)<=Math.abs(b)?a:b)+(Math.random()<.5?-1:1)*R(3,6)}if(m==='j')return R(-7,7);if(m==='p')return ((it.el||1)>1.4?-th:0)+R(-55,55);return 0}
 const bw=k=>k.replace(/_\d+$/,'');
 const POOL=r=>(D.pools&&D.pools[r.pool])||r.it||{};
 const OK=r=>new Set(Object.keys(POOL(r)).map(bw).filter(w=>W[w]&&!(r.ex||[]).includes(w))).size>=N+2;
 const ROOMS=()=>D.rooms.map((r,i)=>i).filter(i=>OK(D.rooms[i]));
 function layout(room){const IT=POOL(room),keys=shuf(Object.keys(IT).filter(k=>W[bw(k)]&&!(room.ex||[]).includes(bw(k)))),spots=shuf(room.s.map((s,i)=>i)),used=new Set(),placed=[],seen=new Set();
  for(const k of keys){if(placed.length>=N+DEC)break;const w0=bw(k);if(seen.has(w0))continue;const it=IT[k],cw=it.c||[],TG=placed.slice(0,N).map(q=>bw(q.k));if(cw.some(x=>TG.includes(x)))continue;if(placed.length<N&&(TG.some(x=>sim(x,w0))||placed.some(q=>(IT[q.k].c||[]).includes(w0))))continue;poses=shuf((it.p||'T:0').split(' ').map(x=>x.split(':')));let cand=null;
-  const fl=!NOFLIP.includes(bw(k))&&Math.random()<.5;for(const [pt,pm] of poses){if(pm==='lean'&&(it.el||1)<2.6)continue;for(const i of spots){if(used.has(i)||room.s[i][3]!==pt)continue;const [x,y,h]=room.s[i],sz=R(.78,1.24),H=h*it.f*SC*sz,Wd=H*it.a,rot=poseRot(it,pm,fl),rr=rot*Math.PI/180,c=Math.abs(Math.cos(rr)),sn=Math.abs(Math.sin(rr));
-    const sq=pm==='p'?.3+.24*(y/room.h):1,BW=Wd*c+H*sn,BH=(Wd*sn+H*c)*sq;if((pt==='T'&&BW>h*2.7)||(pt==='F'&&BW>h*3.4))continue;let cx=x,cy=pt==='W'||pt==='A'?y:pt==='H'?y+BH/2:y-BH/2;cx=Math.max(BW/2+2,Math.min(room.w-BW/2-2,cx));const L=cx-BW/2,T=cy-BH/2,m=6;
+  const fl=!NOFLIP.includes(bw(k))&&(room.ld?room.ld>0:Math.random()<.5);for(const [pt,pm] of poses){if(pm==='lean'&&(it.el||1)<2.2)continue;for(const i of spots){if(used.has(i)||room.s[i][3]!==pt)continue;const [x,y,h]=room.s[i],sz=R(.88,1.12),H=h*it.f*SC*sz,Wd=H*it.a,rot=pm==='lean'&&typeof room.s[i][4]==='number'?poseRot(it,'v',fl)+room.s[i][4]:poseRot(it,pm,fl),rr=rot*Math.PI/180,c=Math.abs(Math.cos(rr)),sn=Math.abs(Math.sin(rr));
+    const sq=pm==='p'?.3+.24*(y/room.h):1,BW=Wd*c+H*sn,BH=(Wd*sn+H*c)*sq;const sw=room.sw?room.sw[i]:h*1.35;if('TF'.includes(pt)&&BW/2>sw)continue;let cx=x,cy=pt==='W'||pt==='A'?y:pt==='H'?y+BH/2:y-BH/2;cx=Math.max(BW/2+2,Math.min(room.w-BW/2-2,cx));const L=cx-BW/2,T=cy-BH/2,m=6;
     if(placed.some(q=>L<q.L+q.BW+m&&L+BW+m>q.L&&T<q.T+q.BH+m&&T+BH+m>q.T))continue;
     cand={i,k,cx,cy,Wd,H,BW,BH,L,T,rot,t:pt,fl,sq,lu:(room.lu&&room.lu[i])||1};break}if(cand)break}
   if(!cand)continue;used.add(cand.i);seen.add(bw(k));placed.push(cand)}
