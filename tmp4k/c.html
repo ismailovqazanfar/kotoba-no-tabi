@@ -1,8 +1,0 @@
-<!doctype html><meta charset=utf-8><body style="background:#222;color:#fff;font:20px sans-serif">
-<button id=b style="font-size:28px;padding:30px">Kopyala</button> <span id=s></span>
-<script>
-const f=new URLSearchParams(location.search).get('f');
-b.onclick=async()=>{try{const r=await fetch(f);let bl=await r.blob();
- if(bl.type!=='image/png'){const im=await createImageBitmap(bl);const c=new OffscreenCanvas(im.width,im.height);c.getContext('2d').drawImage(im,0,0);bl=await c.convertToBlob({type:'image/png'})}
- await navigator.clipboard.write([new ClipboardItem({'image/png':bl})]);s.textContent='OK '+f}catch(e){s.textContent='ERR '+e}};
-</script>
