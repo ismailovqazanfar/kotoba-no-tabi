@@ -11767,7 +11767,7 @@ function ovs(room,pl){if(room.sc)return [];const O=D.ov||{},K=shuf(Object.keys(O
 /* mərhələ: bölmə = otaq, hər bölmədə LVPER mərhələ; çətinlik artır */
 const HO=()=>{const b=PF.ho=PF.ho||{};b.st=b.st||{};b.lv=b.lv||0;b.w=b.w||{};return b};
 const NLV=()=>ROOMS().length*LVPER;
-function cfg(n){const d=n<0?6:n;return{N:Math.min(14,8+(d/2|0)),T:Math.max(150,300-d*12),H:d<4?4:d<8?3:2,MM:d<6?10:d<10?8:6}}
+function cfg(n){const d=n<0?6:n;return{N:Math.min(14,8+(d/2|0)),T:Math.max(150,300-d*12),H:3,MM:d<6?10:d<10?8:6}}
 function start(n){if(n==null)n=-1;const L=ROOMS();const ri=n<0?L[Math.random()*L.length|0]:L[(n/LVPER|0)%L.length];const c=cfg(n);N=c.N;
  const room=D.rooms[ri],pl=layout(room);G={room,ri,lv:n,c,pl,ov:ovs(room,pl),targets:pl.slice(0,N).map(p=>bw(p.k)),found:new Set(),miss:0,hint:0,t0:Date.now(),pause:0,done:[],err:{},z:1,last:0,mt:[],lock:0};draw()}
 function used(){return (Date.now()-G.t0-G.pause)/1000}
