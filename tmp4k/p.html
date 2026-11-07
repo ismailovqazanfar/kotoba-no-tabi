@@ -1,0 +1,4 @@
+<!doctype html><meta charset=utf-8><body style="background:#222;color:#fff">göndərilir...<script>
+(async()=>{const f=new URLSearchParams(location.search).get('f');const b=await (await fetch(f)).blob();
+const buf=await b.arrayBuffer();window.opener&&window.opener.postMessage({kt4k:1,name:f,type:b.type,buf},'https://gemini.google.com',[buf]);document.body.textContent='OK';setTimeout(()=>window.close(),500)})();
+</script>
