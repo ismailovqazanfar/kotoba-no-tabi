@@ -11849,7 +11849,7 @@ document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;if(t
 addEventListener('resize',()=>{if(G&&$('hoW'))fit()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&$('hoW')){e.stopPropagation();close()}},true);
 /* başlıqda gizli düymə (menyu və Kyoushitsu bunu çağırır) */
-function btn(){if($('hoOpen'))return;const m=$('bdOpen')||$('mapOpen');if(!m)return;const b=document.createElement('button');b.id='hoOpen';b.className='mapb kob';b.hidden=true;b.textContent='探';m.after(b)}
+function btn(){if($('hoOpen'))return;const m=$('bdOpen')||$('mapOpen');if(!m)return;const b=document.createElement('button');b.id='hoOpen';b.className='mapb kob';b.hidden=true;b.style.cssText='display:none!important';b.setAttribute('aria-hidden','true');b.tabIndex=-1;b.textContent='探';m.after(b)}
 const rd=render;render=function(){const x=rd.apply(this,arguments);try{btn()}catch(_){}return x};btn();
 window.hoOpen=open;window.hoDbg=()=>G;window.hoStart=n=>load().then(()=>start(n));window.hoMap=()=>load().then(map);
 },0);/*/HO*/
