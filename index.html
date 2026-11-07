@@ -11836,7 +11836,7 @@ const mu=(()=>{let ac=null,mg=null,rv=null,tm=0,pad=[];const on=()=>{const b=HO(
  function play(n,v){if(!sx())return;loadSfx();if(!ac||!BUF[n])return;ac.resume&&ac.resume();const s=ac.createBufferSource(),g=ac.createGain();s.buffer=BUF[n];g.gain.value=v||.8;s.connect(g);g.connect(ac.destination);s.start()}
  function fade(to,ms,done){clearInterval(fd);const st=au.volume,t0=Date.now();fd=setInterval(()=>{const k=Math.min(1,(Date.now()-t0)/ms);au.volume=st+(to-st)*k;if(k>=1){clearInterval(fd);done&&done()}},50)}
  function start(){if(!on())return;init();if(ac){ac.resume&&ac.resume();mg.gain.setTargetAtTime(.55,ac.currentTime,.3)}
-  if(!au){au=new Audio('music/ho/bg.mp3');au.loop=true;au.preload='auto';au.volume=0}
+  if(!au){au=new Audio('music/ho/bg2.mp3');au.loop=true;au.preload='auto';au.volume=0}
   const p=au.play();if(p&&p.catch)p.catch(()=>{});fade(.38,3000)}
  function stop(){if(au)fade(0,700,()=>{try{au.pause()}catch(_){}})}
  return{on,sx,play,loadSfx,sync(){const b=$('hoMu');if(b)b.classList.toggle('on',on());on()?start():stop()},toggle(){const b=HO();b.mu=on()?0:1;try{save()}catch(_){}this.sync()},tsx(){const b=HO();b.sx=sx()?0:1;try{save()}catch(_){}const e=$('hoSx');if(e)e.classList.toggle('on',sx())},stop,
