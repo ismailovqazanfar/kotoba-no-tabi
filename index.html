@@ -11661,7 +11661,7 @@ addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKe
  else ok=false;if(ok){e.preventDefault();if(isOn())setTimeout(()=>document.querySelectorAll('[data-kt]').forEach(x=>x.setAttribute('aria-pressed',pr(x.dataset.kt))),40)}});
 setTimeout(()=>{setb();apply()},0);
 })();/*/KYO3*/
-/*HO*/
+/*HO*/const HOV='756400e6';
 /* v168: Gizli əşyalar (探し物) – otaqda yaponca adı verilən əşyanı tap */
 setTimeout(()=>{if(typeof PF==='undefined')return;
 const L3=(a,e,r)=>SL({az:a,en:e,ru:r}),$=id=>document.getElementById(id),LG=()=>(PF.lang||'az');
@@ -11729,14 +11729,14 @@ document.head.appendChild(st);
 /* --- data: badges.js kimi yalnız açılanda --- */
 let D=null,DL=null;
 function load(){if(D)return Promise.resolve(D);if(DL)return DL;DL=new Promise(res=>{const done=o=>{D=o;res(o)};const inl=$('hopack');if(inl&&inl.textContent.length>100){try{done(JSON.parse(inl.textContent))}catch(_){done(null)}return}
- if(window.KOTOBA_HO){done(window.KOTOBA_HO);return}const sc=document.createElement('script');sc.src='hidobj.js';sc.onload=()=>done(window.KOTOBA_HO||null);sc.onerror=()=>{DL=null;res(null)};document.head.appendChild(sc)});return DL}
+ if(window.KOTOBA_HO){done(window.KOTOBA_HO);return}const sc=document.createElement('script');sc.src='hidobj.js?v='+HOV;sc.onload=()=>done(window.KOTOBA_HO||null);sc.onerror=()=>{DL=null;res(null)};document.head.appendChild(sc)});return DL}
 /* --- oyun vəziyyəti --- */
 let G=null;
 const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const NOFLIP=['newspaper','magazine','postcard','letter','clock','map','compass'];
 const SIM=[['clock','compass'],['clock','hourglass'],['scroll','map'],['candle','lantern'],['scroll','letter']],sim=(a,b)=>SIM.some(p=>p.includes(a)&&p.includes(b));
 const R=(a,b)=>a+Math.random()*(b-a);
-const SRC=v=>v.length<300?v:'data:image/webp;base64,'+v;
+const SRC=v=>v.length<300?v+'?v='+HOV:'data:image/webp;base64,'+v;
 function poseRot(it,m,fl){const th=fl?-(it.th||0):(it.th||0);if(m==='v'){const a=-90-th,b=90-th;return Math.abs(a)<=Math.abs(b)?a:b}if(m==='h')return -th;if(m==='lean'){const a=-90-th,b=90-th;return (Math.abs(a)<=Math.abs(b)?a:b)+(Math.random()<.5?-1:1)*R(3,6)}if(m==='j')return R(-7,7);if(m==='p')return ((it.el||1)>1.4?-th:0)+R(-55,55);return 0}
 const bw=k=>k.replace(/_\d+$/,'');
 const POOL=r=>(D.pools&&D.pools[r.pool])||r.it||{};
@@ -11781,7 +11781,7 @@ function draw(){let w=$('hoW');if(!w){document.body.insertAdjacentHTML('beforeen
  const R=G.room,lvT=G.lv<0?L3('Sərbəst oyun','Free play','Свободная игра'):L3('Bölmə','Chapter','Глава')+' '+((G.lv/LVPER|0)+1)+' · '+L3('Mərhələ','Stage','Этап')+' '+(G.lv%LVPER+1);
  w.innerHTML=`<div class="ho-hd"><button class="ho-ib" data-ho="map" aria-label="←">←</button><div class="ho-tt"><span class="jp" lang="ja">探し物</span><b>${E(lvT)}</b></div><div class="ho-st"><span class="ho-hp" id="hoHp"></span></div><button class="ho-ib${mu.on()?' on':''}" data-ho="mu" id="hoMu" aria-label="♫">♫</button><button class="ho-ib${mu.sx()?' on':''}" data-ho="sx" id="hoSx" aria-label="🔔">🔔</button><button class="ho-ib" data-ho="zo" aria-label="−">−</button><button class="ho-ib" data-ho="zi" aria-label="+">+</button></div>
  <div class="ho-tb"><i id="hoTb"></i><span id="hoTm"></span></div>
- <div class="ho-vp" id="hoVp"><div class="ho-sc" id="hoSc"><img class="ho-bg" alt="" src="${R.bg.length<300?R.bg:'data:image/webp;base64,'+R.bg}">${G.pl.map((p,j)=>('TFL'.includes(p.t)?(p.sq<1?`<i class="ho-sh" data-sj="${j}" style="left:${(p.cx-p.BW*.46)/R.w*100}%;width:${p.BW*.92/R.w*100}%;top:${(p.cy-p.BH*.3)/R.h*100}%;height:${p.BH*.85/R.h*100}%"></i>`:`<i class="ho-sh" data-sj="${j}" style="left:${(p.cx-p.BW*.42)/R.w*100}%;width:${p.BW*.84/R.w*100}%;top:${(p.cy+p.BH/2-p.BH*.08)/R.h*100}%;height:${Math.max(5,p.BH*.12)/R.h*100}%"></i>`):'')+`<div class="ho-it ${p.t}" data-j="${j}" style="left:${(p.cx-p.Wd/2)/R.w*100}%;top:${(p.cy-p.H/2)/R.h*100}%;width:${p.Wd/R.w*100}%;height:${p.H/R.h*100}%;transform:${p.sq<1?`scaleY(${p.sq.toFixed(3)}) `:''}rotate(${p.rot.toFixed(1)}deg)${p.fl?' scaleX(-1)':''};--b:${p.lu.toFixed(3)}"><img alt="" src="${SRC(POOL(R)[p.k].i)}">${R.lc&&p.t!=='S'?`<i class="ho-tn" style="background:${R.lc[p.i]};-webkit-mask-image:url(${SRC(POOL(R)[p.k].i)});mask-image:url(${SRC(POOL(R)[p.k].i)})"></i>`:''}</div>`).join('')}${(G.ov||[]).map(o=>`<div class="ho-ov" style="left:${o.L/R.w*100}%;top:${o.T/R.h*100}%;width:${o.Wd/R.w*100}%;height:${o.H/R.h*100}%;opacity:${o.op};transform:rotate(${o.rot.toFixed(1)}deg)${o.fl?' scaleX(-1)':''};--b:${o.lu.toFixed(3)}"><img alt="" src="${SRC(D.ov[o.k].i)}"></div>`).join('')}<i class="ho-gr" style="${R.gr||''}"></i></div></div>
+ <div class="ho-vp" id="hoVp"><div class="ho-sc" id="hoSc"><img class="ho-bg" alt="" src="${R.bg.length<300?R.bg+'?v='+HOV:'data:image/webp;base64,'+R.bg}">${G.pl.map((p,j)=>('TFL'.includes(p.t)?(p.sq<1?`<i class="ho-sh" data-sj="${j}" style="left:${(p.cx-p.BW*.46)/R.w*100}%;width:${p.BW*.92/R.w*100}%;top:${(p.cy-p.BH*.3)/R.h*100}%;height:${p.BH*.85/R.h*100}%"></i>`:`<i class="ho-sh" data-sj="${j}" style="left:${(p.cx-p.BW*.42)/R.w*100}%;width:${p.BW*.84/R.w*100}%;top:${(p.cy+p.BH/2-p.BH*.08)/R.h*100}%;height:${Math.max(5,p.BH*.12)/R.h*100}%"></i>`):'')+`<div class="ho-it ${p.t}" data-j="${j}" style="left:${(p.cx-p.Wd/2)/R.w*100}%;top:${(p.cy-p.H/2)/R.h*100}%;width:${p.Wd/R.w*100}%;height:${p.H/R.h*100}%;transform:${p.sq<1?`scaleY(${p.sq.toFixed(3)}) `:''}rotate(${p.rot.toFixed(1)}deg)${p.fl?' scaleX(-1)':''};--b:${p.lu.toFixed(3)}"><img alt="" src="${SRC(POOL(R)[p.k].i)}">${R.lc&&p.t!=='S'?`<i class="ho-tn" style="background:${R.lc[p.i]};-webkit-mask-image:url(${SRC(POOL(R)[p.k].i)});mask-image:url(${SRC(POOL(R)[p.k].i)})"></i>`:''}</div>`).join('')}${(G.ov||[]).map(o=>`<div class="ho-ov" style="left:${o.L/R.w*100}%;top:${o.T/R.h*100}%;width:${o.Wd/R.w*100}%;height:${o.H/R.h*100}%;opacity:${o.op};transform:rotate(${o.rot.toFixed(1)}deg)${o.fl?' scaleX(-1)':''};--b:${o.lu.toFixed(3)}"><img alt="" src="${SRC(D.ov[o.k].i)}"></div>`).join('')}<i class="ho-gr" style="${R.gr||''}"></i></div></div>
  <div class="ho-ft"><button class="ho-hb" data-ho="hint" id="hoHb" aria-label="${E(L3('İpucu','Hint','Подсказка'))}"><span>✦</span><b id="hoHn"></b></button><div class="ho-list" id="hoList"></div><button class="ho-hb ho-sy" data-ho="say" aria-label="${E(L3('Dinlə','Listen','Слушать'))}"><span>♪</span></button></div>`;
  fit(true);const vp0=$('hoVp');vp0.scrollLeft=(vp0.scrollWidth-vp0.clientWidth)/2;tgt();hud();clearInterval(G.tm);mu.sync();
  const sc0=$('hoSc'),g0=G;sc0.classList.add('ho-ld');vp0.insertAdjacentHTML('beforeend','<div class="ho-ldr" id="hoLdr"><i></i><span class="jp" lang="ja">探し物</span></div>');
