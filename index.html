@@ -11450,6 +11450,60 @@ addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKe
  else ok=false;if(ok){e.preventDefault();if(isOn())setTimeout(()=>document.querySelectorAll('[data-kt]').forEach(x=>x.setAttribute('aria-pressed',pr(x.dataset.kt))),40)}});
 setTimeout(()=>{setb();apply()},0);
 })();/*/KYO3*/
+/*FOC*/
+/* v162: fokus rejimi, J/K/A/G qısayolları, hekayə sonluqlarında nişan şəkilləri, tema şriftləri lazım olanda */
+setTimeout(()=>{if(typeof PF==='undefined')return;
+const L3=(a,e,r)=>SL({az:a,en:e,ru:r}),$=id=>document.getElementById(id);
+const st=document.createElement('style');st.textContent=
+'html.fcm #app>section.sec,html.fcm #app>.fact{transition:opacity .3s ease}'+
+'html.fcm #app>section.sec:not(.fc-on),html.fcm #app>.fact{opacity:.22}'+
+'html.fcm #app>section.sec:not(.fc-on):hover{opacity:.5}'+
+'#kbG summary{cursor:pointer;list-style-position:inside}#kbG summary b{display:inline}.kbt{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}.kbt td{padding:6px 6px;border-top:1px solid var(--line);vertical-align:middle}.kbt td:first-child{white-space:nowrap;width:1%}.kbt kbd{display:inline-block;min-width:22px;padding:2px 7px;border:1px solid var(--line);border-bottom-width:3px;border-radius:7px;font:700 12px/1.4 ui-monospace,Menlo,monospace;text-align:center;background:var(--bg);color:var(--ink)}@media (hover:none) and (pointer:coarse){#kbG{display:none}}'+
+'.bd-grid{align-items:start!important}.bd-it{justify-content:flex-start}'+
+'.ste .ste-im{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover}'+
+'.stbig .ste-im{width:132px;height:132px;border-radius:50%;display:block;margin:0 auto;box-shadow:0 8px 24px rgba(0,0,0,.25)}';
+document.head.appendChild(st);
+/* --- tema şriftləri: yalnız tema, ayarlar və ya sertifikat açılanda --- */
+let tfL=false;const TF=['edo','pirat','matsuri','manga','kiber','piksel','kosmos','okean','sakura','qezet'];
+const tfNeed=()=>TF.includes(PF.theme)||($('setp')&&!$('setp').hidden)||(()=>{const c=$('certw');return !!c&&!c.hidden&&c.getClientRects().length>0})();
+const tfChk=()=>{if(!window.KTF_LAZY||tfL||!tfNeed())return;tfL=true;const l=document.createElement('link');l.rel='stylesheet';l.href='tfonts.css';document.head.appendChild(l)};
+if(window.KTF_LAZY){tfChk();setInterval(tfChk,1500)}
+/* --- fokus rejimi --- */
+const secs=()=>[...document.querySelectorAll('#app>section.sec')].filter(s=>!s.classList.contains('kyo-x')&&s.offsetParent!==null);
+const off=()=>{const t=document.querySelector('.top');return (t?t.getBoundingClientRect().bottom:0)+12};
+let fr=0;function mark(){fr=0;if(!PF.foc)return;const L=innerHeight*.38,S=secs();let cur=null;
+ for(const s of S){const r=s.getBoundingClientRect();if(r.top<=L&&r.bottom>L){cur=s;break}}
+ if(!cur){let best=1e9;for(const s of S){const r=s.getBoundingClientRect(),d=Math.min(Math.abs(r.top-L),Math.abs(r.bottom-L));if(d<best){best=d;cur=s}}}
+ S.forEach(s=>s.classList.toggle('fc-on',s===cur))}
+addEventListener('scroll',()=>{if(PF.foc&&!fr)fr=requestAnimationFrame(mark)},{passive:true});
+function foc(){document.documentElement.classList.toggle('fcm',!!PF.foc);const b=$('tFoc');if(b){b.setAttribute('aria-pressed',!!PF.foc);b.classList.toggle('fill',!!PF.foc)}if(PF.foc)mark()}
+function focUI(){const g=$('rwG');if(!g)return;let f=$('focG');if(!f){g.insertAdjacentHTML('afterend','<div class="setg" id="focG"><b id="focT"></b><div class="setr"><button class="btn" id="tFoc" style="--c:var(--vio)"></button></div></div>');f=$('focG')}
+ $('focT').textContent=L3('Fokus rejimi','Focus mode','Режим фокуса');$('tFoc').textContent=L3('Yalnız oxuduğum bölmə','Only the section I read','Только текущий раздел');foc()}
+const togg=()=>{PF.foc=!PF.foc;try{save()}catch(_){}foc()};
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#tFoc')){togg()}});
+const aL=applyLook;applyLook=function(){const x=aL.apply(this,arguments);try{focUI();kbUI();tfChk()}catch(_){}return x};
+const rd=render;render=function(){const x=rd.apply(this,arguments);try{if(PF.foc)setTimeout(mark,60)}catch(_){}return x};
+focUI();kbUI();
+function kbUI(){const f=$('focG');if(!f||!window.kyRows)return;let k=$('kbG');if(!k){f.insertAdjacentHTML('afterend','<details class="setg" id="kbG"><summary><b id="kbT"></b></summary><table class="kbt" id="kbL"></table></details>');k=$('kbG')}
+ $('kbT').textContent=L3('Klaviatura qısayolları','Keyboard shortcuts','Горячие клавиши');$('kbL').innerHTML=window.kyRows().map(([k,l])=>`<tr><td>${k.split(' ').map(x=>x==='…'?'…':`<kbd>${x}</kbd>`).join(' ')}</td><td>${l}</td></tr>`).join('')}
+/* --- qısayollar: J/K bölmə, A səs, G fokus --- */
+addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
+ if([...document.querySelectorAll('[role=dialog],.kpop,.setp,#bdw')].some(x=>!x.hidden&&x.getClientRects().length&&getComputedStyle(x).visibility!=='hidden'))return;
+ const k=e.key.toLowerCase();if(!['j','k','a','g'].includes(k))return;
+ if(k==='g'){togg()}
+ else if(k==='a'){const o=off(),b=[...document.querySelectorAll('#app .say')].find(x=>{const r=x.getBoundingClientRect();return r.height&&r.top>=o&&r.bottom<=innerHeight});if(b)b.click();else return}
+ else{const S=secs(),o=off();let i=-1;S.forEach((s,j)=>{if(s.getBoundingClientRect().top<=o+8)i=j});const n=k==='j'?S[i+1]:S[Math.max(0,i-(S[i]&&S[i].getBoundingClientRect().top<o-8?0:1))];if(!n)return;scrollTo({top:n.getBoundingClientRect().top+scrollY-o+4,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+ e.preventDefault()});
+/* --- Osaka hekayəsi: sonluq emojiləri yerinə nişan şəkilləri --- */
+if(typeof storyUI==='function'&&typeof ENDS==='object'){const keys=()=>Object.keys(ENDS);
+ const code=k=>{const i=keys().indexOf(k);return i<0?'':'G'+String(i+1).padStart(2,'0')};
+ const img=k=>{const c=code(k),s=window.bdSrc&&window.bdSrc(c);return s?`<img class="ste-im" alt="" src="${s}">`:''};
+ function deco(){const box=$('stBox');if(!box)return;const K=keys();let need=false;
+  box.querySelectorAll('.ste').forEach((el,i)=>{if(!el.classList.contains('on'))return;const h=img(K[i]);if(h)el.innerHTML=h;else need=true});
+  const big=box.querySelector('.stbig');if(big&&SS&&SS.node&&SS.node.startsWith('END_')){const h=img(SS.node);if(h)big.innerHTML=h;else need=true}
+  if(need&&window.bdImgs)window.bdImgs().then(()=>{if(window.bdSrc&&window.bdSrc('G01'))deco()})}
+ const oS=storyUI;storyUI=function(){const x=oS.apply(this,arguments);try{deco()}catch(_){}return x};setTimeout(deco,0)}
+},0);/*/FOC*/
 /*HO*/
 /* v168: Gizli əşyalar (探し物) – otaqda yaponca adı verilən əşyanı tap */
 setTimeout(()=>{if(typeof PF==='undefined')return;
@@ -11623,8 +11677,8 @@ const mu=(()=>{let ac=null,mg=null,rv=null,tm=0,pad=[];const on=()=>{const b=HO(
  let au=null,fd=0;
  function fade(to,ms,done){clearInterval(fd);const st=au.volume,t0=Date.now();fd=setInterval(()=>{const k=Math.min(1,(Date.now()-t0)/ms);au.volume=st+(to-st)*k;if(k>=1){clearInterval(fd);done&&done()}},50)}
  function start(){if(!on())return;init();if(ac){ac.resume&&ac.resume();mg.gain.setTargetAtTime(.55,ac.currentTime,.3)}
-  if(!au){au=new Audio('music/yoru.mp3');au.loop=true;au.preload='auto';au.volume=0}
-  const p=au.play();if(p&&p.catch)p.catch(()=>{});fade(.42,1800)}
+  if(!au){au=new Audio('music/niwa.mp3');au.loop=true;au.preload='auto';au.volume=0}
+  const p=au.play();if(p&&p.catch)p.catch(()=>{});fade(.5,2500)}
  function stop(){if(au)fade(0,700,()=>{try{au.pause()}catch(_){}})}
  return{on,sync(){const b=$('hoMu');if(b)b.classList.toggle('on',on());on()?start():stop()},toggle(){const b=HO();b.mu=on()?0:1;try{save()}catch(_){}this.sync()},stop,
   ding(){if(on()&&ac)bell(SC[7],.06)},win(){if(on()&&ac)[4,6,7,9].forEach((n,i)=>setTimeout(()=>bell(SC[n],.07),i*220))},lose(){if(on()&&ac)[6,3,1].forEach((n,i)=>setTimeout(()=>bell(SC[n]/2,.06),i*300))}}})();
@@ -11640,60 +11694,6 @@ function btn(){if($('hoOpen'))return;const m=$('bdOpen')||$('mapOpen');if(!m)ret
 const rd=render;render=function(){const x=rd.apply(this,arguments);try{btn()}catch(_){}return x};btn();
 window.hoOpen=open;window.hoDbg=()=>G;window.hoStart=n=>load().then(()=>start(n));window.hoMap=()=>load().then(map);
 },0);/*/HO*/
-/*FOC*/
-/* v162: fokus rejimi, J/K/A/G qısayolları, hekayə sonluqlarında nişan şəkilləri, tema şriftləri lazım olanda */
-setTimeout(()=>{if(typeof PF==='undefined')return;
-const L3=(a,e,r)=>SL({az:a,en:e,ru:r}),$=id=>document.getElementById(id);
-const st=document.createElement('style');st.textContent=
-'html.fcm #app>section.sec,html.fcm #app>.fact{transition:opacity .3s ease}'+
-'html.fcm #app>section.sec:not(.fc-on),html.fcm #app>.fact{opacity:.22}'+
-'html.fcm #app>section.sec:not(.fc-on):hover{opacity:.5}'+
-'#kbG summary{cursor:pointer;list-style-position:inside}#kbG summary b{display:inline}.kbt{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}.kbt td{padding:6px 6px;border-top:1px solid var(--line);vertical-align:middle}.kbt td:first-child{white-space:nowrap;width:1%}.kbt kbd{display:inline-block;min-width:22px;padding:2px 7px;border:1px solid var(--line);border-bottom-width:3px;border-radius:7px;font:700 12px/1.4 ui-monospace,Menlo,monospace;text-align:center;background:var(--bg);color:var(--ink)}@media (hover:none) and (pointer:coarse){#kbG{display:none}}'+
-'.bd-grid{align-items:start!important}.bd-it{justify-content:flex-start}'+
-'.ste .ste-im{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover}'+
-'.stbig .ste-im{width:132px;height:132px;border-radius:50%;display:block;margin:0 auto;box-shadow:0 8px 24px rgba(0,0,0,.25)}';
-document.head.appendChild(st);
-/* --- tema şriftləri: yalnız tema, ayarlar və ya sertifikat açılanda --- */
-let tfL=false;const TF=['edo','pirat','matsuri','manga','kiber','piksel','kosmos','okean','sakura','qezet'];
-const tfNeed=()=>TF.includes(PF.theme)||($('setp')&&!$('setp').hidden)||(()=>{const c=$('certw');return !!c&&!c.hidden&&c.getClientRects().length>0})();
-const tfChk=()=>{if(!window.KTF_LAZY||tfL||!tfNeed())return;tfL=true;const l=document.createElement('link');l.rel='stylesheet';l.href='tfonts.css';document.head.appendChild(l)};
-if(window.KTF_LAZY){tfChk();setInterval(tfChk,1500)}
-/* --- fokus rejimi --- */
-const secs=()=>[...document.querySelectorAll('#app>section.sec')].filter(s=>!s.classList.contains('kyo-x')&&s.offsetParent!==null);
-const off=()=>{const t=document.querySelector('.top');return (t?t.getBoundingClientRect().bottom:0)+12};
-let fr=0;function mark(){fr=0;if(!PF.foc)return;const L=innerHeight*.38,S=secs();let cur=null;
- for(const s of S){const r=s.getBoundingClientRect();if(r.top<=L&&r.bottom>L){cur=s;break}}
- if(!cur){let best=1e9;for(const s of S){const r=s.getBoundingClientRect(),d=Math.min(Math.abs(r.top-L),Math.abs(r.bottom-L));if(d<best){best=d;cur=s}}}
- S.forEach(s=>s.classList.toggle('fc-on',s===cur))}
-addEventListener('scroll',()=>{if(PF.foc&&!fr)fr=requestAnimationFrame(mark)},{passive:true});
-function foc(){document.documentElement.classList.toggle('fcm',!!PF.foc);const b=$('tFoc');if(b){b.setAttribute('aria-pressed',!!PF.foc);b.classList.toggle('fill',!!PF.foc)}if(PF.foc)mark()}
-function focUI(){const g=$('rwG');if(!g)return;let f=$('focG');if(!f){g.insertAdjacentHTML('afterend','<div class="setg" id="focG"><b id="focT"></b><div class="setr"><button class="btn" id="tFoc" style="--c:var(--vio)"></button></div></div>');f=$('focG')}
- $('focT').textContent=L3('Fokus rejimi','Focus mode','Режим фокуса');$('tFoc').textContent=L3('Yalnız oxuduğum bölmə','Only the section I read','Только текущий раздел');foc()}
-const togg=()=>{PF.foc=!PF.foc;try{save()}catch(_){}foc()};
-document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#tFoc')){togg()}});
-const aL=applyLook;applyLook=function(){const x=aL.apply(this,arguments);try{focUI();kbUI();tfChk()}catch(_){}return x};
-const rd=render;render=function(){const x=rd.apply(this,arguments);try{if(PF.foc)setTimeout(mark,60)}catch(_){}return x};
-focUI();kbUI();
-function kbUI(){const f=$('focG');if(!f||!window.kyRows)return;let k=$('kbG');if(!k){f.insertAdjacentHTML('afterend','<details class="setg" id="kbG"><summary><b id="kbT"></b></summary><table class="kbt" id="kbL"></table></details>');k=$('kbG')}
- $('kbT').textContent=L3('Klaviatura qısayolları','Keyboard shortcuts','Горячие клавиши');$('kbL').innerHTML=window.kyRows().map(([k,l])=>`<tr><td>${k.split(' ').map(x=>x==='…'?'…':`<kbd>${x}</kbd>`).join(' ')}</td><td>${l}</td></tr>`).join('')}
-/* --- qısayollar: J/K bölmə, A səs, G fokus --- */
-addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
- if([...document.querySelectorAll('[role=dialog],.kpop,.setp,#bdw')].some(x=>!x.hidden&&x.getClientRects().length&&getComputedStyle(x).visibility!=='hidden'))return;
- const k=e.key.toLowerCase();if(!['j','k','a','g'].includes(k))return;
- if(k==='g'){togg()}
- else if(k==='a'){const o=off(),b=[...document.querySelectorAll('#app .say')].find(x=>{const r=x.getBoundingClientRect();return r.height&&r.top>=o&&r.bottom<=innerHeight});if(b)b.click();else return}
- else{const S=secs(),o=off();let i=-1;S.forEach((s,j)=>{if(s.getBoundingClientRect().top<=o+8)i=j});const n=k==='j'?S[i+1]:S[Math.max(0,i-(S[i]&&S[i].getBoundingClientRect().top<o-8?0:1))];if(!n)return;scrollTo({top:n.getBoundingClientRect().top+scrollY-o+4,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
- e.preventDefault()});
-/* --- Osaka hekayəsi: sonluq emojiləri yerinə nişan şəkilləri --- */
-if(typeof storyUI==='function'&&typeof ENDS==='object'){const keys=()=>Object.keys(ENDS);
- const code=k=>{const i=keys().indexOf(k);return i<0?'':'G'+String(i+1).padStart(2,'0')};
- const img=k=>{const c=code(k),s=window.bdSrc&&window.bdSrc(c);return s?`<img class="ste-im" alt="" src="${s}">`:''};
- function deco(){const box=$('stBox');if(!box)return;const K=keys();let need=false;
-  box.querySelectorAll('.ste').forEach((el,i)=>{if(!el.classList.contains('on'))return;const h=img(K[i]);if(h)el.innerHTML=h;else need=true});
-  const big=box.querySelector('.stbig');if(big&&SS&&SS.node&&SS.node.startsWith('END_')){const h=img(SS.node);if(h)big.innerHTML=h;else need=true}
-  if(need&&window.bdImgs)window.bdImgs().then(()=>{if(window.bdSrc&&window.bdSrc('G01'))deco()})}
- const oS=storyUI;storyUI=function(){const x=oS.apply(this,arguments);try{deco()}catch(_){}return x};setTimeout(deco,0)}
-},0);/*/FOC*/
 render();a11yFix();
 
 </script>
