@@ -10811,7 +10811,7 @@ if(PF.mus&&!TR[PF.mus])PF.mus='';
 const musOn=()=>!!(PF.mus&&TR[PF.mus]&&PF.mon!==false);
 const natAny=()=>NS.some(k=>PF.nat[k].on);
 if(musOn()&&natAny())NS.forEach(k=>PF.nat[k].on=false);
-const want=()=>!PF.mute&&musOn();
+const want=()=>!PF.mute&&!window.__hoOn&&musOn();
 
 /* ---------- shared AudioContext ---------- */
 let ctx=null,natMaster=null,natComp=null,verb=null;
@@ -10909,7 +10909,7 @@ function natStop(k){const S=natG[k];if(!S)return;delete natG[k];S.alive=false;cl
  setTimeout(()=>{S.srcs.forEach(s=>{try{s.stop()}catch(_){}});S.srcs.clear();try{S.out.disconnect()}catch(_){}
   if(!Object.keys(natG).length&&!wa&&ctx&&ctx.state==='running'){try{ctx.suspend()}catch(_){}}},600);
  NREL[k]=setTimeout(()=>{if(!natG[k])delete NBUF[k]},90000)}
-function natSync(){if(natMaster&&ctx)natMaster.gain.setTargetAtTime(PF.mute?0:clamp(PF.natV),ctx.currentTime,.05);
+function natSync(){if(natMaster&&ctx)natMaster.gain.setTargetAtTime((PF.mute||window.__hoOn)?0:clamp(PF.natV),ctx.currentTime,.05);
  NS.forEach(k=>{const on=PF.nat[k].on&&!PF.mute&&armed;if(on&&!natG[k])natStart(k);else if(!on&&natG[k])natStop(k)})}
 function natAllOff(){NS.forEach(k=>PF.nat[k].on=false);natSync()}
 
@@ -11786,7 +11786,7 @@ function draw(){let w=$('hoW');if(!w){document.body.insertAdjacentHTML('beforeen
  fit(true);const vp0=$('hoVp');vp0.scrollLeft=(vp0.scrollWidth-vp0.clientWidth)/2;tgt();hud();clearInterval(G.tm);G.tm=setInterval(tick,250);mu.sync()}
 function tick(){if(!G||G.end){clearInterval(G&&G.tm);return}const left=Math.max(0,G.c.T-used()),e=$('hoTm'),b=$('hoTb');if(!e)return;e.textContent=(left/60|0)+':'+String(left%60|0).padStart(2,'0');b.style.width=(left/G.c.T*100)+'%';b.parentNode.classList.toggle('low',left<30);if(left<=0)fail('time')}
 function hud(){$('hoHp').innerHTML=`<i>✕</i> ${G.miss}<small>/${G.c.MM}</small>`;$('hoHn').textContent=G.c.H-G.hint;$('hoHb').disabled=G.hint>=G.c.H}
-function tgt(){const a=act();$('hoList').innerHTML=G.targets.map(k=>{const f=G.found.has(k),on=a.includes(k);return `<button class="ho-ch${f?' got':on?' on':''}" data-ho="w" data-k="${k}">${on||f?word(k):'<span class="jp">？</span>'}${on?`<small class="ho-tr">${E(tr(W[k]))}</small>`:''}</button>`}).join('');
+function tgt(){const a=act();$('hoList').innerHTML=G.targets.map(k=>{const f=G.found.has(k),on=a.includes(k);return `<button class="ho-ch${f?' got':on?' on':''}" data-ho="w" data-k="${k}">${on||f?`<span class="jp" lang="ja">${E(W[k][0])}</span><small>${E(W[k][2])}</small>`:'<span class="jp">？</span>'}</button>`}).join('');
  const c=$('hoList').querySelector('.on');if(c)c.scrollIntoView({inline:'nearest',block:'nearest'})}
 function fit(first){const vp=$('hoVp'),sc=$('hoSc');if(!vp||!sc)return;const r=G.room,ar=r.w/r.h,bw=Math.min(vp.clientWidth,vp.clientHeight*ar);if(first&&vp.clientWidth/vp.clientHeight<ar*.8)G.z=Math.min(3,vp.clientHeight*ar/vp.clientWidth*.92);const w=bw*G.z;sc.style.width=w+'px';sc.style.height=w/ar+'px'}
 function pos(e){const sc=$('hoSc'),b=sc.getBoundingClientRect();return [(e.clientX-b.left)/b.width*G.room.w,(e.clientY-b.top)/b.height*G.room.h]}
@@ -11806,7 +11806,7 @@ function click(e){if(!G||G.end)return;const now=Date.now();if(now<G.lock){fx('ho
  if(G.mt.length>=3){G.mt=[];G.lock=now+4000;G.t0-=15000;mu.play('fog');const sc=$('hoW');sc.insertAdjacentHTML('beforeend',`<div class="ho-fog" id="hoFog"><b>${E(L3('Ruhlar narahatdır…','The spirits are restless…','Духи встревожены…'))}</b><small>${E(L3('Təsadüfi basma: −15 san.','No random clicking: −15 s','Не кликай наугад: −15 с'))}</small></div>`);setTimeout(()=>{const f=$('hoFog');if(f)f.remove()},4000)}}
 function hint(){if(G.hint>=G.c.H||G.end)return;const a=act(),k=a[Math.random()*a.length|0],p=G.pl.find(q=>bw(q.k)===k&&!q.got);if(!p)return;G.hint++;G.err[k]=1;hud();mu.play('hint',.7);const sc=$('hoSc'),d=document.createElement('div'),R=Math.max(p.BW,p.BH)*1.6;d.className='ho-ring';
  const ox=(Math.random()-.5)*R*.3,oy=(Math.random()-.5)*R*.3;Object.assign(d.style,{left:(p.cx-R/2+ox)/G.room.w*100+'%',top:(p.cy-R/2+oy)/G.room.h*100+'%',width:R/G.room.w*100+'%',height:R/G.room.h*100+'%'});sc.appendChild(d);setTimeout(()=>d.remove(),3500)}
-function lrnList(){const b=HO();return G.done.map(k=>{const c=Math.min(LEARN,b.w[k]||0);return `<li><b lang="ja">${E(W[k][0])}</b> ${W[k][1]?'<small lang="ja">'+E(W[k][1])+'</small> ':''}– ${E(tr(W[k]))}<span class="ho-lb${c>=LEARN?' ok':''}"><i style="width:${c/LEARN*100}%"></i></span><em>${c>=LEARN?'★':c+'/'+LEARN}</em></li>`}).join('')}
+function lrnList(){const b=HO();return G.done.map(k=>{const c=Math.min(LEARN,b.w[k]||0);return `<li><b>${E(W[k][2])}</b> – ${E(tr(W[k]))}</li>`}).join('')}
 function finish(){G.end=1;clearInterval(G.tm);const s=used()|0,n=stars(),b=HO();b.n=(b.n||0)+1;if(n===5)b.p5=(b.p5||0)+1;if(!G.hint)b.nh=(b.nh||0)+1;if(!b.fast||s<b.fast)b.fast=s;
  if(G.lv>=0){if(!b.st[G.lv]||n>b.st[G.lv])b.st[G.lv]=n;if(G.lv+1>b.lv)b.lv=Math.min(NLV()-1,G.lv+1);if(G.lv===NLV()-1)b.all=1}b.lvMax=NLV();try{save()}catch(_){}try{window.bdEvalSoon&&window.bdEvalSoon()}catch(_){}mu.win();
  const nxt=G.lv>=0&&G.lv+1<NLV();
@@ -11843,16 +11843,29 @@ const mu=(()=>{let ac=null,mg=null,rv=null,tm=0,pad=[];const on=()=>{const b=HO(
  function stop(){if(au)fade(0,700,()=>{try{au.pause()}catch(_){}})}
  return{on,sx,play,loadSfx,sync(){const b=$('hoMu');if(b)b.classList.toggle('on',on());on()?start():stop()},toggle(){const b=HO();b.mu=on()?0:1;try{save()}catch(_){}this.sync()},tsx(){const b=HO();b.sx=sx()?0:1;try{save()}catch(_){}const e=$('hoSx');if(e)e.classList.toggle('on',sx())},stop,
   ding(){play('found')},win(){play('win',.9)},lose(){play('lose',.9)}}})();
-function close(){if($('hoW'))mu.play('close',.6);const w=$('hoW');if(w)w.remove();if(G)clearInterval(G.tm);G=null;mu.stop();if(!$('bdw'))document.documentElement.classList.remove('bd-lock')}
-async function open(){const d=await load();if(!d||!d.rooms||!d.rooms.length){try{toast(L3('Oyun yüklənmədi','Game failed to load','Игра не загрузилась'))}catch(_){}return}mu.loadSfx();mu.play('open',.6);map()}
+function close(){if($('hoW'))mu.play('close',.6);const w=$('hoW');if(w)w.remove();if(G)clearInterval(G.tm);G=null;mu.stop();window.__hoOn=0;try{musSync()}catch(_){}if(!$('bdw'))document.documentElement.classList.remove('bd-lock')}
+async function open(){window.__hoOn=1;try{musSync()}catch(_){}const d=await load();if(!d||!d.rooms||!d.rooms.length){try{toast(L3('Oyun yüklənmədi','Game failed to load','Игра не загрузилась'))}catch(_){}return}mu.loadSfx();mu.play('open',.6);map()}
 document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;if(t.closest('#hoOpen')){open();return}
- if(!$('hoW'))return;const b=t.closest('[data-ho]');if(b){const a=b.dataset.ho;if(!['hint','x'].includes(a))mu.play('tap',.5);if(a==='x')close();else if(a==='map')map();else if(a==='mu')mu.toggle();else if(a==='sx')mu.tsx();else if(a==='lv')start(+b.dataset.n);else if(a==='free')start(-1);else if(a==='again')start(G?G.lv:-1);else if(a==='next')start(G.lv+1);else if(a==='w'){const k=b.dataset.k;if(G&&(act().includes(k)||G.found.has(k)))try{say(W[k][0])}catch(_){}}else if(a==='say'){const k=act()[0];if(k)try{say(W[k][0])}catch(_){}}else if(a==='hint')hint();else if(a==='zi'||a==='zo'){const vp=$('hoVp'),cx=(vp.scrollLeft+vp.clientWidth/2)/vp.scrollWidth,cy=(vp.scrollTop+vp.clientHeight/2)/vp.scrollHeight;G.z=Math.max(1,Math.min(6,G.z*(a==='zi'?1.4:1/1.4)));fit();vp.scrollLeft=cx*vp.scrollWidth-vp.clientWidth/2;vp.scrollTop=cy*vp.scrollHeight-vp.clientHeight/2}return}
+ if(!$('hoW'))return;const b=t.closest('[data-ho]');if(b){const a=b.dataset.ho;if(!['hint','x'].includes(a))mu.play('tap',.5);if(a==='x')close();else if(a==='map')map();else if(a==='mu')mu.toggle();else if(a==='sx')mu.tsx();else if(a==='lv')start(+b.dataset.n);else if(a==='free')start(-1);else if(a==='again')start(G?G.lv:-1);else if(a==='next')start(G.lv+1);else if(a==='w'){const k=b.dataset.k;if(G&&(act().includes(k)||G.found.has(k)))try{say(W[k][0])}catch(_){}}else if(a==='say'){const k=act()[0];if(k)try{say(W[k][0])}catch(_){}}else if(a==='hint')hint();else if(a==='zi'||a==='zo'){const r=$('hoVp').getBoundingClientRect();zoomAt(a==='zi'?1.4:1/1.4,r.left+r.width/2,r.top+r.height/2)}return}
  if(t.closest('#hoSc'))click(e)});
 addEventListener('resize',()=>{if(G&&$('hoW'))fit()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&$('hoW')){e.stopPropagation();close()}},true);
 /* başlıqda gizli düymə (menyu və Kyoushitsu bunu çağırır) */
 function btn(){if($('hoOpen'))return;const m=$('bdOpen')||$('mapOpen');if(!m)return;const b=document.createElement('button');b.id='hoOpen';b.className='mapb kob';b.hidden=true;b.style.cssText='display:none!important';b.setAttribute('aria-hidden','true');b.tabIndex=-1;b.textContent='探';m.after(b)}
 const rd=render;render=function(){const x=rd.apply(this,arguments);try{btn()}catch(_){}return x};btn();
+/* zoom: pinç (2 barmaq), təkər, klaviatura, siçanla sürüşdürmə */
+function zoomAt(f,cx,cy){const vp=$('hoVp');if(!vp||!G)return;const r=vp.getBoundingClientRect(),px=cx-r.left,py=cy-r.top,fx=(vp.scrollLeft+px)/vp.scrollWidth,fy=(vp.scrollTop+py)/vp.scrollHeight,z0=G.z;G.z=Math.max(1,Math.min(6,G.z*f));if(Math.abs(G.z-z0)<1e-4)return;fit();vp.scrollLeft=fx*vp.scrollWidth-px;vp.scrollTop=fy*vp.scrollHeight-py}
+let PZ=null,DR=null,NOCLK=0;
+document.addEventListener('touchstart',e=>{const vp=e.target.closest&&e.target.closest('#hoVp');if(!vp||e.touches.length!==2)return;const[a,b]=e.touches;PZ={d:Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),x:(a.clientX+b.clientX)/2,y:(a.clientY+b.clientY)/2};e.preventDefault()},{passive:false});
+document.addEventListener('touchmove',e=>{if(!PZ||e.touches.length!==2)return;e.preventDefault();const[a,b]=e.touches,d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),x=(a.clientX+b.clientX)/2,y=(a.clientY+b.clientY)/2,vp=$('hoVp');if(!vp)return;vp.scrollLeft-=x-PZ.x;vp.scrollTop-=y-PZ.y;if(PZ.d>0)zoomAt(d/PZ.d,x,y);PZ.d=d;PZ.x=x;PZ.y=y;NOCLK=Date.now()},{passive:false});
+document.addEventListener('touchend',e=>{if(PZ&&e.touches.length<2){PZ=null;NOCLK=Date.now()}},{passive:true});
+document.addEventListener('wheel',e=>{const vp=e.target.closest&&e.target.closest('#hoVp');if(!vp||!G||e.shiftKey)return;e.preventDefault();zoomAt(Math.exp(-e.deltaY*(e.deltaMode===1?.05:.0018)),e.clientX,e.clientY)},{passive:false});
+document.addEventListener('keydown',e=>{if(!$('hoVp')||!G||/INPUT|TEXTAREA/.test((e.target.tagName||'')))return;const r=$('hoVp').getBoundingClientRect();if(e.key==='+'||e.key==='='){zoomAt(1.4,r.left+r.width/2,r.top+r.height/2);e.preventDefault()}else if(e.key==='-'||e.key==='_'){zoomAt(1/1.4,r.left+r.width/2,r.top+r.height/2);e.preventDefault()}});
+document.addEventListener('mousedown',e=>{const vp=e.target.closest&&e.target.closest('#hoVp');if(!vp||e.button!==0)return;DR={x:e.clientX,y:e.clientY,l:vp.scrollLeft,t:vp.scrollTop,m:0}});
+document.addEventListener('mousemove',e=>{if(!DR)return;const vp=$('hoVp');if(!vp){DR=null;return}const dx=e.clientX-DR.x,dy=e.clientY-DR.y;if(!DR.m&&Math.hypot(dx,dy)>6){DR.m=1;vp.style.cursor='grabbing'}if(DR.m){vp.scrollLeft=DR.l-dx;vp.scrollTop=DR.t-dy}});
+document.addEventListener('mouseup',()=>{if(DR&&DR.m){NOCLK=Date.now();const vp=$('hoVp');if(vp)vp.style.cursor=''}DR=null});
+document.addEventListener('click',e=>{if(Date.now()-NOCLK<350&&e.target.closest&&e.target.closest('#hoVp')){e.stopPropagation();e.preventDefault()}},true);
+addEventListener('pagehide',()=>{window.__hoOn=0});
 window.hoOpen=open;window.hoDbg=()=>G;window.hoStart=n=>load().then(()=>start(n));window.hoMap=()=>load().then(map);
 },0);/*/HO*/
 render();a11yFix();
