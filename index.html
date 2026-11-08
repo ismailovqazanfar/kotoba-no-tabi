@@ -11661,7 +11661,7 @@ addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKe
  else ok=false;if(ok){e.preventDefault();if(isOn())setTimeout(()=>document.querySelectorAll('[data-kt]').forEach(x=>x.setAttribute('aria-pressed',pr(x.dataset.kt))),40)}});
 setTimeout(()=>{setb();apply()},0);
 })();/*/KYO3*/
-/*HO*/const HOV='85068da6';
+/*HO*/const HOV='97513c35';
 /* v168: Gizli əşyalar (探し物) – otaqda yaponca adı verilən əşyanı tap */
 setTimeout(()=>{if(typeof PF==='undefined')return;
 const L3=(a,e,r)=>SL({az:a,en:e,ru:r}),$=id=>document.getElementById(id),LG=()=>(PF.lang||'az');
@@ -11747,7 +11747,7 @@ function sceneLayout(room){const IT=POOL(room),keys=shuf(Object.keys(IT).filter(
  for(const k of keys){if(placed.length>=N+DEC)break;const it=IT[k],w0=bw(k);if(seen.has(w0))continue;const cw=it.c||[];if(cw.some(x=>seen.has(x)))continue;const TG=placed.slice(0,N).map(q=>bw(q.k));
   if(cw.some(x=>TG.includes(x)))continue;if(placed.length<N&&(TG.some(x=>sim(x,w0))||placed.some(q=>(IT[q.k].c||[]).includes(w0))))continue;
   if(placed.some(q=>q.v!==it.v&&it.L<q.L+q.Wd&&it.L+it.Wd>q.L&&it.T<q.T+q.H&&it.T+it.H>q.T))continue;
-  cw.forEach(x=>seen.add(x));placed.push({k,i:-1,t:'S',v:it.v,L:it.L,T:it.T,Wd:it.Wd,H:it.H,BW:it.Wd,BH:it.H,cx:it.L+it.Wd/2,cy:it.T+it.H/2,rot:0,sq:1,fl:false,lu:1});seen.add(w0)}
+  cw.forEach(x=>seen.add(x));placed.push({k,i:-1,t:'S',v:it.v,L:it.L,T:it.T,Wd:it.Wd,H:it.H,BW:it.Wd,BH:it.H,hb:it.hb,cx:it.L+it.Wd/2,cy:it.T+it.H/2,rot:0,sq:1,fl:false,lu:1});seen.add(w0)}
  return placed}
 function layout(room){if(room.sc)return sceneLayout(room);const IT=POOL(room),keys=shuf(Object.keys(IT).filter(k=>W[bw(k)]&&!(room.ex||[]).includes(bw(k)))),spots=shuf(room.s.map((s,i)=>i)),used=new Set(),placed=[],seen=new Set();
  for(const k of keys){if(placed.length>=N+DEC)break;const w0=bw(k);if(seen.has(w0))continue;const it=IT[k],cw=it.c||[];if(cw.some(x=>seen.has(x)))continue;const TG=placed.slice(0,N).map(q=>bw(q.k));if(cw.some(x=>TG.includes(x)))continue;if(placed.length<N&&(TG.some(x=>sim(x,w0))||placed.some(q=>(IT[q.k].c||[]).includes(w0))))continue;poses=shuf((it.p||'T:0').split(' ').map(x=>x.split(':')));let cand=null;
@@ -11798,7 +11798,7 @@ function pos(e){const sc=$('hoSc'),b=sc.getBoundingClientRect();return [(e.clien
 const CV={};function alphaAt(p,x,y){let c=CV[G.room.id+p.k];if(!c){const im=document.querySelector(`#hoSc .ho-it[data-j="${G.pl.indexOf(p)}"] img`);if(!im||!im.naturalWidth)return 255;c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;c.getContext('2d',{willReadFrequently:true}).drawImage(im,0,0);CV[G.room.id+p.k]=c}
  const a=-p.rot*Math.PI/180;let dx=x-p.cx,dy=(y-p.cy)/(p.sq||1);const lx=dx*Math.cos(a)-dy*Math.sin(a),ly=dx*Math.sin(a)+dy*Math.cos(a);let u=(lx/p.Wd+.5)*c.width;const v=(ly/p.H+.5)*c.height;if(p.fl)u=c.width-u;
  if(u<-c.width*.05||u>c.width*1.05||v<-c.height*.05||v>c.height*1.05)return 0;const r=Math.max(3,c.width*.04);try{const d=c.getContext('2d').getImageData(Math.max(0,u-r)|0,Math.max(0,v-r)|0,Math.ceil(r*2),Math.ceil(r*2)).data;let m=0;for(let i=3;i<d.length;i+=4)m=Math.max(m,d[i]);return m}catch(_){return 255}}
-function hitAt(x,y){const pad=G.room.w*.006;for(let j=G.pl.length-1;j>=0;j--){const p=G.pl[j];if(p.got)continue;if(x>=p.L-pad&&x<=p.L+p.BW+pad&&y>=p.T-pad&&y<=p.T+p.BH+pad&&alphaAt(p,x,y)>60)return p}return null}
+function hitAt(x,y){const pad=G.room.w*.006;for(let j=G.pl.length-1;j>=0;j--){const p=G.pl[j];if(p.got)continue;if(x>=p.L-pad&&x<=p.L+p.BW+pad&&y>=p.T-pad&&y<=p.T+p.BH+pad&&(!p.hb||(x>=p.hb[0]&&x<=p.hb[0]+p.hb[2]&&y>=p.hb[1]&&y<=p.hb[1]+p.hb[3]))&&alphaAt(p,x,y)>60)return p}return null}
 function spark(x,y,sz){const sc=$('hoSc');if(!sc)return;const d=document.createElement('div');d.className='ho-spk';d.style.left=x/G.room.w*100+'%';d.style.top=y/G.room.h*100+'%';const r=Math.max(34,Math.min(140,sz/G.room.w*sc.clientWidth*.75));d.style.setProperty('--r',r+'px');let h='<b></b>';for(let i=0;i<16;i++){const a=i/16*Math.PI*2+Math.random()*.3,dd=r*(.7+Math.random()*.6);h+=`<i style="--x:${(Math.cos(a)*dd).toFixed(1)}px;--y:${(Math.sin(a)*dd).toFixed(1)}px;--d:${(Math.random()*.15).toFixed(2)}s;--s:${(.6+Math.random()*.8).toFixed(2)}"></i>`}d.innerHTML=h;sc.appendChild(d);setTimeout(()=>d.remove(),1300)}
 function fx(cls,x,y,html){const sc=$('hoSc');const d=document.createElement('div');d.className=cls;d.style.left=x/G.room.w*100+'%';d.style.top=y/G.room.h*100+'%';if(html)d.innerHTML=html;sc.appendChild(d);setTimeout(()=>d.remove(),1900)}
 function click(e){if(!G||G.end)return;const now=Date.now();if(now<G.lock){fx('ho-x',...pos(e));mu.play('wrong',.4);return}if(now-G.last<250)return;G.last=now;const [x,y]=pos(e),p=hitAt(x,y),a=act();document.querySelectorAll('.ho-ring').forEach(r=>r.remove());
