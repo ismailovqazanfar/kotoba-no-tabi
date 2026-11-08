@@ -11845,7 +11845,7 @@ const mu=(()=>{let ac=null,mg=null,rv=null,tm=0,pad=[];const on=()=>{const b=HO(
  /* musiqi: WebAudio ilə tikişsiz dövr; hər otağın öz mahnısı (music/ho/<otaq>.mp3), yoxdursa theme.mp3 */
  let cur=null,want='';const MB={};
  function mbuf(u){if(!MB[u])MB[u]=fetch(u).then(r=>{if(!r.ok)throw 0;return r.arrayBuffer()}).then(a=>new Promise((ok,no)=>ac.decodeAudioData(a,ok,no)));return MB[u]}
- const MT={/* öz mahnısı olan otaqlar: r1:1,m1:1,m2:1 */};function track(){const id=G&&G.room&&G.room.id;return id&&MT[id]?'music/ho/'+id+'.mp3':'music/ho/theme.mp3'}
+ const MT={r1:1,m1:1,m2:1};function track(){const id=G&&G.room&&G.room.id;return id&&MT[id]?'music/ho/'+id+'.mp3':'music/ho/theme.mp3'}
  function startBuf(u,b){if(!on()||want!==u)return;if(cur&&cur.u===u)return;const old=cur,t=ac.currentTime,src=ac.createBufferSource(),g=ac.createGain();src.buffer=b;src.loop=true;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.38,t+3);src.connect(g);g.connect(ac.destination);src.start();cur={u,s:src,g};if(old){old.g.gain.cancelScheduledValues(t);old.g.gain.setValueAtTime(old.g.gain.value,t);old.g.gain.linearRampToValueAtTime(0,t+1.5);setTimeout(()=>{try{old.s.stop()}catch(_){}},1700)}}
  function start(){if(!on())return;init();if(!ac)return;ac.resume&&ac.resume();mg.gain.setTargetAtTime(.55,ac.currentTime,.3);const u=track();want=u;if(cur&&cur.u===u){const t=ac.currentTime;cur.g.gain.cancelScheduledValues(t);cur.g.gain.setValueAtTime(cur.g.gain.value,t);cur.g.gain.linearRampToValueAtTime(.38,t+1.5);return}
   mbuf(u).then(b=>startBuf(u,b)).catch(()=>{const f='music/ho/theme.mp3';if(u===f)return;want=f;mbuf(f).then(b=>startBuf(f,b)).catch(()=>{})})}
