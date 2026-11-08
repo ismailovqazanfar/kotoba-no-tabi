@@ -11661,7 +11661,7 @@ addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKe
  else ok=false;if(ok){e.preventDefault();if(isOn())setTimeout(()=>document.querySelectorAll('[data-kt]').forEach(x=>x.setAttribute('aria-pressed',pr(x.dataset.kt))),40)}});
 setTimeout(()=>{setb();apply()},0);
 })();/*/KYO3*/
-/*HO*/const HOV='b6d31d07';
+/*HO*/const HOV='85068da6';
 /* v168: Gizli əşyalar (探し物) – otaqda yaponca adı verilən əşyanı tap */
 setTimeout(()=>{if(typeof PF==='undefined')return;
 const L3=(a,e,r)=>SL({az:a,en:e,ru:r}),$=id=>document.getElementById(id),LG=()=>(PF.lang||'az');
@@ -11770,7 +11770,9 @@ function ovs(room,pl){if(room.sc)return [];const O=D.ov||{},K=shuf(Object.keys(O
 const HO=()=>{const b=PF.ho=PF.ho||{};b.st=b.st||{};b.lv=b.lv||0;b.w=b.w||{};return b};
 const NLV=()=>ROOMS().length*LVPER;
 function cfg(n){const d=n<0?6:n;return{N:Math.min(14,8+(d/2|0)),T:Math.max(150,300-d*12),H:3,MM:d<6?10:d<10?8:6}}
-function start(n){if(n==null)n=-1;const L=ROOMS();const ri=n<0?L[Math.random()*L.length|0]:L[(n/LVPER|0)%L.length];const c=cfg(n);N=c.N;
+function needRoom(R){if(!R.f||R._ok)return Promise.resolve(true);if(R._p)return R._p;R._p=new Promise(ok=>{const s3=document.createElement('script');s3.src=R.f+'?v='+HOV;s3.onload=()=>{const x=window['KOTOBA_HO_R_'+R.id];if(!x){R._p=null;ok(false);return}R.bg=x.bg;const P=D.pools[R.pool];Object.keys(x.i).forEach(k=>{if(P[k])P[k].i=x.i[k]});R._ok=1;try{delete window['KOTOBA_HO_R_'+R.id]}catch(_){}ok(true)};s3.onerror=()=>{R._p=null;ok(false)};document.head.appendChild(s3)});return R._p}
+function hoWait(){let w=$('hoW');if(!w){document.body.insertAdjacentHTML('beforeend','<div class="ho-w" id="hoW" role="dialog" aria-modal="true"></div>');w=$('hoW');document.documentElement.classList.add('bd-lock')}if(G)clearInterval(G.tm);w.innerHTML='<div class="ho-vp" style="position:relative;height:100%"><div class="ho-ldr"><i></i><span class="jp" lang="ja">探し物</span></div></div>'}
+function start(n){if(n==null)n=-1;const L=ROOMS();const ri=arguments.length>1?arguments[1]:(n<0?L[Math.random()*L.length|0]:L[(n/LVPER|0)%L.length]);if(D.rooms[ri].f&&!D.rooms[ri]._ok){hoWait();needRoom(D.rooms[ri]).then(ok=>{if(ok)start(n,ri);else{try{toast(L3('Otaq yüklənmədi','Room failed to load','Комната не загрузилась'))}catch(_){}map()}});return}const c=cfg(n);N=c.N;
  const room=D.rooms[ri],pl=layout(room);G={room,ri,lv:n,c,pl,ov:ovs(room,pl),targets:pl.slice(0,N).map(p=>bw(p.k)),found:new Set(),miss:0,hint:0,t0:Date.now(),pause:0,done:[],err:{},z:1,last:0,mt:[],lock:0};draw()}
 function used(){return (Date.now()-G.t0-G.pause)/1000}
 function stars(){const u=used()/G.c.T;let p=(G.miss>=2)+(G.miss>=5)+G.hint+(u>.6)+(u>.85);return Math.max(1,5-p)}
@@ -11827,7 +11829,7 @@ function map(){if(G)clearInterval(G.tm);G=null;let w=$('hoW');if(!w){document.bo
  const b=HO(),L=ROOMS();
  w.innerHTML=`<div class="ho-hd"><div class="ho-tt"><span class="jp" lang="ja">探し物</span><b>${E(L3('Bölmələr','Chapters','Главы'))}</b></div><div class="ho-st"><span>★ ${Object.values(b.st).reduce((a,c)=>a+c,0)}/${NLV()*5}</span></div><button class="ho-ib${mu.on()?' on':''}" data-ho="mu" id="hoMu" aria-label="♫">♫</button><button class="ho-ib${mu.sx()?' on':''}" data-ho="sx" id="hoSx" aria-label="🔔">🔔</button><button class="ho-ib" data-ho="x" aria-label="✕">✕</button></div>
  <div class="ho-mp">
- ${L.map((ri,c)=>{const r=D.rooms[ri];return `<section class="ho-chp"><div class="ho-cb" style="background-image:url(${r.bg.length<300?r.bg:'data:image/webp;base64,'+r.bg})"><span>${E(L3('Bölmə','Chapter','Глава'))} ${c+1}</span><b>${E(L3(...(RN[r.id]||['','',''])))}</b></div><div class="ho-lvs">${Array.from({length:LVPER},(_,i)=>{const n=c*LVPER+i,lk=n>b.lv,st=b.st[n]||0;return `<button class="ho-lv${lk?' lk':''}${st?' dn':''}" ${lk?'disabled':`data-ho="lv" data-n="${n}"`}><b>${lk?'🔒':i+1}</b><small>${lk?'':'★'.repeat(st)+'<i>'+'★'.repeat(5-st)+'</i>'}</small></button>`}).join('')}</div></section>`}).join('')}
+ ${L.map((ri,c)=>{const r=D.rooms[ri];return `<section class="ho-chp"><div class="ho-cb" style="background-image:url(${(r.th||r.bg).length<300?(r.th||r.bg)+'?v='+HOV:'data:image/webp;base64,'+(r.th||r.bg)})"><span>${E(L3('Bölmə','Chapter','Глава'))} ${c+1}</span><b>${E(L3(...(RN[r.id]||['','',''])))}</b></div><div class="ho-lvs">${Array.from({length:LVPER},(_,i)=>{const n=c*LVPER+i,lk=n>b.lv,st=b.st[n]||0;return `<button class="ho-lv${lk?' lk':''}${st?' dn':''}" ${lk?'disabled':`data-ho="lv" data-n="${n}"`}><b>${lk?'🔒':i+1}</b><small>${lk?'':'★'.repeat(st)+'<i>'+'★'.repeat(5-st)+'</i>'}</small></button>`}).join('')}</div></section>`}).join('')}
  <button class="btn" data-ho="free" style="--c:var(--tea);margin:6px auto 18px;display:block">${E(L3('Sərbəst oyun','Free play','Свободная игра'))}</button></div>`;mu.sync()}
 /* mistik musiqi: WebAudio ilə yaradılır, fayl yoxdur; in-sen gamması, yumşaq pad + nadir zınqırov */
 const mu=(()=>{let ac=null,mg=null,rv=null,tm=0,pad=[];const on=()=>{const b=HO();return b.mu!==0};
