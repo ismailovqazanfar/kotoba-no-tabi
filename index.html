@@ -11357,7 +11357,168 @@ addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKe
  else ok=false;if(ok){e.preventDefault();if(isOn())setTimeout(()=>document.querySelectorAll('[data-kt]').forEach(x=>x.setAttribute('aria-pressed',pr(x.dataset.kt))),40)}});
 setTimeout(()=>{setb();apply()},0);
 })();/*/KYO3*/
-/*HO*/const HOV='1adb802c';
+/* v127: Nailiyyətlər – 147 nişan, şərtlər, bölmə, bildiriş */
+setTimeout(()=>{if(typeof PF==='undefined'||typeof LS==='undefined')return;
+const BD=()=>{PF.bd=PF.bd||{};const b=PF.bd;b.got=b.got||{};b.nw=b.nw||{};b.kana=b.kana||{};b.shad=b.shad||{};b.th=b.th||{};b.j=b.j||{};b.cw=b.cw||0;b.days=b.days||[];b.sc=b.sc||{};b.tm=b.tm||{};b.shn=b.shn||0;b.wc=b.wc||0;return b};
+const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
+const BDV='8530140c';let IMG=null,IMGL=null;
+function bdImgs(){if(IMG)return Promise.resolve(IMG);if(IMGL)return IMGL;IMGL=new Promise(res=>{const done=o=>{IMG=o||{};res(IMG)};const inl=document.getElementById('bdpack');if(inl&&inl.textContent.length>100){try{done(JSON.parse(inl.textContent))}catch(_){done({})}return}
+ if(window.KOTOBA_BD){done(window.KOTOBA_BD);return}const sc=document.createElement('script');sc.src='badges.js?v='+BDV;sc.onload=()=>done(window.KOTOBA_BD);sc.onerror=()=>{fetch('badges.js?v='+BDV,{cache:'no-cache'}).then(r=>r.text()).then(t=>done(JSON.parse(t.slice(t.indexOf('{'),t.lastIndexOf('}')+1)))).catch(()=>{IMGL=null;res({})})};document.head.appendChild(sc);setTimeout(()=>{if(!IMG){IMGL=null;res({})}},20000)});return IMGL}
+const src=c=>IMG&&IMG[c]?'data:image/webp;base64,'+IMG[c]:'';window.bdImgs=bdImgs;window.bdSrc=src;
+/* ---- statistika ---- */
+const REG=[['Hokkaido',['otaru','onuma']],['Tohoku',['matsushima','hirosaki','kakunodate','ouchijuku']],['Kanto',['kawagoe','enoshima','takao']],['Chubu',['fuji','shirakawa','miho','kurobe','kamikochi','azumino','yuzawa']],['Kansai',['yoshino','arima','amanohashidate','shirahama']],['Chugoku',['miyajima','kurashiki','akiyoshidai','korakuen','adachi','daisen']],['Shikoku',['uchiko','shimanto','shodoshima']],['Kyushu və Okinawa',['yakushima','yufuin','taketomi','hashima','takachiho','takasakiyama']]];
+const KC=[['Prefekturalar və bölgələr',['P','reg']],['Adalar',['I','isl']],['Dənizlər, boğazlar, körfəzlər, burunlar',['sea','strait','whirl','bay','cape']],['Dağlar və vulkanlar',['mtn','volc','rng']],['Göllər, çaylar, şəlalə, bənd',['lake','river','falls','dam']],['Qalalar, qüllə, körpülər',['tower','castle','fort','bridge']],['Təbiət və heyvanlar',['bear','crane','monkey','shark','whale','ice','dune','dog','flower']],['Onsen və yerli dad',['onsen','food']]];
+const GEND=['END_brothers','END_hungry','END_gift_work','END_gift_ocean','END_job','END_apprentice','END_recipe','END_sumo','END_okono','END_karaoke','END_grand_photo','END_grand_letter','END_view','END_tv','END_spark','END_tea_friend','END_stage','END_comedy_notes','END_misaki','END_aquarium','END_honest','END_osaka'];
+const MODES=['light','dark','contrast','edo','pirat','matsuri','manga','kiber','piksel','kosmos','okean','sakura','qezet','kyo'];
+function stats(){const b=BD(),X={};let s;
+ X.done=[];for(let n=0;n<=35;n++)X.done[n]=(()=>{try{return lessonDone(n)}catch(_){return false}})();
+ X.dc=X.done.slice(1).filter(Boolean).length;
+ X.got=[];X.perf=0;let qs=0,qt=0,qc=0;
+ for(let n=1;n<=35;n++){const L=LS[n];s=n===C.n?st:ldStore(n);const g=s.got||{},k=Object.values(g).filter(Boolean).length;X.got[n]=L&&L.grammar&&L.grammar.length&&k>=L.grammar.length;
+  const q=(L&&L.quiz)||[],qa=s.quiz||{};if(q.length){const ok=q.filter((x,i)=>qa[i]===x[3]).length;if(Object.keys(qa).length>=q.length){b.qf=b.qf||{};if(ok<q.length)b.qf[n]=1;else if(b.qf[n])b.j.pat=1}qc+=ok;qs+=ok/q.length;qt++;if(ok===q.length)X.perf++}}
+ X.qavg=qt?qs/qt:0;
+ let mc=0,lv=0,weak=0;for(const k in MS.w){const e=MS.w[k];mc+=e.c||0;const l=msLevel(k);if(l>=3)lv++;if(l===1)weak++}
+ X.correct=mc+qc;X.words=lv;X.weak=weak;
+ const D=[...new Set([...MS.days,...b.days])].map(msDN).sort((a,b)=>a-b);let best=0,run=0;D.forEach((d,i)=>{run=i&&d===D[i-1]+1?run+1:1;best=Math.max(best,run)});X.streak=best;
+ const hid=(PF.hid)||{};X.hidOk=REG.map(([,ids])=>ids.filter(i=>hid[i]).length);X.hidAll=Object.keys(hid).filter(k=>hid[k]).length;
+ const geo=PF.geo||{};X.geo=Object.keys(geo).length;
+ const tot={},has={};const add=(c,id)=>{tot[c]=(tot[c]||0)+1;if(geo[id])has[c]=(has[c]||0)+1};
+ try{GEO.pref.forEach(p=>add('P','p_'+p[0]))}catch(_){}try{Object.keys(GMI).forEach(k=>add('I','is_'+k))}catch(_){}try{GMF.forEach(f=>add(f[1],f[0]))}catch(_){}
+ X.kc=KC.map(([,t])=>[t.reduce((a,c)=>a+(has[c]||0),0),t.reduce((a,c)=>a+(tot[c]||0),0)]);
+ let kt=0,kl=0;try{for(const c in KJ){const n=KJ[c][5];if(n>=1&&n<=35){kt++;if(X.done[n])kl++}}}catch(_){}X.kanji=kt?Math.floor(kl/kt*100):0;
+ let ends=[];try{ends=storyEnds()}catch(_){}X.ends=ends;
+ let sc=0;try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(/^kotoba-(.*best.*|s4\d+|fd\d+|sa-.+|sb-.+|r28|ct|clin-best)$/.test(k))sc++}}catch(_){}X.scenes=Object.keys(b.sc).length;
+ const kh=(KB||[]).filter(c=>(b.kana['h'+c]||0)>=2).length,kk=(KB||[]).filter(c=>(b.kana['k'+c]||0)>=2).length;X.kh=kh;X.kk=kk;X.kn=(KB||[]).length||46;
+ X.th=MODES.filter(m=>(b.tm[m]||0)>=600).length;
+ if(b.wp>0&&weak===0)b.wc++;b.wp=weak;X.wc=b.wc;
+ X.shn=b.shn;X.shl=Object.keys(b.shad).length;X.cw=b.cw;
+ let vis=0;for(let n=0;n<=35;n++){try{if(localStorage.getItem('kotoba-l'+n)||X.done[n])vis++}catch(_){}}X.vis=vis;
+ return X}
+/* ---- nişan tərifləri ---- */
+const BTD={"Hokkaido":["Hokkaido","Хоккайдо"],"Tohoku":["Tohoku","Тохоку"],"Kanto":["Kanto","Канто"],"Chubu":["Chubu","Тюбу"],"Kansai":["Kansai","Кансай"],"Chugoku":["Chugoku","Тюгоку"],"Shikoku":["Shikoku","Сикоку"],"Giriş stansiyası":["Starting station","Начальная станция"],"Giriş dərsi tamamlandı":["Intro lesson completed","Вводный урок пройден"],"Dərsin bütün qaydaları öyrənildi":["All rules of the lesson learned","Все правила урока изучены"],
+"Bölgənin bütün gizli dayanacaqları":["All hidden stops of the region","Все тайные остановки региона"],"Bütün Yaponiya":["All of Japan","Вся Япония"],"35 gizli dayanacağın hamısı":["All 35 hidden stops","Все 35 тайных остановок"],"Kyushu və Okinawa":["Kyushu and Okinawa","Кюсю и Окинава"],
+"Hekayənin sonluğu tapıldı":["Story ending found","Концовка истории найдена"],"Bütün sonluqlar":["All endings","Все концовки"],"22 sonluğun hamısı tapıldı":["All 22 endings found","Найдены все 22 концовки"],
+"Gecə bayquşu":["Night owl","Ночная сова"],"Gecə yarısından sonra məşq":["Practice after midnight","Занятие после полуночи"],"Perfeksionist":["Perfectionist","Перфекционист"],"Səhvsiz kana testi":["Flawless kana test","Тест каны без ошибок"],"İldırım sürəti":["Lightning speed","Скорость молнии"],"Bir dəqiqədən tez kana testi":["Kana test in under a minute","Тест каны быстрее минуты"],"Qayıdış":["The return","Возвращение"],"Uzun fasilədən sonra qayıdış":["Back after a long break","Возвращение после долгого перерыва"],"Kölgə ustası":["Shadow master","Мастер тени"],"Bütün dərslərdə kölgə məşqi":["Shadowing in every lesson","Шэдоуинг во всех уроках"],"Kaşif":["Explorer","Первооткрыватель"],"Bütün dərslər kəşf edildi":["Every lesson explored","Все уроки открыты"],
+"Kateqoriyanın bütün obyektləri":["Every object in the category","Все объекты категории"],"Prefekturalar və bölgələr":["Prefectures and regions","Префектуры и регионы"],"Adalar":["Islands","Острова"],"Dənizlər, boğazlar, körfəzlər, burunlar":["Seas, straits, bays, capes","Моря, проливы, заливы, мысы"],"Dağlar və vulkanlar":["Mountains and volcanoes","Горы и вулканы"],"Göllər, çaylar, şəlalə, bənd":["Lakes, rivers, falls, dam","Озёра, реки, водопад, плотина"],"Qalalar, qüllə, körpülər":["Castles, tower, bridges","Замки, башня, мосты"],"Təbiət və heyvanlar":["Nature and animals","Природа и животные"],"Onsen və yerli dad":["Onsen and local flavours","Онсэны и местные вкусы"],
+"Hiragana":["Hiragana","Хирагана"],"Katakana":["Katakana","Катакана"],"Bütün hiragana öyrənildi":["All hiragana learned","Вся хирагана изучена"],"Bütün katakana öyrənildi":["All katakana learned","Вся катакана изучена"],"Hər iki əlifba":["Both scripts","Обе азбуки"],"Hiragana və katakana öyrənildi":["Hiragana and katakana learned","Хирагана и катакана изучены"],
+"14 dünya":["14 worlds","14 миров"],"14 rejimin hər birində 10 dəqiqə":["10 minutes in each of 14 modes","По 10 минут в каждом из 14 режимов"],"Səyahət tamamlandı":["Journey complete","Путешествие завершено"],"35 dərs tamamlandı":["35 lessons completed","Пройдено 35 уроков"],"Fərqlənmə ilə":["With distinction","С отличием"],"Orta test nəticəsi 90%+":["Average test score 90%+","Средний результат тестов 90%+"]};
+const BTP=[[/^(\d+) krossvord$/,['$1 crosswords','Кроссворды: $1']],[/^(\d+) krossvord həll edildi$/,['$1 crosswords solved','Решено кроссвордов: $1']],[/^(\d+) düz cavab$/,['$1 correct answers','Верных ответов: $1']],[/^(\d+) düz cavab verildi$/,['$1 correct answers given','Дано верных ответов: $1']],[/^(\d+) dərs$/,['$1 lessons','Уроков: $1']],[/^(\d+) dərs tamamlandı$/,['$1 lessons completed','Пройдено уроков: $1']],[/^(\d+) səhnə$/,['$1 scenes','Сцен: $1']],[/^(\d+) interaktiv səhnə oynanıldı$/,['$1 interactive scenes played','Сыграно интерактивных сцен: $1']],[/^Kancinin (\d+)%-i$/,['$1% of kanji','$1% кандзи']],[/^Kursdakı kancinin (\d+)%-i$/,['$1% of the course kanji','$1% кандзи курса']],[/^(\d+) gün$/,['$1 days','Дней: $1']],[/^(\d+) gün dalbadal məşq$/,['$1 days of practice in a row','$1 дней занятий подряд']],[/^(\d+) kəşf$/,['$1 discoveries','Открытий: $1']],[/^(\d+) obyekt kəşf edildi$/,['$1 objects discovered','Открыто объектов: $1']],[/^(\d+) mükəmməl test$/,['$1 perfect tests','Идеальных тестов: $1']],[/^(\d+) dərs testi səhvsiz$/,['$1 lesson tests without mistakes','Тестов уроков без ошибок: $1']],[/^(\d+) söz$/,['$1 words','Слов: $1']],[/^(\d+) söz möhkəm öyrənildi$/,['$1 words firmly learned','Прочно выучено слов: $1']],[/^(\d+) təmizlik$/,['$1 clean-ups','Очисток: $1']],[/^Zəif sözlər (\d+) dəfə təmizləndi$/,['Weak words cleared $1 times','Слабые слова очищены $1 раз']],[/^(\d+) kölgə məşqi$/,['$1 shadowings','Шэдоуингов: $1']],[/^(\d+) kölgə məşqi bitirildi$/,['$1 shadowing sessions completed','Завершено шэдоуингов: $1']]];
+const bt=s=>{const l=(PF&&PF.lang)||'az';if(l==='az'||!s)return s;const i=l==='en'?0:1;if(BTD[s])return BTD[s][i];for(const [re,o] of BTP)if(re.test(s))return s.replace(re,o[i]);return s};
+const DEF=[];const G={};
+const grp=(k,a,e,r)=>{G[k]=[a,e,r]};
+const def=(c,g,t,d,v,n,sec)=>DEF.push({c,g,t,d,v,n,sec});
+const nm=n=>{const m=LS[n]&&LS[n].meta;return m?tx(m.az):''};
+grp('A','Öyrəndim stikerləri','Learned stickers','Наклейки «Выучено»');
+def('A00','A','Giriş stansiyası','Giriş dərsi tamamlandı',X=>X.done[0]?1:0,1);
+for(let n=1;n<=35;n++)def('A'+String(n).padStart(2,'0'),'A',()=>n+'. '+nm(n),'Dərsin bütün qaydaları öyrənildi',X=>X.got[n]?1:0,1);
+grp('B','Krossvord','Crosswords','Кроссворды');[5,15,30,50,80,120,170,230,280].forEach((n,i)=>def('B0'+(i+1),'B',n+' krossvord',n+' krossvord həll edildi',X=>X.cw,n));
+grp('C','Düz cavablar','Correct answers','Верные ответы');[50,150,300,600,1000,2000].forEach((n,i)=>def('C0'+(i+1),'C',n+' düz cavab',n+' düz cavab verildi',X=>X.correct,n));
+grp('D','Gizli dayanacaqlar','Hidden stops','Тайные остановки');REG.forEach(([r,ids],i)=>def('D0'+(i+1),'D',r,'Bölgənin bütün gizli dayanacaqları',X=>X.hidOk[i],ids.length));def('D09','D','Bütün Yaponiya','35 gizli dayanacağın hamısı',X=>X.hidAll,35);
+grp('E','Dərs mərhələləri','Lesson milestones','Этапы уроков');[5,10,15,20,25,30,35].forEach((n,i)=>def('E0'+(i+1),'E',n+' dərs',n+' dərs tamamlandı',X=>X.dc,n));
+grp('F','Səhnə ustası','Scene master','Мастер сцен');[3,7,12,18,25,35].forEach((n,i)=>def('F0'+(i+1),'F',n+' səhnə',n+' interaktiv səhnə oynanıldı',X=>X.scenes,n));
+grp('G','Osakada bir gün','A day in Osaka','День в Осаке');GEND.forEach((e,i)=>def('G'+String(i+1).padStart(2,'0'),'G',()=>(ENDS[e]?ENDS[e][1]:e),'Hekayənin sonluğu tapıldı',X=>X.ends.includes(e)?1:0,1));def('G23','G','Bütün sonluqlar','22 sonluğun hamısı tapıldı',X=>GEND.filter(e=>X.ends.includes(e)).length,22);
+grp('H','Kanci','Kanji','Кандзи');[10,25,50,75,100].forEach((n,i)=>def('H0'+(i+1),'H','Kancinin '+n+'%-i','Kursdakı kancinin '+n+'%-i',X=>X.kanji,n));
+grp('I','Ardıcıl günlər','Day streak','Серия дней');[3,7,14,30,60,100].forEach((n,i)=>def('I0'+(i+1),'I',n+' gün',n+' gün dalbadal məşq',X=>X.streak,n));
+grp('J','Gizli nailiyyətlər','Secret achievements','Тайные достижения');grp('S','Sagashimono','Sagashimono','Sagashimono');
+{const H=()=>PF.ho||{},ST=()=>H().st||{},LN=()=>Object.values(H().w||{}).filter(c=>c>=50).length,CHD=(c,f)=>{const s=ST();for(let i=c*6;i<c*6+6;i++)if(!f(s[i]||0))return 0;return 1},NC=()=>Math.max(1,Math.ceil((H().lvMax||12)/6));
+[['S01','İlk iz','İlk mərhələni bitir',()=>H().n||0,1,0],['S02','Göz kəskinliyi','Bir mərhələni 5 ulduzla bitir',()=>H().p5||0,1,0],['S03','Ruhların sükutu','5 mərhələni ipucusuz bitir',()=>H().nh||0,5,0],
+ ['S04','İldırım barmaq','Mərhələni 60 saniyədən tez bitir',()=>H().fast&&H().fast<60?1:0,1,1],['S05','Kolleksiyaçı','Cəmi 500 əşya tap',()=>H().tf||0,500,0],['S06','Söz ustası','10 söz öyrən (hər biri 50 dəfə tapılsın)',LN,10,0],
+ ['S07','Çay köşkünün dostu','2-ci bölmənin bütün mərhələlərini bitir',()=>CHD(1,v=>v>0),1,0],['S08','Mükəmməl bölmə','Bir bölmənin bütün mərhələlərini 5 ulduzla bitir',()=>{for(let c=0;c<NC();c++)if(CHD(c,v=>v>=5))return 1;return 0},1,1],
+ ['S09','Tülkü ruhunun xeyir-duası','Bütün bölmələri bitir',()=>H().all?1:0,1,0],['S10','Sagashimono ustası','50 söz öyrən',LN,50,0]].forEach(([c,t,d,f,n,sec])=>def(c,'S',t,d,X=>f(),n,sec))}
+window.bdEvalSoon=()=>{try{soon()}catch(_){}};
+
+[['J01','Gecə bayquşu','Gecə yarısından sonra məşq','night'],['J02','Perfeksionist','Səhvsiz kana testi','perfect'],['J03','İldırım sürəti','Bir dəqiqədən tez kana testi','fast'],['J04','Qayıdış','Uzun fasilədən sonra qayıdış','ret'],['J05','Kölgə ustası','Bütün dərslərdə kölgə məşqi','shadow'],['J06','Kaşif','Bütün dərslər kəşf edildi','expl']].forEach(([c,t,d,k])=>def(c,'J',t,d,X=>BD().j[k]?1:0,1,1));def('T01','J','14 dünya','14 rejimin hər birində 10 dəqiqə',X=>X.th,14,1);
+[['J07','Erkən quş','Səhər 5:00–7:00 arası məşq','early'],['J08','Marafonçu','Bir gündə 60 dəqiqə aktiv məşq','mara'],['J09','Dirəniş','Üç səhvdən sonra düz cavab','resil'],['J10','Bayram ruhu','Yeni il və ya Tanabata günü məşq','fest'],['J11','Səs ovçusu','100 dəfə səsləndirmə','sound'],['J12','Sonluq ovçusu','Bir gündə 3 fərqli hekayə sonluğu','endh'],['J13','Səbirli tələbə','Səhvli dərs testini səhvsiz təkrar keçmək','pat'],['J14','Sakit gecə','Musiqi və ya təbiət səsi ilə 30 dəqiqə məşq','quiet']].forEach(([c,t,d,k])=>def(c,'J',t,d,X=>BD().j[k]?1:0,1,1));
+Object.assign(BTD,{'Erkən quş':['Early bird','Ранняя пташка'],'Səhər 5:00–7:00 arası məşq':['Practice between 5:00 and 7:00','Занятие с 5:00 до 7:00'],'Marafonçu':['Marathoner','Марафонец'],'Bir gündə 60 dəqiqə aktiv məşq':['60 minutes of active practice in a day','60 минут активных занятий за день'],'Dirəniş':['Resilience','Стойкость'],'Üç səhvdən sonra düz cavab':['Right answer after three mistakes','Верный ответ после трёх ошибок'],'Bayram ruhu':['Festival spirit','Дух праздника'],'Yeni il və ya Tanabata günü məşq':['Practice on New Year or Tanabata','Занятие в Новый год или Танабату'],'Səs ovçusu':['Sound hunter','Охотник за звуками'],'100 dəfə səsləndirmə':['100 audio plays','100 озвучиваний'],'Sonluq ovçusu':['Ending hunter','Охотник за концовками'],'Bir gündə 3 fərqli hekayə sonluğu':['3 different story endings in one day','3 разные концовки истории за день'],'Səbirli tələbə':['Patient learner','Терпеливый ученик'],'Səhvli dərs testini səhvsiz təkrar keçmək':['Retake a failed lesson test without mistakes','Пересдать урок без ошибок'],'Sakit gecə':['Quiet night','Тихая ночь'],'Musiqi və ya təbiət səsi ilə 30 dəqiqə məşq':['30 minutes of practice with music or nature sounds','30 минут занятий с музыкой или звуками природы']});
+grp('K','Xəritə kəşfləri','Map discoveries','Открытия на карте');KC.forEach(([t],i)=>def('K0'+(i+1),'K',t,'Kateqoriyanın bütün obyektləri',X=>X.kc[i][0],X=>X.kc[i][1]||1));
+grp('N','Kəşf sayı','Discoveries','Число открытий');[10,25,50,100,150,211].forEach((n,i)=>def('N0'+(i+1),'N',n+' kəşf',n+' obyekt kəşf edildi',X=>X.geo,n));
+grp('O','Kana','Kana','Кана');def('O01','O','Hiragana','Bütün hiragana öyrənildi',X=>X.kh,X=>X.kn);def('O02','O','Katakana','Bütün katakana öyrənildi',X=>X.kk,X=>X.kn);def('O03','O','Hər iki əlifba','Hiragana və katakana öyrənildi',X=>Math.min(X.kh,X.kk),X=>X.kn);
+grp('P','Mükəmməl testlər','Perfect tests','Идеальные тесты');[5,10,20,35].forEach((n,i)=>def('P0'+(i+1),'P',n+' mükəmməl test',n+' dərs testi səhvsiz',X=>X.perf,n));
+grp('Q','Söz ehtiyatı','Vocabulary','Словарный запас');[100,300,600,1000].forEach((n,i)=>def('Q0'+(i+1),'Q',n+' söz',n+' söz möhkəm öyrənildi',X=>X.words,n));
+grp('R','Zəif sözlər','Weak words','Слабые слова');[1,5,20].forEach((n,i)=>def('R0'+(i+1),'R',n+' təmizlik','Zəif sözlər '+n+' dəfə təmizləndi',X=>X.wc,n));
+
+grp('U','Kursun sonu','Course complete','Курс пройден');def('U01','U','Səyahət tamamlandı','35 dərs tamamlandı',X=>X.dc,35);def('U02','U','Fərqlənmə ilə','Orta test nəticəsi 90%+',X=>X.dc>=35&&X.qavg>=.9?1:0,1);
+grp('V','Kölgə məşqi','Shadowing','Шэдоуинг');[10,50,200].forEach((n,i)=>def('V0'+(i+1),'V',n+' kölgə məşqi',n+' kölgə məşqi bitirildi',X=>X.shn,n));
+const T_=d=>bt(typeof d.t==='function'?d.t():d.t),N_=(d,X)=>typeof d.n==='function'?d.n(X):d.n;
+/* ---- hesablama ---- */
+let LX=null,Q=[],busy=0;
+function bdEval(silent){const b=BD();let X;try{X=stats()}catch(e){return}LX=X;
+ if(X.vis>=36&&b.seen)b.j.expl=1;if(X.shl>=35)b.j.shadow=1;
+ const nw=[];DEF.forEach(d=>{if(!b.got[d.c]&&d.v(X)>=N_(d,X)){b.got[d.c]=Date.now();if(b.init)b.nw[d.c]=1;nw.push(d)}});
+ save();if(nw.length){if(!silent&&b.init)nw.forEach(d=>Q.push(d));bdPop();bdBadge()}
+ if(!b.init){b.init=1;save()}}
+let tm=0;const soon=()=>{clearTimeout(tm);tm=setTimeout(()=>bdEval(),900)};
+function bdPop(){if(busy||!Q.length)return;busy=1;const d=Q.shift();Promise.race([bdImgs(),new Promise(r=>setTimeout(r,1500))]).then(()=>{const el=document.createElement('div');el.className='bd-toast';el.innerHTML=`<img alt="" src="${src(d.c)}"><div><small>${L3('Yeni nişan','New badge','Новый значок')}</small><b>${esc(T_(d))}</b></div>`;el.onclick=()=>{el.remove();bdOpen(d.c)};document.body.appendChild(el);requestAnimationFrame(()=>el.classList.add('on'));setTimeout(()=>{el.classList.remove('on');setTimeout(()=>{el.remove();busy=0;bdPop()},400)},3800)})}
+/* ---- qarmaqlar ---- */
+const night=()=>{const D=new Date(),h=D.getHours(),j=BD().j;if(h<4)j.night=1;if(h>=5&&h<7)j.early=1;const md=(D.getMonth()+1)+'-'+D.getDate();if(md==='1-1'||md==='7-7')j.fest=1};
+let LA=0;['click','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{LA=Date.now()},{capture:true,passive:true}));
+document.addEventListener('click',e=>{const t=e.target;if(t.closest&&t.closest('[data-say]')){const b=BD();b.say=(b.say||0)+1;if(b.say>=100)b.j.sound=1;save();soon()}},true);
+window.bdEnd=k=>{const b=BD(),d=msDay();if(b.ed!==d){b.ed=d;b.el=[]}if(!b.el.includes(k))b.el.push(k);if(b.el.length>=3)b.j.endh=1;save();soon()};
+try{const o=msRec;msRec=function(w0,r0,ok0){night();if(w0){const b=BD(),k=w0+'|'+(r0||w0);b.fs=b.fs||{};if(ok0){if((b.fs[k]||0)>=3)b.j.resil=1;delete b.fs[k]}else b.fs[k]=(b.fs[k]||0)+1}const r=o.apply(this,arguments);soon();return r}}catch(_){}
+try{const o=kqStart;kqStart=function(){const r=o.apply(this,arguments);KQ._t0=Date.now();KQ._bd=0;return r}}catch(_){}
+try{const o=kqAnswer;kqAnswer=function(ok){if(KQ.done)return o.apply(this,arguments);const q=KQ.qs&&KQ.qs[KQ.i];const r=o.apply(this,arguments);if(ok&&q&&q.h){const k=(q.sc||'h')+q.h;BD().kana[k]=(BD().kana[k]||0)+1}night();soon();return r}}catch(_){}
+try{const o=kqShow;kqShow=function(){const r=o.apply(this,arguments);if(KQ.qs&&KQ.i>=KQ.qs.length&&!KQ._bd){KQ._bd=1;const n=KQ.qs.length,j=BD().j;if(KQ.ok===n&&n>=5)j.perfect=1;if(n>=10&&KQ._t0&&Date.now()-KQ._t0<60000&&KQ.ok/n>=.8)j.fast=1;save();soon()}return r}}catch(_){}
+try{const o=cwUI;cwUI=function(){const r=o.apply(this,arguments);if(CW&&CW.P&&!CW._bd&&CW.P.length&&CW.P.every(p=>p.ok)){CW._bd=1;BD().cw++;save();soon()}return r}}catch(_){}
+try{const o=toast;const SH=STR["ui.shadowing-finished-great-job"]||[];toast=function(m){if(SH.includes(m)){const b=BD();b.shn++;if(C.n>=1&&C.n<=35)b.shad[C.n]=1;save();soon()}return o.apply(this,arguments)}}catch(_){}
+try{const o=render;render=function(){const r=o.apply(this,arguments);soon();setTimeout(bdBtn,0);return r}}catch(_){}
+/* fəaliyyət günü, səhnə qarşılıqlı əlaqəsi, rejim vaxtı */
+let scN=0,scL=-1;
+document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;if(!t.closest('main,#stBox,.vqw,#kq,#cwBox,#fcw'))return;if(!t.closest('button,a,input,select,label,[data-say],[data-st],[role=button],svg,[data-g]'))return;const b=BD(),d=msDay();if(!b.days.includes(d)){b.days.push(d);if(b.days.length>400)b.days=b.days.slice(-400);save();soon()}
+ if(t.closest('#play')&&C.n>=1&&C.n<=35){if(scL!==C.n){scL=C.n;scN=0}if(++scN>=5&&!b.sc[C.n]){b.sc[C.n]=1;save();soon()}}},true);
+setInterval(()=>{if(document.hidden)return;const b=BD(),m=PF.theme&&PF.theme!=='auto'?PF.theme:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(m)b.tm[m]=(b.tm[m]||0)+15;if(Date.now()-LA<120000){const d=msDay();if(b.ad!==d){b.ad=d;b.as=0;b.qs=0}b.as+=15;if(b.as>=3600)b.j.mara=1;const snd=!PF.mute&&((PF.mus&&PF.mon!==false)||Object.values(PF.nat||{}).some(o=>o&&o.on));if(snd){b.qs=(b.qs||0)+15;if(b.qs>=1800)b.j.quiet=1}}if(PF.kyo)b.tm.kyo=(b.tm.kyo||0)+15},15000);
+/* klaviatura: IME Enter qoruması və romaji sahələrində düzən çevirməsi */
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.isComposing||e.keyCode===229))e.stopImmediatePropagation()},true);
+const RUQ={'й':'q','ц':'w','у':'e','к':'r','е':'t','н':'y','г':'u','ш':'i','щ':'o','з':'p','ф':'a','ы':'s','в':'d','а':'f','п':'g','р':'h','о':'j','л':'k','д':'l','я':'z','ч':'x','с':'c','м':'v','и':'b','т':'n','ь':'m','ё':'`'};
+const romaN=v=>{v=v.normalize('NFKC').replace(/İ/g,'i').replace(/ı/g,'i').toLowerCase();if(/[а-яё]/.test(v)&&!/[a-z]/.test(v))v=v.replace(/[а-яё]/g,c=>RUQ[c]||c);return v.replace(/ü/g,'w')};
+document.addEventListener('input',e=>{const t=e.target;if(!t||t.tagName!=='INPUT'||e.isComposing)return;if(!(t.id==='kqIn'||t.id==='t2in'||t.hasAttribute('data-cwi')))return;const v=t.value,n=romaN(v);if(n!==v){const p=t.selectionStart;t.value=n;try{t.setSelectionRange(p,p)}catch(_){}}},true);
+document.addEventListener('compositionend',e=>{const t=e.target;if(t&&(t.id==='kqIn'||t.id==='t2in'||(t.hasAttribute&&t.hasAttribute('data-cwi')))){const n=romaN(t.value);if(n!==t.value)t.value=n}},true);
+/* qayıdış: son məşq günündən 7+ gün keçibsə */
+try{const t=msDN(msDay()),ds=MS.days.map(msDN).filter(d=>d<t);if(ds.length&&t-Math.max(...ds)>=7)BD().j.ret=1}catch(_){}
+/* ---- düymə və bölmə ---- */
+function bdBadge(){const b=document.getElementById('bdOpen');if(b){const n=Object.keys(BD().nw).length,e=b.querySelector('em');e.textContent=n;e.hidden=!n}}
+function bdBtn(){if(document.getElementById('bdOpen'))return;const m=document.getElementById('mapOpen');if(!m)return;const b=document.createElement('button');b.className='mapb kob bd-btn';b.id='bdOpen';b.title=L3('Nailiyyətlər','Achievements','Достижения');b.setAttribute('aria-label',b.title);b.innerHTML=`<b class="jp" lang="ja">賞</b><span>${b.title}</span><em>0</em>`;m.after(b);bdBadge()}
+function bdOpen(focus){const b=BD();b.seen=1;Q.length=0;document.querySelectorAll('.bd-toast').forEach(x=>x.remove());busy=0;save();bdEval(true);const X=LX;(()=>{let w=document.getElementById('bdw');if(w)w.remove();w=document.createElement('div');w.id='bdw';w.className='bd-w';
+ const tot=DEF.length,got=DEF.filter(d=>b.got[d.c]).length;
+ const sg=g=>{const ds=DEF.filter(d=>d.g===g),gc=ds.filter(d=>b.got[d.c]).length;return `<section class="bd-g"><h3>${esc(L3(...G[g]))}<small>${gc} / ${ds.length}</small></h3><div class="bd-grid">${ds.map(d=>{const ok=b.got[d.c],hid=d.sec&&!ok;return `<button class="bd-it${ok?' ok':''}${hid?' bd-scr':''}" data-bd="${d.c}"><span class="bd-im${b.nw[d.c]?' nw':''}">${ok?`<img alt="" data-c="${d.c}" src="${src(d.c)}">`:'<i class="bd-lk">?</i>'}</span></button>`}).join('')}</div></section>`};const SP=[[['Səyahət','Journey','Путешествие'],'AEU'],[['Əlifba və sözlər','Scripts and words','Письменность и слова'],'OHQR'],[['Məşq','Practice','Практика'],'CPBVFI'],[['Kəşf','Exploration','Открытия'],'KNDGS'],[['Gizli','Secret','Тайное'],'JT']],US=new Set();const sec=SP.map(([t,gs])=>{const h=[...gs].filter(g=>G[g]).map(g=>{US.add(g);return sg(g)}).join('');return h?`<div class="bd-sp"><h4>${esc(L3(...t))}</h4>${h}</div>`:''}).join('')+Object.keys(G).filter(g=>!US.has(g)).map(sg).join('');
+ w.innerHTML=`<div class="bd-in" role="dialog" aria-modal="true"><div class="bd-hd"><b class="jp">賞</b><h2>${L3('Nailiyyətlər','Achievements','Достижения')}</h2><span class="bd-c">${got} / ${tot}</span><button class="bd-x" aria-label="${TID('ui.close')}">✕</button></div><div class="bd-bar"><i style="width:${Math.round(got/tot*100)}%"></i></div><div class="bd-body">${sec}</div><div class="bd-md" hidden></div></div>`;
+ document.body.appendChild(w);document.documentElement.classList.add('bd-lock');b.nw={};save();bdBadge();if(focus)bdDet(focus);if(IMG)w.classList.add('rdy');else bdImgs().then(bdFill)})()}
+function bdFill(){const w=document.getElementById('bdw');if(!w)return;const L=[...w.querySelectorAll('img[data-c]')];L.forEach(i=>{if(!i.getAttribute('src'))i.src=src(i.dataset.c)});
+ /* hamısı birlikdə, deşifrədən sonra yumşaq görünür – tək-tək yüklənmə görünmür */
+ const go=()=>w.classList.add('rdy');Promise.race([Promise.all(L.map(i=>i.decode?i.decode().catch(()=>{}):0)),new Promise(r=>setTimeout(r,2500))]).then(go)}
+/* nişan paketi boş vaxtda əvvəlcədən yüklənir ki, pəncərə açılanda hazır olsun */
+{const pl=()=>{try{bdImgs()}catch(_){}};window.addEventListener('load',()=>{('requestIdleCallback' in window)?setTimeout(()=>requestIdleCallback(pl,{timeout:8000}),3000):setTimeout(pl,5000)})}
+function bdDet(c){const d=DEF.find(x=>x.c===c),b=BD(),ok=b.got[c];if(!d||!ok)return;const md=document.querySelector('#bdw .bd-md');if(!md)return;
+ md.innerHTML=`<div class="bd-card ok"><button class="bd-x2" aria-label="${TID('ui.close')}">✕</button><div class="bd-big"><img alt="" data-c="${c}" src="${src(c)}"></div><h3>${esc(T_(d))}</h3><p>${esc(bt(d.d))}</p><p class="bd-date">${new Date(ok).toLocaleDateString(LANG()==='az'?'az-AZ':LANG()==='ru'?'ru-RU':'en-GB')}</p><button class="btn fill bd-shb" data-bdsh="${c}" style="--c:var(--pnk);margin-top:10px">${L3('Şəkil kimi yüklə','Save as image','Сохранить картинкой')}</button></div>`;md.hidden=false}
+function bdShare(c){const d=DEF.find(x=>x.c===c),ok=BD().got[c];if(!d||!ok||!IMG||!IMG[c])return;const im=new Image();im.onload=()=>{const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d'),F='Nunito,system-ui,sans-serif';
+ const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1b1844');g.addColorStop(1,'#43307a');x.fillStyle=g;x.fillRect(0,0,W,H);
+ x.fillStyle='rgba(255,255,255,.06)';for(let i=0;i<140;i++){x.beginPath();x.arc((i*97+31)%W,(i*233+17)%H,1.5+(i%3),0,7);x.fill()}
+ const cx=W/2,cy=560,R=290,rg=x.createRadialGradient(cx,cy,R*.7,cx,cy,R*1.45);rg.addColorStop(0,'rgba(255,210,110,.5)');rg.addColorStop(1,'rgba(255,210,110,0)');x.fillStyle=rg;x.fillRect(0,0,W,H);
+ x.save();x.beginPath();x.arc(cx,cy,R,0,7);x.clip();x.imageSmoothingQuality='high';x.drawImage(im,cx-R,cy-R,2*R,2*R);x.restore();
+ x.lineWidth=10;x.strokeStyle='#f3c96b';x.beginPath();x.arc(cx,cy,R+9,0,7);x.stroke();
+ x.textAlign='center';x.textBaseline='alphabetic';
+ const wr=(t,y,mw,lh)=>{const w=String(t).split(' ');let l='';for(const s of w){const tt=l?l+' '+s:s;if(x.measureText(tt).width>mw&&l){x.fillText(l,cx,y);y+=lh;l=s}else l=tt}if(l){x.fillText(l,cx,y);y+=lh}return y};
+ x.fillStyle='#f3c96b';x.font='800 34px '+F;x.fillText(L3('YENİ NİŞAN','NEW BADGE','НОВЫЙ ЗНАЧОК'),cx,170);
+ x.fillStyle='#fff';x.font='800 64px '+F;let y=wr(T_(d),1000,W-160,74);
+ x.fillStyle='rgba(255,255,255,.82)';x.font='600 36px '+F;y=wr(bt(d.d),y+6,W-200,46);
+ x.fillStyle='rgba(255,255,255,.55)';x.font='600 30px '+F;x.fillText(new Date(ok).toLocaleDateString(LANG()==='az'?'az-AZ':LANG()==='ru'?'ru-RU':'en-GB'),cx,y+18);
+ x.fillStyle='#f3c96b';x.font='800 38px '+F;x.fillText('Kotoba no Tabi · 言葉の旅',cx,H-78);
+ cv.toBlob(bl=>{if(!bl)return;const nm='kotoba-'+c+'.png';let f=null;try{f=new File([bl],nm,{type:'image/png'})}catch(_){}
+  if(f&&navigator.canShare&&/Mobi|Android|iPhone|iPad/.test(navigator.userAgent)&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'Kotoba no Tabi'}).catch(()=>{});return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=nm;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},3000)},'image/png')};im.src=src(c)}
+
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.closest('#bdOpen')){bdOpen();return}
+ const w=document.getElementById('bdw');if(!w)return;
+ if(t.closest('.bd-x2')||(t.classList&&t.classList.contains('bd-md'))){w.querySelector('.bd-md').hidden=true;return}
+ if(t.closest('.bd-x')||t===w){w.remove();document.documentElement.classList.remove('bd-lock');return}
+ const sh=t.closest('[data-bdsh]');if(sh){bdShare(sh.dataset.bdsh);return}
+ const it=t.closest('[data-bd]');if(it&&BD().got[it.dataset.bd])bdDet(it.dataset.bd)});
+document.addEventListener('click',e=>{if(!e.target.closest||!e.target.closest('#rstY'))return;try{const ks=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('kotoba-')&&!['kotoba-prefs','kotoba-n4mig'].includes(k))ks.push(k)}ks.forEach(k=>localStorage.removeItem(k))}catch(_){}PF.bd={init:1};PF.geo={};PF.hid={};Q.length=0;document.querySelectorAll('.bd-toast').forEach(x=>x.remove());busy=0;setTimeout(bdBadge,0)},true);
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;const w=document.getElementById('bdw');if(!w)return;const md=w.querySelector('.bd-md');if(md&&!md.hidden)md.hidden=true;else{w.remove();document.documentElement.classList.remove('bd-lock')}});
+bdBtn();bdEval(true);setInterval(()=>bdEval(),8000);
+window.bdDebug={stats,DEF,eval:bdEval,open:bdOpen};
+},0);
+/*HO*/const HOV='a2980c7d';
 /* v168: Gizli əşyalar (探し物) – otaqda yaponca adı verilən əşyanı tap */
 setTimeout(()=>{if(typeof PF==='undefined')return;
 const L3=(a,e,r)=>SL({az:a,en:e,ru:r}),$=id=>document.getElementById(id),LG=()=>(PF.lang||'az');
@@ -11575,167 +11736,6 @@ document.addEventListener('click',e=>{if(Date.now()-NOCLK<350&&e.target.closest&
 addEventListener('pagehide',()=>{window.__hoOn=0});
 window.hoOpen=open;window.hoDbg=()=>G;window.hoStart=n=>load().then(()=>start(n));window.hoMap=()=>load().then(map);
 },0);/*/HO*/
-/* v127: Nailiyyətlər – 147 nişan, şərtlər, bölmə, bildiriş */
-setTimeout(()=>{if(typeof PF==='undefined'||typeof LS==='undefined')return;
-const BD=()=>{PF.bd=PF.bd||{};const b=PF.bd;b.got=b.got||{};b.nw=b.nw||{};b.kana=b.kana||{};b.shad=b.shad||{};b.th=b.th||{};b.j=b.j||{};b.cw=b.cw||0;b.days=b.days||[];b.sc=b.sc||{};b.tm=b.tm||{};b.shn=b.shn||0;b.wc=b.wc||0;return b};
-const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
-const BDV='8530140c';let IMG=null,IMGL=null;
-function bdImgs(){if(IMG)return Promise.resolve(IMG);if(IMGL)return IMGL;IMGL=new Promise(res=>{const done=o=>{IMG=o||{};res(IMG)};const inl=document.getElementById('bdpack');if(inl&&inl.textContent.length>100){try{done(JSON.parse(inl.textContent))}catch(_){done({})}return}
- if(window.KOTOBA_BD){done(window.KOTOBA_BD);return}const sc=document.createElement('script');sc.src='badges.js?v='+BDV;sc.onload=()=>done(window.KOTOBA_BD);sc.onerror=()=>{fetch('badges.js?v='+BDV,{cache:'no-cache'}).then(r=>r.text()).then(t=>done(JSON.parse(t.slice(t.indexOf('{'),t.lastIndexOf('}')+1)))).catch(()=>{IMGL=null;res({})})};document.head.appendChild(sc);setTimeout(()=>{if(!IMG){IMGL=null;res({})}},20000)});return IMGL}
-const src=c=>IMG&&IMG[c]?'data:image/webp;base64,'+IMG[c]:'';window.bdImgs=bdImgs;window.bdSrc=src;
-/* ---- statistika ---- */
-const REG=[['Hokkaido',['otaru','onuma']],['Tohoku',['matsushima','hirosaki','kakunodate','ouchijuku']],['Kanto',['kawagoe','enoshima','takao']],['Chubu',['fuji','shirakawa','miho','kurobe','kamikochi','azumino','yuzawa']],['Kansai',['yoshino','arima','amanohashidate','shirahama']],['Chugoku',['miyajima','kurashiki','akiyoshidai','korakuen','adachi','daisen']],['Shikoku',['uchiko','shimanto','shodoshima']],['Kyushu və Okinawa',['yakushima','yufuin','taketomi','hashima','takachiho','takasakiyama']]];
-const KC=[['Prefekturalar və bölgələr',['P','reg']],['Adalar',['I','isl']],['Dənizlər, boğazlar, körfəzlər, burunlar',['sea','strait','whirl','bay','cape']],['Dağlar və vulkanlar',['mtn','volc','rng']],['Göllər, çaylar, şəlalə, bənd',['lake','river','falls','dam']],['Qalalar, qüllə, körpülər',['tower','castle','fort','bridge']],['Təbiət və heyvanlar',['bear','crane','monkey','shark','whale','ice','dune','dog','flower']],['Onsen və yerli dad',['onsen','food']]];
-const GEND=['END_brothers','END_hungry','END_gift_work','END_gift_ocean','END_job','END_apprentice','END_recipe','END_sumo','END_okono','END_karaoke','END_grand_photo','END_grand_letter','END_view','END_tv','END_spark','END_tea_friend','END_stage','END_comedy_notes','END_misaki','END_aquarium','END_honest','END_osaka'];
-const MODES=['light','dark','contrast','edo','pirat','matsuri','manga','kiber','piksel','kosmos','okean','sakura','qezet','kyo'];
-function stats(){const b=BD(),X={};let s;
- X.done=[];for(let n=0;n<=35;n++)X.done[n]=(()=>{try{return lessonDone(n)}catch(_){return false}})();
- X.dc=X.done.slice(1).filter(Boolean).length;
- X.got=[];X.perf=0;let qs=0,qt=0,qc=0;
- for(let n=1;n<=35;n++){const L=LS[n];s=n===C.n?st:ldStore(n);const g=s.got||{},k=Object.values(g).filter(Boolean).length;X.got[n]=L&&L.grammar&&L.grammar.length&&k>=L.grammar.length;
-  const q=(L&&L.quiz)||[],qa=s.quiz||{};if(q.length){const ok=q.filter((x,i)=>qa[i]===x[3]).length;if(Object.keys(qa).length>=q.length){b.qf=b.qf||{};if(ok<q.length)b.qf[n]=1;else if(b.qf[n])b.j.pat=1}qc+=ok;qs+=ok/q.length;qt++;if(ok===q.length)X.perf++}}
- X.qavg=qt?qs/qt:0;
- let mc=0,lv=0,weak=0;for(const k in MS.w){const e=MS.w[k];mc+=e.c||0;const l=msLevel(k);if(l>=3)lv++;if(l===1)weak++}
- X.correct=mc+qc;X.words=lv;X.weak=weak;
- const D=[...new Set([...MS.days,...b.days])].map(msDN).sort((a,b)=>a-b);let best=0,run=0;D.forEach((d,i)=>{run=i&&d===D[i-1]+1?run+1:1;best=Math.max(best,run)});X.streak=best;
- const hid=(PF.hid)||{};X.hidOk=REG.map(([,ids])=>ids.filter(i=>hid[i]).length);X.hidAll=Object.keys(hid).filter(k=>hid[k]).length;
- const geo=PF.geo||{};X.geo=Object.keys(geo).length;
- const tot={},has={};const add=(c,id)=>{tot[c]=(tot[c]||0)+1;if(geo[id])has[c]=(has[c]||0)+1};
- try{GEO.pref.forEach(p=>add('P','p_'+p[0]))}catch(_){}try{Object.keys(GMI).forEach(k=>add('I','is_'+k))}catch(_){}try{GMF.forEach(f=>add(f[1],f[0]))}catch(_){}
- X.kc=KC.map(([,t])=>[t.reduce((a,c)=>a+(has[c]||0),0),t.reduce((a,c)=>a+(tot[c]||0),0)]);
- let kt=0,kl=0;try{for(const c in KJ){const n=KJ[c][5];if(n>=1&&n<=35){kt++;if(X.done[n])kl++}}}catch(_){}X.kanji=kt?Math.floor(kl/kt*100):0;
- let ends=[];try{ends=storyEnds()}catch(_){}X.ends=ends;
- let sc=0;try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(/^kotoba-(.*best.*|s4\d+|fd\d+|sa-.+|sb-.+|r28|ct|clin-best)$/.test(k))sc++}}catch(_){}X.scenes=Object.keys(b.sc).length;
- const kh=(KB||[]).filter(c=>(b.kana['h'+c]||0)>=2).length,kk=(KB||[]).filter(c=>(b.kana['k'+c]||0)>=2).length;X.kh=kh;X.kk=kk;X.kn=(KB||[]).length||46;
- X.th=MODES.filter(m=>(b.tm[m]||0)>=600).length;
- if(b.wp>0&&weak===0)b.wc++;b.wp=weak;X.wc=b.wc;
- X.shn=b.shn;X.shl=Object.keys(b.shad).length;X.cw=b.cw;
- let vis=0;for(let n=0;n<=35;n++){try{if(localStorage.getItem('kotoba-l'+n)||X.done[n])vis++}catch(_){}}X.vis=vis;
- return X}
-/* ---- nişan tərifləri ---- */
-const BTD={"Hokkaido":["Hokkaido","Хоккайдо"],"Tohoku":["Tohoku","Тохоку"],"Kanto":["Kanto","Канто"],"Chubu":["Chubu","Тюбу"],"Kansai":["Kansai","Кансай"],"Chugoku":["Chugoku","Тюгоку"],"Shikoku":["Shikoku","Сикоку"],"Giriş stansiyası":["Starting station","Начальная станция"],"Giriş dərsi tamamlandı":["Intro lesson completed","Вводный урок пройден"],"Dərsin bütün qaydaları öyrənildi":["All rules of the lesson learned","Все правила урока изучены"],
-"Bölgənin bütün gizli dayanacaqları":["All hidden stops of the region","Все тайные остановки региона"],"Bütün Yaponiya":["All of Japan","Вся Япония"],"35 gizli dayanacağın hamısı":["All 35 hidden stops","Все 35 тайных остановок"],"Kyushu və Okinawa":["Kyushu and Okinawa","Кюсю и Окинава"],
-"Hekayənin sonluğu tapıldı":["Story ending found","Концовка истории найдена"],"Bütün sonluqlar":["All endings","Все концовки"],"22 sonluğun hamısı tapıldı":["All 22 endings found","Найдены все 22 концовки"],
-"Gecə bayquşu":["Night owl","Ночная сова"],"Gecə yarısından sonra məşq":["Practice after midnight","Занятие после полуночи"],"Perfeksionist":["Perfectionist","Перфекционист"],"Səhvsiz kana testi":["Flawless kana test","Тест каны без ошибок"],"İldırım sürəti":["Lightning speed","Скорость молнии"],"Bir dəqiqədən tez kana testi":["Kana test in under a minute","Тест каны быстрее минуты"],"Qayıdış":["The return","Возвращение"],"Uzun fasilədən sonra qayıdış":["Back after a long break","Возвращение после долгого перерыва"],"Kölgə ustası":["Shadow master","Мастер тени"],"Bütün dərslərdə kölgə məşqi":["Shadowing in every lesson","Шэдоуинг во всех уроках"],"Kaşif":["Explorer","Первооткрыватель"],"Bütün dərslər kəşf edildi":["Every lesson explored","Все уроки открыты"],
-"Kateqoriyanın bütün obyektləri":["Every object in the category","Все объекты категории"],"Prefekturalar və bölgələr":["Prefectures and regions","Префектуры и регионы"],"Adalar":["Islands","Острова"],"Dənizlər, boğazlar, körfəzlər, burunlar":["Seas, straits, bays, capes","Моря, проливы, заливы, мысы"],"Dağlar və vulkanlar":["Mountains and volcanoes","Горы и вулканы"],"Göllər, çaylar, şəlalə, bənd":["Lakes, rivers, falls, dam","Озёра, реки, водопад, плотина"],"Qalalar, qüllə, körpülər":["Castles, tower, bridges","Замки, башня, мосты"],"Təbiət və heyvanlar":["Nature and animals","Природа и животные"],"Onsen və yerli dad":["Onsen and local flavours","Онсэны и местные вкусы"],
-"Hiragana":["Hiragana","Хирагана"],"Katakana":["Katakana","Катакана"],"Bütün hiragana öyrənildi":["All hiragana learned","Вся хирагана изучена"],"Bütün katakana öyrənildi":["All katakana learned","Вся катакана изучена"],"Hər iki əlifba":["Both scripts","Обе азбуки"],"Hiragana və katakana öyrənildi":["Hiragana and katakana learned","Хирагана и катакана изучены"],
-"14 dünya":["14 worlds","14 миров"],"14 rejimin hər birində 10 dəqiqə":["10 minutes in each of 14 modes","По 10 минут в каждом из 14 режимов"],"Səyahət tamamlandı":["Journey complete","Путешествие завершено"],"35 dərs tamamlandı":["35 lessons completed","Пройдено 35 уроков"],"Fərqlənmə ilə":["With distinction","С отличием"],"Orta test nəticəsi 90%+":["Average test score 90%+","Средний результат тестов 90%+"]};
-const BTP=[[/^(\d+) krossvord$/,['$1 crosswords','Кроссворды: $1']],[/^(\d+) krossvord həll edildi$/,['$1 crosswords solved','Решено кроссвордов: $1']],[/^(\d+) düz cavab$/,['$1 correct answers','Верных ответов: $1']],[/^(\d+) düz cavab verildi$/,['$1 correct answers given','Дано верных ответов: $1']],[/^(\d+) dərs$/,['$1 lessons','Уроков: $1']],[/^(\d+) dərs tamamlandı$/,['$1 lessons completed','Пройдено уроков: $1']],[/^(\d+) səhnə$/,['$1 scenes','Сцен: $1']],[/^(\d+) interaktiv səhnə oynanıldı$/,['$1 interactive scenes played','Сыграно интерактивных сцен: $1']],[/^Kancinin (\d+)%-i$/,['$1% of kanji','$1% кандзи']],[/^Kursdakı kancinin (\d+)%-i$/,['$1% of the course kanji','$1% кандзи курса']],[/^(\d+) gün$/,['$1 days','Дней: $1']],[/^(\d+) gün dalbadal məşq$/,['$1 days of practice in a row','$1 дней занятий подряд']],[/^(\d+) kəşf$/,['$1 discoveries','Открытий: $1']],[/^(\d+) obyekt kəşf edildi$/,['$1 objects discovered','Открыто объектов: $1']],[/^(\d+) mükəmməl test$/,['$1 perfect tests','Идеальных тестов: $1']],[/^(\d+) dərs testi səhvsiz$/,['$1 lesson tests without mistakes','Тестов уроков без ошибок: $1']],[/^(\d+) söz$/,['$1 words','Слов: $1']],[/^(\d+) söz möhkəm öyrənildi$/,['$1 words firmly learned','Прочно выучено слов: $1']],[/^(\d+) təmizlik$/,['$1 clean-ups','Очисток: $1']],[/^Zəif sözlər (\d+) dəfə təmizləndi$/,['Weak words cleared $1 times','Слабые слова очищены $1 раз']],[/^(\d+) kölgə məşqi$/,['$1 shadowings','Шэдоуингов: $1']],[/^(\d+) kölgə məşqi bitirildi$/,['$1 shadowing sessions completed','Завершено шэдоуингов: $1']]];
-const bt=s=>{const l=(PF&&PF.lang)||'az';if(l==='az'||!s)return s;const i=l==='en'?0:1;if(BTD[s])return BTD[s][i];for(const [re,o] of BTP)if(re.test(s))return s.replace(re,o[i]);return s};
-const DEF=[];const G={};
-const grp=(k,a,e,r)=>{G[k]=[a,e,r]};
-const def=(c,g,t,d,v,n,sec)=>DEF.push({c,g,t,d,v,n,sec});
-const nm=n=>{const m=LS[n]&&LS[n].meta;return m?tx(m.az):''};
-grp('A','Öyrəndim stikerləri','Learned stickers','Наклейки «Выучено»');
-def('A00','A','Giriş stansiyası','Giriş dərsi tamamlandı',X=>X.done[0]?1:0,1);
-for(let n=1;n<=35;n++)def('A'+String(n).padStart(2,'0'),'A',()=>n+'. '+nm(n),'Dərsin bütün qaydaları öyrənildi',X=>X.got[n]?1:0,1);
-grp('B','Krossvord','Crosswords','Кроссворды');[5,15,30,50,80,120,170,230,280].forEach((n,i)=>def('B0'+(i+1),'B',n+' krossvord',n+' krossvord həll edildi',X=>X.cw,n));
-grp('C','Düz cavablar','Correct answers','Верные ответы');[50,150,300,600,1000,2000].forEach((n,i)=>def('C0'+(i+1),'C',n+' düz cavab',n+' düz cavab verildi',X=>X.correct,n));
-grp('D','Gizli dayanacaqlar','Hidden stops','Тайные остановки');REG.forEach(([r,ids],i)=>def('D0'+(i+1),'D',r,'Bölgənin bütün gizli dayanacaqları',X=>X.hidOk[i],ids.length));def('D09','D','Bütün Yaponiya','35 gizli dayanacağın hamısı',X=>X.hidAll,35);
-grp('E','Dərs mərhələləri','Lesson milestones','Этапы уроков');[5,10,15,20,25,30,35].forEach((n,i)=>def('E0'+(i+1),'E',n+' dərs',n+' dərs tamamlandı',X=>X.dc,n));
-grp('F','Səhnə ustası','Scene master','Мастер сцен');[3,7,12,18,25,35].forEach((n,i)=>def('F0'+(i+1),'F',n+' səhnə',n+' interaktiv səhnə oynanıldı',X=>X.scenes,n));
-grp('G','Osakada bir gün','A day in Osaka','День в Осаке');GEND.forEach((e,i)=>def('G'+String(i+1).padStart(2,'0'),'G',()=>(ENDS[e]?ENDS[e][1]:e),'Hekayənin sonluğu tapıldı',X=>X.ends.includes(e)?1:0,1));def('G23','G','Bütün sonluqlar','22 sonluğun hamısı tapıldı',X=>GEND.filter(e=>X.ends.includes(e)).length,22);
-grp('H','Kanci','Kanji','Кандзи');[10,25,50,75,100].forEach((n,i)=>def('H0'+(i+1),'H','Kancinin '+n+'%-i','Kursdakı kancinin '+n+'%-i',X=>X.kanji,n));
-grp('I','Ardıcıl günlər','Day streak','Серия дней');[3,7,14,30,60,100].forEach((n,i)=>def('I0'+(i+1),'I',n+' gün',n+' gün dalbadal məşq',X=>X.streak,n));
-grp('J','Gizli nailiyyətlər','Secret achievements','Тайные достижения');grp('S','Sagashimono','Sagashimono','Sagashimono');
-{const H=()=>PF.ho||{},ST=()=>H().st||{},LN=()=>Object.values(H().w||{}).filter(c=>c>=50).length,CHD=(c,f)=>{const s=ST();for(let i=c*6;i<c*6+6;i++)if(!f(s[i]||0))return 0;return 1},NC=()=>Math.max(1,Math.ceil((H().lvMax||12)/6));
-[['S01','İlk iz','İlk mərhələni bitir',()=>H().n||0,1,0],['S02','Göz kəskinliyi','Bir mərhələni 5 ulduzla bitir',()=>H().p5||0,1,0],['S03','Ruhların sükutu','5 mərhələni ipucusuz bitir',()=>H().nh||0,5,0],
- ['S04','İldırım barmaq','Mərhələni 60 saniyədən tez bitir',()=>H().fast&&H().fast<60?1:0,1,1],['S05','Kolleksiyaçı','Cəmi 500 əşya tap',()=>H().tf||0,500,0],['S06','Söz ustası','10 söz öyrən (hər biri 50 dəfə tapılsın)',LN,10,0],
- ['S07','Çay köşkünün dostu','2-ci bölmənin bütün mərhələlərini bitir',()=>CHD(1,v=>v>0),1,0],['S08','Mükəmməl bölmə','Bir bölmənin bütün mərhələlərini 5 ulduzla bitir',()=>{for(let c=0;c<NC();c++)if(CHD(c,v=>v>=5))return 1;return 0},1,1],
- ['S09','Tülkü ruhunun xeyir-duası','Bütün bölmələri bitir',()=>H().all?1:0,1,0],['S10','Sagashimono ustası','50 söz öyrən',LN,50,0]].forEach(([c,t,d,f,n,sec])=>def(c,'S',t,d,X=>f(),n,sec))}
-window.bdEvalSoon=()=>{try{soon()}catch(_){}};
-
-[['J01','Gecə bayquşu','Gecə yarısından sonra məşq','night'],['J02','Perfeksionist','Səhvsiz kana testi','perfect'],['J03','İldırım sürəti','Bir dəqiqədən tez kana testi','fast'],['J04','Qayıdış','Uzun fasilədən sonra qayıdış','ret'],['J05','Kölgə ustası','Bütün dərslərdə kölgə məşqi','shadow'],['J06','Kaşif','Bütün dərslər kəşf edildi','expl']].forEach(([c,t,d,k])=>def(c,'J',t,d,X=>BD().j[k]?1:0,1,1));def('T01','J','14 dünya','14 rejimin hər birində 10 dəqiqə',X=>X.th,14,1);
-[['J07','Erkən quş','Səhər 5:00–7:00 arası məşq','early'],['J08','Marafonçu','Bir gündə 60 dəqiqə aktiv məşq','mara'],['J09','Dirəniş','Üç səhvdən sonra düz cavab','resil'],['J10','Bayram ruhu','Yeni il və ya Tanabata günü məşq','fest'],['J11','Səs ovçusu','100 dəfə səsləndirmə','sound'],['J12','Sonluq ovçusu','Bir gündə 3 fərqli hekayə sonluğu','endh'],['J13','Səbirli tələbə','Səhvli dərs testini səhvsiz təkrar keçmək','pat'],['J14','Sakit gecə','Musiqi və ya təbiət səsi ilə 30 dəqiqə məşq','quiet']].forEach(([c,t,d,k])=>def(c,'J',t,d,X=>BD().j[k]?1:0,1,1));
-Object.assign(BTD,{'Erkən quş':['Early bird','Ранняя пташка'],'Səhər 5:00–7:00 arası məşq':['Practice between 5:00 and 7:00','Занятие с 5:00 до 7:00'],'Marafonçu':['Marathoner','Марафонец'],'Bir gündə 60 dəqiqə aktiv məşq':['60 minutes of active practice in a day','60 минут активных занятий за день'],'Dirəniş':['Resilience','Стойкость'],'Üç səhvdən sonra düz cavab':['Right answer after three mistakes','Верный ответ после трёх ошибок'],'Bayram ruhu':['Festival spirit','Дух праздника'],'Yeni il və ya Tanabata günü məşq':['Practice on New Year or Tanabata','Занятие в Новый год или Танабату'],'Səs ovçusu':['Sound hunter','Охотник за звуками'],'100 dəfə səsləndirmə':['100 audio plays','100 озвучиваний'],'Sonluq ovçusu':['Ending hunter','Охотник за концовками'],'Bir gündə 3 fərqli hekayə sonluğu':['3 different story endings in one day','3 разные концовки истории за день'],'Səbirli tələbə':['Patient learner','Терпеливый ученик'],'Səhvli dərs testini səhvsiz təkrar keçmək':['Retake a failed lesson test without mistakes','Пересдать урок без ошибок'],'Sakit gecə':['Quiet night','Тихая ночь'],'Musiqi və ya təbiət səsi ilə 30 dəqiqə məşq':['30 minutes of practice with music or nature sounds','30 минут занятий с музыкой или звуками природы']});
-grp('K','Xəritə kəşfləri','Map discoveries','Открытия на карте');KC.forEach(([t],i)=>def('K0'+(i+1),'K',t,'Kateqoriyanın bütün obyektləri',X=>X.kc[i][0],X=>X.kc[i][1]||1));
-grp('N','Kəşf sayı','Discoveries','Число открытий');[10,25,50,100,150,211].forEach((n,i)=>def('N0'+(i+1),'N',n+' kəşf',n+' obyekt kəşf edildi',X=>X.geo,n));
-grp('O','Kana','Kana','Кана');def('O01','O','Hiragana','Bütün hiragana öyrənildi',X=>X.kh,X=>X.kn);def('O02','O','Katakana','Bütün katakana öyrənildi',X=>X.kk,X=>X.kn);def('O03','O','Hər iki əlifba','Hiragana və katakana öyrənildi',X=>Math.min(X.kh,X.kk),X=>X.kn);
-grp('P','Mükəmməl testlər','Perfect tests','Идеальные тесты');[5,10,20,35].forEach((n,i)=>def('P0'+(i+1),'P',n+' mükəmməl test',n+' dərs testi səhvsiz',X=>X.perf,n));
-grp('Q','Söz ehtiyatı','Vocabulary','Словарный запас');[100,300,600,1000].forEach((n,i)=>def('Q0'+(i+1),'Q',n+' söz',n+' söz möhkəm öyrənildi',X=>X.words,n));
-grp('R','Zəif sözlər','Weak words','Слабые слова');[1,5,20].forEach((n,i)=>def('R0'+(i+1),'R',n+' təmizlik','Zəif sözlər '+n+' dəfə təmizləndi',X=>X.wc,n));
-
-grp('U','Kursun sonu','Course complete','Курс пройден');def('U01','U','Səyahət tamamlandı','35 dərs tamamlandı',X=>X.dc,35);def('U02','U','Fərqlənmə ilə','Orta test nəticəsi 90%+',X=>X.dc>=35&&X.qavg>=.9?1:0,1);
-grp('V','Kölgə məşqi','Shadowing','Шэдоуинг');[10,50,200].forEach((n,i)=>def('V0'+(i+1),'V',n+' kölgə məşqi',n+' kölgə məşqi bitirildi',X=>X.shn,n));
-const T_=d=>bt(typeof d.t==='function'?d.t():d.t),N_=(d,X)=>typeof d.n==='function'?d.n(X):d.n;
-/* ---- hesablama ---- */
-let LX=null,Q=[],busy=0;
-function bdEval(silent){const b=BD();let X;try{X=stats()}catch(e){return}LX=X;
- if(X.vis>=36&&b.seen)b.j.expl=1;if(X.shl>=35)b.j.shadow=1;
- const nw=[];DEF.forEach(d=>{if(!b.got[d.c]&&d.v(X)>=N_(d,X)){b.got[d.c]=Date.now();if(b.init)b.nw[d.c]=1;nw.push(d)}});
- save();if(nw.length){if(!silent&&b.init)nw.forEach(d=>Q.push(d));bdPop();bdBadge()}
- if(!b.init){b.init=1;save()}}
-let tm=0;const soon=()=>{clearTimeout(tm);tm=setTimeout(()=>bdEval(),900)};
-function bdPop(){if(busy||!Q.length)return;busy=1;const d=Q.shift();Promise.race([bdImgs(),new Promise(r=>setTimeout(r,1500))]).then(()=>{const el=document.createElement('div');el.className='bd-toast';el.innerHTML=`<img alt="" src="${src(d.c)}"><div><small>${L3('Yeni nişan','New badge','Новый значок')}</small><b>${esc(T_(d))}</b></div>`;el.onclick=()=>{el.remove();bdOpen(d.c)};document.body.appendChild(el);requestAnimationFrame(()=>el.classList.add('on'));setTimeout(()=>{el.classList.remove('on');setTimeout(()=>{el.remove();busy=0;bdPop()},400)},3800)})}
-/* ---- qarmaqlar ---- */
-const night=()=>{const D=new Date(),h=D.getHours(),j=BD().j;if(h<4)j.night=1;if(h>=5&&h<7)j.early=1;const md=(D.getMonth()+1)+'-'+D.getDate();if(md==='1-1'||md==='7-7')j.fest=1};
-let LA=0;['click','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{LA=Date.now()},{capture:true,passive:true}));
-document.addEventListener('click',e=>{const t=e.target;if(t.closest&&t.closest('[data-say]')){const b=BD();b.say=(b.say||0)+1;if(b.say>=100)b.j.sound=1;save();soon()}},true);
-window.bdEnd=k=>{const b=BD(),d=msDay();if(b.ed!==d){b.ed=d;b.el=[]}if(!b.el.includes(k))b.el.push(k);if(b.el.length>=3)b.j.endh=1;save();soon()};
-try{const o=msRec;msRec=function(w0,r0,ok0){night();if(w0){const b=BD(),k=w0+'|'+(r0||w0);b.fs=b.fs||{};if(ok0){if((b.fs[k]||0)>=3)b.j.resil=1;delete b.fs[k]}else b.fs[k]=(b.fs[k]||0)+1}const r=o.apply(this,arguments);soon();return r}}catch(_){}
-try{const o=kqStart;kqStart=function(){const r=o.apply(this,arguments);KQ._t0=Date.now();KQ._bd=0;return r}}catch(_){}
-try{const o=kqAnswer;kqAnswer=function(ok){if(KQ.done)return o.apply(this,arguments);const q=KQ.qs&&KQ.qs[KQ.i];const r=o.apply(this,arguments);if(ok&&q&&q.h){const k=(q.sc||'h')+q.h;BD().kana[k]=(BD().kana[k]||0)+1}night();soon();return r}}catch(_){}
-try{const o=kqShow;kqShow=function(){const r=o.apply(this,arguments);if(KQ.qs&&KQ.i>=KQ.qs.length&&!KQ._bd){KQ._bd=1;const n=KQ.qs.length,j=BD().j;if(KQ.ok===n&&n>=5)j.perfect=1;if(n>=10&&KQ._t0&&Date.now()-KQ._t0<60000&&KQ.ok/n>=.8)j.fast=1;save();soon()}return r}}catch(_){}
-try{const o=cwUI;cwUI=function(){const r=o.apply(this,arguments);if(CW&&CW.P&&!CW._bd&&CW.P.length&&CW.P.every(p=>p.ok)){CW._bd=1;BD().cw++;save();soon()}return r}}catch(_){}
-try{const o=toast;const SH=STR["ui.shadowing-finished-great-job"]||[];toast=function(m){if(SH.includes(m)){const b=BD();b.shn++;if(C.n>=1&&C.n<=35)b.shad[C.n]=1;save();soon()}return o.apply(this,arguments)}}catch(_){}
-try{const o=render;render=function(){const r=o.apply(this,arguments);soon();setTimeout(bdBtn,0);return r}}catch(_){}
-/* fəaliyyət günü, səhnə qarşılıqlı əlaqəsi, rejim vaxtı */
-let scN=0,scL=-1;
-document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;if(!t.closest('main,#stBox,.vqw,#kq,#cwBox,#fcw'))return;if(!t.closest('button,a,input,select,label,[data-say],[data-st],[role=button],svg,[data-g]'))return;const b=BD(),d=msDay();if(!b.days.includes(d)){b.days.push(d);if(b.days.length>400)b.days=b.days.slice(-400);save();soon()}
- if(t.closest('#play')&&C.n>=1&&C.n<=35){if(scL!==C.n){scL=C.n;scN=0}if(++scN>=5&&!b.sc[C.n]){b.sc[C.n]=1;save();soon()}}},true);
-setInterval(()=>{if(document.hidden)return;const b=BD(),m=PF.theme&&PF.theme!=='auto'?PF.theme:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(m)b.tm[m]=(b.tm[m]||0)+15;if(Date.now()-LA<120000){const d=msDay();if(b.ad!==d){b.ad=d;b.as=0;b.qs=0}b.as+=15;if(b.as>=3600)b.j.mara=1;const snd=!PF.mute&&((PF.mus&&PF.mon!==false)||Object.values(PF.nat||{}).some(o=>o&&o.on));if(snd){b.qs=(b.qs||0)+15;if(b.qs>=1800)b.j.quiet=1}}if(PF.kyo)b.tm.kyo=(b.tm.kyo||0)+15},15000);
-/* klaviatura: IME Enter qoruması və romaji sahələrində düzən çevirməsi */
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.isComposing||e.keyCode===229))e.stopImmediatePropagation()},true);
-const RUQ={'й':'q','ц':'w','у':'e','к':'r','е':'t','н':'y','г':'u','ш':'i','щ':'o','з':'p','ф':'a','ы':'s','в':'d','а':'f','п':'g','р':'h','о':'j','л':'k','д':'l','я':'z','ч':'x','с':'c','м':'v','и':'b','т':'n','ь':'m','ё':'`'};
-const romaN=v=>{v=v.normalize('NFKC').replace(/İ/g,'i').replace(/ı/g,'i').toLowerCase();if(/[а-яё]/.test(v)&&!/[a-z]/.test(v))v=v.replace(/[а-яё]/g,c=>RUQ[c]||c);return v.replace(/ü/g,'w')};
-document.addEventListener('input',e=>{const t=e.target;if(!t||t.tagName!=='INPUT'||e.isComposing)return;if(!(t.id==='kqIn'||t.id==='t2in'||t.hasAttribute('data-cwi')))return;const v=t.value,n=romaN(v);if(n!==v){const p=t.selectionStart;t.value=n;try{t.setSelectionRange(p,p)}catch(_){}}},true);
-document.addEventListener('compositionend',e=>{const t=e.target;if(t&&(t.id==='kqIn'||t.id==='t2in'||(t.hasAttribute&&t.hasAttribute('data-cwi')))){const n=romaN(t.value);if(n!==t.value)t.value=n}},true);
-/* qayıdış: son məşq günündən 7+ gün keçibsə */
-try{const t=msDN(msDay()),ds=MS.days.map(msDN).filter(d=>d<t);if(ds.length&&t-Math.max(...ds)>=7)BD().j.ret=1}catch(_){}
-/* ---- düymə və bölmə ---- */
-function bdBadge(){const b=document.getElementById('bdOpen');if(b){const n=Object.keys(BD().nw).length,e=b.querySelector('em');e.textContent=n;e.hidden=!n}}
-function bdBtn(){if(document.getElementById('bdOpen'))return;const m=document.getElementById('mapOpen');if(!m)return;const b=document.createElement('button');b.className='mapb kob bd-btn';b.id='bdOpen';b.title=L3('Nailiyyətlər','Achievements','Достижения');b.setAttribute('aria-label',b.title);b.innerHTML=`<b class="jp" lang="ja">賞</b><span>${b.title}</span><em>0</em>`;m.after(b);bdBadge()}
-function bdOpen(focus){const b=BD();b.seen=1;Q.length=0;document.querySelectorAll('.bd-toast').forEach(x=>x.remove());busy=0;save();bdEval(true);const X=LX;(()=>{let w=document.getElementById('bdw');if(w)w.remove();w=document.createElement('div');w.id='bdw';w.className='bd-w';
- const tot=DEF.length,got=DEF.filter(d=>b.got[d.c]).length;
- const sg=g=>{const ds=DEF.filter(d=>d.g===g),gc=ds.filter(d=>b.got[d.c]).length;return `<section class="bd-g"><h3>${esc(L3(...G[g]))}<small>${gc} / ${ds.length}</small></h3><div class="bd-grid">${ds.map(d=>{const ok=b.got[d.c],hid=d.sec&&!ok;return `<button class="bd-it${ok?' ok':''}${hid?' bd-scr':''}" data-bd="${d.c}"><span class="bd-im${b.nw[d.c]?' nw':''}">${ok?`<img alt="" data-c="${d.c}" src="${src(d.c)}">`:'<i class="bd-lk">?</i>'}</span></button>`}).join('')}</div></section>`};const SP=[[['Səyahət','Journey','Путешествие'],'AEU'],[['Əlifba və sözlər','Scripts and words','Письменность и слова'],'OHQR'],[['Məşq','Practice','Практика'],'CPBVFI'],[['Kəşf','Exploration','Открытия'],'KNDGS'],[['Gizli','Secret','Тайное'],'JT']],US=new Set();const sec=SP.map(([t,gs])=>{const h=[...gs].filter(g=>G[g]).map(g=>{US.add(g);return sg(g)}).join('');return h?`<div class="bd-sp"><h4>${esc(L3(...t))}</h4>${h}</div>`:''}).join('')+Object.keys(G).filter(g=>!US.has(g)).map(sg).join('');
- w.innerHTML=`<div class="bd-in" role="dialog" aria-modal="true"><div class="bd-hd"><b class="jp">賞</b><h2>${L3('Nailiyyətlər','Achievements','Достижения')}</h2><span class="bd-c">${got} / ${tot}</span><button class="bd-x" aria-label="${TID('ui.close')}">✕</button></div><div class="bd-bar"><i style="width:${Math.round(got/tot*100)}%"></i></div><div class="bd-body">${sec}</div><div class="bd-md" hidden></div></div>`;
- document.body.appendChild(w);document.documentElement.classList.add('bd-lock');b.nw={};save();bdBadge();if(focus)bdDet(focus);if(IMG)w.classList.add('rdy');else bdImgs().then(bdFill)})()}
-function bdFill(){const w=document.getElementById('bdw');if(!w)return;const L=[...w.querySelectorAll('img[data-c]')];L.forEach(i=>{if(!i.getAttribute('src'))i.src=src(i.dataset.c)});
- /* hamısı birlikdə, deşifrədən sonra yumşaq görünür – tək-tək yüklənmə görünmür */
- const go=()=>w.classList.add('rdy');Promise.race([Promise.all(L.map(i=>i.decode?i.decode().catch(()=>{}):0)),new Promise(r=>setTimeout(r,2500))]).then(go)}
-/* nişan paketi boş vaxtda əvvəlcədən yüklənir ki, pəncərə açılanda hazır olsun */
-{const pl=()=>{try{bdImgs()}catch(_){}};window.addEventListener('load',()=>{('requestIdleCallback' in window)?setTimeout(()=>requestIdleCallback(pl,{timeout:8000}),3000):setTimeout(pl,5000)})}
-function bdDet(c){const d=DEF.find(x=>x.c===c),b=BD(),ok=b.got[c];if(!d||!ok)return;const md=document.querySelector('#bdw .bd-md');if(!md)return;
- md.innerHTML=`<div class="bd-card ok"><button class="bd-x2" aria-label="${TID('ui.close')}">✕</button><div class="bd-big"><img alt="" data-c="${c}" src="${src(c)}"></div><h3>${esc(T_(d))}</h3><p>${esc(bt(d.d))}</p><p class="bd-date">${new Date(ok).toLocaleDateString(LANG()==='az'?'az-AZ':LANG()==='ru'?'ru-RU':'en-GB')}</p><button class="btn fill bd-shb" data-bdsh="${c}" style="--c:var(--pnk);margin-top:10px">${L3('Şəkil kimi yüklə','Save as image','Сохранить картинкой')}</button></div>`;md.hidden=false}
-function bdShare(c){const d=DEF.find(x=>x.c===c),ok=BD().got[c];if(!d||!ok||!IMG||!IMG[c])return;const im=new Image();im.onload=()=>{const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d'),F='Nunito,system-ui,sans-serif';
- const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1b1844');g.addColorStop(1,'#43307a');x.fillStyle=g;x.fillRect(0,0,W,H);
- x.fillStyle='rgba(255,255,255,.06)';for(let i=0;i<140;i++){x.beginPath();x.arc((i*97+31)%W,(i*233+17)%H,1.5+(i%3),0,7);x.fill()}
- const cx=W/2,cy=560,R=290,rg=x.createRadialGradient(cx,cy,R*.7,cx,cy,R*1.45);rg.addColorStop(0,'rgba(255,210,110,.5)');rg.addColorStop(1,'rgba(255,210,110,0)');x.fillStyle=rg;x.fillRect(0,0,W,H);
- x.save();x.beginPath();x.arc(cx,cy,R,0,7);x.clip();x.imageSmoothingQuality='high';x.drawImage(im,cx-R,cy-R,2*R,2*R);x.restore();
- x.lineWidth=10;x.strokeStyle='#f3c96b';x.beginPath();x.arc(cx,cy,R+9,0,7);x.stroke();
- x.textAlign='center';x.textBaseline='alphabetic';
- const wr=(t,y,mw,lh)=>{const w=String(t).split(' ');let l='';for(const s of w){const tt=l?l+' '+s:s;if(x.measureText(tt).width>mw&&l){x.fillText(l,cx,y);y+=lh;l=s}else l=tt}if(l){x.fillText(l,cx,y);y+=lh}return y};
- x.fillStyle='#f3c96b';x.font='800 34px '+F;x.fillText(L3('YENİ NİŞAN','NEW BADGE','НОВЫЙ ЗНАЧОК'),cx,170);
- x.fillStyle='#fff';x.font='800 64px '+F;let y=wr(T_(d),1000,W-160,74);
- x.fillStyle='rgba(255,255,255,.82)';x.font='600 36px '+F;y=wr(bt(d.d),y+6,W-200,46);
- x.fillStyle='rgba(255,255,255,.55)';x.font='600 30px '+F;x.fillText(new Date(ok).toLocaleDateString(LANG()==='az'?'az-AZ':LANG()==='ru'?'ru-RU':'en-GB'),cx,y+18);
- x.fillStyle='#f3c96b';x.font='800 38px '+F;x.fillText('Kotoba no Tabi · 言葉の旅',cx,H-78);
- cv.toBlob(bl=>{if(!bl)return;const nm='kotoba-'+c+'.png';let f=null;try{f=new File([bl],nm,{type:'image/png'})}catch(_){}
-  if(f&&navigator.canShare&&/Mobi|Android|iPhone|iPad/.test(navigator.userAgent)&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'Kotoba no Tabi'}).catch(()=>{});return}
-  const a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=nm;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},3000)},'image/png')};im.src=src(c)}
-
-document.addEventListener('click',e=>{const t=e.target;
- if(t.closest('#bdOpen')){bdOpen();return}
- const w=document.getElementById('bdw');if(!w)return;
- if(t.closest('.bd-x2')||(t.classList&&t.classList.contains('bd-md'))){w.querySelector('.bd-md').hidden=true;return}
- if(t.closest('.bd-x')||t===w){w.remove();document.documentElement.classList.remove('bd-lock');return}
- const sh=t.closest('[data-bdsh]');if(sh){bdShare(sh.dataset.bdsh);return}
- const it=t.closest('[data-bd]');if(it&&BD().got[it.dataset.bd])bdDet(it.dataset.bd)});
-document.addEventListener('click',e=>{if(!e.target.closest||!e.target.closest('#rstY'))return;try{const ks=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('kotoba-')&&!['kotoba-prefs','kotoba-n4mig'].includes(k))ks.push(k)}ks.forEach(k=>localStorage.removeItem(k))}catch(_){}PF.bd={init:1};PF.geo={};PF.hid={};Q.length=0;document.querySelectorAll('.bd-toast').forEach(x=>x.remove());busy=0;setTimeout(bdBadge,0)},true);
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;const w=document.getElementById('bdw');if(!w)return;const md=w.querySelector('.bd-md');if(md&&!md.hidden)md.hidden=true;else{w.remove();document.documentElement.classList.remove('bd-lock')}});
-bdBtn();bdEval(true);setInterval(()=>bdEval(),8000);
-window.bdDebug={stats,DEF,eval:bdEval,open:bdOpen};
-},0);
 render();a11yFix();
 
 </script>
