@@ -11875,6 +11875,11 @@ const R1=render;render=function(){const r=R1.apply(this,arguments);setTimeout(up
 new MutationObserver(()=>setTimeout(upd,0)).observe(D,{attributes:true,attributeFilter:['class']});
 setTimeout(upd,60);
 })();/*/KY4*/
+/*MOB*//* v173: mobil – ifadə siyahıları (.box dl) alt-alta */
+(()=>{const s=document.createElement('style');s.textContent=`@media (max-width:640px){.box dl{grid-template-columns:1fr;gap:0}
+.box dl>dt{margin-top:12px;font-size:1.08em}.box dl>dt:first-child{margin-top:2px}
+.box dl>dd{margin:4px 0 0;padding:2px 0 12px 10px;border-left:3px solid color-mix(in srgb,currentColor 18%,transparent);border-bottom:1px dashed color-mix(in srgb,currentColor 14%,transparent);line-height:1.5}
+.box dl>dd:last-child{border-bottom:0;padding-bottom:4px}}`;document.head.appendChild(s)})();/*/MOB*/
 render();a11yFix();
 
 </script>
