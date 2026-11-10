@@ -1,4 +1,4 @@
-const V='kt-ho11101345',M='kt-media-1',PRE=["./","index.html","tfonts.css","fonts.css","manifest.webmanifest","icons/icon-192.png","icons/icon-512.png","icons/maskable-512.png"],
+const V='kt-ho11101340',M='kt-media-1',PRE=["./","index.html","tfonts.css","fonts.css","manifest.webmanifest","icons/icon-192.png","icons/icon-512.png","icons/maskable-512.png"],
 /* Ağır fayllar: M keşində qalır, yeni versiya buraxılanda silinmir */
 MED=/\/(audio\d?\.(js|bin)|k4\.(js|bin)|badges\.js|hidobj\.js|i18n-[a-z]+\.js|ho_[a-z0-9]+\.js|tfonts\.css|ho\/.+|hk\/(l\d+\.js|img\/.+|au\/.+)|music\/[^/]+\.js|natsnd\/[^/]+\.(webm|mp3))$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(PRE)).then(()=>self.skipWaiting()))});

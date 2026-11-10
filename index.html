@@ -11744,6 +11744,31 @@ const css2=document.createElement('style');css2.textContent='.ex-side{margin:0 1
 const R0=render;render=function(){const r=R0.apply(this,arguments);setTimeout(place,80);return r};setTimeout(place,300);
 window.kotobaExam=intro;
 })();/*/EX*/
+/*KYO3*//* v140: Kyoshitsu – peşəkar cilalama: oxu irəliləyişi xətti, "Öyrəndim" düyməsi, kartlar, fokus, mobil səs düyməsi */
+(()=>{const css=document.createElement('style');css.textContent=`
+html.kyo{--ky3-acc:var(--k-acc,#c2410c)}
+html.kyo #ky3Bar{position:fixed;left:0;top:0;height:3px;width:100%;z-index:400;pointer-events:none;background:transparent}
+html.kyo #ky3Bar i{display:block;height:100%;width:0;background:var(--ky3-acc);transition:width .12s linear;border-radius:0 3px 3px 0}
+html:not(.kyo) #ky3Bar{display:none}
+html.kyo #app>section.sec{transition:box-shadow .2s ease,border-color .2s ease}
+@media (hover:hover){html.kyo #app>section.sec:hover{box-shadow:0 6px 24px -14px rgba(15,23,42,.25)}}
+html.kyo #lcard h1{letter-spacing:-.015em;line-height:1.2}
+html.kyo .sec .sh h2{letter-spacing:-.01em}
+html.kyo .got{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;font-weight:700;font-size:14px;border:1.5px solid var(--k-line,#e5e7eb);background:var(--k-card,#fff);color:inherit;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+html.kyo .got::before{content:'';width:16px;height:16px;border-radius:50%;border:2px solid currentColor;opacity:.45;flex:none;box-sizing:border-box}
+html.kyo .got:hover{border-color:#16a34a;color:#15803d}
+html.kyo .got[aria-pressed="true"]{background:#16a34a;border-color:#16a34a;color:#fff}
+html.kyo .got[aria-pressed="true"]::before{opacity:1;border:0;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.6 2.5L12 5.5' fill='none' stroke='%2316a34a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+html.kyo :focus-visible{outline:2px solid var(--ky3-acc);outline-offset:2px;border-radius:8px}
+html.kyo .say:hover{filter:brightness(.96)}
+html.kyo table{border-radius:12px;overflow:hidden}
+@media (max-width:1023px){html.kyo #tMuteF{display:none!important}}
+@media (prefers-reduced-motion:reduce){html.kyo #ky3Bar i{transition:none}}`;document.head.appendChild(css);
+document.body.insertAdjacentHTML('beforeend','<div id="ky3Bar" aria-hidden="true"><i></i></div>');
+let raf=0;const upd=()=>{raf=0;if(!document.documentElement.classList.contains('kyo'))return;const h=document.documentElement.scrollHeight-innerHeight;const i=document.querySelector('#ky3Bar i');if(i)i.style.width=(h>0?Math.min(100,scrollY/h*100):0)+'%'};
+addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);
+const rd=render;render=function(){const x=rd.apply(this,arguments);try{setTimeout(()=>{upd();const a=document.querySelector('#kyN .ky-l.on');if(a){let c=a.parentElement;while(c&&c!==document.body&&!(c.scrollHeight>c.clientHeight+4&&/(auto|scroll)/.test(getComputedStyle(c).overflowY)))c=c.parentElement;if(c&&c!==document.body){const r=a.getBoundingClientRect(),q=c.getBoundingClientRect();if(r.top<q.top+40||r.bottom>q.bottom-40)c.scrollTop+=r.top-q.top-q.height/2+r.height/2}}},80)}catch(_){}return x};
+})();/*/KYO3*/
 /*KY4*//* v171: Kyoushitsu – "Tabi" dizayn seçimi: indiqo palitra, ana səhifə (Davam et, Bugünkü plan, yol xəritəsi), dərs addımları, mobil kanji tabları */
 (()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});const D=document.documentElement;
 const ACC=['#B8321C','#0B6E69','#5B3FA8','#A35A00'];
@@ -11794,6 +11819,8 @@ html.kyo.kyv-t #ky4H{display:flex;flex-direction:column;gap:18px;margin-bottom:2
 .ky4-st.c i{background:var(--t-acc);border-color:var(--t-acc);color:#fff;box-shadow:0 0 0 5px color-mix(in srgb,var(--t-acc) 25%,transparent)}.ky4-st.c{--c:var(--t-ind)}
 .ky4-st small{font-size:11px;font-weight:700;color:var(--k-mut)}
 .ky4-leg{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--k-mut)}.ky4-leg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--c);border:2px solid var(--b,var(--c))}
+.ky4-lb{display:block;width:100%;margin:10px 0 6px;font-size:12px;font-weight:700;opacity:.7}
+#ky4V2{flex-wrap:wrap}
 .ky4-v{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .ky4-v button{min-height:36px;padding:0 12px;border-radius:10px;border:1.5px solid var(--k-line,#ddd);background:var(--k-card,#fff);color:inherit;font:700 13px Inter,system-ui,sans-serif;cursor:pointer}
 .ky4-v button[aria-pressed=true]{background:#1B2B4B;border-color:#1B2B4B;color:#fff}
@@ -11829,7 +11856,7 @@ function tabs(){const T=document.getElementById('kyT');if(!T||(T.dataset.k4===St
  T.innerHTML=[['k4l','0','旅',L3('Yol','Journey','Путь')],['kyo','outline','語',L3('Dərslər','Lessons','Уроки')],['k4x',`goSec(${hn},'hekaye')`,'話',L3('Hekayə','Stories','Рассказы')],['k4x',`goSec(${hn},'kanji')`,'字','Kanji'],['kyo','set','☰',L3('Menyu','Menu','Меню')]].map(([a,v,k,l])=>`<button class="ky-tab" data-${a}="${v}"><span class="jp">${k}</span><span>${l}</span></button>`).join('')}
 function upd(){const t=on();D.classList.toggle('kyv-t',t);D.style.setProperty('--ky4a',PF.kyoA||ACC[0]);
  const r=document.getElementById('kyR');if(r&&D.classList.contains('kyo')){let c=document.getElementById('ky4C');if(!c){r.insertAdjacentHTML('beforeend','<div class="ky-card" id="ky4C"></div>');c=document.getElementById('ky4C')}c.innerHTML=`<h4>${L3('Dizayn','Design','Дизайн')}</h4>`+vbox()}
- const sg=document.getElementById('kyoSetG');if(sg&&!document.getElementById('ky4V2')){sg.insertAdjacentHTML('beforeend','<div class="setr" id="ky4V2"></div>')}const v2=document.getElementById('ky4V2');if(v2)v2.innerHTML=D.classList.contains('kyo')?vbox().replace('id="ky4V"',''):'';
+ const sg=document.getElementById('kyoSetG');if(sg&&!document.getElementById('ky4V2')){sg.insertAdjacentHTML('beforeend','<div class="setr" id="ky4V2"></div>')}const v2=document.getElementById('ky4V2');if(v2)v2.innerHTML=`<small class="ky4-lb">${L3('Kyoushitsu dizaynı','Kyoushitsu design','Дизайн Kyoushitsu')}</small>`+vbox().replace('id="ky4V"','');
  if(!t){const T=document.getElementById('kyT');if(T&&T.dataset.k4){delete T.dataset.k4}['ky4S','ky4H'].forEach(i=>{const x=document.getElementById(i);if(x)x.remove()});return}
  const app=document.getElementById('app'),lc=document.getElementById('lcard');if(!app||!lc)return;
  let h=document.getElementById('ky4H');if(C.n===0){if(!h){lc.insertAdjacentHTML('beforebegin','<div id="ky4H"></div>');h=document.getElementById('ky4H')}if(h.dataset.s!==String(nx())+LANG()){h.innerHTML=home();h.dataset.s=String(nx())+LANG();const c=h.querySelector('.ky4-st.c');if(c)c.parentElement.scrollLeft=c.offsetLeft-120}}else if(h)h.remove();
@@ -11842,37 +11869,12 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-k4l],[data
  if(d.k4l!=null){const n=+d.k4l;if(n===C.n&&n===0&&!b.classList.contains('ky4-go'))return;goLesson(n);scrollTo(0,0)}
  else if(d.k4x){const m=d.k4x.match(/^(goSec|hkOpen)\((\d+),'?(\w+)'?\)$/);if(m){m[1]==='goSec'?goSec(+m[2],m[3]):hkOpen(+m[2],+m[3])}}
  else if(d.k4s)show(d.k4s);
- else if(d.k4v!=null){PF.kyoV=d.k4v||undefined;sav();const T=document.getElementById('kyT');if(T)delete T.dataset.k4;try{render()}catch(_){}upd()}
+ else if(d.k4v!=null){PF.kyoV=d.k4v||undefined;sav();if(d.k4v==='t'&&!D.classList.contains('kyo')){const k=document.getElementById('kyoSet');if(k)k.click()}const T=document.getElementById('kyT');if(T)delete T.dataset.k4;try{render()}catch(_){}upd()}
  else if(d.k4a){PF.kyoA=d.k4a;sav();upd()}},true);
 const R1=render;render=function(){const r=R1.apply(this,arguments);setTimeout(upd,40);return r};
-new MutationObserver(()=>{if(on())setTimeout(upd,0)}).observe(D,{attributes:true,attributeFilter:['class']});
+new MutationObserver(()=>setTimeout(upd,0)).observe(D,{attributes:true,attributeFilter:['class']});
 setTimeout(upd,60);
 })();/*/KY4*/
-/*KYO3*//* v140: Kyoshitsu – peşəkar cilalama: oxu irəliləyişi xətti, "Öyrəndim" düyməsi, kartlar, fokus, mobil səs düyməsi */
-(()=>{const css=document.createElement('style');css.textContent=`
-html.kyo{--ky3-acc:var(--k-acc,#c2410c)}
-html.kyo #ky3Bar{position:fixed;left:0;top:0;height:3px;width:100%;z-index:400;pointer-events:none;background:transparent}
-html.kyo #ky3Bar i{display:block;height:100%;width:0;background:var(--ky3-acc);transition:width .12s linear;border-radius:0 3px 3px 0}
-html:not(.kyo) #ky3Bar{display:none}
-html.kyo #app>section.sec{transition:box-shadow .2s ease,border-color .2s ease}
-@media (hover:hover){html.kyo #app>section.sec:hover{box-shadow:0 6px 24px -14px rgba(15,23,42,.25)}}
-html.kyo #lcard h1{letter-spacing:-.015em;line-height:1.2}
-html.kyo .sec .sh h2{letter-spacing:-.01em}
-html.kyo .got{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;font-weight:700;font-size:14px;border:1.5px solid var(--k-line,#e5e7eb);background:var(--k-card,#fff);color:inherit;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
-html.kyo .got::before{content:'';width:16px;height:16px;border-radius:50%;border:2px solid currentColor;opacity:.45;flex:none;box-sizing:border-box}
-html.kyo .got:hover{border-color:#16a34a;color:#15803d}
-html.kyo .got[aria-pressed="true"]{background:#16a34a;border-color:#16a34a;color:#fff}
-html.kyo .got[aria-pressed="true"]::before{opacity:1;border:0;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.6 2.5L12 5.5' fill='none' stroke='%2316a34a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
-html.kyo :focus-visible{outline:2px solid var(--ky3-acc);outline-offset:2px;border-radius:8px}
-html.kyo .say:hover{filter:brightness(.96)}
-html.kyo table{border-radius:12px;overflow:hidden}
-@media (max-width:1023px){html.kyo #tMuteF{display:none!important}}
-@media (prefers-reduced-motion:reduce){html.kyo #ky3Bar i{transition:none}}`;document.head.appendChild(css);
-document.body.insertAdjacentHTML('beforeend','<div id="ky3Bar" aria-hidden="true"><i></i></div>');
-let raf=0;const upd=()=>{raf=0;if(!document.documentElement.classList.contains('kyo'))return;const h=document.documentElement.scrollHeight-innerHeight;const i=document.querySelector('#ky3Bar i');if(i)i.style.width=(h>0?Math.min(100,scrollY/h*100):0)+'%'};
-addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);
-const rd=render;render=function(){const x=rd.apply(this,arguments);try{setTimeout(()=>{upd();const a=document.querySelector('#kyN .ky-l.on');if(a){let c=a.parentElement;while(c&&c!==document.body&&!(c.scrollHeight>c.clientHeight+4&&/(auto|scroll)/.test(getComputedStyle(c).overflowY)))c=c.parentElement;if(c&&c!==document.body){const r=a.getBoundingClientRect(),q=c.getBoundingClientRect();if(r.top<q.top+40||r.bottom>q.bottom-40)c.scrollTop+=r.top-q.top-q.height/2+r.height/2}}},80)}catch(_){}return x};
-})();/*/KYO3*/
 render();a11yFix();
 
 </script>
