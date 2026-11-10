@@ -1,0 +1,60 @@
+# Repoda 30 gün dəyişiklik olmayanda xəbərdarlıq (issue → e-poçt) göndərir.
+# İssue-dakı keçiddən "Run workflow" basılanda kiçik bir commit edilir və 60 günlük sayğac sıfırlanır.
+name: Activity check
+
+on:
+  schedule:
+    - cron: "41 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Warn after 30 days without commits
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          last=$(gh api "repos/$REPO/commits/main" --jq .commit.committer.date)
+          days=$(( ( $(date +%s) - $(date -d "$last" +%s) ) / 86400 ))
+          echo "Last commit: $last ($days days ago)"
+          [ "$days" -ge 30 ] || exit 0
+          open=$(gh api "repos/$REPO/issues?state=open&per_page=100" --jq '[.[] | select(.title | startswith("Repo aktivliyi"))] | length')
+          [ "$open" -eq 0 ] || { echo "Warning already open"; exit 0; }
+          url="https://github.com/$REPO/actions/workflows/activity-check.yml"
+          gh api "repos/$REPO/issues" -f title="Repo aktivliyi: $days gündür dəyişiklik yoxdur" -f body="@ismailovqazanfar
+
+          Kotoba no Tabi reposunda **$days gündür** heç bir dəyişiklik olmayıb. 60 gün tamam olanda GitHub plana uyğun işləyən workflow-ları (Supabase keep-alive daxil) dayandıracaq.
+
+          **Aktiv saxlamaq üçün:** bu keçidi açın → $url → sağda **Run workflow** → yaşıl **Run workflow** düyməsi.
+          Kiçik bir commit ediləcək, sayğac sıfırlanacaq və bu issue avtomatik bağlanacaq."
+
+  keep-active:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github
+      - name: Commit a ping
+        run: |
+          date -u +%FT%TZ > .github/last-activity
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/last-activity
+          git commit -m "Repo aktivliyi: əl ilə yeniləndi"
+          git push
+      - name: Close the warning issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          for n in $(gh api "repos/$REPO/issues?state=open&per_page=100" --jq '.[] | select(.title | startswith("Repo aktivliyi")) | .number'); do
+            gh api -X PATCH "repos/$REPO/issues/$n" -f state=closed >/dev/null && echo "Closed #$n"
+          done
