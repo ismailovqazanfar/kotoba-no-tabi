@@ -1287,7 +1287,7 @@ L1.grammar=[
  {t:'İS も',m:TID("ui.too-also"),f:F('#İS','{も}'),b:TID("ui.if-the-same-statement-also-appli"),
   ex:[['⑦','パーカー|さん{は} [会社員:かいしゃいん]|です。シャルマ|さん{も} [会社員:かいしゃいん]|です。','Cənab Parker şirkət işçisidir. Cənab Şarma da şirkət işçisidir.']]},
  {t:'İS₁ の İS₂',m:'"İS₁-in İS₂-si"',f:F('#İS₁','{の}','#İS₂'),b:TID("ui.links-two-nouns-the-first-noun-m"),
-  ex:[['⑧','パーカー|さん{は} ミドリ[商事:しょうじ]{の} [社員:しゃいん]|です。','Cənab Parker Midori Shouji-nin işçisidir.']]},
+  ex:[['⑧','パーカー|さん{は} ミドリ ^[商事:しょうじ]{の} [社員:しゃいん]|です。','Cənab Parker Midori Shouji-nin işçisidir.']]},
  {t:'〜さん',m:TID("ui.polite-form-of-address"),f:F('#ad / soyad','さん'),b:TID("ui.is-added-to-the-name-or-surname"),
   ex:[['⑨','あの [方:かた]{は} パーカー|さん|です。','O şəxs cənab Parkerdir.'],['⑩','^[鈴木:すずき]：パーカー|さん{は} [学生:がくせい]|です{か}。','Suzuki: Siz tələbəsiniz?'],['','パーカー：いいえ、[会社員:かいしゃいん]|です。','Parker: Xeyr, (mən) şirkət işçisiyəm.']],
   b2:TID("ui.note-is-used-only-between-very-c")}];
@@ -1296,7 +1296,7 @@ L1.quiz=[
  [TID("ui.mr-santos-is-not-a-student"),'ラモス|さん{は} [学生:がくせい] ＿。',['です','じゃ ありません','ですか'],1,'İnkar forması: <span class="jp">じゃ ありません</span> (§2).'],
  [TID("ui.how-is-read-when-used-as-a-parti"),'',['ha','wa','o'],1,'Ədat <span class="jp">は</span> həmişə "wa" oxunur (§1).'],
  [TID("ui.mr-gupta-is-a-company-employee-t"),'シャルマ|さん ＿ [会社員:かいしゃいん]|です。',['{は}','{も}','{か}'],1,'"da/də" mənası <span class="jp">も</span> ilə verilir (§4).'],
- [TID("ui.mr-miller-is-an-imc-employee"),'パーカー|さん{は} ミドリ[商事:しょうじ] ＿ [社員:しゃいん]|です。',['{の}','{は}','{か}'],0,'İki ismi <span class="jp">の</span> bağlayır (§5).'],
+ [TID("ui.mr-miller-is-an-imc-employee"),'パーカー|さん{は} ミドリ ^[商事:しょうじ] ＿ [社員:しゃいん]|です。',['{の}','{は}','{か}'],0,'İki ismi <span class="jp">の</span> bağlayır (§5).'],
  [TID("ui.miller-introduces-himself-which"),'',['パーカー|さん|です。','パーカー|です。'],1,'Özünüz haqqında <span class="jp">さん</span> işlənmir (§6).'],
  [TID("ui.what-does-mean"),'',['Braziliya','braziliyalı','portuqal dili'],1,'Ölkə + <span class="jp">人</span> (jin) = millət.'],
  [TID("ui.what-language-is-spoken-in-ameri"),'',['アメリカ[語:ご]','[英語:えいご]'],1,'ABŞ, Böyük Britaniya, Avstraliya, Sinqapur: <span class="jp">英語</span> (eigo).']];
@@ -1352,7 +1352,7 @@ L2.grammar=[
   ex:[['⑨','これ{は} ~コンピューター{の} [本:ほん]|です。','Bu kompüter haqqında kitabdır.']],
   b2:TID("ui.2-whose-shows-who-n-belongs-to"),ex2:[['⑩','これ{は} わたし{の} [本:ほん]|です。','Bu mənim kitabımdır.']]},
  {t:TID("ui.instead-of-a-noun"),m:TID("ui.s-one"),f:F('#İS₁','{の}'),b:TID("ui.if-it-is-clear-what-you-are-talk"),
-  ex:[['⑪','あれ{は} だれ{の} ~カバン|です{か}。','O çanta kimindir?'],['','……^[加藤:かとう]|さん{の}|です。','……Xanım Katonundur.'],['⑫','この ~カバン{は} あなた{の}|です{か}。','Bu çanta sizindir?'],['','……いいえ、わたし{の}|じゃ ありません。','……Xeyr, mənim deyil.'],['⑬','パーカー|さん{は} ミドリ[商事:しょうじ]{の} [社員:しゃいん]|です{か}。','Cənab Parker Midori Shouji-nin işçisidir?'],['','……はい、ミドリ[商事:しょうじ]{の} [社員:しゃいん]|です。','……Bəli, (o) Midori Shouji-nin işçisidir.']]},
+  ex:[['⑪','あれ{は} だれ{の} ~カバン|です{か}。','O çanta kimindir?'],['','……^[加藤:かとう]|さん{の}|です。','……Xanım Katonundur.'],['⑫','この ~カバン{は} あなた{の}|です{か}。','Bu çanta sizindir?'],['','……いいえ、わたし{の}|じゃ ありません。','……Xeyr, mənim deyil.'],['⑬','パーカー|さん{は} ミドリ ^[商事:しょうじ]{の} [社員:しゃいん]|です{か}。','Cənab Parker Midori Shouji-nin işçisidir?'],['','……はい、ミドリ ^[商事:しょうじ]{の} [社員:しゃいん]|です。','……Bəli, (o) Midori Shouji-nin işçisidir.']]},
  {t:'お〜',m:TID("ui.polite-prefix"),f:F('お','#İS'),b:TID("ui.the-prefix-added-before-a-noun-e"),
   ex:[['','お[土産:みやげ]','hədiyyə, suvenir'],['','お[酒:さけ]','spirtli içki, sake']]},
  {t:'そうですか',m:TID("ui.really-i-see"),f:F('そう|です{か}','↘'),b:TID("ui.shows-that-you-have-taken-in-new"),
@@ -1364,7 +1364,7 @@ L2.quiz=[
  [TID("ui.yes-it-is"),'',['はい、そう|です。','はい、[違:ちが]います。'],0,'Təsdiq: <span class="jp">はい、そうです</span> (§3).'],
  [TID("ui.no-it-isn-t"),'',['いいえ、そう|です。','いいえ、[違:ちが]います。'],1,'İnkar: <span class="jp">いいえ、ちがいます</span> (§3).'],
  [TID("ui.which-answer-is-correct"),'',['はい、「９」|です。','「９」|です。'],1,'Seçimli sualda <span class="jp">はい / いいえ</span> işlənmir (§4).'],
- [TID("ui.imc-yes"),'',['はい、ミドリ[商事:しょうじ]{の} [社員:しゃいん]|です。','はい、ミドリ[商事:しょうじ]{の}|です。'],0,'İS₂ insandırsa, düşmür (§6).'],
+ [TID("ui.imc-yes"),'',['はい、ミドリ ^[商事:しょうじ]{の} [社員:しゃいん]|です。','はい、ミドリ ^[商事:しょうじ]{の}|です。'],0,'İS₂ insandırsa, düşmür (§6).'],
  [TID("ui.how-does-your-voice-go-when-you"),'',[TID("ui.rises"),'↘ enir'],1,'Bu sual deyil, ona görə səs enir (§8).']];
 
 /* ================= 3-cü dərs ================= */
@@ -1853,7 +1853,7 @@ L10.meta={ro:'Nanpuraa, arimasu ka',az:TID("ui.do-you-have-nam-pla"),ref:'Evdə'
 L10.models=[['あそこ{に} ~コンビニ{が} あります。','Orada 24 saat açıq olan mağaza (konbini) var.'],['~ロビー{に} ^[加藤:かとう]|さん{が} います。','Hollda (foyedə) xanım Kato var.'],['^[東京:とうきょう]|ディズニーランド{は} ^[千葉県:ちばけん]{に} あります。','Tokio Disneylendi Chiba prefekturasındadır.'],['[家族:かぞく]{は} ニューヨーク{に} います。','Mənim ailəm Nyu-Yorkdadır.']];
 L10.examples=[
  [['この ~ビル{に} ATM{が} あります{か}。','Bu binada bankomat var?'],['……はい、[2階:にかい]{に} あります。','……Bəli, ikinci mərtəbədə var.']],
- [['あそこ{に} [男:おとこ]{の} [人:ひと]{が} います{ね}。あの [人:ひと]{は} だれ|です{か}。','Orada bir kişi dayanıb. O kimdir?'],['……ミドリ[商事:しょうじ]{の} ^[橋本:はしもと]|さん|です。','……O, Midori Shouji-dən cənab Hashimotodur.']],
+ [['あそこ{に} [男:おとこ]{の} [人:ひと]{が} います{ね}。あの [人:ひと]{は} だれ|です{か}。','Orada bir kişi dayanıb. O kimdir?'],['……ミドリ ^[商事:しょうじ]{の} ^[橋本:はしもと]|さん|です。','……O, Midori Shouji-dən cənab Hashimotodur.']],
  [['[庭:にわ]{に} だれ{が} います{か}。','Həyətdə kim var?'],['……だれ{も} いません。[猫:ねこ]{が} います。','……Heç kim yoxdur. (Ancaq) pişik var.']],
  [['[箱:はこ]{の} [中:なか]{に} [何:なに]{が} あります{か}。','Qutuda nə var?'],['……[古:ふる]い [手紙:てがみ]{や} [写真:しゃしん]|など{が} あります。','……Köhnə məktublar, fotoşəkillər və s.']],
  [['[郵便局:ゆうびんきょく]{は} どこ{に} あります{か}。','Poçt şöbəsi hardadır?'],['……[駅:えき]{の} [近:ちか]く|です。[銀行:ぎんこう]{の} [前:まえ]{に} あります。','……Stansiyanın yanında, bankla üzbəüz.']],
@@ -2223,7 +2223,7 @@ L15.grammar=[
   b2:TID("ui.note-1-the-negative-of-i-know-is"),
   ex2:[['⑧','[市役所:しやくしょ]{の} [電話番号:でんわばんごう]{を} [知:し]って います{か}。','Siz bələdiyyənin telefon nömrəsini bilirsiniz?'],['','……はい、[知:し]って います。','……Bəli, bilirəm.'],['','……いいえ、[知:し]りません。','……Xeyr, bilmirəm.']],
   b3:TID("ui.note-2-means-both-i-m-holding-it"),
-  ex3:[['⑨','ミドリ[商事:しょうじ]{は} ~コンピューター・~ソフト{を} [作:つく]って います。','Midori Shouji kompüter proqram təminatı hazırlayır.'],['⑩','~スーパー{で} ~ナンプラー{を} [売:う]って います。','Supermarketdə nam pla sousu satırlar.'],['⑪','パーカー|さん{は} ミドリ[商事:しょうじ]{で} [働:はたら]いて います。','Cənab Parker Midori Shouji-də işləyir.'],['⑫','[妹:いもうと]{は} [大学:だいがく]{で} [勉強:べんきょう]|して います。','Kiçik bacım universitetdə oxuyur.']]},
+  ex3:[['⑨','ミドリ ^[商事:しょうじ]{は} ~コンピューター・~ソフト{を} [作:つく]って います。','Midori Shouji kompüter proqram təminatı hazırlayır.'],['⑩','~スーパー{で} ~ナンプラー{を} [売:う]って います。','Supermarketdə nam pla sousu satırlar.'],['⑪','パーカー|さん{は} ミドリ ^[商事:しょうじ]{で} [働:はたら]いて います。','Cənab Parker Midori Shouji-də işləyir.'],['⑫','[妹:いもうと]{は} [大学:だいがく]{で} [勉強:べんきょう]|して います。','Kiçik bacım universitetdə oxuyur.']]},
  {t:'İS に F',m:TID("ui.the-end-point-of-an-action"),f:F('#yer','{に}','[入:はい]ります / [座:すわ]ります'),b:TID("ui.with-the-verbs-enter-sit-get-on"),
   ex:[['⑬','ここ{に} [入:はい]って{は} いけません。','Bura girmək olmaz.'],['⑭','ここ{に} [座:すわ]って{も} いい|です{か}。','Burada oturmaq olar?'],['⑮','^[京都:きょうと]|[駅:えき]{から} [16番:じゅうろくばん]{の} ~バス{に} [乗:の]って ください。','Kioto stansiyasından 16 nömrəli avtobusa minin, zəhmət olmasa.']]},
  {t:'İS₁ に İS₂ を F',m:TID("ui.v-n-into-onto-n"),f:F('#İS₁ (yer)','{に}','#İS₂','{を}','#F'),b:TID("ui.in-this-pattern-shows-where-n-n"),
@@ -2234,7 +2234,7 @@ L15.quiz=[
  [TID("ui.i-m-married"),'わたし{は} [結婚:けっこん]|して ＿。',['います','ください'],0,'Vəziyyət: <span class="jp">〜て います</span> (§3).'],
  [TID("ui.do-you-know-the-phone-number-no"),'',['いいえ、[知:し]りません。','いいえ、[知:し]って いません。'],0,'İnkar: <span class="jp">しりません</span> (§3, qeyd 1).'],
  [TID("ui.i-live-in-osaka"),'^[大阪:おおさか]＿ [住:す]んで います。',['{に}','{で}','{を}'],0,'<span class="jp">すみます</span> ilə yer <span class="jp">に</span> alır.'],
- [TID("ui.mr-miller-works-at-imc"),'パーカー|さん{は} ミドリ[商事:しょうじ]＿ [働:はたら]いて います。',['{で}','{に}'],0,'Hərəkətin yeri: <span class="jp">で</span> (6-cı dərs).'],
+ [TID("ui.mr-miller-works-at-imc"),'パーカー|さん{は} ミドリ ^[商事:しょうじ]＿ [働:はたら]いて います。',['{で}','{に}'],0,'Hərəkətin yeri: <span class="jp">で</span> (6-cı dərs).'],
  [TID("ui.may-i-sit-here"),'ここ＿ [座:すわ]って{も} いい|です{か}。',['{に}','{を}','{で}'],0,'<span class="jp">すわります</span> ilə <span class="jp">に</span> (§4).'],
  [TID("ui.please-write-your-address-here"),'ここ＿ [住所:じゅうしょ]{を} [書:か]いて ください。',['{に}','{で}','{へ}'],0,'Nəticənin yeri: <span class="jp">に</span> (§5).']];
 
