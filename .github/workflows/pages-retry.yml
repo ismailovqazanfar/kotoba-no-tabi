@@ -1,0 +1,38 @@
+# GitHub Pages deploy "syncing_files" timeout ilə düşəndə eyni commit üçün avtomatik yenidən build istəyir (hər commit üçün ən çox 2 dəfə).
+name: Pages retry
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+
+permissions:
+  pages: write
+  actions: read
+  contents: read
+
+concurrency:
+  group: pages-retry
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    if: github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Retry the Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          latest=$(gh api "repos/$REPO/commits/main" --jq .sha)
+          if [ "$latest" != "$SHA" ]; then echo "Newer commit on main – its own deploy will run."; exit 0; fi
+          fails=$(gh api "repos/$REPO/actions/runs?head_sha=$SHA&per_page=50" \
+            --jq '[.workflow_runs[] | select(.name=="pages build and deployment" and .conclusion=="failure")] | length')
+          echo "Failed Pages runs for $SHA: $fails"
+          if [ "$fails" -gt 2 ]; then echo "::error::Pages deploy failed $fails times for this commit – check githubstatus.com"; exit 1; fi
+          sleep 60
+          gh api -X POST "repos/$REPO/pages/builds"
+          echo "New Pages build requested."
