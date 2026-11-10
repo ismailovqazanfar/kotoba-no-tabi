@@ -11769,6 +11769,11 @@ const css2=document.createElement('style');css2.textContent='.ex-side{margin:0 1
 const R0=render;render=function(){const r=R0.apply(this,arguments);setTimeout(place,80);return r};setTimeout(place,300);
 window.kotobaExam=intro;
 })();/*/EX*/
+/*MOB*//* v173: mobil – ifadə siyahıları (.box dl) alt-alta */
+(()=>{const s=document.createElement('style');s.textContent=`@media (max-width:640px){.box dl{grid-template-columns:1fr;gap:0}
+.box dl>dt{margin-top:12px;font-size:1.08em}.box dl>dt:first-child{margin-top:2px}
+.box dl>dd{margin:4px 0 0;padding:2px 0 12px 10px;border-left:3px solid color-mix(in srgb,currentColor 18%,transparent);border-bottom:1px dashed color-mix(in srgb,currentColor 14%,transparent);line-height:1.5}
+.box dl>dd:last-child{border-bottom:0;padding-bottom:4px}}`;document.head.appendChild(s)})();/*/MOB*/
 /*KY4*//* v171: Kyoushitsu – "Tabi" dizayn seçimi: indiqo palitra, ana səhifə (Davam et, Bugünkü plan, yol xəritəsi), dərs addımları, mobil kanji tabları */
 (()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});const D=document.documentElement;
 const ACC=['#B8321C','#0B6E69','#5B3FA8','#A35A00'];
@@ -11856,7 +11861,7 @@ function tabs(){const T=document.getElementById('kyT');if(!T||(T.dataset.k4===St
  T.innerHTML=[['k4l','0','旅',L3('Yol','Journey','Путь')],['kyo','outline','語',L3('Dərslər','Lessons','Уроки')],['k4x',`goSec(${hn},'hekaye')`,'話',L3('Hekayə','Stories','Рассказы')],['kyc','kOpen','辞',L3('Lüğət','Dictionary','Словарь')],['kyo','set','☰',L3('Menyu','Menu','Меню')]].map(([a,v,k,l])=>`<button class="ky-tab" data-${a}="${v}"><span class="jp">${k}</span><span>${l}</span></button>`).join('')}
 function upd(){const t=on();D.classList.toggle('kyv-t',t);D.style.setProperty('--ky4a',PF.kyoA||ACC[0]);
  const r=document.getElementById('kyR');if(r&&D.classList.contains('kyo')){let c=document.getElementById('ky4C');if(!c){r.insertAdjacentHTML('beforeend','<div class="ky-card" id="ky4C"></div>');c=document.getElementById('ky4C')}c.innerHTML=`<h4>${L3('Dizayn','Design','Дизайн')}</h4>`+vbox()}
- const sg=document.getElementById('kyoSetG');if(sg&&!document.getElementById('ky4V2')){sg.insertAdjacentHTML('beforeend','<div class="setr" id="ky4V2"></div>')}const v2=document.getElementById('ky4V2');if(v2)v2.innerHTML=`<small class="ky4-lb">${L3('Kyoushitsu dizaynı','Kyoushitsu design','Дизайн Kyoushitsu')}</small>`+vbox().replace('id="ky4V"','');
+ const sg=document.getElementById('kyoSetG');if(sg&&!document.getElementById('ky4V2')){sg.insertAdjacentHTML('beforeend','<div class="setr" id="ky4V2"></div>')}const v2=document.getElementById('ky4V2');if(v2)v2.innerHTML=!D.classList.contains('kyo')?'':`<small class="ky4-lb">${L3('Kyoushitsu dizaynı','Kyoushitsu design','Дизайн Kyoushitsu')}</small>`+vbox().replace('id="ky4V"','');
  if(!t){const T=document.getElementById('kyT');if(T&&T.dataset.k4){delete T.dataset.k4}['ky4S','ky4H'].forEach(i=>{const x=document.getElementById(i);if(x)x.remove()});return}
  const app=document.getElementById('app'),lc=document.getElementById('lcard');if(!app||!lc)return;
  let h=document.getElementById('ky4H');if(C.n===0){if(!h){lc.insertAdjacentHTML('beforebegin','<div id="ky4H"></div>');h=document.getElementById('ky4H')}if(h.dataset.s!==String(nx())+LANG()){h.innerHTML=home();h.dataset.s=String(nx())+LANG();const c=h.querySelector('.ky4-st.c');if(c)c.parentElement.scrollLeft=c.offsetLeft-120}}else if(h)h.remove();
@@ -11875,11 +11880,6 @@ const R1=render;render=function(){const r=R1.apply(this,arguments);setTimeout(up
 new MutationObserver(()=>setTimeout(upd,0)).observe(D,{attributes:true,attributeFilter:['class']});
 setTimeout(upd,60);
 })();/*/KY4*/
-/*MOB*//* v173: mobil – ifadə siyahıları (.box dl) alt-alta */
-(()=>{const s=document.createElement('style');s.textContent=`@media (max-width:640px){.box dl{grid-template-columns:1fr;gap:0}
-.box dl>dt{margin-top:12px;font-size:1.08em}.box dl>dt:first-child{margin-top:2px}
-.box dl>dd{margin:4px 0 0;padding:2px 0 12px 10px;border-left:3px solid color-mix(in srgb,currentColor 18%,transparent);border-bottom:1px dashed color-mix(in srgb,currentColor 14%,transparent);line-height:1.5}
-.box dl>dd:last-child{border-bottom:0;padding-bottom:4px}}`;document.head.appendChild(s)})();/*/MOB*/
 render();a11yFix();
 
 </script>
