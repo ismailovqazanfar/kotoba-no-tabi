@@ -11118,246 +11118,6 @@ try{const i=TOUR.findIndex(x=>x[0]==='#tSet');if(i>=0)TOUR[i]=['#tSet','Menyu','
  ['#mapOpen','#kOpen','#sOpen','#tFuri'].forEach(q=>{const j=TOUR.findIndex(x=>x[0]===q);if(j>=0)TOUR.splice(j,1)});
  Object.assign(I18,{'Menyu':['Menu','Меню'],'Axtarış, lüğət, xəritə və nailiyyətlər, həmçinin furigana, romaji, tərcümə, səs, dil, görünüş və irəliləyiş bu menyudadır.':['Search, dictionary, map and achievements, plus furigana, romaji, translation, sound, language, appearance and progress are all in this menu.','Поиск, словарь, карта и достижения, а также фуригана, ромадзи, перевод, звук, язык, оформление и прогресс находятся в этом меню.']})}catch(_){}
 })();/*/MENU*/
-/*KYO3*//* v130: 教室 Kyoushitsu 2 – kurs tətbiqi arxitekturası: yan panel, dərs başlığı, tablar, alt naviqasiya */
-(()=>{const L3=(a,e,r)=>SL({az:a,en:e,ru:r});
-const css=document.createElement('style');css.id='kyo-css';css.textContent=`
-html.kyo{--k-bg:#f6f5f2;--k-card:#ffffff;--k-ink:#1d2127;--k-mut:#66707c;--k-line:#e3e1dc;--k-acc:#c2410c;--k-acc2:#2a4a7f;--k-soft:#fbeee6;--k-soft2:#e9eef7;--k-hov:#f1efea;--k-sh:0 1px 2px rgba(20,24,30,.05),0 1px 1px rgba(20,24,30,.03);
- --bg:var(--k-card);--ink:var(--k-ink);--mut:var(--k-mut);--line:var(--k-line);--pnk:var(--k-acc);--vio:var(--k-acc2);--sky:var(--k-acc2);--cor:var(--k-acc);--amb:#a8641a;--grn:#2f7a55;--tea:#25737a;--hanko:var(--k-acc);
- --ky-side:272px;--ky-rail:300px;--ky-mbar:54px;--ky-tab:64px}
-html.kyo.kyo-d{--k-bg:#14161a;--k-card:#1c1f25;--k-ink:#e9e7e3;--k-mut:#9aa1aa;--k-line:#2c3038;--k-acc:#f0773f;--k-acc2:#8fb0e6;--k-soft:#3a2418;--k-soft2:#1f2a3d;--k-hov:#242830;--k-sh:none}
-html.kyo body{background:var(--k-bg)!important;color:var(--k-ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Nunito,sans-serif}
-html.kyo .jp,html.kyo [lang=ja]{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP","Zen Maru Gothic",sans-serif}
-html.kyo #skb,html.kyo .top>.wrap,html.kyo .top>.bar,html.kyo .lsw,html.kyo .hero .series,html.kyo .hero .title,html.kyo #hanko,html.kyo .hero .linew,html.kyo #linecap,html.kyo .hero::before,html.kyo .hero::after,html.kyo .hero .wrap::before,html.kyo .hero .wrap::after{display:none!important}
-.ky-side,.ky-rail,.ky-mbar,.ky-tabs,.ky-sheet,.ky-eb,.ky-setx{display:none}
-/* üst: tablar + bölmələr */
-html.kyo .top{background:color-mix(in srgb,var(--k-bg) 88%,transparent)!important;backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--k-line)!important;box-shadow:none!important;transition:transform .22s ease}
-html.kyo .subnav{background:transparent!important;border:0!important;box-shadow:none!important}
-html.kyo .subnav>.wrap{max-width:900px!important;margin:0 auto!important;padding:10px 20px!important;display:flex!important;align-items:center;gap:10px}
-html.kyo #chips{flex:1;min-width:0;display:flex!important;flex-wrap:nowrap!important;align-items:center;gap:8px!important;padding:0!important;margin:0!important;overflow-x:auto;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
-html.kyo #chips::-webkit-scrollbar{display:none}
-html.kyo #kyoGrp{display:flex;flex:none;gap:2px;padding:3px;border-radius:12px;background:var(--k-hov);border:1px solid var(--k-line);margin-right:6px;height:40px;align-items:center}
-#kyoGrp{display:none}
-#kyoGrp button{border:0;background:none;height:32px;padding:0 16px;border-radius:9px;font:inherit;font-size:14px;font-weight:700;color:var(--k-mut);cursor:pointer;white-space:nowrap}
-#kyoGrp button.on{background:var(--k-card);color:var(--k-ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-html.kyo .chip{flex:none;height:32px;display:inline-flex!important;align-items:center;padding:0 13px!important;font-size:13.5px!important;font-weight:600!important;color:var(--k-mut)!important;background:transparent!important;border:1px solid transparent!important;border-radius:999px!important;box-shadow:none!important;white-space:nowrap}
-html.kyo .chip:hover{background:var(--k-hov)!important;color:var(--k-ink)!important}
-html.kyo .chip.on,html.kyo .chip[aria-current],html.kyo .chip.act{color:var(--k-acc2)!important;background:var(--k-soft2)!important;border-color:transparent!important}
-html.kyo .chip.kyo-x,html.kyo .sec.kyo-x,html.kyo .fact.kyo-x{display:none!important}
-/* dərs başlığı */
-html.kyo .hero{background:none!important;border:0!important;padding:0!important;min-height:0!important}
-html.kyo .hero>.wrap{max-width:900px!important;margin:18px auto 0!important;padding:0 20px!important;display:flex!important;flex-direction:column;gap:0}
-html.kyo #lcard{order:1;margin:0!important;background:var(--k-card)!important;border:1px solid var(--k-line)!important;border-radius:18px 18px 0 0!important;border-bottom:0!important;padding:22px 24px 6px!important;box-shadow:none!important}
-html.kyo #kotow{order:2;position:static!important;width:auto!important;max-width:none!important;top:auto!important;right:auto!important;left:auto!important;transform:none!important;margin:0!important;background:var(--k-card);border-left:1px solid var(--k-line);border-right:1px solid var(--k-line);padding:4px 24px 14px;display:flex!important;flex-wrap:wrap;align-items:baseline;gap:4px 12px;text-align:left!important}
-html.kyo #kotow .kt{font-size:15px!important;color:var(--k-ink)}html.kyo #kotow .kr{font-size:12.5px!important;color:var(--k-mut)}html.kyo #kotow .ke{font-size:13px!important;color:var(--k-mut);font-style:italic;flex-basis:100%}
-html.kyo #pcap{order:3;margin:0!important;background:var(--k-card);border:1px solid var(--k-line);border-top:1px dashed var(--k-line);border-radius:0 0 18px 18px;padding:12px 24px!important;display:flex!important;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--k-mut)}
-html.kyo #pcap .ck{border-radius:999px!important;border:1px solid var(--k-line)!important;background:var(--k-bg)!important;padding:3px 10px!important;font-size:12.5px!important}
-html.kyo #lcard .ky-eb{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--k-acc);margin-bottom:6px}
-html.kyo #lcard .ky-eb .jp{letter-spacing:0;font-weight:500;color:var(--k-mut);text-transform:none}
-html.kyo #lcard .ro1{font-size:13px!important;color:var(--k-mut)!important;font-weight:600!important;margin:0!important;letter-spacing:0!important;text-transform:none!important}
-html.kyo #lcard h1{font-size:clamp(24px,3.2vw,32px)!important;line-height:1.2!important;margin:2px 0 14px!important;letter-spacing:-.01em;color:var(--k-ink)!important;font-weight:800!important}
-html.kyo #lcard ul.goals{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px 18px;padding:0!important;margin:0 0 6px!important}
-html.kyo #lcard ul.goals li{font-size:14px!important;color:var(--k-ink);padding-left:22px!important;position:relative;line-height:1.45}
-html.kyo #lcard ul.goals li::before{content:""!important;position:absolute;left:2px;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--k-acc2)!important;opacity:.55;border:0!important}
-/* məzmun */
-html.kyo #app{max-width:900px!important;margin:0 auto!important;padding:0 20px 40px!important}
-html.kyo .sec{margin:18px 0!important;border-radius:18px!important;border:1px solid var(--k-line)!important;box-shadow:var(--k-sh)!important;background:var(--k-card)!important;scroll-margin-top:130px}
-html.kyo .sec h2{letter-spacing:-.01em}
-html.kyo .sec .sico,html.kyo .sec h2 .ico,html.kyo .sec .ico{background:var(--k-soft2)!important;color:var(--k-acc2)!important;box-shadow:none!important}
-html.kyo .fact{border:1px solid var(--k-line)!important;box-shadow:none!important;border-radius:14px!important;background:var(--k-soft2)!important}
-html.kyo .btn,html.kyo .chip{box-shadow:none!important}
-html.kyo .btn{--c:var(--k-acc2)!important;border-width:1px!important;min-height:38px;border-radius:10px!important;font-weight:700}
-html.kyo .btn.fill{--c:var(--k-acc)!important}
-html.kyo .lnav{max-width:900px;margin:10px auto 0}
-html.kyo footer{max-width:900px;margin:0 auto}
-html.kyo .setg:has(#thm){display:none}
-/* yan panel */
-.ky-side{position:fixed;left:0;top:0;bottom:0;width:var(--ky-side);z-index:40;background:var(--k-card);border-right:1px solid var(--k-line);flex-direction:column}
-.ky-brand{display:flex;align-items:center;gap:12px;padding:18px 18px 12px}
-.ky-mk{width:38px;height:38px;border-radius:11px;background:var(--k-acc);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:700;flex:none}
-.ky-brand b{display:block;font-size:15px;color:var(--k-ink)}.ky-brand small{display:block;font-size:12px;color:var(--k-mut)}
-.ky-tools{display:grid;gap:2px;padding:4px 10px 10px;border-bottom:1px solid var(--k-line)}
-.ky-tool{display:flex;align-items:center;gap:12px;width:100%;height:40px;padding:0 10px;border:0;background:none;border-radius:10px;font:inherit;font-size:14px;font-weight:600;color:var(--k-ink);cursor:pointer;text-align:left}
-.ky-tool:hover{background:var(--k-hov)}.ky-tool svg{width:20px;height:20px;flex:none;color:var(--k-mut)}
-.ky-tool em{margin-left:auto;font-style:normal;font-size:11px;font-weight:800;background:var(--k-acc);color:#fff;border-radius:999px;padding:1px 7px}.ky-tool em:empty{display:none}
-.ky-tool kbd{margin-left:auto;font:600 11px ui-monospace,monospace;color:var(--k-mut);border:1px solid var(--k-line);border-radius:5px;padding:1px 5px}
-.ky-prog{padding:14px 18px 6px}.ky-prog div{display:flex;justify-content:space-between;font-size:12px;color:var(--k-mut);margin-bottom:6px}.ky-prog b{color:var(--k-ink)}
-.ky-prog i{display:block;height:6px;border-radius:9px;background:var(--k-hov);overflow:hidden}.ky-prog i::after{content:"";display:block;height:100%;width:var(--w);background:var(--grn);border-radius:9px}
-.ky-out{flex:1;overflow:auto;padding:4px 10px 16px;scrollbar-width:thin}
-.ky-u{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--k-mut);padding:14px 10px 6px;display:flex;justify-content:space-between}
-.ky-u span{letter-spacing:0;font-weight:600;text-transform:none}
-.ky-l{display:flex;align-items:center;gap:11px;width:100%;padding:7px 10px;border:0;background:none;border-radius:10px;font:inherit;color:var(--k-ink);cursor:pointer;text-align:left}
-.ky-l:hover{background:var(--k-hov)}.ky-l.on{background:var(--k-soft2)}.ky-l.on b{color:var(--k-acc2)}
-.ky-ln{--p:0;width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--k-ink);background:radial-gradient(closest-side,var(--k-card) 76%,transparent 78%),conic-gradient(var(--grn) calc(var(--p)*360deg),var(--k-line) 0)}
-.ky-l.on .ky-ln{background:radial-gradient(closest-side,var(--k-soft2) 76%,transparent 78%),conic-gradient(var(--grn) calc(var(--p)*360deg),var(--k-line) 0)}
-.ky-l.done .ky-ln{background:var(--grn);color:#fff}.ky-ln svg{width:15px;height:15px}
-.ky-lt{min-width:0;display:flex;flex-direction:column}.ky-lt small{font-size:11px;color:var(--k-mut);font-weight:600}.ky-lt b{font-size:13.5px;font-weight:600;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ky-sfoot{border-top:1px solid var(--k-line);padding:10px}
-.ky-disp{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:6px}.ky-side .ky-dt{font-size:9.5px;height:48px}
-.ky-dt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:52px;border:1px solid var(--k-line);background:var(--k-card);border-radius:10px;font:inherit;font-size:10.5px;font-weight:700;color:var(--k-mut);cursor:pointer;padding:0}
-.ky-dt b{font-size:15px;color:var(--k-ink);font-weight:700;line-height:1}.ky-dt svg{width:17px;height:17px;color:var(--k-ink)}
-.ky-dt[aria-pressed=true]{border-color:var(--k-acc2);background:var(--k-soft2);color:var(--k-acc2)}.ky-dt[aria-pressed=true] b,.ky-dt[aria-pressed=true] svg{color:var(--k-acc2)}
-/* sağ panel */
-.ky-rail{position:fixed;right:0;top:0;bottom:0;width:var(--ky-rail);z-index:39;padding:18px 18px 18px 6px;overflow:auto;flex-direction:column;gap:14px}
-.ky-card{background:var(--k-card);border:1px solid var(--k-line);border-radius:16px;padding:16px;box-shadow:var(--k-sh)}
-.ky-card h4{margin:0 0 12px;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--k-mut)}
-.ky-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ky-st{background:var(--k-bg);border-radius:12px;padding:10px 12px}
-.ky-st b{display:flex;align-items:center;gap:6px;font-size:22px;font-weight:800;color:var(--k-ink)}.ky-st b svg{width:18px;height:18px;color:var(--k-acc)}.ky-st small{font-size:12px;color:var(--k-mut)}
-.ky-next{display:flex;align-items:center;gap:12px;width:100%;border:0;border-radius:12px;background:var(--k-acc2);color:#fff;padding:12px 14px;font:inherit;cursor:pointer;text-align:left}
-.ky-next small{display:block;font-size:11.5px;opacity:.85}.ky-next b{display:block;font-size:14px}.ky-next svg{margin-left:auto;width:18px;height:18px;flex:none}
-.ky-tip{font-size:13px;color:var(--k-mut);line-height:1.5}.ky-tip kbd{font:600 11px ui-monospace,monospace;border:1px solid var(--k-line);border-bottom-width:2px;border-radius:5px;padding:0 5px;color:var(--k-ink);background:var(--k-bg)}
-/* mobil */
-.ky-mbar{height:var(--ky-mbar);align-items:center;gap:6px;padding:0 10px 0 12px;border-bottom:1px solid var(--k-line)}
-.ky-mt{flex:1;min-width:0;display:flex;align-items:center;gap:10px;border:0;background:none;font:inherit;color:var(--k-ink);padding:6px 4px;cursor:pointer;text-align:left}
-.ky-mt .ky-ln{width:32px;height:32px}.ky-mt .ky-lt b{font-size:15px}.ky-mt>svg{width:16px;height:16px;flex:none;color:var(--k-mut)}
-.ky-ib{width:40px;height:40px;flex:none;display:grid;place-items:center;border:0;background:none;border-radius:10px;color:var(--k-ink);cursor:pointer}.ky-ib:hover{background:var(--k-hov)}.ky-ib svg{width:21px;height:21px}
-.ky-tabs{position:fixed;left:0;right:0;bottom:0;z-index:45;height:calc(var(--ky-tab) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:color-mix(in srgb,var(--k-card) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--k-line);grid-template-columns:repeat(5,1fr)}
-.ky-tab{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:none;font:inherit;font-size:11px;font-weight:600;color:var(--k-mut);cursor:pointer}
-.ky-tab svg{width:23px;height:23px}.ky-tab.on{color:var(--k-acc2)}
-.ky-tab em{position:absolute;top:7px;left:calc(50% + 6px);font-style:normal;font-size:10px;font-weight:800;background:var(--k-acc);color:#fff;border-radius:999px;padding:0 5px;line-height:16px}.ky-tab em:empty{display:none}
-.ky-sheet{position:fixed;inset:0;z-index:400;background:rgba(10,12,16,.42);align-items:flex-end;justify-content:center}
-.ky-sheet.open{display:flex}
-.ky-sh{width:100%;max-width:560px;max-height:82vh;background:var(--k-card);border-radius:20px 20px 0 0;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom);animation:kySh .22s ease}
-@keyframes kySh{from{transform:translateY(40px);opacity:.4}}
-.ky-shh{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 8px}.ky-shh b{font-size:16px}
-.ky-sh .ky-out{padding-bottom:20px}.ky-sh .ky-disp{padding:4px 16px 20px;grid-template-columns:repeat(2,1fr);gap:8px}.ky-sh .ky-dt{height:64px;font-size:12px}.ky-sh .ky-dt b{font-size:18px}
-.ky-setx{position:sticky;top:0;z-index:2;justify-content:space-between;align-items:center;padding:12px 4px 10px;background:var(--k-bg)}
-.ky-setx b{font-size:18px}
-@media (min-width:1024px){
- html.kyo body{padding-left:var(--ky-side)!important}
- html.kyo .ky-side{display:flex}
- html.kyo .top{position:sticky;top:0}
-}
-@media (min-width:1360px){html.kyo body{padding-right:var(--ky-rail)!important}html.kyo .ky-rail{display:flex}}
-@media (max-width:1023.98px){
- html.kyo .ky-mbar{display:flex}html.kyo .ky-tabs{display:grid}
- html.kyo body{padding-bottom:calc(var(--ky-tab) + env(safe-area-inset-bottom))!important}
- html.kyo .top{position:sticky;top:0}
- html.kyo.ky-up .top{transform:translateY(calc(-1 * var(--ky-mbar)))}
- html.kyo .subnav>.wrap{padding:8px 12px!important}
- html.kyo .subnav>.wrap{flex-direction:column;align-items:stretch;gap:8px}
- html.kyo #kyoGrp{margin:0;height:40px}html.kyo #kyoGrp button{flex:1;padding:0 6px}
- html.kyo #chips{flex:none;width:100%}
- html.kyo .hero>.wrap,html.kyo #app{padding-left:12px!important;padding-right:12px!important}
- html.kyo #lcard{padding:18px 18px 4px!important}html.kyo #kotow,html.kyo #pcap{padding-left:18px!important;padding-right:18px!important}
- html.kyo #lcard ul.goals{grid-template-columns:1fr}
- html.kyo .sec{border-radius:16px!important;scroll-margin-top:120px}
- html.kyo #tMuteF{bottom:calc(var(--ky-tab) + 14px + env(safe-area-inset-bottom))!important}
- html.kyo .toast{bottom:calc(var(--ky-tab) + 16px + env(safe-area-inset-bottom))!important}
-}
-.kyo-help{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px}
-.kyo-help>div{background:var(--k-card,#fff);color:var(--k-ink,#222);border-radius:16px;padding:20px 22px;max-width:440px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.3)}
-.kyo-help table{width:100%;border-collapse:collapse}.kyo-help td{padding:6px 4px;border-bottom:1px solid var(--k-line,#eee)}
-.kyo-help kbd{display:inline-block;min-width:24px;text-align:center;padding:2px 7px;border:1px solid var(--k-line,#ccc);border-bottom-width:2px;border-radius:6px;font:700 13px ui-monospace,monospace;background:var(--k-bg,#f6f6f6)}
-`;document.head.appendChild(css);
-const save=()=>{try{localStorage.setItem('kotoba-prefs',JSON.stringify(PF))}catch(_){}};
-const GR=[['learn',()=>L3('Öyrən','Learn','Учить'),['about','cast','lang','ptc0','kana','name','sound','models','examples','dialog','d4','grammar','vocab','kanji']],['prac',()=>L3('Məşq','Practice','Практика'),['play','cross','quiz']],['more',()=>L3('Əlavə','More','Ещё'),['ref','phr','terms']]];
-let G='learn';const gOf=id=>{for(const g of GR)if(g[2].includes(id))return g[0];return 'learn'};
-const isOn=()=>document.documentElement.classList.contains('kyo');
-const sv=(d,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w||1.9}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
-const IC={
- hunt:sv('<circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/><path d="M10.5 7.8l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z"/>'),
- star:sv('<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'),
- moon:sv('<path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z"/>'),
- search:sv('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
- book:sv('<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20v-3"/><path d="M8 7h8M8 10.5h5"/>'),
- dict:sv('<path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/>'),
- map:sv('<path d="m9 3-6 2v16l6-2 6 2 6-2V3l-6 2z"/><path d="M9 3v16M15 5v16"/>'),
- trophy:sv('<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'),
- set:sv('<path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/>'),
- aa:sv('<path d="M3 19 8.5 5 14 19M5.2 14h6.6"/><path d="M17 11.5a2.5 2.5 0 0 1 4 2V19M21 16c-3 0-4.5.6-4.5 1.8 0 .8.7 1.3 1.7 1.3 1.6 0 2.8-1.2 2.8-3.1"/>'),
- down:sv('<path d="m6 9 6 6 6-6"/>'),right:sv('<path d="m9 6 6 6-6 6"/>'),x:sv('<path d="M6 6l12 12M18 6 6 18"/>'),
- check:sv('<path d="m5 12.5 4.5 4.5L19 7.5"/>',2.6),
- flame:sv('<path d="M12 3c.8 3.4 5 5.2 5 10a5 5 0 0 1-10 0c0-2.6 1.4-3.8 2.2-5.6.9 1.2 1.6 2.3 1.6 3.6 1.4-1.6 1.6-4.6 1.2-8z"/>'),
- sound:sv('<path d="M4 9.5h3.5L12 5v14l-4.5-4.5H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/>'),
- words:sv('<path d="M4 6h16M4 12h10M4 18h7"/>'),menu:sv('<path d="M4 7h16M4 12h16M4 17h16"/>')};
-const esc2=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const ttl=n=>{const m=LS[n]&&LS[n].meta;return m?tx(m.az):''};
-const lnum=n=>n?L3('Dərs '+n,'Lesson '+n,'Урок '+n):L3('Giriş','Introduction','Введение');
-function lp(n){try{if(lessonDone(n))return 1;const L=LS[n];const s=n===C.n?st:ldStore(n);const g=Object.values(s.got||{}).filter(Boolean).length,gl=(L.grammar||[]).length,q=Object.keys(s.quiz||{}).length,ql=(L.quiz||[]).length;return gl+ql?Math.min(.95,(g+q)/(gl+ql)):0}catch(_){return 0}}
-const UN=[[0,[0]]];for(let u=1;u<=7;u++){const a=[];for(let n=u*5-4;n<=u*5;n++)if(LS[n])a.push(n);UN.push([u,a])}
-function lrow(n,cls){const p=lp(n),d=p>=1;return `<button class="ky-l${n===C.n?' on':''}${d?' done':''}${cls||''}" data-kl="${n}"><span class="ky-ln" style="--p:${p.toFixed(2)}">${d?IC.check:(n||'<span class="jp">入</span>')}</span><span class="ky-lt"><small>${lnum(n)}</small><b>${esc2(ttl(n))}</b></span></button>`}
-function outline(){return UN.map(([u,ls])=>`<div class="ky-u">${u?L3('Bölmə '+u,'Unit '+u,'Раздел '+u):L3('Başlanğıc','Start','Начало')}${u?`<span>${ls[0]}–${ls[ls.length-1]}</span>`:''}</div>`+ls.map(n=>lrow(n)).join('')).join('')}
-const DISP=[['kyTh',IC.moon,()=>L3('Tünd','Dark','Тёмн.')],['tFuri','<b class="jp">あ</b>','Furigana'],['tRo','<b>Ro</b>','Romaji'],['tAz','<b>Tr</b>',()=>L3('Tərcümə','Translation','Перевод')],['tMute',IC.sound,()=>L3('Səs','Sound','Звук')]];
-const pr=id=>{const b=$(id);return !!b&&b.getAttribute('aria-pressed')==='true'};
-function disp(){return DISP.map(([id,i,l])=>`<button class="ky-dt" data-kt="${id}" aria-pressed="${pr(id)}">${i}<span>${typeof l==='function'?l():l}</span></button>`).join('')}
-const TOOLS=[['sOpen','search',()=>L3('Axtarış','Search','Поиск'),'/'],['kOpen','dict',()=>L3('Lüğət','Dictionary','Словарь'),'D'],['mapOpen','map',()=>L3('Səyahət xəritəsi','Journey map','Карта путешествия'),'M'],['bdOpen','trophy',()=>L3('Nailiyyətlər','Achievements','Достижения'),''],['fvOpen','star',()=>L3('Seçilmişlər','Favorites','Избранное'),''],['hoOpen','hunt',()=>'Sagashimono','']];
-const bdn=()=>{const e=document.querySelector('#bdOpen em');return e&&e.style.display!=='none'&&e.textContent!=='0'?e.textContent:''};
-function doneN(){let d=0;for(let n=1;n<=35;n++)try{if(lessonDone(n))d++}catch(_){}return d}
-function streak(){try{const S=new Set([...(MS.days||[]),...((PF.bd&&PF.bd.days)||[])].map(msDN));const t=msDN(msDay());let s=0,d=S.has(t)?t:t-1;while(S.has(d)){s++;d--}return s}catch(_){return 0}}
-function wordsN(){let c=0;try{for(const k in MS.w)if(msLevel(k)>=3)c++}catch(_){}return c}
-function nextL(){for(let n=0;n<=35;n++)try{if(LS[n]&&!lessonDone(n))return n}catch(_){}return 35}
-function build(){if($('kyN'))return;
- document.body.insertAdjacentHTML('beforeend',`<aside class="ky-side" id="kyN" aria-label="Kyoushitsu"><div class="ky-brand"><span class="ky-mk jp">教</span><div><b>Kotoba no Tabi</b><small><span class="jp">教室</span> · Kyoushitsu</small></div></div><div class="ky-tools" id="kyTools"></div><div class="ky-prog" id="kyProg"></div><nav class="ky-out" id="kyOut"></nav><div class="ky-sfoot"><div class="ky-disp" id="kyDisp"></div><button class="ky-tool" data-kyo="set">${IC.menu}<span id="kySetL"></span></button></div></aside>
-<aside class="ky-rail" id="kyR"></aside>
-<nav class="ky-tabs" id="kyT"></nav>
-<div class="ky-sheet" id="kySh" role="dialog" aria-modal="true"><div class="ky-sh"><div class="ky-shh"><b id="kyShT"></b><button class="ky-ib" data-kyo="shx" aria-label="✕">${IC.x}</button></div><div id="kyShB" style="overflow:auto"></div></div></div>`);
- const top=document.querySelector('.top');if(top&&!$('kyM'))top.insertAdjacentHTML('afterbegin','<div class="ky-mbar" id="kyM"></div>');
-}
-function refresh(){if(!isOn())return;build();const n=C.n;
- $('kyTools').innerHTML=TOOLS.map(([id,ic,l,k])=>`<button class="ky-tool" data-kyc="${id}">${IC[ic]}<span>${l()}</span>${id==='bdOpen'?`<em>${bdn()}</em>`:`<kbd>${k}</kbd>`}</button>`).join('');
- const dn=doneN();$('kyProg').innerHTML=`<div><span>${L3('Kurs','Course','Курс')}</span><span><b>${dn}</b> / 35</span></div><i style="--w:${(dn/35*100).toFixed(1)}%"></i>`;
- const o=$('kyOut'),stp=o.scrollTop;o.innerHTML=outline();o.scrollTop=stp;
- $('kyDisp').innerHTML=disp();$('kySetL').textContent=L3('Menyu','Menu','Меню');
- const nx=nextL();$('kyR').innerHTML=`<div class="ky-card"><h4>${L3('Bu gün','Today','Сегодня')}</h4><div class="ky-stats"><div class="ky-st"><b>${IC.flame}${streak()}</b><small>${L3('gün ardıcıl','day streak','дней подряд')}</small></div><div class="ky-st"><b>${wordsN()}</b><small>${L3('söz öyrənilib','words learned','слов выучено')}</small></div><div class="ky-st"><b>${dn}</b><small>${L3('dərs bitib','lessons done','уроков пройдено')}</small></div><div class="ky-st"><b>${Math.round(lp(n)*100)}%</b><small>${L3('bu dərs','this lesson','этот урок')}</small></div></div></div>`+
-  (nx!==n?`<div class="ky-card"><h4>${L3('Davam et','Continue','Продолжить')}</h4><button class="ky-next" data-kl="${nx}"><span><small>${lnum(nx)}</small><b>${esc2(ttl(nx))}</b></span>${IC.right}</button></div>`:'')+
-  `<div class="ky-card"><h4>${L3('Görünüş','Display','Вид')}</h4><div class="ky-disp" style="margin:0">${disp()}</div></div><div class="ky-card ky-tip">${L3('Klaviatura ilə daha sürətli: <kbd>?</kbd> qısayolların siyahısını açır.','Faster with the keyboard: <kbd>?</kbd> opens the list of shortcuts.','С клавиатурой быстрее: <kbd>?</kbd> открывает список сочетаний.')}</div>`;
- $('kyM').innerHTML=`<button class="ky-mt" data-kyo="outline"><span class="ky-ln" style="--p:${lp(n).toFixed(2)}">${lp(n)>=1?IC.check:(n||'<span class="jp">入</span>')}</span><span class="ky-lt"><small>${lnum(n)}</small><b>${esc2(ttl(n))}</b></span>${IC.down}</button><button class="ky-ib" data-kyc="sOpen" aria-label="${L3('Axtarış','Search','Поиск')}">${IC.search}</button><button class="ky-ib" data-kyo="disp" aria-label="${L3('Görünüş','Display','Вид')}">${IC.aa}</button>`;
- $('kyT').innerHTML=[['outline','book',L3('Dərslər','Lessons','Уроки')],['kOpen','dict',L3('Lüğət','Dictionary','Словарь')],['mapOpen','map',L3('Xəritə','Map','Карта')],['bdOpen','trophy',L3('Nişanlar','Badges','Значки')],['set','menu',L3('Menyu','Menu','Меню')]].map(([k,ic,l])=>`<button class="ky-tab" ${k==='outline'||k==='set'?'data-kyo':'data-kyc'}="${k}">${IC[ic]}<span>${l}</span>${k==='bdOpen'?`<em>${bdn()}</em>`:''}</button>`).join('');
- const lc=$('lcard');if(lc){let eb=lc.querySelector('.ky-eb');if(!eb){lc.insertAdjacentHTML('afterbegin','<div class="ky-eb"></div>');eb=lc.querySelector('.ky-eb')}eb.innerHTML=`<span>${lnum(n)}</span>${n?`<span class="jp">第${n}課</span>`:'<span class="jp">入門</span>'}`}
- const sh=$('kySh');if(sh&&sh.classList.contains('open'))sheet(sh.dataset.k,true)}
-function sheet(k,keep){const sh=$('kySh');if(!sh)return;if(!k){sh.classList.remove('open');return}sh.dataset.k=k;$('kyShT').textContent=k==='outline'?L3('Dərslər','Lessons','Уроки'):L3('Görünüş','Display','Вид');
- const B=$('kyShB');B.innerHTML=k==='outline'?`<nav class="ky-out">${outline()}</nav>`:`<div class="ky-disp">${disp()}</div>`;sh.classList.add('open');
- if(k==='outline'&&!keep){const a=B.querySelector('.ky-l.on');if(a)a.scrollIntoView({block:'center'})}}
-function grp(){const nav=$('chips');if(!nav)return;let gb=$('kyoGrp');if(gb&&gb.parentElement===nav)gb.remove(),gb=null;if(!gb){nav.insertAdjacentHTML('beforebegin','<div id="kyoGrp" role="tablist"></div>');gb=$('kyoGrp')}
- const on=isOn();const present=new Set([...document.querySelectorAll('#app>section.sec')].map(s=>s.id));
- if(on&&![...present].some(id=>gOf(id)===G))G='learn';
- gb.innerHTML=GR.filter(g=>!on||[...present].some(id=>gOf(id)===g[0])).map(([k,l])=>`<button data-kg="${k}" class="${G===k?'on':''}" role="tab" aria-selected="${G===k}">${l()}</button>`).join('');
- nav.querySelectorAll('.chip').forEach(c=>c.classList.toggle('kyo-x',on&&gOf(c.dataset.go)!==G));
- document.querySelectorAll('#app>section.sec').forEach(s=>s.classList.toggle('kyo-x',on&&gOf(s.id)!==G));
- const F=[...document.querySelectorAll('#app>.fact')];F.forEach(f=>{let p=f.previousElementSibling;while(p&&!p.matches('section.sec'))p=p.previousElementSibling;f.classList.toggle('kyo-x',on&&!!p&&gOf(p.id)!==G)})}
-function setb(){if($('kyoSet'))return;const g=$('tRM');if(!g)return;const sg=g.closest('.setg');sg.insertAdjacentHTML('afterend',`<div class="setg" id="kyoSetG"><b>${L3('Rejim','Mode','Режим')}</b><div class="setr"><button class="btn" id="kyoSet" aria-pressed="${!!PF.kyo}"><span class="jp">教室</span> Kyoushitsu</button></div></div>`)}
-const dk=()=>PF.kyoT?PF.kyoT==='dark':(PF.theme==='dark'||((!PF.theme||PF.theme==='auto')&&matchMedia('(prefers-color-scheme:dark)').matches));
-function apply(){const r=document.documentElement,on=!!PF.kyo;r.classList.toggle('kyo',on);r.classList.toggle('kyo-d',on&&dk());if(on)r.dataset.theme=dk()?'dark':'light';let th=$('kyTh');if(!th){document.body.insertAdjacentHTML('beforeend','<button id="kyTh" hidden></button>');th=$('kyTh');th.onclick=()=>{PF.kyoT=dk()?'light':'dark';try{save()}catch(_){}apply()}}th.setAttribute('aria-pressed',dk());
- const b=$('kyoSet');if(b){b.setAttribute('aria-pressed',on);b.classList.toggle('fill',on)}if(!on){sheet(null);r.classList.remove('ky-up');}grp();refresh()}
-const aL=applyLook;applyLook=function(){const x=aL.apply(this,arguments);try{apply()}catch(_){}return x};
-const rd=render;render=function(){const x=rd.apply(this,arguments);try{grp();refresh()}catch(_){}return x};
-let ly=0;addEventListener('scroll',()=>{if(!isOn()||innerWidth>=1024){ly=scrollY;return}const y=scrollY,r=document.documentElement;if(y>ly+6&&y>140)r.classList.add('ky-up');else if(y<ly-6||y<60)r.classList.remove('ky-up');ly=y},{passive:true});
-setInterval(()=>{if(!isOn())return;const v=bdn();document.querySelectorAll('#kyTools em,#kyT em').forEach(e=>{if(e.textContent!==v)e.textContent=v})},3000);
-addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
- const kg=t.closest('[data-kg]');if(kg){G=kg.dataset.kg;grp();const f=GR.find(g=>g[0]===G)[2].map(id=>document.getElementById(id)).find(x=>x&&!x.classList.contains('kyo-x'));if(f)scrollTo({top:f.getBoundingClientRect().top+scrollY-(innerWidth<1024?118:96),behavior:'smooth'});return}
- const kl=t.closest('[data-kl]');if(kl){e.preventDefault();e.stopPropagation();sheet(null);const n=+kl.dataset.kl;G='learn';goLesson(n);scrollTo({top:0});return}
- const kc=t.closest('[data-kyc]');if(kc){e.preventDefault();e.stopPropagation();const b=$(kc.dataset.kyc);if(b)b.click();return}
- const kt=t.closest('[data-kt]');if(kt){e.stopPropagation();const b=$(kt.dataset.kt);if(b)b.click();setTimeout(()=>{document.querySelectorAll('[data-kt]').forEach(x=>x.setAttribute('aria-pressed',pr(x.dataset.kt)))},30);return}
- const ko=t.closest('[data-kyo]');if(ko){e.preventDefault();e.stopPropagation();const k=ko.dataset.kyo;
-  if(k==='outline'||k==='disp')sheet(k);else if(k==='shx')sheet(null);else if(k==='set'||k==='setx'){sheet(null);const b=$('tSet');if(b)b.click()}return}
- if(t.id==='kySh'){e.stopPropagation();sheet(null);return}
- if(t.closest('#kyoSet')){PF.kyo=!PF.kyo;if(!PF.kyo&&PF.theme)document.documentElement.dataset.theme=PF.theme;save();applyLook();return}
- const ch=t.closest('#chips .chip');if(ch&&isOn()){G=gOf(ch.dataset.go);grp()}},true);
-/* klaviatura */
-const OPT='.cl-o,.t2o,.sh-o,.sb-ch,.sd-opt,.sf2-ch,.sf2-opt,.sg-opt,.sk-ch,.sk-opt';
-function optGroup(){const vh=innerHeight,c=vh/2;let best=null,bd=1e9;const seen=new Set();
- document.querySelectorAll(OPT).forEach(b=>{const p=b.parentElement;if(seen.has(p))return;seen.add(p);const r=p.getBoundingClientRect();if(!r.height||r.bottom<0||r.top>vh)return;
-  const bs=[...p.querySelectorAll(':scope > '+OPT.split(',').join(',:scope > '))].filter(x=>x.getClientRects().length);if(bs.length<2)return;const d=Math.abs((r.top+r.bottom)/2-c);if(d<bd){bd=d;best=bs}});return best}
-function nextBtn(){const vh=innerHeight,t=$('t2next');if(t&&!t.disabled&&t.getClientRects().length)return t;return [...document.querySelectorAll('#t2next,[data-sh=next],[data-sa=next],[data-sb=next],[data-sd=next],[data-sf=next],[data-sg=next],[data-sk=next],button[id$=Next],button[id$=next]')].find(b=>!b.disabled&&b.getClientRects().length&&(r=>r.top<vh&&r.bottom>0)(b.getBoundingClientRect()))}
-function kyRows(){return [['← →',L3('Əvvəlki / növbəti dərs','Previous / next lesson','Пред. / след. урок')],['/',L3('Axtarış','Search','Поиск')],['D',L3('Lüğət','Dictionary','Словарь')],['M',L3('Səyahət xəritəsi','Journey map','Карта')],['F',L3('Furigana','Furigana','Фуригана')],['R','Romaji'],['T',L3('Tərcümə','Translation','Перевод')],['S',L3('Səs aç/bağla','Sound on/off','Звук вкл/выкл')],['P',L3('Dialoqu dinlə','Play dialogue','Слушать диалог')],['1 … 9',L3('Testdə və səhnədə variant seç','Pick an answer in tests and scenes','Выбрать вариант в тесте и сцене')],['Enter',L3('Növbəti sual','Next question','Следующий вопрос')],['1 2 3',L3('Öyrən / Məşq / Əlavə (variant yoxdursa)','Learn / Practice / More (when no answers shown)','Учить / Практика / Ещё')],['J K',L3('Növbəti / əvvəlki bölmə','Next / previous section','След. / пред. раздел')],['A',L3('Ekrandakı ilk cümləni səsləndir','Play the first sentence on screen','Озвучить первое предложение на экране')],['G',L3('Fokus rejimi','Focus mode','Режим фокуса')],['Home',L3('Girişə qayıt','Back to intro','К введению')],['?',L3('Bu siyahı','This list','Этот список')],['Esc',L3('Bağla','Close','Закрыть')]]}window.kyRows=kyRows;
-function help(){const o=document.querySelector('.kyo-help');if(o){o.remove();return}const R=kyRows();
- document.body.insertAdjacentHTML('beforeend',`<div class="kyo-help" role="dialog"><div><b style="font-size:18px">${L3('Klaviatura qısayolları','Keyboard shortcuts','Горячие клавиши')}</b><table>${R.map(([k,l])=>`<tr><td>${k.split(' ').map(x=>`<kbd>${x}</kbd>`).join(' ')}</td><td>${l}</td></tr>`).join('')}</table></div></div>`)}
-addEventListener('keydown',e=>{const t=e.target;if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
- const open=document.querySelector('.kyo-help');if(e.key==='Escape'&&open){open.remove();return}
- if(e.key==='Escape'&&$('kySh')&&$('kySh').classList.contains('open')){sheet(null);return}
- if([...document.querySelectorAll('[role=dialog]:not(.kyo-help):not(.ky-sheet),.kpop,.setp')].some(x=>!x.hidden&&x.getClientRects().length&&getComputedStyle(x).visibility!=='hidden')&&e.key!=='?')return;
- const k=e.key,n=C&&C.n;const click=id=>{const b=$(id);if(b){b.click();return true}};let ok=true;
- if(k==='ArrowRight'&&LS[n+1])goLesson(n+1);else if(k==='ArrowLeft'&&n>0&&LS[n-1])goLesson(n-1);
- else if(k==='/')click('sOpen');else if(k==='d'||k==='D')click('kOpen');else if(k==='m'||k==='M')click('mapOpen');
- else if(k==='f'||k==='F')click('tFuri');else if(k==='r'||k==='R')click('tRo');else if(k==='t'||k==='T')click('tAz');else if(k==='s'||k==='S')click('tMute');
- else if(k==='p'||k==='P'){const b=document.querySelector('#dialog .btn.fill');if(b)b.click();else ok=false}
- else if(k==='Home')goLesson(0);else if(k==='?')help();
- else if(/^[1-9]$/.test(k)&&(()=>{const g=optGroup();if(g&&g[+k-1]){if(!g[+k-1].disabled)g[+k-1].click();return true}return false})()){}
- else if(k==='Enter'&&nextBtn())nextBtn().click();
- else if(/^[123]$/.test(k)&&isOn()){const b=document.querySelectorAll('#kyoGrp button')[+k-1];if(b)b.click()}
- else ok=false;if(ok){e.preventDefault();if(isOn())setTimeout(()=>document.querySelectorAll('[data-kt]').forEach(x=>x.setAttribute('aria-pressed',pr(x.dataset.kt))),40)}});
-setTimeout(()=>{setb();apply()},0);
-})();/*/KYO3*/
 /* v127: Nailiyyətlər – 147 nişan, şərtlər, bölmə, bildiriş */
 setTimeout(()=>{if(typeof PF==='undefined'||typeof LS==='undefined')return;
 const BD=()=>{PF.bd=PF.bd||{};const b=PF.bd;b.got=b.got||{};b.nw=b.nw||{};b.kana=b.kana||{};b.shad=b.shad||{};b.th=b.th||{};b.j=b.j||{};b.cw=b.cw||0;b.days=b.days||[];b.sc=b.sc||{};b.tm=b.tm||{};b.shn=b.shn||0;b.wc=b.wc||0;return b};
@@ -12088,6 +11848,31 @@ const R1=render;render=function(){const r=R1.apply(this,arguments);setTimeout(up
 new MutationObserver(()=>{if(on())setTimeout(upd,0)}).observe(D,{attributes:true,attributeFilter:['class']});
 setTimeout(upd,60);
 })();/*/KY4*/
+/*KYO3*//* v140: Kyoshitsu – peşəkar cilalama: oxu irəliləyişi xətti, "Öyrəndim" düyməsi, kartlar, fokus, mobil səs düyməsi */
+(()=>{const css=document.createElement('style');css.textContent=`
+html.kyo{--ky3-acc:var(--k-acc,#c2410c)}
+html.kyo #ky3Bar{position:fixed;left:0;top:0;height:3px;width:100%;z-index:400;pointer-events:none;background:transparent}
+html.kyo #ky3Bar i{display:block;height:100%;width:0;background:var(--ky3-acc);transition:width .12s linear;border-radius:0 3px 3px 0}
+html:not(.kyo) #ky3Bar{display:none}
+html.kyo #app>section.sec{transition:box-shadow .2s ease,border-color .2s ease}
+@media (hover:hover){html.kyo #app>section.sec:hover{box-shadow:0 6px 24px -14px rgba(15,23,42,.25)}}
+html.kyo #lcard h1{letter-spacing:-.015em;line-height:1.2}
+html.kyo .sec .sh h2{letter-spacing:-.01em}
+html.kyo .got{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;font-weight:700;font-size:14px;border:1.5px solid var(--k-line,#e5e7eb);background:var(--k-card,#fff);color:inherit;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+html.kyo .got::before{content:'';width:16px;height:16px;border-radius:50%;border:2px solid currentColor;opacity:.45;flex:none;box-sizing:border-box}
+html.kyo .got:hover{border-color:#16a34a;color:#15803d}
+html.kyo .got[aria-pressed="true"]{background:#16a34a;border-color:#16a34a;color:#fff}
+html.kyo .got[aria-pressed="true"]::before{opacity:1;border:0;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.6 2.5L12 5.5' fill='none' stroke='%2316a34a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+html.kyo :focus-visible{outline:2px solid var(--ky3-acc);outline-offset:2px;border-radius:8px}
+html.kyo .say:hover{filter:brightness(.96)}
+html.kyo table{border-radius:12px;overflow:hidden}
+@media (max-width:1023px){html.kyo #tMuteF{display:none!important}}
+@media (prefers-reduced-motion:reduce){html.kyo #ky3Bar i{transition:none}}`;document.head.appendChild(css);
+document.body.insertAdjacentHTML('beforeend','<div id="ky3Bar" aria-hidden="true"><i></i></div>');
+let raf=0;const upd=()=>{raf=0;if(!document.documentElement.classList.contains('kyo'))return;const h=document.documentElement.scrollHeight-innerHeight;const i=document.querySelector('#ky3Bar i');if(i)i.style.width=(h>0?Math.min(100,scrollY/h*100):0)+'%'};
+addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);
+const rd=render;render=function(){const x=rd.apply(this,arguments);try{setTimeout(()=>{upd();const a=document.querySelector('#kyN .ky-l.on');if(a){let c=a.parentElement;while(c&&c!==document.body&&!(c.scrollHeight>c.clientHeight+4&&/(auto|scroll)/.test(getComputedStyle(c).overflowY)))c=c.parentElement;if(c&&c!==document.body){const r=a.getBoundingClientRect(),q=c.getBoundingClientRect();if(r.top<q.top+40||r.bottom>q.bottom-40)c.scrollTop+=r.top-q.top-q.height/2+r.height/2}}},80)}catch(_){}return x};
+})();/*/KYO3*/
 render();a11yFix();
 
 </script>
