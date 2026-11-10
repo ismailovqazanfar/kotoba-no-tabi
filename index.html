@@ -1107,7 +1107,7 @@ html:has(.setp:not([hidden])) body{overflow:hidden}
 <script>/*BOOT*/try{var _p=JSON.parse(localStorage.getItem('kotoba-prefs')||'{}'),_T={zen:"pirat",calm:"auto",paper:"qezet",neon:"kiber",matcha:"edo",sumi:"edo",yuhi:"matsuri",misir:"edo",deko:"kiber"},_t=_T[_p.theme]||_p.theme;if(_t&&_t!=='auto')document.documentElement.dataset.theme=_t}catch(e){}</script>
 <style>/*BOOT*/#boot{position:fixed;inset:0;z-index:2147483000;background:var(--bg,#14122a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .45s ease,visibility .45s}#boot.out{opacity:0;visibility:hidden}#boot b{font:800 clamp(34px,7vw,56px)/1.1 'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;letter-spacing:.06em;background:linear-gradient(90deg,#ec4899,#8b5cf6,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}#boot small{font:700 13px/1 system-ui,sans-serif;letter-spacing:.32em;color:var(--mut,#aca8c9)}#boot i{width:120px;height:3px;border-radius:3px;background:color-mix(in srgb,var(--ink,#fff) 12%,transparent);overflow:hidden;position:relative}#boot i:after{content:"";position:absolute;inset:0;width:40%;border-radius:3px;background:linear-gradient(90deg,#ec4899,#8b5cf6);animation:bootb 1.1s ease-in-out infinite}@keyframes bootb{from{transform:translateX(-100%)}to{transform:translateX(250%)}}@media (prefers-reduced-motion:reduce){#boot i:after{animation:none;width:100%}}</style>
 <script>/*K4V*/window.K4V='49276dc3'</script>
-</head>
+<style id="kbx-css">#kbox{position:relative}.kbx{position:absolute;top:8px;right:8px;z-index:2;width:40px;height:40px;border-radius:50%;border:1.5px solid currentColor;background:var(--card,#fff);color:inherit;font:700 18px/1 system-ui,sans-serif;cursor:pointer;opacity:.75}.kbx:hover{opacity:1}</style></head>
 <body>
 <div id="boot" aria-hidden="true"><b>言葉の旅</b><small>KOTOBA NO TABI</small><i></i></div>
 <header class="top"><div class="wrap">
@@ -9483,12 +9483,12 @@ addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
  if(t.closest('#kdSx')){const k=$('kdSel');k.innerHTML='';document.querySelectorAll('#kdL .kc.on').forEach(x=>x.classList.remove('on'));return}
  if(t.closest('#kdX')||t.id==='kdict'){$('kdict').hidden=true;if(T2.box){T2={mode:null,qs:[],i:0,ok:0,ans:null,wrong:[]};t2View()}return}
  const kd=t.closest('[data-kjd]');if(kd){kDictPick(kd.dataset.kjd);return}
- const kc=t.closest('[data-kj]');if(kc){const b=$('kbox');document.querySelectorAll('#kanji .kc').forEach(x=>x.classList.toggle('on',x===kc));b.innerHTML=kDetail(kc.dataset.kj,true);b.hidden=false;b.scrollIntoView({block:'nearest',behavior:RMO()});return}
+ const kx=t.closest('[data-kbx]');if(kx){const b=$('kbox');b.hidden=true;b.innerHTML='';const on=document.querySelector('#kanji .kc.on');document.querySelectorAll('#kanji .kc').forEach(x=>x.classList.remove('on'));if(on)on.scrollIntoView({block:'nearest',behavior:RMO()});return}const kc=t.closest('[data-kj]');if(kc){const b=$('kbox');if(kc.classList.contains('on')&&!b.hidden){b.hidden=true;b.innerHTML='';kc.classList.remove('on');return}document.querySelectorAll('#kanji .kc').forEach(x=>x.classList.toggle('on',x===kc));b.innerHTML='<button class="kbx" data-kbx aria-label="'+({az:'Bağla',en:'Close',ru:'Закрыть'}[LANG()]||'Bağla')+'">✕</button>'+kDetail(kc.dataset.kj,true);b.hidden=false;b.scrollIntoView({block:'nearest',behavior:RMO()});return}
  if(t.closest('#kpop'))return;
  if(t.closest('button,a,input,select,textarea,label,[data-say],[data-st],.opt,.stc,.wb,.dperson,[role=button],.jroute,.kc,rt')){if($('kpop'))$('kpop').hidden=true;return}
  if(!t.closest('#app'))return;const k=kAt(e);if(k){e.stopPropagation();kPop(k,e.clientX,e.clientY)}else if($('kpop'))$('kpop').hidden=true},true);
 addEventListener('input',e=>{if(e.target.id==='kdQ')kDictRender(e.target.value)});
-addEventListener('keydown',e=>{if(e.key==='Escape'){if($('kpop'))$('kpop').hidden=true;if($('kdict'))$('kdict').hidden=true}});
+addEventListener('keydown',e=>{if(e.key==='Escape'){if($('kpop'))$('kpop').hidden=true;if($('kbox')&&!$('kbox').hidden){$('kbox').hidden=true;document.querySelectorAll('#kanji .kc').forEach(x=>x.classList.remove('on'))}if($('kdict'))$('kdict').hidden=true}});
 addEventListener('scroll',()=>{const p=$('kpop');if(p&&!p.hidden)p.hidden=true},{passive:true});
 
 /* ================= Böyük test: qarışıq sual növləri, izahlar, "Səhvlərim" ================= */
