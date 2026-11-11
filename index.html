@@ -5556,7 +5556,7 @@ setTimeout(()=>{
   2:{lbl:['Bit bazarı','Flea market','Барахолка'],t:['Bu nədir?','What is this?','Что это?'],jp:'これ・それ・あれ',ui:s2UI},
   6:{lbl:['Dəvət ruleti','Invitation roulette','Рулетка приглашений'],t:['Dəvət ruleti','Invitation roulette','Рулетка приглашений'],jp:'いっしょに ～ませんか',ui:s6UI},
   7:{lbl:['Hədiyyə tərəzisi','Gift balance','Весы подарков'],t:['Hədiyyə tərəzisi və genkan','Gift balance and genkan','Весы подарков и гэнкан'],jp:'あげます・もらいます',ui:s7UI}};
- for(const n in M){const L=LS[n],d=M[n];if(!L||(+n===1&&window.KT_L1G))continue;
+ for(const n in M){const L=LS[n],d=M[n];if(!L||(+n===1&&window.KT_L1G)||(+n===2&&window.KT_L2G))continue;
   Object.defineProperty(L,'playLabel',{get:()=>SL({az:d.lbl[0],en:d.lbl[1],ru:d.lbl[2]}),configurable:true});
   L.play=()=>{if(d.init)d.init();return playSec(SL({az:d.t[0],en:d.t[1],ru:d.t[2]}),`<span class="jp">${d.jp}</span>`,'',`<div id="saBox${n}" class="sa-box" data-n="${n}"></div>`)};
   L.init=()=>{if($('saBox'+n))d.ui()}}
@@ -12118,12 +12118,198 @@ const CSS=`.l1g-room{position:relative;border-radius:18px;overflow:hidden;backgr
 .l1g-room.sm .l1g-row{min-height:110px}.l1g-room.sm svg{max-width:46px}
 .l1g-end{text-align:center}.l1g-stars{font-size:40px;color:#ffb300;letter-spacing:4px}.l1g-stars i{color:#ccc;font-style:normal}.l1g-end h3 span{color:#e53935}.l1g-log{text-align:left;display:grid;gap:8px;margin:10px 0}.l1g-log>div{background:var(--card,rgba(255,255,255,.7));border-radius:12px;padding:8px 10px}.l1g-log small{display:block;opacity:.8}
 @media (max-width:420px){.l1g-say .jp{font-size:18px}.l1g-tag{font-size:11px}}`;
-function css(){if(!document.getElementById('l1g-css')){const s=document.createElement('style');s.id='l1g-css';s.textContent=CSS;document.head.appendChild(s)}}
+window.KT_L1GCSS=CSS;function css(){if(!document.getElementById('l1g-css')){const s=document.createElement('style');s.id='l1g-css';s.textContent=CSS;document.head.appendChild(s)}}
 const lbl=T3('Tanışlıq','Introductions','Знакомство');
 Object.defineProperty(L1,'playLabel',{get:()=>T3('Tanışlıq','Introductions','Знакомство'),configurable:true});
 Object.defineProperty(L1,'play',{value:()=>{css();setTimeout(()=>{if(typeof window.KT_AUD7==='function')window.KT_AUD7()},50);return playSec(lbl,'<span class="jp">パーティーで だれですか</span>',T3('Tanış olun, dinləyin və yadda saxlayın: はい／いいえ, じゃ ありません, も, だれ, おいくつ.','Meet, listen and remember: はい／いいえ, じゃ ありません, も, だれ, おいくつ.','Знакомьтесь, слушайте и запоминайте: はい／いいえ, じゃ ありません, も, だれ, おいくつ.'),`<div id="l1g" class="l1g">${view()}</div>`)},configurable:true,writable:true});
 
 }catch(e){console.warn('l1g',e)}})();/*/L1G*/
+/*L23*//* v: 2-ci dərs «Bit bazarı» (soruş-tap-al) və 3-cü dərs «Liftçi» (real vaxt) – yeni oyunlar */
+(()=>{try{const T3=(a,e,r)=>SL({az:a,en:e,ru:r});
+const LI=()=>Math.max(0,['az','en','ru'].indexOf((typeof PF!=='undefined'&&PF.lang)||'az'));
+const jh=m=>J(m).h,jt=m=>J(m).t;
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=a=>a[Math.random()*a.length|0];
+const best0=k=>{try{return +localStorage.getItem(k)||0}catch(_){return 0}};
+const setBest0=(k,v)=>{try{if(v>(+localStorage.getItem(k)||0)){localStorage.setItem(k,String(v));return true}}catch(_){}return false};
+const A8={"これは何ですか":[0,3296],"これは日本語の本です":[3296,4360],"これは英語の本です":[7656,4141],"これは車の本です":[11797,4192],"これは英語の辞書です":[15989,4284],"これは日本語の辞書です":[20273,4519],"これはフランス語の辞書です":[24792,4887],"これは車の雑誌です":[29679,4391],"これはカメラの雑誌です":[34070,4513],"これはコンピューターの雑誌です":[38583,5231],"これは英語のCDです":[43814,4730],"これは日本語のCDです":[48544,5118],"これは時計です":[53662,3199],"これは傘です":[56861,3039],"これはかばんです":[59900,3229],"これはカメラです":[63129,3241],"これはラジオです":[66370,3146],"これは鍵です":[69516,2931],"これはチョコレートです":[72447,3863],"それは何ですか":[76310,3477],"それは日本語の本です":[79787,4664],"それは英語の本です":[84451,4301],"それは車の本です":[88752,4377],"それは英語の辞書です":[93129,4411],"それは日本語の辞書です":[97540,4888],"それはフランス語の辞書です":[102428,5110],"それは車の雑誌です":[107538,4648],"それはカメラの雑誌です":[112186,4645],"それはコンピューターの雑誌です":[116831,5404],"それは英語のCDです":[122235,4877],"それは日本語のCDです":[127112,5385],"それは時計です":[132497,3437],"それは傘です":[135934,3223],"それはかばんです":[139157,3379],"それはカメラです":[142536,3474],"それはラジオです":[146010,3231],"それは鍵です":[149241,3063],"それはチョコレートです":[152304,4082],"あれは何ですか":[156386,3212],"あれは日本語の本です":[159598,4470],"あれは英語の本です":[164068,4008],"あれは車の本です":[168076,4122],"あれは英語の辞書です":[172198,4143],"あれは日本語の辞書です":[176341,4653],"あれはフランス語の辞書です":[180994,4929],"あれは車の雑誌です":[185923,4320],"あれはカメラの雑誌です":[190243,4520],"あれはコンピューターの雑誌です":[194763,5340],"あれは英語のCDです":[200103,4598],"あれは日本語のCDです":[204701,5126],"あれは時計です":[209827,3218],"あれは傘です":[213045,3034],"あれはかばんです":[216079,3234],"あれはカメラです":[219313,3259],"あれはラジオです":[222572,3200],"あれは鍵です":[225772,2887],"あれはチョコレートです":[228659,3827],"えっ？どれですか":[232486,4196],"いらっしゃいませ":[236682,2840],"ありがとうございます":[239522,3449],"どうぞ":[242971,1765],"すみません靴売り場はどこですか":[244736,7527],"かばん売り場は何階ですか":[252263,4936],"化粧品はどこですか":[257199,4304],"ネクタイ売り場はどこですか":[261503,4820],"紳士服は何階ですか":[266323,5025],"婦人服はどこですか":[271348,4440],"時計売り場は何階ですか":[275788,5014],"眼鏡はどこですか":[280802,3790],"食堂はどこですか":[284592,4004],"すみません食堂は何階ですか":[288596,7806],"ワイン売り場はどこですか":[296402,4478],"チョコレートは何階ですか":[300880,4799],"駐車場はどこですか":[305679,4322],"カメラ売り場はどこですか":[310001,4588],"テレビは何階ですか":[314589,4167],"いすはどこですか":[318756,3527],"本売り場は何階ですか":[322283,4625],"辞書はどこですか":[326908,3604],"おもちゃはどこですか":[330512,3729],"スポーツ用品は何階ですか":[334241,5432],"遊園地はどこですか":[339673,4221],"地下2階でございます":[343894,4095],"地下1階でございます":[347989,4172],"1階でございます":[352161,3498],"2階でございます":[355659,3381],"3階でございます":[359040,3552],"4階でございます":[362592,3530],"5階でございます":[366122,3364],"6階でございます":[369486,3562],"7階でございます":[373048,3673],"8階でございます":[376721,3479],"屋上でございます":[380200,3638],"どうも":[383838,1740]};let B8=null,L8=0;const f8=()=>{try{const b=atob(window.KOTOBA_AUD8),u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);B8=u.buffer}catch(_){}};
+window.KT_AUD8=()=>{if(B8||L8)return;L8=1;if(window.KOTOBA_AUD8)return f8();const sc=document.createElement('script');sc.src='audio8.js?v=1';sc.onload=f8;document.head.appendChild(sc)};
+const _say=say;say=function(text,onend,slow){try{const kn=String(text).trim().replace(/[…［］\s　、。]/g,''),e=A8[kn];if(e&&B8&&(typeof audOK!=='function'||audOK())){try{audStop()}catch(_){}try{speechSynthesis.cancel()}catch(_){}const u=URL.createObjectURL(new Blob([B8.slice(e[0],e[0]+e[1])],{type:'audio/webm'})),a=new Audio(u);AUDEL=a;a.playbackRate=slow?0.72:Math.max(.6,Math.min(1.25,(PF.rate||.95)/.95));let d=0;const g=()=>{if(d)return;d=1;URL.revokeObjectURL(u);if(AUDEL===a)onend&&onend()};a.onended=g;a.onerror=g;const p=a.play();p&&p.catch&&p.catch(g);return}}catch(_){}return _say.apply(this,arguments)};
+/* ===== 2-ci dərs: Bit bazarı – soruş, tap, al (これ・それ・あれ, この/その, N の N) ===== */
+const IT2=[
+ {id:'b_ja',c:'book',jp:'[日本語:にほんご]{の} [本:ほん]',t:['yapon dilində kitab','a Japanese book','книга на японском']},
+ {id:'b_en',c:'book',jp:'[英語:えいご]{の} [本:ほん]',t:['ingilis dilində kitab','an English book','книга на английском']},
+ {id:'b_car',c:'book',jp:'[車:くるま]{の} [本:ほん]',t:['maşın haqqında kitab','a book about cars','книга об автомобилях']},
+ {id:'d_en',c:'dict',jp:'[英語:えいご]{の} [辞書:じしょ]',t:['ingilis dili lüğəti','an English dictionary','словарь английского']},
+ {id:'d_ja',c:'dict',jp:'[日本語:にほんご]{の} [辞書:じしょ]',t:['yapon dili lüğəti','a Japanese dictionary','словарь японского']},
+ {id:'d_fr',c:'dict',jp:'フランス[語:ご]{の} [辞書:じしょ]',t:['fransız dili lüğəti','a French dictionary','словарь французского']},
+ {id:'m_car',c:'mag',jp:'[車:くるま]{の} [雑誌:ざっし]',t:['maşın jurnalı','a car magazine','автомобильный журнал']},
+ {id:'m_cam',c:'mag',jp:'カメラ{の} [雑誌:ざっし]',t:['foto jurnalı','a camera magazine','журнал о фотоаппаратах']},
+ {id:'m_pc',c:'mag',jp:'コンピューター{の} [雑誌:ざっし]',t:['kompyuter jurnalı','a computer magazine','компьютерный журнал']},
+ {id:'cd_en',c:'cd',jp:'[英語:えいご]{の} CD',t:['ingiliscə CD','an English CD','CD на английском']},
+ {id:'cd_ja',c:'cd',jp:'[日本語:にほんご]{の} CD',t:['yaponca CD','a Japanese CD','CD на японском']},
+ {id:'watch',c:'u',e:'⌚',jp:'[時計:とけい]',t:['saat','a watch','часы']},
+ {id:'umb',c:'u',e:'☂️',jp:'[傘:かさ]',t:['çətir','an umbrella','зонт']},
+ {id:'bag',c:'u',e:'👜',jp:'かばん',t:['çanta','a bag','сумка']},
+ {id:'cam',c:'u',e:'📷',jp:'カメラ',t:['foto aparat','a camera','фотоаппарат']},
+ {id:'radio',c:'u',e:'📻',jp:'ラジオ',t:['radio','a radio','радио']},
+ {id:'key',c:'u',e:'🔑',jp:'[鍵:かぎ]',t:['açar','a key','ключ']},
+ {id:'choc',c:'u',e:'🍫',jp:'チョコレート',t:['şokolad','chocolate','шоколад']}];
+const DEM={ko:'これ',so:'それ',a:'あれ'},FLIP={ko:'so',so:'ko',a:'a'};
+const L2S={q:z=>[`${DEM[z]}{は} [何:なん]|です{か}。`],ans:(z,it)=>[`${DEM[z]}{は} ${it.jp}|です。`],eh:()=>['えっ？ どれ|です{か}。'],ira:()=>['いらっしゃいませ。'],arg:()=>['ありがとう ございます。'],dou:()=>['どうぞ。']};
+const ICO={book:'<svg viewBox="0 0 40 40"><rect x="9" y="6" width="22" height="28" rx="2" fill="#3f6fd8"/><rect x="9" y="6" width="4" height="28" fill="#2b4fa8"/><rect x="16" y="13" width="11" height="3" rx="1" fill="#fff" opacity=".7"/></svg>',
+ dict:'<svg viewBox="0 0 40 40"><rect x="7" y="5" width="26" height="30" rx="3" fill="#c0392b"/><rect x="7" y="5" width="6" height="30" fill="#922b21"/><rect x="31" y="9" width="4" height="4" fill="#f1c40f"/><rect x="31" y="16" width="4" height="4" fill="#2ecc71"/><rect x="31" y="23" width="4" height="4" fill="#3498db"/></svg>',
+ mag:'<svg viewBox="0 0 40 40"><rect x="10" y="5" width="21" height="29" rx="1" fill="#f39c12"/><rect x="13" y="9" width="15" height="10" fill="#fff" opacity=".85"/><rect x="13" y="22" width="15" height="2" fill="#fff" opacity=".7"/><rect x="13" y="26" width="10" height="2" fill="#fff" opacity=".7"/></svg>',
+ cd:'<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="#b8c4d6"/><circle cx="20" cy="20" r="14" fill="url(#cdg)" opacity=".6"/><circle cx="20" cy="20" r="4" fill="#fff"/><defs><linearGradient id="cdg"><stop offset="0" stop-color="#ff7eb3"/><stop offset=".5" stop-color="#7afcff"/><stop offset="1" stop-color="#feff9c"/></linearGradient></defs></svg>'};
+let B=null;
+const B_BEST='kotoba-l2g-best';
+function bNew(){B={day:0,score:0,hearts:3,newBest:false,log:[]};bDay()}
+function bDay(){const d=B.day;const amb=IT2.filter(i=>i.c!=='u'),uni=IT2.filter(i=>i.c==='u');
+ const tg=sh(amb).slice(0,d===0?2:3);const dec=[];for(const t of tg){const c=sh(amb.filter(i=>i.c===t.c&&!tg.includes(i)&&!dec.includes(i)));if(c[0])dec.push(c[0])}
+ const fill=sh(uni).slice(0,9-tg.length-dec.length);const all=sh([...tg,...dec,...fill]).slice(0,9);
+ const zones=['ko','ko','ko','so','so','so','a','a','a'];
+ B.items=all.map((it,i)=>({it,z:zones[i],known:false,sold:false}));B.list=tg.map(t=>t.id);B.got=[];B.qs=d===0?6:d===1?7:7;B.sel=-1;B.msg=null;B.twist=d>0?{done:false}:null;B.tw=null;B.ph='shop'}
+function bItem(x,i){const it=x.it;const sel=B.sel===i;return `<button class="l2-it z-${x.z}${sel?' sel':''}${x.sold?' sold':''}" data-l2i="${i}" ${x.sold?'disabled':''} aria-label="${x.known?esc(jt(it.jp)):'?'}">${it.c==='u'?`<span class="e">${it.e}</span>`:ICO[it.c]}${x.known?`<small class="jp">${jh(it.jp)}</small>`:(it.c!=='u'?'<i>?</i>':'')}</button>`}
+function bScene(){const I=B.items;return `<div class="l2-st"><div class="l2-shelf"><span class="l2-zl">あれ</span>${[6,7,8].map(i=>bItem(I[i],i)).join('')}</div>
+ <div class="l2-sel">${sellerSvg()}<span class="l2-zl so">それ</span></div><div class="l2-tab"><div class="l2-row">${[3,4,5].map(i=>bItem(I[i],i)).join('')}</div><div class="l2-row">${[0,1,2].map(i=>bItem(I[i],i)).join('')}</div></div><div class="l2-me"><span class="l2-zl ko">これ</span>🧺 ${T3('Siz','You','Вы')}</div></div>`}
+function sellerSvg(){return `<svg viewBox="0 0 60 50" class="l2-sv" aria-hidden="true"><rect x="14" y="30" width="32" height="22" rx="10" fill="#16a37f"/><circle cx="30" cy="20" r="13" fill="#f2c9a0"/><path d="M17 18Q18 6 30 6Q42 6 43 18Q38 12 30 12Q22 12 17 18Z" fill="#5a3a22"/><circle cx="25" cy="21" r="1.6" fill="#222"/><circle cx="35" cy="21" r="1.6" fill="#222"/><path d="M25 26Q30 30 35 26" stroke="#3a2a22" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="20" y="4" width="20" height="5" rx="2" fill="#e0533d"/></svg>`}
+function bList(){return `<div class="l2-list"><b>📝 ${T3('Alış siyahısı','Shopping list','Список покупок')}</b>${B.list.map(id=>{const it=IT2.find(i=>i.id===id),g=B.got.includes(id);return `<span class="${g?'ok':''}">${g?'✓':'□'} <span class="jp">${jh(it.jp)}</span></span>`}).join('')}</div>`}
+function bView(){if(!B)return bStart();if(B.ph==='end')return bEnd();if(B.ph==='dayend')return bDayEnd();
+ const x=B.items[B.sel];const m=B.msg;
+ return `<div class="l1g-hud"><span>${'❤'.repeat(B.hearts)}<i>${'❤'.repeat(3-B.hearts)}</i></span><span>${T3('Gün','Day','День')} ${B.day+1}/3</span><span>💬 ${B.qs}</span><b>${B.score}</b></div>${bList()}${bScene()}
+ <div class="l1g-pan">${m?`<div class="l1g-say ${m.ok===false?'bad':''}"><button class="say" data-l2say aria-label="▶">${SPK}</button><div>${m.lines.map(l=>`<div class="jp">${jh(l)}</div>`).join('')}${m.tr?`<small>${esc(m.tr)}</small>`:''}</div></div>`:''}
+ ${B.tw&&!B.tw.res?`<p class="l1g-ins">${T3('Satıcı sizin səbətdəki əşyanı soruşur. Necə cavab verərsiniz?','The seller asks about the item in your basket. How do you answer?','Продавец спрашивает о вещи в вашей корзине. Как ответить?')}</p><div class="l1g-ch">${B.tw.ch.map((c,i)=>`<button class="btn" data-l2tw="${i}"><span class="jp">${jh(c[0])}</span></button>`).join('')}</div>`:
+ x&&!x.known?`<p class="l1g-ins">${T3('Bu əşya haqqında necə soruşarsınız?','How do you ask about this item?','Как спросить об этой вещи?')}</p><div class="l1g-ch three">${['ko','so','a'].map(z=>`<button class="btn" data-l2q="${z}"><span class="jp">${jh(L2S.q(z)[0])}</span></button>`).join('')}</div>`:
+ x&&x.known&&!x.sold?`<div class="tools l1g-c"><button class="btn fill" data-l2buy style="--c:var(--pnk)">🛒 ${T3('Bunu al','Buy this','Купить')}</button></div>`:
+ `<p class="l1g-ins">${T3('Siyahıdakı əşyaları tapın: əşyaya toxunun və düzgün soruşun. Diqqət: kitablar, lüğətlər, jurnallar bir-birinə oxşayır!','Find the items on your list: tap an item and ask correctly. Careful: books, dictionaries and magazines look alike!','Найдите вещи из списка: нажмите на вещь и спросите правильно. Книги, словари и журналы похожи!')}</p>`}
+ </div>`}
+function bStart(){const b=best0(B_BEST);return `<div class="l1g-start"><p>${T3('Bit bazarındasınız! Satıcıdan əşyaların nə olduğunu soruşun – amma yerinə görə: sizə yaxın これ, satıcıya yaxın それ, ikinizdən də uzaq あれ. Satıcı cavabda öz baxış nöqtəsindən danışır! Sual sayınız məhduddur, 3 gün var.','You are at a flea market! Ask the seller what things are – based on where they are: near you これ, near the seller それ, far from both あれ. The seller answers from their own point of view! Questions are limited; 3 market days.','Вы на барахолке! Спрашивайте продавца, что это, с учётом места: рядом с вами これ, рядом с продавцом それ, далеко от обоих あれ. Продавец отвечает со своей точки зрения! Вопросов мало, 3 дня.')}</p><div class="tools l1g-c"><button class="btn fill" data-l2go style="--c:var(--pnk)">▶ ${T3('Bazara get','Go to the market','На рынок')}</button>${b?`<span>🏆 ${b}</span>`:''}</div></div>`}
+function bDayEnd(){return `<div class="l1g-end"><h3>${T3('Gün bitdi!','Day over!','День окончен!')} ${B.got.length}/${B.list.length} ✓</h3><p>${T3('Qalan suallara görə bonus','Bonus for questions left','Бонус за оставшиеся вопросы')}: +${B.bonus}</p><div class="tools l1g-c"><button class="btn fill" data-l2nd style="--c:var(--pnk)">${T3('Növbəti gün','Next day','Следующий день')} →</button></div></div>`}
+function bEnd(){const st=B.hearts?(B.score>=1100?3:B.score>=750?2:1):0;return `<div class="l1g-end"><div class="l1g-stars">${'★'.repeat(st)}<i>${'★'.repeat(3-st)}</i></div><h3>${B.score} ${T3('xal','points','очков')}${B.newBest?` · <span>${T3('Yeni rekord!','New record!','Новый рекорд!')}</span>`:''}</h3>
+ ${B.log.length?`<div class="l1g-log"><b>${T3('Səhvlər üzərində iş','Review your mistakes','Работа над ошибками')}</b>${B.log.map(l=>`<div><small>${esc(l)}</small></div>`).join('')}</div>`:''}<div class="tools l1g-c"><button class="btn fill" data-l2go style="--c:var(--pnk)">↻ ${T3('Yenidən','Play again','Ещё раз')}</button></div></div>`}
+const ZN=z=>({ko:T3('sizə yaxın','near you','рядом с вами'),so:T3('satıcıya yaxın','near the seller','рядом с продавцом'),a:T3('ikinizdən də uzaq','far from both','далеко от обоих')})[z];
+function bDraw(){const b=$('l2g');if(b)b.innerHTML=bView()}
+function bSay(lines){let i=0;const nx=()=>{if(i<lines.length)say(jt(lines[i++]),nx)};try{audStop()}catch(_){}nx()}
+function bAfterBuy(){if(B.got.length===B.list.length||B.qs<=0&&!B.items.some(x=>x.known&&!x.sold&&B.list.includes(x.it.id)&&!B.got.includes(x.it.id))){
+  if(B.twist&&!B.twist.done&&B.got.length){B.twist.done=true;const id=pick(B.got),it=IT2.find(i=>i.id===id);B.tw={it,ch:sh([[L2S.ans('ko',it)[0],1],[L2S.ans('so',it)[0],0],[L2S.ans('a',it)[0],0]])};B.msg={lines:[L2S.q('so')[0]],tr:T3('Satıcı: "O (sizdəki) nədir?"','Seller: "What is that (by you)?"','Продавец: «Что это (у вас)?»')};bDraw();bSay(B.msg.lines);return}
+  B.bonus=B.qs*30;B.score+=B.bonus;B.ph='dayend';bDraw()}}
+addEventListener('click',e=>{const t=e.target;const box=t.closest&&t.closest('#l2g');if(!box)return;
+ if(t.closest('[data-l2go]')){bNew();bDraw();setTimeout(()=>say(jt(L2S.ira()[0])),200);return}
+ if(!B)return;
+ if(t.closest('[data-l2nd]')){B.day++;if(B.day>=3){B.ph='end';B.newBest=setBest0(B_BEST,B.score)}else bDay();bDraw();return}
+ if(t.closest('[data-l2say]')){if(B.msg)bSay(B.msg.lines);return}
+ const tw=t.closest('[data-l2tw]');if(tw&&B.tw&&!B.tw.res){const c=B.tw.ch[+tw.dataset.l2tw];B.tw.res=1;if(c[1]){B.score+=100;B.msg={lines:[c[0]],ok:true,tr:'✓ '+T3('Düzdür: əşya sizə yaxındır – これ.','Right: it is near you – これ.','Верно: вещь рядом с вами – これ.')}}else{B.hearts--;B.log.push(T3('Səbətinizdəki əşya sizə yaxındır → これは …','The item in your basket is near you → これは …','Вещь в вашей корзине рядом с вами → これは …'));B.msg={lines:[L2S.ans('ko',B.tw.it)[0]],ok:false,tr:'✗ '+T3('Əşya sizə yaxındır – これ.','It is near you – これ.','Вещь рядом с вами – これ.')}}bDraw();bSay(B.msg.lines);setTimeout(()=>{if(B&&B.ph==='shop'){B.tw=null;B.bonus=B.qs*30;B.score+=B.bonus;B.ph=B.hearts?'dayend':'end';if(B.ph==='end')B.newBest=setBest0(B_BEST,B.score);bDraw()}},2600);return}
+ const it=t.closest('[data-l2i]');if(it){B.sel=+it.dataset.l2i;B.msg=null;bDraw();return}
+ const q=t.closest('[data-l2q]');if(q&&B.sel>=0){const x=B.items[B.sel],z=q.dataset.l2q;if(B.qs<=0){B.msg={lines:[],tr:T3('Sualınız qalmadı!','No questions left!','Вопросы закончились!'),ok:false};bDraw();return}B.qs--;
+  if(z===x.z){x.known=true;B.score+=20;const ans=L2S.ans(FLIP[z],x.it)[0];B.msg={lines:[ans],tr:tr2(x.it)}}else{B.log.push(`${ZN(x.z)} → ${DEM[x.z]}${T3(' (siz: ',' (you: ',' (вы: ')}${DEM[z]})`);B.msg={lines:[L2S.eh()[0]],ok:false,tr:T3(`Satıcı çaşdı. Bu əşya ${ZN(x.z)}.`,`The seller is confused. This item is ${ZN(x.z)}.`,`Продавец не понял. Эта вещь ${ZN(x.z)}.`)}}
+  bDraw();bSay(B.msg.lines);if(B.qs<=0)setTimeout(()=>{if(B&&B.ph==='shop'&&!B.items.some(y=>y.known&&!y.sold&&B.list.includes(y.it.id)&&!B.got.includes(y.it.id)))bAfterBuy()},1800);return}
+ if(t.closest('[data-l2buy]')&&B.sel>=0){const x=B.items[B.sel];x.sold=true;B.sel=-1;if(B.list.includes(x.it.id)&&!B.got.includes(x.it.id)){B.got.push(x.it.id);B.score+=100;B.msg={lines:[L2S.dou()[0],L2S.arg()[0]],tr:'✓ '+tr2(x.it)}}else{B.hearts--;B.log.push(T3('Siyahıda olmayan əşya alındı: ','Bought an item not on the list: ','Куплена вещь не из списка: ')+jt(x.it.jp));B.msg={lines:[L2S.arg()[0]],ok:false,tr:T3('Bu siyahıda yox idi!','That was not on the list!','Этого не было в списке!')}}
+  bDraw();bSay(B.msg.lines);if(!B.hearts){B.ph='end';B.newBest=setBest0(B_BEST,B.score);setTimeout(bDraw,1500);return}setTimeout(bAfterBuy,900);return}});
+const tr2=it=>it.t[LI()]||it.t[0];
+/* ===== 3-cü dərs: Liftçi – müştərini düzgün mərtəbəyə çatdır (～は どこですか・何階ですか) ===== */
+const FLS=[{k:'B2',jp:'[地下:ちか]2[階:かい]',an:'[地下:ちか]2[階:かい]で ございます。'},{k:'B1',jp:'[地下:ちか]1[階:かい]',an:'[地下:ちか]1[階:かい]で ございます。'},{k:'1F',jp:'1[階:かい]',an:'1[階:かい]で ございます。'},{k:'2F',jp:'2[階:かい]',an:'2[階:かい]で ございます。'},{k:'3F',jp:'3[階:がい]',an:'3[階:がい]で ございます。'},{k:'4F',jp:'4[階:かい]',an:'4[階:かい]で ございます。'},{k:'5F',jp:'5[階:かい]',an:'5[階:かい]で ございます。'},{k:'6F',jp:'6[階:かい]',an:'6[階:かい]で ございます。'},{k:'7F',jp:'7[階:かい]',an:'7[階:かい]で ございます。'},{k:'8F',jp:'8[階:かい]',an:'8[階:かい]で ございます。'},{k:'R',jp:'[屋上:おくじょう]',an:'[屋上:おくじょう]で ございます。'}];
+const DIR=['[駐車場:ちゅうしゃじょう]','[食品:しょくひん]','[靴:くつ]・かばん・[化粧品:けしょうひん]','[婦人服:ふじんふく]','[紳士服:しんしふく]・ネクタイ','[家具:かぐ]・[電気製品:でんきせいひん]','[本:ほん]・おもちゃ・[文房具:ぶんぼうぐ]','スポーツ[用品:ようひん]','[時計:とけい]・[眼鏡:めがね]','[食堂:しょくどう]','[遊園地:ゆうえんち]'];
+const DIRT=[['avtodayanacaq','car park','парковка'],['ərzaq','food','продукты'],['ayaqqabı, çanta, kosmetika','shoes, bags, cosmetics','обувь, сумки, косметика'],['qadın geyimi','women’s clothing','женская одежда'],['kişi geyimi, qalstuk','men’s clothing, ties','мужская одежда, галстуки'],['mebel, elektrik malları','furniture, electronics','мебель, электротовары'],['kitab, oyuncaq, dəftərxana','books, toys, stationery','книги, игрушки, канцтовары'],['idman malları','sporting goods','спорттовары'],['saat, eynək','watches, glasses','часы, очки'],['restoranlar','restaurants','рестораны'],['attraksionlar','amusement area','аттракционы']];
+const RQ=[ // [hədəf mərtəbə indeksi, jp sorğu, az, en, ru]
+ [2,'すみません。[靴:くつ]|[売:う]り[場:ば]{は} どこ|です{か}。','Bağışlayın, ayaqqabı şöbəsi haradadır?','Excuse me, where is the shoe section?','Извините, где обувной отдел?'],
+ [2,'かばん|[売:う]り[場:ば]{は} [何階:なんがい]|です{か}。','Çanta şöbəsi neçənci mərtəbədədir?','Which floor is the bag section on?','На каком этаже отдел сумок?'],
+ [2,'[化粧品:けしょうひん]{は} どこ|です{か}。','Kosmetika haradadır?','Where are the cosmetics?','Где косметика?'],
+ [4,'ネクタイ|[売:う]り[場:ば]{は} どこ|です{か}。','Qalstuk şöbəsi haradadır?','Where is the tie section?','Где отдел галстуков?'],
+ [4,'[紳士服:しんしふく]{は} [何階:なんがい]|です{か}。','Kişi geyimləri neçənci mərtəbədədir?','Which floor is men’s clothing on?','На каком этаже мужская одежда?'],
+ [3,'[婦人服:ふじんふく]{は} どこ|です{か}。','Qadın geyimləri haradadır?','Where is women’s clothing?','Где женская одежда?'],
+ [8,'[時計:とけい]|[売:う]り[場:ば]{は} [何階:なんがい]|です{か}。','Saat şöbəsi neçənci mərtəbədədir?','Which floor is the watch section on?','На каком этаже отдел часов?'],
+ [8,'[眼鏡:めがね]{は} どこ|です{か}。','Eynəklər haradadır?','Where are the glasses?','Где очки?'],
+ [9,'[食堂:しょくどう]{は} どこ|です{か}。','Yeməkxana haradadır?','Where is the dining hall?','Где столовая?'],
+ [9,'すみません。[食堂:しょくどう]{は} [何階:なんがい]|です{か}。','Bağışlayın, yeməkxana neçənci mərtəbədədir?','Excuse me, which floor is the dining hall on?','Извините, на каком этаже столовая?'],
+ [1,'ワイン|[売:う]り[場:ば]{は} どこ|です{か}。','Şərab şöbəsi haradadır?','Where is the wine section?','Где винный отдел?'],
+ [1,'チョコレート{は} [何階:なんがい]|です{か}。','Şokolad neçənci mərtəbədədir?','Which floor is the chocolate on?','На каком этаже шоколад?'],
+ [0,'[駐車場:ちゅうしゃじょう]{は} どこ|です{か}。','Avtodayanacaq haradadır?','Where is the car park?','Где парковка?'],
+ [5,'カメラ|[売:う]り[場:ば]{は} どこ|です{か}。','Foto aparat şöbəsi haradadır?','Where is the camera section?','Где отдел фотоаппаратов?'],
+ [5,'テレビ{は} [何階:なんがい]|です{か}。','Televizorlar neçənci mərtəbədədir?','Which floor are the TVs on?','На каком этаже телевизоры?'],
+ [5,'いす{は} どこ|です{か}。','Stullar haradadır?','Where are the chairs?','Где стулья?'],
+ [6,'[本:ほん]|[売:う]り[場:ば]{は} [何階:なんがい]|です{か}。','Kitab şöbəsi neçənci mərtəbədədir?','Which floor is the book section on?','На каком этаже книжный отдел?'],
+ [6,'[辞書:じしょ]{は} どこ|です{か}。','Lüğətlər haradadır?','Where are the dictionaries?','Где словари?'],
+ [6,'おもちゃ{は} どこ|です{か}。','Oyuncaqlar haradadır?','Where are the toys?','Где игрушки?'],
+ [7,'スポーツ[用品:ようひん]{は} [何階:なんがい]|です{か}。','İdman malları neçənci mərtəbədədir?','Which floor are the sporting goods on?','На каком этаже спорттовары?'],
+ [10,'[遊園地:ゆうえんち]{は} どこ|です{か}。','Attraksionlar haradadır?','Where is the amusement area?','Где аттракционы?']];
+const L3S={dou:'どうも。',ira:'いらっしゃいませ。',eh:'えっ？ ここ{は} [何階:なんがい]|です{か}。'};
+const FACE=['#f2c9a0','#c98e62','#f4d1ad','#a8754f','#eac09a','#f7dcc4'],SHC=['#e0533d','#2f6fd6','#16a37f','#7b5cd6','#d6457a','#f2a531','#3d8fb0'];
+let E=null;const E_BEST='kotoba-l3g-best';
+function eNew(mode){E={mode,lift:2,tgt:null,moving:false,open:false,riders:[],wait:[],done:0,spawned:0,total:12,hearts:3,score:0,t:0,next:1.5,hint:false,log:[],ph:'play',msg:null,newBest:false,last:performance.now()};eLoop()}
+function eSpawn(){let from;do{from=Math.random()*11|0}while(from===10&&Math.random()<.7);const rqs=RQ.filter(r=>r[0]!==from);const r=pick(rqs);
+ E.wait.push({id:E.spawned++,from,rq:r,dest:r[0],pat:1,face:pick(FACE),shc:pick(SHC)})}
+function person(p,small){return `<svg viewBox="0 0 24 34" class="l3-pp${small?' l3-sm':''}" aria-hidden="true"><rect x="5" y="15" width="14" height="17" rx="6" fill="${p.shc}"/><circle cx="12" cy="9" r="7" fill="${p.face}"/><path d="M5 8Q6 2 12 2Q18 2 19 8Q16 5 12 5Q8 5 5 8Z" fill="#3a2a22"/><circle cx="9.5" cy="9.5" r="1" fill="#222"/><circle cx="14.5" cy="9.5" r="1" fill="#222"/></svg>`}
+function eView(){if(!E)return eStart();if(E.ph==='end')return eEnd();
+ const FH=34;const easy=E.mode==='easy';
+ const rows=FLS.map((f,i)=>({f,i})).reverse().map(({f,i})=>`<div class="l3-fl${E.lift===i&&E.open?' op':''}" style="height:${FH}px"><span class="l3-lv">${f.k}</span><span class="l3-dir jp">${easy?jh(DIR[i]):''}</span><span class="l3-w">${E.wait.filter(p=>p.from===i).map(p=>`<span class="l3-wp">${person(p,1)}<i style="width:${Math.round(p.pat*100)}%" data-pt="w${p.id}"></i></span>`).join('')}</span></div>`).join('');
+ return `<div class="l1g-hud"><span>${'❤'.repeat(E.hearts)}<i>${'❤'.repeat(3-E.hearts)}</i></span><span>🧍 ${E.done}/${E.total}</span><b>${E.score}</b></div>
+ <div class="l3-g"><div class="l3-b">${rows}<div class="l3-sh" style="height:${FH*11}px"><div class="l3-car${E.open?' op':''}" id="l3car" style="transform:translateY(${(10-E.lift)*FH}px);height:${FH}px">${E.riders.map(p=>person(p,1)).join('')}</div></div></div>
+ <div class="l3-pnl"><div class="l3-btns">${FLS.map((f,i)=>({f,i})).reverse().map(({f,i})=>`<button class="l3-bt${E.tgt===i?' on':''}${E.lift===i?' at':''}" data-l3f="${i}">${f.k}</button>`).join('')}</div></div></div>
+ <div class="l3-rid">${E.riders.length?E.riders.map(p=>`<button class="l3-rq" data-l3r="${p.id}">${person(p,1)}<span><span class="jp">${jh(p.rq[1])}</span>${E.hint?`<small>${esc(p.rq[1+1+LI()]||p.rq[2])}</small>`:''}</span><i style="width:${Math.round(p.pat*100)}%" data-pt="r${p.id}"></i></button>`).join(''):`<p class="l1g-ins">${T3('Lift boşdur. Gözləyən müştərinin mərtəbəsinə gedin – düyməyə basın.','The lift is empty. Go to a floor where a customer is waiting – press a button.','Лифт пуст. Езжайте на этаж, где ждёт покупатель.')}</p>`}</div>
+ ${E.msg?`<div class="l1g-say"><div class="jp">${jh(E.msg)}</div></div>`:''}
+ <div class="tools l1g-c"><label class="l3-hint"><input type="checkbox" data-l3hint ${E.hint?'checked':''}> ${T3('Tərcüməni göstər','Show translation','Показать перевод')}</label></div>`}
+function eStart(){const b1=best0(E_BEST+'-easy'),b2=best0(E_BEST+'-hard');return `<div class="l1g-start"><p>${T3('Siz univermağın liftçisisiniz! Müştərilər minir və yaponca soruşur: "靴売り場は どこですか", "ワインは 何階ですか". Onları düzgün mərtəbəyə tez çatdırın – səbirləri tükənməsin. Bir anda bir neçə müştəri ola bilər: yolu ağıllı seçin!','You are the department store lift operator! Customers get in and ask in Japanese: "靴売り場は どこですか", "ワインは 何階ですか". Take them to the right floor quickly before they lose patience. Several customers can ride at once – plan your route!','Вы лифтёр универмага! Покупатели спрашивают по-японски: «靴売り場は どこですか», «ワインは 何階ですか». Быстро везите их на нужный этаж, пока не кончилось терпение. Пассажиров может быть несколько – планируйте маршрут!')}</p>
+ <div class="l1g-modes"><button class="btn" data-l3m="easy"><b>${T3('Asan','Easy','Легко')}</b><small>${T3('Mərtəbə göstəricisi görünür','Floor directory visible','Указатель этажей виден')}</small>${b1?`<small>🏆 ${b1}</small>`:''}</button><button class="btn fill" data-l3m="hard" style="--c:var(--pnk)"><b>${T3('Peşəkar','Pro','Профи')}</b><small>${T3('Göstərici yoxdur – yadda saxlayın','No directory – remember it','Без указателя – по памяти')}</small>${b2?`<small>🏆 ${b2}</small>`:''}</button></div>
+ <div class="l3-dirt">${FLS.map((f,i)=>({f,i})).reverse().map(({f,i})=>`<div><b class="jp">${jh(f.jp)}</b> <span class="jp">${jh(DIR[i])}</span> <small>${esc(DIRT[i][LI()])}</small></div>`).join('')}</div></div>`}
+function eEnd(){const st=E.hearts?(E.score>=1500?3:E.score>=1000?2:1):0;return `<div class="l1g-end"><div class="l1g-stars">${'★'.repeat(st)}<i>${'★'.repeat(3-st)}</i></div>${E.hearts?'':`<p><b>${T3('Müştərilər narazı qaldı!','Customers ran out of patience!','Покупатели потеряли терпение!')}</b></p>`}<h3>${E.score} ${T3('xal','points','очков')}${E.newBest?` · <span>${T3('Yeni rekord!','New record!','Новый рекорд!')}</span>`:''}</h3><p>🧍 ${E.done}/${E.total}</p>
+ ${E.log.length?`<div class="l1g-log"><b>${T3('Çatdırılmayan müştərilər','Customers you missed','Не доставленные покупатели')}</b>${E.log.map(r=>`<div><span class="jp">${jh(r[1])}</span><small>→ ${FLS[r[0]].k} · ${esc(r[2+LI()]||r[2])}</small></div>`).join('')}</div>`:''}
+ <div class="tools l1g-c"><button class="btn fill" data-l3m="${E.mode}" style="--c:var(--pnk)">↻ ${T3('Yenidən','Play again','Ещё раз')}</button><button class="btn" data-l3home>${T3('Rejim seç','Choose mode','Выбрать режим')}</button></div></div>`}
+function eDraw(){const b=$('l3g');if(b)b.innerHTML=eView()}
+function eArrive(){E.open=true;const i=E.lift;const out=E.riders.filter(p=>p.dest===i);const said=[];
+ if(out.length){E.riders=E.riders.filter(p=>p.dest!==i);for(const p of out){E.done++;E.score+=100+Math.round(p.pat*60)}said.push(FLS[i].an,L3S.dou)}
+ const room=4-E.riders.length;const inn=E.wait.filter(p=>p.from===i).slice(0,room);if(inn.length){E.wait=E.wait.filter(p=>!inn.includes(p));for(const p of inn){p.pat=Math.max(p.pat,.55)+.45;if(p.pat>1)p.pat=1;E.riders.push(p)}said.push(...inn.map(p=>p.rq[1]))}
+ E.msg=said.length?said[said.length-1]:null;eDraw();let k=0;const nx=()=>{if(k<said.length)say(jt(said[k++]),nx)};try{audStop()}catch(_){}nx();
+ setTimeout(()=>{if(E){E.open=false;eDraw()}},1100)}
+function eLoop(){if(!E||E.ph!=='play')return;const now=performance.now(),dt=Math.min(.25,(now-E.last)/1000);E.last=now;
+ if(!document.getElementById('l3g')){E=null;return}
+ E.t+=dt;E.next-=dt;if(E.next<=0&&E.spawned<E.total){eSpawn();E.next=Math.max(3.2,7-E.spawned*.35)*(.8+Math.random()*.4);eDraw()}
+ let ch=false;const dec=(p,r)=>{p.pat-=dt/r};E.wait.forEach(p=>dec(p,E.mode==='easy'?32:26));E.riders.forEach(p=>dec(p,E.mode==='easy'?34:28));
+ for(const arr of ['wait','riders']){const gone=E[arr].filter(p=>p.pat<=0);if(gone.length){E[arr]=E[arr].filter(p=>p.pat>0);for(const p of gone){E.hearts--;E.done++;E.log.push(p.rq)}ch=true}}
+ if(!E.moving&&E.tgt!=null&&!E.open){if(E.tgt===E.lift){E.tgt=null;eArrive()}else{E.moving=true;E.lift+=E.tgt>E.lift?1:-1;const c=$('l3car');if(c)c.style.transform=`translateY(${(10-E.lift)*34}px)`;setTimeout(()=>{if(!E)return;E.moving=false;if(E.tgt===E.lift){E.tgt=null;eArrive()}else eDraw()},380)}}
+ if(E.hearts<=0||(E.done>=E.total&&!E.riders.length&&!E.wait.length)){E.ph='end';E.newBest=setBest0(E_BEST+'-'+E.mode,E.score);eDraw();return}
+ if(ch)eDraw();else document.querySelectorAll('#l3g [data-pt]').forEach(el=>{const k=el.dataset.pt,id=+k.slice(1),p=(k[0]==='w'?E.wait:E.riders).find(x=>x.id===id);if(p){el.style.width=Math.round(p.pat*100)+'%';el.classList.toggle('lo',p.pat<.3)}});
+ requestAnimationFrame(eLoop)}
+addEventListener('pointerdown',e=>{const t=e.target;if(!t.closest||!t.closest('#l3g')||!E||E.ph!=='play')return;const f=t.closest('[data-l3f]');if(f){e.preventDefault();E.tgt=+f.dataset.l3f;document.querySelectorAll('#l3g .l3-bt').forEach(b=>b.classList.toggle('on',+b.dataset.l3f===E.tgt))}},true);
+addEventListener('click',e=>{const t=e.target;if(!t.closest||!t.closest('#l3g'))return;
+ const m=t.closest('[data-l3m]');if(m){eNew(m.dataset.l3m);eDraw();setTimeout(()=>say(jt(L3S.ira)),150);return}
+ if(t.closest('[data-l3home]')){E=null;eDraw();return}
+ const h=t.closest('[data-l3hint]');if(h&&E){E.hint=h.checked;eDraw();return}
+ const r=t.closest('[data-l3r]');if(r&&E){const p=E.riders.find(x=>x.id===+r.dataset.l3r);if(p)say(jt(p.rq[1]));return}});
+const CSS23=`.l2-st{position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(#fbe9d0 0 30%,#f3d9b5 30%);border:2px solid color-mix(in srgb,var(--c) 30%,transparent);padding:8px 8px 6px;display:grid;gap:4px}
+.l2-st:before{content:"";position:absolute;left:0;right:0;top:0;height:16px;background:repeating-linear-gradient(90deg,#e74c3c 0 22px,#fff 22px 44px);opacity:.85}
+.l2-shelf{margin:14px auto 0;display:flex;gap:6px;background:#a0522d;border-radius:8px;padding:6px 10px 4px;transform:scale(.82);position:relative}
+.l2-sel{display:flex;justify-content:center;align-items:flex-end;position:relative;height:48px;margin-bottom:-6px}.l2-sv{width:58px;height:48px}
+.l2-tab{background:linear-gradient(#2e8b57,#267a4b);border-radius:10px;padding:6px;display:grid;gap:6px;box-shadow:0 6px 0 #1d5e3a}
+.l2-row{display:flex;justify-content:space-around;gap:6px}
+.l2-me{text-align:center;font-weight:800;font-size:13px;padding:6px 0 2px;position:relative}
+.l2-zl{position:absolute;font-size:11px;font-weight:800;color:#fff;background:rgba(0,0,0,.35);border-radius:999px;padding:0 7px;opacity:0;transition:opacity .2s}.l2-shelf .l2-zl{left:-6px;top:-10px}.l2-zl.so{right:8px;top:4px}.l2-zl.ko{left:8px;top:6px}
+.l2-st:hover .l2-zl{opacity:.0}
+.l2-it{position:relative;width:min(84px,27vw);min-height:62px;background:rgba(255,255,255,.9);border:2px solid transparent;border-radius:10px;padding:4px 2px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;color:#2a2230}
+.l2-it svg{width:34px;height:34px}.l2-it .e{font-size:28px;line-height:34px}.l2-it small{font-size:10px;line-height:1.25;text-align:center}.l2-it small rt{font-size:7px}.l2-it i{position:absolute;top:2px;right:5px;font-style:normal;font-weight:900;color:#c2185b}
+.l2-it.sel{border-color:#ff4d8d;box-shadow:0 0 0 3px rgba(255,77,141,.3);transform:translateY(-2px)}.l2-it.sold{opacity:.25}
+.l2-shelf .l2-it{background:rgba(255,255,255,.75)}
+.l2-list{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;background:var(--card,rgba(255,255,255,.7));border-radius:12px;padding:6px 10px;margin-bottom:8px;font-size:15px}.l2-list .ok{color:#16a37f;text-decoration:line-through}
+.l1g-ch.three{grid-template-columns:repeat(3,1fr)}.l1g-ch.three .btn{justify-content:center;font-size:15px;padding:10px 4px}.l1g-say.bad{background:rgba(229,57,53,.1)}
+.l3-g{display:flex;gap:8px;align-items:flex-start}.l3-b{position:relative;flex:1;border-radius:12px;overflow:hidden;background:#fff8ee;border:2px solid color-mix(in srgb,var(--c) 30%,transparent);color:#2a2230}
+.l3-fl{display:flex;align-items:center;gap:6px;border-bottom:1px solid #eadfcf;padding:0 52px 0 6px;font-size:11px}.l3-fl:nth-child(odd){background:#fdf3e4}
+.l3-lv{font-weight:900;width:22px;flex:none}.l3-dir{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}.l3-dir rt{font-size:6px}.l3-w{display:flex;gap:2px;flex:none}
+.l3-wp{position:relative;display:inline-block}.l3-wp i,.l3-rq i{position:absolute;left:0;bottom:-2px;height:3px;background:#16a37f;border-radius:2px}.l3-wp i.lo,.l3-rq i.lo{background:#e53935}
+.l3-pp{width:18px;height:26px}.l3-pp.l3-sm{width:16px;height:23px}
+.l3-sh{position:absolute;right:4px;top:0;width:44px;background:repeating-linear-gradient(#4a5568 0 2px,#2d3748 2px 34px)}
+.l3-car{position:absolute;left:2px;right:2px;top:0;background:#f6c344;border:2px solid #b7791f;border-radius:4px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;overflow:hidden;transition:transform .36s linear}.l3-car.op{background:#ffe8a3;box-shadow:0 0 0 3px #16a37f}.l3-car .l3-pp{width:10px;height:15px}
+.l3-pnl{flex:none;background:#2d3748;border-radius:12px;padding:6px}.l3-btns{display:grid;grid-template-columns:1fr;gap:3px}
+.l3-bt{width:44px;height:28px;border-radius:999px;border:2px solid #718096;background:#1a202c;color:#e2e8f0;font-weight:800;font-size:12px;cursor:pointer;touch-action:manipulation}.l3-bt.on{background:#f6c344;color:#1a202c;border-color:#f6c344;box-shadow:0 0 8px #f6c344}.l3-bt.at{border-color:#16a37f}
+.l3-rid{display:grid;gap:6px;margin-top:8px}.l3-rq{position:relative;display:flex;gap:8px;align-items:center;text-align:left;background:var(--card,rgba(255,255,255,.8));border:1.5px solid color-mix(in srgb,var(--c) 30%,transparent);border-radius:12px;padding:6px 10px;cursor:pointer;color:inherit;font:inherit}.l3-rq .jp{font-size:17px}.l3-rq small{display:block;opacity:.75}.l3-rq i{left:10px;right:auto;bottom:3px}
+.l3-hint{font-size:13px;display:flex;gap:6px;align-items:center}
+.l3-dirt{display:grid;gap:2px;margin-top:10px;font-size:13px}.l3-dirt b{display:inline-block;min-width:64px}.l3-dirt small{opacity:.7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .l3-b,:root:not([data-theme="light"]) .l2-it{color:#2a2230}}`;
+function css23(){if(!document.getElementById('l23-css')){const s=document.createElement('style');s.id='l23-css';s.textContent=CSS23+(window.KT_L1GCSS||'');document.head.appendChild(s)}}
+const def=(L,lbl,play)=>{Object.defineProperty(L,'playLabel',{get:lbl,set:()=>{},configurable:true});Object.defineProperty(L,'play',{get:()=>play,set:()=>{},configurable:true})};
+window.KT_L2G=1;
+def(L2,()=>T3('Bit bazarı','Flea market','Барахолка'),()=>{css23();window.KT_AUD8&&window.KT_AUD8();return playSec(T3('Bit bazarı','Flea market','Барахолка'),'<span class="jp">これ・それ・あれ</span>',T3('Əşyanın yerinə görə soruşun, satıcının cavabını dinləyin, siyahıdakıları tapıb alın.','Ask according to where the item is, listen to the seller, find and buy what is on your list.','Спрашивайте по месту вещи, слушайте продавца, найдите и купите вещи из списка.'),`<div id="l2g">${bView()}</div>`)});
+def(L3,()=>T3('Liftçi','Lift operator','Лифтёр'),()=>{css23();window.KT_AUD8&&window.KT_AUD8();return playSec(T3('Liftçi','Lift operator','Лифтёр'),'<span class="jp">エレベーター · ～は どこですか</span>',T3('Müştərinin sualını anlayın və onu düzgün mərtəbəyə aparın.','Understand the customer’s question and take them to the right floor.','Поймите вопрос покупателя и отвезите его на нужный этаж.'),`<div id="l3g">${eView()}</div>`)});
+
+}catch(e){console.warn('l23',e)}})();/*/L23*/
 render();a11yFix();
 
 </script>
