@@ -11854,7 +11854,7 @@ const AU={a:null,T:null,n:0,i:0,on:false,r:+(PF.hkr||1),raf:0,ss:false,
  async toggle(o){if(this.on){this.on=false;if(this.a)this.a.pause();if(this.ss)speechSynthesis.pause();cancelAnimationFrame(this.raf);this.ui();return}
   const k=this.n+'_'+this.i;this.on=true;this.ui();
   if(this.ss&&speechSynthesis.paused){speechSynthesis.resume();return}
-  if(!this.a||this.a.dataset.k!==k){try{if(location.protocol==='file:')throw 0;const r=await fetch('hk/au/'+k+'.json');if(!r.ok)throw 0;this.T=await r.json();let src='hk/au/'+k+'.mp3';try{const b=await (await fetch(src)).blob();if(b.size>1000)src=URL.createObjectURL(b)}catch(_){}this.a=new Audio(src);this.a.dataset.k=k;this.a.preload='auto';this.a.onended=()=>this.stop()}catch(e){this.a=null;return this.tts(o)}}
+  if(!this.a||this.a.dataset.k!==k){try{if(location.protocol==='file:')throw 0;const r=await fetch('hk/au/'+k+'.json?v='+(window.HKV||''));if(!r.ok)throw 0;this.T=await r.json();let src='hk/au/'+k+'.mp3?v='+(window.HKV||'');try{const b=await (await fetch(src)).blob();if(b.size>1000)src=URL.createObjectURL(b)}catch(_){}this.a=new Audio(src);this.a.dataset.k=k;this.a.preload='auto';this.a.onended=()=>this.stop()}catch(e){this.a=null;return this.tts(o)}}
   this.a.playbackRate=this.r;try{await this.a.play()}catch(e){this.on=false;this.ui();return}this.loop()},
  loop(){const t=this.a.currentTime*1000,T=this.T;let p=0;for(let j=0;j<T.length;j++)if(T[j][0]<=t)p=j;const tt=t-T[p][0];let c=-1;for(const w of T[p][1]){if(w[2]<=tt+60){if(tt<=w[3]+250)c=w[0]}else break}
   const box=document.querySelector(p===0?'.hk-ti [data-p="0"]':`.hk-l[data-p="${p}"]`);const cur=document.querySelector('.hk-now');let nw=null;
