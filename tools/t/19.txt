@@ -1,0 +1,9 @@
+LESSON 19 TESTS
+T1: のみます → た-forma  || A) のんだ ; B) のみた ; C) のった || correct=A || expl: のんで → のんだ (§1).
+T2: いきます → た-forma  || A) いきた ; B) いった ; C) いいた || correct=B || expl: いって → いった (§1).
+T3: "Mən sumo görmüşəm (belə təcrübəm var)." [相撲:すもう]{を} [見:み]た ＿{が} あります。 || A) こと ; B) まえ || correct=A || expl: Təcrübə: 〜た ことが あります (§2).
+T4: "Keçən il Hokkaydoda ata mindim." (konkret vaxt)  || A) [去年:きょねん] [馬:うま]{に} [乗:の]りました。 ; B) [去年:きょねん] [馬:うま]{に} [乗:の]った こと{が} あります。 || correct=A || expl: Konkret vaxt → adi keçmiş zaman (§2).
+T5: "Bazar günləri tennis oynayır, kinoya baxıram və s." ~テニス{を} した＿、[映画:えいが]{を} [見:み]た＿ します。 || A) り … り ; B) て … て || correct=A || expl: Nümunə kimi sadalama: 〜たり 〜たり (§3).
+T6: "Soyuqlaşır." [寒:さむ]＿ なります。 || A) く ; B) に ; C) い || correct=A || expl: い-sifət: 〜く なります (§4).
+T7: "Sağaldım." [元気:げんき]＿ なりました。 || A) {に} ; B) く || correct=A || expl: な-sifət: 〜に なります (§4).
+T8: "Ata heç vaxt minməmişəm." [馬:うま]{に} [乗:の]った こと{が} [一度:いちど]＿ ありません。 || A) {も} ; B) {は} || correct=A || expl: "Heç vaxt": 一度も + inkar.

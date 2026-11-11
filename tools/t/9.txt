@@ -1,0 +1,10 @@
+LESSON 9 TESTS
+T1: "Mən italyan mətbəxini xoşlayıram." イタリア|[料理:りょうり] ＿ [好:す]き|です。 || A) {が} ; B) {を} ; C) {は} || correct=A || expl: 好き ilə tamamlıq が alır (§1).
+T2: "Mən yaponca başa düşürəm." ^[日本語:にほんご]{が} ＿。 || A) わかります ; B) あります || correct=A || expl: Başa düşmək: わかります (§1).
+T3: "Ratna yaxşı rəsm çəkir." ラトナ|さん{は} [絵:え]{が} ＿|です。 || A) [上手:じょうず] ; B) [下手:へた] ; C) [嫌:きら]い || correct=A || expl: Yaxşı bacarmaq: 上手 (§1).
+T4: "Mən ingilis dilini heç başa düşmürəm." ^[英語:えいご]{が} ＿ わかりません。 || A) [全然:ぜんぜん] ; B) よく ; C) だいたい || correct=A || expl: İnkarda "heç": 全然 (§3).
+T5: "Mənim çoxlu pulum var." お[金:かね]{が} ＿ あります。 || A) たくさん ; B) あまり || correct=A || expl: Miqdar, təsdiq: たくさん (§3).
+T6: "Vaxtım olmadığına görə qəzet oxumuram." [時間:じかん]{が} ありません＿、[新聞:しんぶん]{を} [読:よ]みません。 || A) {から} ; B) {が} ; C) {と} || correct=A || expl: Səbəb: から (§4).
+T7: Həmsöhbət: "Bu gün tez gedəcəyəm." Səbəbini soruşun:  || A) どうして|です{か}。 ; B) どう|です{か}。 || correct=A || expl: "Niyə?": どうしてですか (§5).
+T8: あまり hansı formada işlənir?  || A) təsdiq ; B) inkar || correct=B || expl: あまり və 全然 yalnız inkarla (§3).
+T9: "Hansı idman növünü xoşlayırsınız?" ＿ ~スポーツ{が} [好:す]き|です{か}。 || A) どんな ; B) どう ; C) どこ || correct=A || expl: İsimdən əvvəl "hansı, necə": どんな (§2).

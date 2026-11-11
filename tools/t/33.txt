@@ -1,0 +1,16 @@
+LESSON 33 TESTS
+T1: 書きます → məchul forma  || A) [書:か]かれます ; B) [書:か]けます ; C) [書:か]きられます || correct=A || expl: く → かれる (§1).
+T2: 言います → məchul forma  || A) [言:い]われます ; B) [言:い]あれます ; C) [言:い]えます || correct=A || expl: う → われる (§1).
+T3: 褒めます → məchul forma  || A) [褒:ほ]められます ; B) [褒:ほ]めれます ; C) [褒:ほ]まれます || correct=A || expl: II qrup: る → られる (§1).
+T4: します → məchul forma  || A) されます ; B) しられます ; C) できます || correct=A || expl: する → される (§1).
+T5: 盗みます → məchul forma  || A) [盗:ぬす]まれます ; B) [盗:ぬす]みられます ; C) [盗:ぬす]めます || correct=A || expl: む → まれる (§1).
+T6: "Müəllim məni təriflədi." Hərəkəti edən hansı ədatla? わたし{は} [先生:せんせい]＿ [褒:ほ]められました。 || A) {に} ; B) {を} ; C) {で} || correct=A || expl: Hərəkəti edən: に (§2).
+T7: "Ayağımı basdılar." [足:あし]＿ [踏:ふ]まれました。 || A) {を} ; B) {が} ; C) {に} || correct=A || expl: Əşya / bədən üzvü を ilə qalır (§3).
+T8: Hansı cümlə təbiidir?  || A) わたし{は} [財布:さいふ]{を} [盗:ぬす]まれました。 ; B) わたし{の} [財布:さいふ]{が} [盗:ぬす]まれました。 || correct=A || expl: Zərər çəkən şəxs mübtədadır (§3).
+T9: "Yağışa düşdüm." [雨:あめ]{に} ＿。 || A) [降:ふ]られました ; B) [降:ふ]りました ; C) [降:ふ]れました || correct=A || expl: Təsirsiz feildə "zərər" məchulu (§3).
+T10: "İclas sabah keçiriləcək." [会議:かいぎ]{は} [明日:あした] ＿。 || A) [開:ひら]かれます ; B) [開:ひら]きます ; C) [開:ひら]けます || correct=A || expl: Hərəkəti edən önəmli deyil: məchul (§4).
+T11: "Bu roman Natsume Souseki tərəfindən yazılıb." この [小説:しょうせつ]{は} ^[夏目漱石:なつめそうせき]＿ [書:か]かれました。 || A) {に} よって ; B) {に} [対:たい]して ; C) {を} || correct=A || expl: Yaradan: に よって (§4).
+T12: "Bu maşın Yaponiyada istehsal olunub." この [車:くるま]{は} [日本:にほん]{で} ＿。 || A) [作:つく]られました ; B) [作:つく]れました ; C) [作:つく]りました || correct=A || expl: Məchul: 作られる (§4).
+T13: 来ます → məchul forma  || A) [来:こ]られます ; B) [来:き]られます ; C) [来:く]られます || correct=A || expl: 来る → 来られる (こられる) (§1).
+T14: "Dostum məni toya dəvət etdi." [友達:ともだち]{に} [結婚式:けっこんしき]{に} ＿。 || A) [招待:しょうたい]されました ; B) [招待:しょうたい]しました ; C) [招待:しょうたい]させました || correct=A || expl: する → される (§1–2).
+T15: "Kiçik qardaşım tortumu yedi (təəssüf)." [弟:おとうと]{に} ~ケーキ{を} ＿。 || A) [食:た]べられました ; B) [食:た]べました ; C) [食:た]べさせました || correct=A || expl: Zərər məchulu (§3).

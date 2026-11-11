@@ -1,0 +1,20 @@
+LESSON 28 TESTS
+T1: "Qapı açıldı." (öz-özünə) ~ドア{が} ＿。 || A) [開:あ]きました ; B) [開:あ]けました || correct=A || expl: Təsirsiz: 開く (§1).
+T2: "İşığı söndürün." [電気:でんき]{を} ＿ ください。 || A) [消:け]して ; B) [消:き]えて || correct=A || expl: Təsirli: 消す (§1).
+T3: Boşluğa hansı ədat? [車:くるま]＿ [止:と]まりました。 || A) {が} ; B) {を} || correct=A || expl: Təsirsiz feil が ilə (§1).
+T4: "Bu stəkan sınıqdır." この ~コップ{は} ＿。 || A) [割:わ]れて います ; B) [割:わ]って います || correct=A || expl: Vəziyyət: təsirsiz + て います (§1).
+T5: 始まる-nın təsirli cütü  || A) [始:はじ]める ; B) [始:はじ]まらせる ; C) [始:はじ]めさせる || correct=A || expl: 始まる / 始める (§1).
+T6: "Pul kisəmi itirdim (təəssüf)." [財布:さいふ]{を} なくして ＿。 || A) しまいました ; B) おきました ; C) みました || correct=A || expl: Təəssüf: 〜て しまいました (§2).
+T7: "Kitabı oxuyub bitirdim." [本:ほん]{を} [全部:ぜんぶ] [読:よ]んで ＿。 || A) しまいました ; B) あります ; C) みます || correct=A || expl: Tamamlanma: 〜て しまいました (§2).
+T8: "Səyahətdən əvvəl bilet alıb saxlayacağam." [旅行:りょこう]{の} [前:まえ]{に} [切符:きっぷ]{を} [買:か]って ＿。 || A) おきます ; B) しまいます ; C) あります || correct=A || expl: Əvvəlcədən: 〜て おきます (§3).
+T9: "Pəncərəni açıq qoyun." [窓:まど]{は} [開:あ]けて ＿ ください。 || A) おいて ; B) しまって ; C) みて || correct=A || expl: Olduğu kimi saxla: 〜て おいて (§3).
+T10: "Divara təqvim asılıb." (kimsə asıb) [壁:かべ]{に} ~カレンダー{が} [掛:か]けて ＿。 || A) あります ; B) います ; C) おきます || correct=A || expl: Məqsədli nəticə: təsirli + て あります (§4).
+T11: 〜て あります ilə hansı feil işlənir?  || A) [並:なら]べて ; B) [並:なら]んで || correct=A || expl: Yalnız təsirli feil: 並べる (§4).
+T12: "Bu paltarı geyinib baxa bilərəm?" これ{を} [着:き]て ＿ いい|です{か}。 || A) みても ; B) おいても ; C) しまっても || correct=A || expl: Sınamaq: 〜て みます (§5).
+T13: Hansı cümlə düzgündür?  || A) [窓:まど]{が} [開:あ]けて あります。 ; B) [窓:まど]{が} [開:あ]いて あります。 || correct=A || expl: 〜て あります yalnız təsirli feillə: 開ける (§4).
+T14: "İşıq yanır." (vəziyyət) [電気:でんき]{が} ＿。 || A) ついて います ; B) つけて います || correct=A || expl: Təsirsiz つく + て います (§1).
+T15: Danışıqda 忘れて しまった necə qısalır?  || A) [忘:わす]れちゃった ; B) [忘:わす]れとく ; C) [忘:わす]れじゃった || correct=A || expl: 〜て しまった → 〜ちゃった (§2).
+T16: "Səhər yeməyi yemədən getdim." [朝:あさ]ごはん{を} [食:た]べ＿ [出:で]かけました。 || A) ず{に} ; B) ない ; C) なくて{は} || correct=A || expl: 食べず に = 食べない で (§6).
+T17: する + "-madan" [勉強:べんきょう]＿ [寝:ね]ました。 || A) せず{に} ; B) しず{に} ; C) さず{に} || correct=A || expl: する → せずに (§6).
+T18: "İşığı yandırılmış halda yatdım." [電気:でんき]{を} [付:つ]けた＿ [寝:ね]ました。 || A) まま{で} ; B) ところ{で} ; C) ばかり{で} || correct=A || expl: Olduğu kimi qalan vəziyyət: まま (§7).
+T19: まま addan sonra necə gəlir?  || A) [昔:むかし]{の} まま ; B) [昔:むかし]{な} まま ; C) [昔:むかし]{が} まま || correct=A || expl: Ad + の まま (§7).

@@ -1,0 +1,27 @@
+LESSON 32 TESTS
+T1: "Ev almaq üçün pul yığıram." [家:いえ]{を} [買:か]う ＿、[貯金:ちょきん]|して います。 || A) ために ; B) ように ; C) なら || correct=A || expl: İradəli hərəkət: ために (§1).
+T2: "Sağlamlıq üçün" (ad) [健康:けんこう]＿ ために || A) {の} ; B) {な} ; C) {に} || correct=A || expl: Ad + の ために (§1).
+T3: "Unutmayım deyə, yazıram." [忘:わす]れない ＿、[書:か]いて おきます。 || A) よう{に} ; B) ため{に} ; C) {の} ため{に} || correct=A || expl: İnkarla ように (§2).
+T4: "Hamı görsün deyə, böyük yazın." みんな{に} [見:み]える ＿、[大:おお]きく [書:か]いて ください。 || A) よう{に} ; B) ため{に} || correct=A || expl: İradəsiz feil (見える): ように (§2).
+T5: "Kanji oxuya bilir oldum." [漢字:かんじ]{が} [読:よ]める ＿。 || A) よう{に} なりました ; B) よう{に} しました ; C) ため{に} なりました || correct=A || expl: Dəyişiklik: ように なりました (§3).
+T6: "Hər gün idman etməyə çalışıram." [毎日:まいにち] [運動:うんどう]|する よう{に} ＿。 || A) して います ; B) なって います ; C) あります || correct=A || expl: Vərdiş: ように して います (§3).
+T7: "Son vaxtlar televizora baxmıram (daha)." [最近:さいきん] ~テレビ{を} [見:み]＿。 || A) なく なりました ; B) ない よう{に} なりました ; C) なく しました || correct=A || expl: İnkar dəyişiklik: 〜なく なりました (§3).
+T8: "Onun nə vaxt gələcəyini bilirsiniz?" [彼:かれ]{が} いつ [来:く]る＿ [知:し]って います{か}。 || A) {か} ; B) {か} どう{か} ; C) {と} || correct=A || expl: Sual sözü (いつ) var: か (§4).
+T9: "Onun gəlib-gəlməyəcəyini bilmirəm." [彼:かれ]{が} [来:く]る＿ [分:わ]かりません。 || A) {か} どう{か} ; B) {か} ; C) {の} || correct=A || expl: Hə/yox sualı: かどうか (§4).
+T10: "Doğru olub-olmadığını" (ad) [本当:ほんとう]＿ || A) {か} どう{か} ; B) |だ{か} どう{か} ; C) {な}{か} どう{か} || correct=A || expl: だ düşür: 本当か どうか (§4).
+T11: "Nə olub?" (vəziyyəti görüb) どう|した＿|です{か}。 || A) {ん} ; B) {の}{ん} ; C) {な}{ん} || correct=A || expl: どうしたんですか (§5).
+T12: "Axı mən tələbəyəm." [学生:がくせい]＿{ん}|です。 || A) {な} ; B) |だ ; C) {の} || correct=A || expl: Ad + なんです (§5).
+T13: "Başım ağrıyır, ona görə..." (izah) [頭:あたま]{が} [痛:いた]い＿|です。 || A) {ん} ; B) {な}{ん} ; C) |だ{ん} || correct=A || expl: い-sifət + んです (§5).
+T14: Hansı düzgündür?  || A) [日本:にほん]{へ} [行:い]く ために、お[金:かね]{を} ためます。 ; B) [日本:にほん]{へ} [行:い]ける ために、お[金:かね]{を} ためます。 || correct=A || expl: ために bacarıq forması ilə gəlmir (§1–2).
+T15: "Soyuqlamamağa diqqət edin." [風邪:かぜ]{を} ひかない ＿ [気:き]{を} つけて ください。 || A) よう{に} ; B) ため{に} ; C) {か} || correct=A || expl: İnkar + ように (§2).
+T16: "Hərarətim olduğu üçün evdə qalıram." (yumşaq səbəb) [熱:ねつ]{が} ある＿、[家:いえ]{に} います。 || A) {ので} ; B) {のに} ; C) {ように} || correct=A || expl: Yumşaq səbəb: ので (§6).
+T17: "Sakit olduğu üçün rahatdır." [静:しず]か＿ ので、いい|です。 || A) |な ; B) |だ ; C) {の} || correct=A || expl: な-sifət + なので (§6).
+T18: "Müəllimin sayəsində imtahandan keçdim." (yaxşı nəticə) [先生:せんせい]{の} ＿ [合格:ごうかく]しました。 || A) おかげ{で} ; B) せい{で} ; C) つもり{で} || correct=A || expl: Yaxşı nəticə: おかげで (§7).
+T19: "Yağışın ucbatından oyun ləğv oldu." (pis nəticə) [雨:あめ]{の} ＿ [試合:しあい]{が} [中止:ちゅうし]に なりました。 || A) せい{で} ; B) おかげ{で} ; C) ところ{で} || correct=A || expl: Pis nəticə: せいで (§7).
+T20: "Müəllimin dediyi kimi yazın." [先生:せんせい]{が} [言:い]った ＿ [書:か]いて ください。 || A) とおり{に} ; B) ところ{に} ; C) ばかり{に} || correct=A || expl: とおりに = eynilə (§8).
+T21: "Qatar vaxtında gəldi." [時間:じかん]＿{に} [電車:でんしゃ]{が} [来:き]ました。 || A) どおり ; B) の どおり ; C) は どおり || correct=A || expl: 時間どおりに, の düşür (§8).
+T22: "Tanaka adlı adam" [田中:たなか]|さん＿ [人:ひと] || A) {と} いう ; B) {に} いう ; C) {を} いう || correct=A || expl: 〜と いう N (§9).
+T23: "Həkim mənə dərman içməyi dedi." [医者:いしゃ]{に} [薬:くすり]{を} [飲:の]む＿ [言:い]われました。 || A) {ように} ; B) {ために} ; C) {ところ} || correct=A || expl: Dolayı göstəriş: 〜ように 言う (§10).
+T24: "Anam mənə gec qayıtmamağı dedi." [母:はは]{に} [遅:おそ]く [帰:かえ]ら＿ ように [言:い]われました。 || A) ない ; B) なく ; C) ず || correct=A || expl: Qadağa: 〜ない ように (§10).
+T25: "Marketə gedib su alıb qayıdıram." ~コンビニ{で} [水:みず]{を} [買:か]って ＿。 || A) きます ; B) なります ; C) です || correct=A || expl: 〜て きます = gedib qayıtmaq (§11).
+T26: "Bundan sonra əhali azalacaq." (gələcəyə doğru dəyişmə) これから [人口:じんこう]{は} [減:へ]って ＿ でしょう。 || A) いく ; B) おく ; C) ある || correct=A || expl: İndidən gələcəyə: 〜て いく (§11).

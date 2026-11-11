@@ -1,0 +1,10 @@
+LESSON 25 TESTS
+T1: "Pulum olsa, səyahət edərəm." お[金:かね]{が} あった＿、[旅行:りょこう]|します。 || A) ら ; B) {と} ; C) {も} || correct=A || expl: Şərt: 〜たら (§1).
+T2: 安い → şərt forması  || A) [安:やす]かったら ; B) [安:やす]いたら ; C) [安:やす]|だったら || correct=A || expl: い-sifət: 〜かったら (§1).
+T3: 暇（な） → şərt forması  || A) [暇:ひま]|だったら ; B) [暇:ひま]かったら || correct=A || expl: な-sifət: 〜だったら (§1).
+T4: "Vaxtım olsa, konsertə getmək istəyirəm." Hansı düzgündür?  || A) [時間:じかん]{が} ある{と}、[行:い]きたい|です。 ; B) [時間:じかん]{が} あったら、[行:い]きたい|です。 || correct=B || expl: İstəklə と işlənmir, たら işlənir (§1).
+T5: "Saat 10 olanda çıxaq." [10時:じゅうじ]{に} なったら、＿。 || A) [出:で]かけましょう ; B) [出:で]かけました || correct=A || expl: "... olanda": 〜たら (§2).
+T6: "Yağış yağsa da, paltar yuyuram." [雨:あめ]{が} [降:ふ]って＿、[洗濯:せんたく]|します。 || A) {も} ; B) ら ; C) {から} || correct=A || expl: Güzəşt: 〜ても (§3).
+T7: "Bazar günü olsa da, işləyirəm." [日曜日:にちようび]＿、[働:はたら]きます。 || A) |で{も} ; B) |だったら ; C) {と} || correct=A || expl: İsim: 〜でも (§3).
+T8: "Dostlar gəlməzdən əvvəl otağı yığışdırıram." [友達:ともだち]＿ [来:く]る まえ{に}、[部屋:へや]{を} [掃除:そうじ]|します。 || A) {が} ; B) {は} || correct=A || expl: Budaq cümlədə mübtəda が (§5).
+T9: "Əgər 100 milyon yenim olsa, səyahət etmək istərdim." ＿ [1億円:いちおくえん] あったら、[旅行:りょこう]|したい|です。 || A) もし ; B) もう ; C) まだ || correct=A || expl: Fərziyyəni əvvəlcədən bildirən もし (§4).

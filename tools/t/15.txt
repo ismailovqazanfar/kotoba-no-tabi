@@ -1,0 +1,9 @@
+LESSON 15 TESTS
+T1: "Şəkil çəkmək olar?" [写真:しゃしん]{を} [撮:と]って＿ いい|です{か}。 || A) {も} ; B) {は} ; C) {を} || correct=A || expl: İcazə: 〜ても いいですか (§1).
+T2: "Burada oynamaq olmaz." ここ{で} [遊:あそ]んで{は} ＿。 || A) いけません ; B) いい|です || correct=A || expl: Qadağa: 〜ては いけません (§2).
+T3: "Mən evliyəm." わたし{は} [結婚:けっこん]|して ＿。 || A) います ; B) ください || correct=A || expl: Vəziyyət: 〜て います (§3).
+T4: "Telefon nömrəsini bilirsiniz?" – Xeyr, bilmirəm.  || A) いいえ、[知:し]りません。 ; B) いいえ、[知:し]って いません。 || correct=A || expl: İnkar: しりません (§3, qeyd 1).
+T5: "Mən Osakada yaşayıram." ^[大阪:おおさか]＿ [住:す]んで います。 || A) {に} ; B) {で} ; C) {を} || correct=A || expl: すみます ilə yer に alır.
+T6: "Cənab Parker Midori Shouji-də işləyir." パーカー|さん{は} ミドリ ^[商事:しょうじ]＿ [働:はたら]いて います。 || A) {で} ; B) {に} || correct=A || expl: Hərəkətin yeri: で (6-cı dərs).
+T7: "Burada oturmaq olar?" ここ＿ [座:すわ]って{も} いい|です{か}。 || A) {に} ; B) {を} ; C) {で} || correct=A || expl: すわります ilə に (§4).
+T8: "Zəhmət olmasa, ünvanı bura yazın." ここ＿ [住所:じゅうしょ]{を} [書:か]いて ください。 || A) {に} ; B) {で} ; C) {へ} || correct=A || expl: Nəticənin yeri: に (§5).

@@ -1,0 +1,23 @@
+LESSON 27 TESTS
+T1: 行きます → niyyət forması  || A) [行:い]こう ; B) [行:い]きよう ; C) [行:い]かよう || correct=A || expl: く → こう (§1).
+T2: 食べます → niyyət forması  || A) [食:た]べよう ; B) [食:た]べろう ; C) [食:た]べこう || correct=A || expl: II qrup: る → よう (§1).
+T3: します → niyyət forması  || A) しよう ; B) すよう ; C) さよう || correct=A || expl: する → しよう (§1).
+T4: 来ます → niyyət forması  || A) [来:こ]よう ; B) [来:き]よう ; C) [来:く]ろう || correct=A || expl: 来る → 来よう (こよう) (§1).
+T5: 待ちます → niyyət forması  || A) [待:ま]とう ; B) [待:ま]ちよう ; C) [待:ま]つろう || correct=A || expl: つ → とう (§1).
+T6: "Gəl birlikdə gedək." (dosta) [一緒:いっしょ]{に} ＿。 || A) [行:い]こう ; B) [行:い]く ; C) [行:い]った || correct=A || expl: Sadə "gəl edək": niyyət forması (§1).
+T7: "Yeni ev almaq fikrindəyəm." [新:あたら]しい [家:いえ]{を} ＿ [思:おも]って います。 || A) [買:か]おう{と} ; B) [買:か]う{と} ; C) [買:か]って || correct=A || expl: 〜(よ)うと 思って います (§2).
+T8: "Gələn il Yaponiyaya getmək niyyətindəyəm." [来年:らいねん] [日本:にほん]{へ} [行:い]く ＿|です。 || A) つもり ; B) よう ; C) こと || correct=A || expl: Qəti qərar: つもり (§3).
+T9: "Daha içməmək niyyətindəyəm." もう [飲:の]＿ つもり|です。 || A) まない ; B) みません ; C) もう || correct=A || expl: İnkar niyyət: 〜ない つもり (§3).
+T10: "İclas saat 3-də başlamalıdır (cədvəl)." [会議:かいぎ]{は} 3[時:じ]{に} [始:はじ]まる ＿|です。 || A) [予定:よてい] ; B) つもり ; C) よう || correct=A || expl: Cədvəl: 予定 (§4).
+T11: "Gələn həftə ezamiyyət var (plan)." [来週:らいしゅう]{は} [出張:しゅっちょう]＿ [予定:よてい]|です。 || A) {の} ; B) {が} ; C) {を} || correct=A || expl: Ad + の 予定 (§4).
+T12: "Hələ yazmamışam." まだ ＿。 || A) [書:か]いて いません ; B) [書:か]きませんでした ; C) [書:か]きません || correct=A || expl: まだ 〜て いません (§5).
+T13: "Bilet aldınız?" "Xeyr, hələ yox." いいえ、＿。 || A) まだ|です ; B) もう|です ; C) まだ|でした || correct=A || expl: Qısa cavab: まだです (§5).
+T14: Hansı cümlə başqasının planını düzgün bildirir?  || A) [彼:かれ]{は} [留学:りゅうがく]|しよう{と} [思:おも]って います。 ; B) [彼:かれ]{は} [留学:りゅうがく]|しよう{と} [思:おも]います。 || correct=A || expl: Başqası üçün 思って います (§2).
+T15: 泳ぎます → niyyət forması  || A) [泳:およ]ごう ; B) [泳:およ]ぎよう ; C) [泳:およ]ぐう || correct=A || expl: ぐ → ごう (§1).
+T16: "Yay tətilində dənizə getməyə qərar verdim." (öz qərarım) [海:うみ]{へ} [行:い]く こと{に} ＿。 || A) しました ; B) なりました ; C) あります || correct=A || expl: Öz qərarı: ことに します (§6).
+T17: "Gələn il xaricdə işləməli oldum." (şirkət qərar verib) [来年:らいねん]、[外国:がいこく]{で} [働:はたら]く こと{に} ＿。 || A) なりました ; B) しました ; C) いました || correct=A || expl: Başqası qərar verib: ことに なる (§7).
+T18: "Bu məktəbdə sinifdə yemək yeməyə icazə verilmir." (qayda) [教室:きょうしつ]{で} [食:た]べない こと{に} ＿ います。 || A) なって ; B) して ; C) あって || correct=A || expl: Qayda: ことに なって います (§7).
+T19: "Qardaşım yeni telefon istəyir." [弟:おとうと]{は} [新:あたら]しい ~ケータイ{を} ＿ います。 || A) [欲:ほ]しがって ; B) [欲:ほ]しくて ; C) [欲:ほ]しいと || correct=A || expl: 3-cü şəxsin istəyi: 欲しがる (§8).
+T20: "Uşaq itlərdən qorxur." [子供:こども]{は} [犬:いぬ]{を} ＿ います。 || A) [怖:こわ]がって ; B) [怖:こわ]くて ; C) [怖:こわ]い{と} || correct=A || expl: 怖い → 怖がる (§8).
+T21: "Çölə çıxmaq istəyirdim ki, telefon zəng çaldı."  || A) [出:で]かけよう{と} した とき ; B) [出:で]かけて みた とき ; C) [出:で]かける つもりの とき || correct=A || expl: Cəhd / hərəkətdən bir an əvvəl: 〜(よ)うと する (§9).
+T22: Boşluğa uyğun forma: 子どもは 薬を ＿＿ しません。  || A) [飲:の]もう{と} ; B) [飲:の]む{と} ; C) [飲:の]んで || correct=A || expl: Cəhd / hərəkətdən bir an əvvəl: 〜(よ)うと する (§9).

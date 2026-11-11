@@ -1,0 +1,12 @@
+LESSON 16 TESTS
+T1: "Səhər qaçıram, duş qəbul edirəm və işə gedirəm." [朝:あさ] ~ジョギング{を} ＿、~シャワー{を} [浴:あ]びて、[会社:かいしゃ]{へ} [行:い]きます。 || A) して ; B) します ; C) しました || correct=A || expl: Sonuncudan başqa feillər て-formada (§1).
+T2: おおきい → birləşdirici forma  || A) おおきくて ; B) おおきいで ; C) おおきで || correct=A || expl: い-sifət: 〜くて (§1).
+T3: いい → birləşdirici forma  || A) いくて ; B) よくて || correct=B || expl: İstisna: よくて (§1).
+T4: "Nara sakit və gözəl şəhərdir." ^[奈良:なら]{は} [静:しず]か＿、きれいな [町:まち]|です。 || A) で ; B) くて || correct=A || expl: な-sifət: 〜で (§1).
+T5: "Bu otaq dardır, amma təmizdir."  || A) この [部屋:へや]{は} [狭:せま]くて、きれい|です。 ; B) この [部屋:へや]{は} [狭:せま]い|です{が}、きれい|です。 || correct=B || expl: Əks keyfiyyətlər が ilə (§1, diqqət).
+T6: "Pulu qoyandan sonra düyməni basın." お[金:かね]{を} [入:い]れて＿、~ボタン{を} [押:お]して ください。 || A) {から} ; B) {まで} ; C) {が} || correct=A || expl: Ardıcıllıq: 〜てから (§2).
+T7: "Saat 7-də evdən çıxıram." [7時:しちじ]{に} うち＿ [出:で]ます。 || A) {を} ; B) {に} ; C) {へ} || correct=A || expl: Çıxış nöqtəsi: を (§4).
+T8: "Ramos hansı adamdır?" (bir neçə nəfər arasından) ラモス|さん{は} ＿ [人:ひと]|です{か}。 || A) どの ; B) どれ ; C) どちら || correct=A || expl: İsimlə どの (§6).
+T9: "Bu kanjinin oxunuşunu öyrədin." この [漢字:かんじ]{の} ＿{を} [教:おし]えて ください。 || A) [読:よ]み[方:かた] ; B) [読:よ]む[方:かた] ; C) [読:よ]んで[方:かた] || correct=A || expl: 読みます → 読み方; obyekt の ilə (§7).
+T10: "Sofiyanın saçları uzundur." ソフィア|さん{は} [髪:かみ]＿ [長:なが]い|です。 || A) {が} ; B) {を} ; C) {で} || correct=A || expl: İS₁ は İS₂ が SİF (§3).
+T11: "Universitetə necə gedirsiniz?" [大学:だいがく]{まで} ＿ [行:い]きます{か}。 || A) どう|やって ; B) どこ ; C) どれ || correct=A || expl: Yolu soruşanda: どうやって (§5).

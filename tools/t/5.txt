@@ -1,0 +1,10 @@
+LESSON 5 TESTS
+T1: "Mən Kiotoya gedəcəyəm." ^[京都:きょうと] ＿ [行:い]きます。 || A) {へ} ; B) {で} ; C) {と} || correct=A || expl: İstiqamət: へ (§1).
+T2: Ədat へ necə oxunur?  || A) he ; B) e ; C) o || correct=B || expl: Ədat へ "e" oxunur (§1).
+T3: "Heç yerə getmədim." どこ{へ}＿ [行:い]きませんでした。 || A) {も} ; B) {は} ; C) {か} || correct=A || expl: Sual sözü + も + inkar = tam inkar (§2).
+T4: "Qatarla gedəcəyəm." [電車:でんしゃ] ＿ [行:い]きます。 || A) {で} ; B) {へ} ; C) {と} || correct=A || expl: Vasitə: で (§3).
+T5: "Stansiyadan piyada qayıtdım." [駅:えき]{から} ＿ [帰:かえ]りました。 || A) [歩:ある]いて ; B) [歩:ある]いて{で} || correct=A || expl: あるいて-dan sonra で gəlmir (§3).
+T6: "Yaponiyaya ailəmlə gəldim." [家族:かぞく] ＿ ^[日本:にほん]{へ} [来:き]ました。 || A) {と} ; B) {で} ; C) {へ} || correct=A || expl: Birgə hərəkət: と (§4).
+T7: "Yaponiyaya nə vaxt gəldiniz?" ＿ ^[日本:にほん]{へ} [来:き]ました{か}。 || A) いつ ; B) いつ{に} || correct=A || expl: いつ-dan sonra に gəlmir (§5).
+T8: Həmsöhbət deyir: "Sabah bazar günüdür, eləmi?" Siz də bunu bilirsiniz:  || A) そう|です{か}。 ; B) そう|です{ね}。 || correct=B || expl: Həmfikir olanda そうですね (§7).
+T9: Həmsöhbət bilmir, siz ona yeni məlumat verirsiniz: "Növbəti adi qatardır!" [次:つぎ]{の} [普通:ふつう]|です＿。 || A) {よ} ; B) {か} ; C) {ね} || correct=A || expl: Yeni məlumat: よ (§6).

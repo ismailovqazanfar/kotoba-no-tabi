@@ -1,0 +1,16 @@
+LESSON 35 TESTS
+T1: 行きます (müştəri gedir) → hörmət dili  || A) いらっしゃいます ; B) [参:まい]ります ; C) おります || correct=A || expl: Hörmət: いらっしゃいます (§1).
+T2: 行きます (mən gedirəm) → təvazökar dil  || A) [参:まい]ります ; B) いらっしゃいます ; C) なさいます || correct=A || expl: Təvazökar: 参ります (§2).
+T3: 食べます (müəllim) → hörmət dili  || A) [召:め]し[上:あ]がります ; B) いただきます ; C) お[食:た]べ|します || correct=A || expl: 召し上がります (§1).
+T4: 言います (mən) → təvazökar dil  || A) [申:もう]します ; B) おっしゃいます ; C) お[言:い]い{に} なります || correct=A || expl: 申します (§2).
+T5: 見ます (müdir) → hörmət dili  || A) ご[覧:らん]{に} なります ; B) [拝見:はいけん]|します ; C) お[見:み]|します || correct=A || expl: ご覧に なります (§1).
+T6: します (mən) → təvazökar dil  || A) いたします ; B) なさいます ; C) されます || correct=A || expl: いたします (§2).
+T7: "Müdir artıq evə gedib." (hörmət) [部長:ぶちょう]{は} もう お[帰:かえ]り＿。 || A) {に} なりました ; B) |しました ; C) いたしました || correct=A || expl: お + kök + に なります (§1).
+T8: "Çantanızı mən daşıyım." (təvazökar) お[荷物:にもつ]、お[持:も]ち＿。 || A) |しましょう{か} ; B) {に} なりましょう{か} ; C) ください || correct=A || expl: お + kök + します (§2).
+T9: "Bir az gözləyin, zəhmət olmasa." [少々:しょうしょう] お[待:ま]ち ＿。 || A) ください ; B) |します ; C) {に} なります || correct=A || expl: Xahiş: お + kök + ください (§1).
+T10: "Qəbul masası 2-ci mərtəbədədir." (müştəriyə) [受付:うけつけ]{は} 2[階:かい]{に} ＿。 || A) ございます ; B) いらっしゃいます ; C) おります || correct=A || expl: あります → ございます (§3).
+T11: "Bu, yeni məhsuldur." (müştəriyə) こちら{は} [新:あたら]しい [商品:しょうひん]＿。 || A) |で ございます ; B) |で いらっしゃいます ; C) |で おります || correct=A || expl: です → で ございます (§3).
+T12: Kənar adama öz müdirin haqqında: "Harada iclasdadır." ＿{は} [会議中:かいぎちゅう]|で ございます。 || A) [原田:はらだ] ; B) [原田:はらだ]|さん ; C) ^[原田:はらだ] [課長:かちょう]|さん || correct=A || expl: Öz tərəfin: さん-sız (§2).
+T13: Hansı cümlə səhvdir?  || A) わたし{が} いらっしゃいます。 ; B) わたし{が} [参:まい]ります。 ; C) [先生:せんせい]{が} いらっしゃいます。 || correct=A || expl: Özünə hörmət dili işlənmir (§4).
+T14: もらいます (mən) → təvazökar dil  || A) いただきます ; B) くださいます ; C) さしあげます || correct=A || expl: もらう → いただく (§2).
+T15: くれます (müəllim) → hörmət dili  || A) くださいます ; B) いただきます ; C) さしあげます || correct=A || expl: くれる → くださる (§1).

@@ -1,0 +1,10 @@
+LESSON 13 TESTS
+T1: "Mən maşın istəyirəm." わたし{は} [車:くるま] ＿ [欲:ほ]しい|です。 || A) {が} ; B) {を} ; C) {に} || correct=A || expl: ほしい ilə istənilən şey が alır (§1).
+T2: "Mən sushi yemək istəyirəm." すし{を} [食:た]べ＿。 || A) たい|です ; B) ます|たい ; C) たく|です || correct=A || expl: ます-forma + たいです (§2).
+T3: "Heç nə yemək istəmirəm." [何:なに]{も} [食:た]べ＿。 || A) たくない|です ; B) たい|じゃ ありません || correct=A || expl: たい い-sifət kimi dəyişir: たくないです (§2).
+T4: Qonağa kofe təklif edirsiniz. Hansı düzgündür?  || A) ~コーヒー{が} [欲:ほ]しい|です{か}。 ; B) ~コーヒー{は} いかが|です{か}。 || correct=B || expl: Təklifdə いかがですか (§2, qeyd 2).
+T5: "Kobeyə alış-verişə gedirəm." ^[神戸:こうべ]{へ} [買:か]い[物:もの] ＿ [行:い]きます。 || A) {に} ; B) {を} ; C) {で} || correct=A || expl: Məqsəd: に (§3).
+T6: "Hind yeməkləri yeməyə gedirəm." インド|[料理:りょうり]{を} ＿{に} [行:い]きます。 || A) [食:た]べ ; B) [食:た]べます ; C) [食:た]べたい || correct=A || expl: に-dən əvvəl ます-forma (§3).
+T7: "Nəsə içmək istəyirəm." ＿ [飲:の]みたい|です。 || A) [何:なに]か ; B) [何:なに]{も} || correct=A || expl: "Nəsə": 何か (§4).
+T8: "Nə sifariş edəcəksiniz?" ＿[注文:ちゅうもん]{は}。 || A) ご ; B) お || correct=A || expl: 注文 Çin mənşəlidir → ご (§5).
+T9: "İstənilən vaxt zəng edin." いつ＿ [電話:でんわ]|して ください。 || A) {でも} ; B) {も} ; C) {か} || correct=A || expl: Sual sözü + でも + təsdiq = "istənilən" (§6).

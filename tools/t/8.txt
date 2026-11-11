@@ -1,0 +1,13 @@
+LESSON 8 TESTS
+T1: きれい hansı qrup sifətdir?  || A) い-sifət ; B) な-sifət || correct=B || expl: きれい な-sifətdir: きれい|な 花 (§1).
+T2: "Ora sakit deyil." あそこ{は} [静:しず]か ＿。 || A) じゃ ありません ; B) くない|です || correct=A || expl: な-sifətin inkarı: じゃ ありません (§2).
+T3: "Bu kitab maraqlı deyil." この [本:ほん]{は} ＿。 || A) おもしろくない|です ; B) おもしろい|じゃ ありません || correct=A || expl: い-sifətin inkarı: 〜くないです (§2).
+T4: いいです sözünün inkarı hansıdır?  || A) いくない|です ; B) よくない|です || correct=B || expl: İstisna: よくないです (§2).
+T5: "Professor Hart xeyirxah professordur." ハート|[先生:せんせい]{は} [親切:しんせつ]＿ [先生:せんせい]|です。 || A) な ; B) の ; C) – || correct=A || expl: な-sifət isimdən əvvəl な alır (§3).
+T6: "Pekində çox soyuqdur." ペキン{は} ＿ [寒:さむ]い|です。 || A) とても ; B) あまり || correct=A || expl: Təsdiqdə とても (§5).
+T7: "Nara necə şəhərdir?" ^[奈良:なら]{は} ＿ [町:まち]|です{か}。 || A) どんな ; B) どう ; C) [何:なん] || correct=A || expl: İsimdən əvvəl どんな (§7).
+T8: "Yapon yeməkləri dadlıdır, amma bahadır." おいしい|です＿、[高:たか]い|です。 || A) {が} ; B) {と} ; C) {も} || correct=A || expl: "Amma": 〜が、〜 (§4).
+T9: "Hər səhər tez dururam." [毎朝:まいあさ] ＿ [起:お]きます。 || A) [早:はや]く ; B) [早:はや]い ; C) [早:はや]に || correct=A || expl: い-sifət: い → く (§9).
+T10: "Zəhmət olmasa, sakit danışın." [静:しず]か＿ [話:はな]して ください。 || A) {に} ; B) {な} ; C) {く} || correct=A || expl: な-sifət: + に (§9).
+T11: "Yaşıl çanta" – hansı düzgündür?  || A) [緑:みどり]{の} かばん ; B) [緑:みどり]い かばん ; C) [緑:みどり]|な かばん || correct=A || expl: 緑-in い-forması yoxdur, ona görə の ilə bağlanır (§10).
+T12: "Yaponiyada həyat necədir?" ^[日本:にほん]{の} [生活:せいかつ]{は} ＿|です{か}。 || A) どう ; B) どんな ; C) どれ || correct=A || expl: Təəssürat soruşanda: どうですか (§6).

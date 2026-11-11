@@ -1,0 +1,11 @@
+LESSON 17 TESTS
+T1: かきます → ない-forma  || A) かかない ; B) かきない ; C) かくない || correct=A || expl: き → か (§1).
+T2: かいます → ない-forma  || A) かあない ; B) かわない ; C) かいない || correct=B || expl: İstisna: い → わ (§1).
+T3: きます (gəlmək) → ない-forma  || A) きない ; B) こない ; C) かない || correct=B || expl: 3-cü qrup: きます → こない (§1).
+T4: "Zəhmət olmasa, burada şəkil çəkməyin." ここ{で} [写真:しゃしん]{を} [撮:と]らない＿。 || A) で ください ; B) て ください ; C) ません || correct=A || expl: 〜ないで ください (§2).
+T5: "Dərman içməliyəm." [薬:くすり]{を} [飲:の]まなければ ＿。 || A) なりません ; B) ください ; C) います || correct=A || expl: 〜なければ なりません (§3).
+T6: "Sabah gəlməyə bilərsiniz." あした [来:こ]なくて{も} ＿。 || A) いい|です ; B) いけません || correct=A || expl: 〜なくても いいです (§4).
+T7: "Kitabı şənbəyə qədər qaytarmalıyam." (son tarix) [土曜日:どようび]＿ [本:ほん]{を} [返:かえ]さなければ なりません。 || A) {までに} ; B) {まで} || correct=A || expl: Son tarix: までに (§6).
+T8: "Saat beşə qədər işləyirəm." (davamlı) [5時:ごじ]＿ [働:はたら]きます。 || A) {まで} ; B) {までに} || correct=A || expl: Davamlılıq: まで (§6).
+T9: "Səhər yeməyi yemədən işə getdim." [朝:あさ]ご[飯:はん]{を} ＿、[会社:かいしゃ]{へ} [行:い]きました。 || A) [食:た]べないで ; B) [食:た]べなくて ; C) [食:た]べて || correct=A || expl: F-ない + で = "…mədən" (§7).
+T10: "Yükü buraya qoymayın." (yük mövzudur) [荷物:にもつ]＿ ここ{に} [置:お]かないで ください。 || A) {は} ; B) {を}{は} ; C) {に} || correct=A || expl: を mövzu olanda は-ya çevrilir, を+は olmur (§5).

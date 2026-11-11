@@ -1,0 +1,10 @@
+LESSON 22 TESTS
+T1: "Bu, cənab Parkerin bişirdiyi tortdur." これ{は} パーカー|さん＿ [作:つく]った ~ケーキ|です。 || A) {が} ; B) {は} ; C) {を} || correct=A || expl: Təyin cümləsində mübtəda が ilə (§2).
+T2: "Orada dayanan adam Parkerdir." あそこ{に} ＿ [人:ひと]{は} パーカー|さん|です。 || A) いる ; B) います ; C) いて || correct=A || expl: İsimdən əvvəl sadə forma (§1).
+T3: "Sakit park" [静:しず]か＿ [公園:こうえん] || A) な ; B) だ ; C) の || correct=A || expl: な-sifət: だ → な (§1).
+T4: "65 yaşlı adam" [65歳:ろくじゅうごさい]＿ [人:ひと] || A) {の} ; B) な ; C) だ || correct=A || expl: İsim: だ → の (§1).
+T5: "Dünən aldığım çətiri itirdim." きのう ＿ [傘:かさ]{を} なくしました。 || A) [買:か]った ; B) [買:か]いました ; C) [買:か]って || correct=A || expl: Keçmiş sadə forma: 買った (§1).
+T6: "Səhər yeməyi yeməyə vaxtım yoxdur." [朝:あさ]ご[飯:はん]{を} ＿ [時間:じかん]{が} ありません。 || A) [食:た]べる ; B) [食:た]べた ; C) [食:た]べます || correct=A || expl: Lüğət forması + 時間 (§3).
+T7: Sviteri hansı feillə "geyinirsiniz"? ~セーター{を} ＿。 || A) [着:き]ます ; B) はきます ; C) かぶります || correct=A || expl: Gövdəyə: 着ます (Geyim).
+T8: Şalvarı hansı feillə "geyinirsiniz"? ~ズボン{を} ＿。 || A) [着:き]ます ; B) はきます ; C) かけます || correct=B || expl: Ayağa və belə: はきます (Geyim).
+T9: "Gəlin, elə indi gedək?" (birlikdə təklif) [今:いま]{から} [行:い]き＿。 || A) ましょう{か} ; B) ません ; C) たい|です || correct=A || expl: Birlikdə etməyi təklif: 〜ましょうか (§4).

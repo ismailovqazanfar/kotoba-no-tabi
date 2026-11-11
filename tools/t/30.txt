@@ -1,0 +1,25 @@
+LESSON 30 TESTS
+T1: 行きます → ば-forması  || A) [行:い]けば ; B) [行:い]きば ; C) [行:い]くば || correct=A || expl: く → けば (§1).
+T2: 食べます → ば-forması  || A) [食:た]べれば ; B) [食:た]べば ; C) [食:た]べるば || correct=A || expl: II qrup: る → れば (§1).
+T3: します → ば-forması  || A) すれば ; B) しれば ; C) せば || correct=A || expl: する → すれば (§1).
+T4: 安い → ば-forması  || A) [安:やす]ければ ; B) [安:やす]いば ; C) [安:やす]いなら || correct=A || expl: い → ければ (§1).
+T5: いい → ば-forması  || A) よければ ; B) いければ ; C) いいば || correct=A || expl: いい → よければ (§1).
+T6: 行かない → ば-forması  || A) [行:い]かなければ ; B) [行:い]かないば ; C) [行:い]かなば || correct=A || expl: ない → なければ (§1).
+T7: "Boş vaxtınız olsa, gəlin." (な-sifət) [暇:ひま]＿、[来:き]て ください。 || A) {なら} ; B) ければ ; C) {な}ば || correct=A || expl: な-sifət + なら (§1).
+T8: "Kamera istəyirsinizsə, bu mağaza yaxşıdır." ~カメラ＿、この [店:みせ]{が} いい|です{よ}。 || A) {なら} ; B) ければ ; C) {と} || correct=A || expl: Mövzuya cavab: なら (§2).
+T9: "Dincəlsəniz yaxşıdır." [休:やす]＿ ほう{が} いい|です。 || A) んだ ; B) む ; C) んで || correct=A || expl: Müsbət məsləhət: た-forma (§3).
+T10: "Çox içməsəniz yaxşıdır." [飲:の]みすぎ＿ ほう{が} いい|です。 || A) ない ; B) なかった ; C) ません || correct=A || expl: İnkar məsləhət: ない-forma (§3).
+T11: "Sabah yağış ola bilər." (ad) [明日:あした]{は} [雨:あめ]＿。 || A) かもしれません ; B) |だ かもしれません ; C) {な} かもしれません || correct=A || expl: Addan sonra だ yoxdur (§4).
+T12: Hansı daha əmin təxmindir?  || A) [晴:は]れる でしょう ; B) [晴:は]れる かもしれません || correct=A || expl: でしょう daha güclüdür (§4).
+T13: "Düyməni bassanız, bilet çıxır." ~ボタン{を} ＿、[切符:きっぷ]{が} [出:で]ます。 || A) [押:お]せば ; B) [押:お]しば ; C) [押:お]すば || correct=A || expl: す → せば (§1).
+T14: 来ます → ば-forması  || A) [来:く]れば ; B) [来:き]れば ; C) [来:こ]れば || correct=A || expl: 来る → 来れば (くれば) (§1).
+T15: "O, bəlkə də evdə deyil." [彼女:かのじょ]{は} [家:いえ]{に} ＿ かもしれません。 || A) いない ; B) いません ; C) いなくて || correct=A || expl: かもしれません-dən əvvəl sadə forma (§4).
+T16: "3 saat yatdım, halbuki hələ də yuxum gəlir." 3[時間:じかん] [寝:ね]た＿、まだ [眠:ねむ]い|です。 || A) {のに} ; B) {ほど} ; C) {まま} || correct=A || expl: Gözləntiyə zidd: のに (§5).
+T17: "Yazdır, halbuki soyuqdur." [春:はる]＿{のに}、[寒:さむ]い|です。 || A) |な ; B) |の ; C) |だ || correct=A || expl: Ad + なのに (§5).
+T18: "Nə qədər öyrənsən, o qədər maraqlı olur." [勉強:べんきょう]すれば ＿ おもしろく なります。 || A) する{ほど} ; B) した{ほど} ; C) して{ほど} || correct=A || expl: ば-forma + lüğət forması + ほど (§6).
+T19: "Nə qədər ucuzdursa, o qədər yaxşıdır." [安:やす]ければ ＿ いい|です。 || A) [安:やす]い{ほど} ; B) [安:やす]く{ほど} ; C) [安:やす]かった{ほど} || correct=A || expl: Sifət: 安ければ 安いほど (§6).
+T20: "Kaş çətir götürsəydim." [傘:かさ]{を} [持:も]って [来:く]れば ＿|です。 || A) よかった ; B) ありました ; C) いました || correct=A || expl: Təəssüf: 〜ば よかった (§7).
+T21: "Kaş o qədər yeməsəydim." [食:た]べなければ ＿|です。 || A) よかった ; B) ありました ; C) いました || correct=A || expl: 〜なければ よかった (§7).
+T22: "Bəzən səhər yeməyi yemirəm." (təcrübə yox, hərdən) [朝:あさ]ごはん{を} [食:た]べない こと{が} ＿。 || A) あります ; B) ありません ; C) いました || correct=A || expl: Ara-sıra: lüğət / ない-forma + ことが あります (§8).
+T23: Boşluğa uyğun forma: 地震の ＿＿、机の 下に 入って ください。  || A) [場合:ばあい]{は} ; B) うち{は} ; C) ほど{は} || correct=A || expl: 場合は ehtimal olunan vəziyyət üçündür, konkret keçmiş hadisə üçün yox (§9).
+T24: Hansı cümlə səhvdir?  || A) [雨:あめ]{の} [場合:ばあい]{は}、[中止:ちゅうし]|です。 ; B) [昨日:きのう] [雨:あめ]{の} [場合:ばあい]{は}、[家:いえ]{に} いました。 ; C) [遅:おく]れる [場合:ばあい]{は}、[連絡:れんらく]|して ください。 || correct=B || expl: 場合は ehtimal olunan vəziyyət üçündür, konkret keçmiş hadisə üçün yox (§9).

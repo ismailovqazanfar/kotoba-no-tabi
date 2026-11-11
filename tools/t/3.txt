@@ -1,0 +1,10 @@
+LESSON 3 TESTS
+T1: Danışanın olduğu yer: "Bura yeməkxanadır." ＿{は} [食堂:しょくどう]|です。 || A) ここ ; B) そこ ; C) あそこ || correct=A || expl: Danışanın olduğu yer – ここ (§1).
+T2: Hər ikinizdən uzaq yer: "Lift oradadır." ~エレベーター{は} ＿|です。 || A) そこ ; B) あそこ ; C) どこ || correct=B || expl: Hər ikisindən uzaq – あそこ (§1).
+T3: "Ayaqyolu hardadır?" お[手洗:てあら]い{は} ＿|です{か}。 || A) なん ; B) どこ ; C) だれ || correct=B || expl: Yer soruşulanda どこ (§3).
+T4: Nəzakətli: "Siz hansı ölkədənsiniz?" お[国:くに]{は} ＿|です{か}。 || A) どちら ; B) なん || correct=A || expl: Ölkə soruşulanda なん yox, どちら / どこ (§3).
+T5: "Siz hansı şirkətdə işləyirsiniz?" Hansı sual düzgündür?  || A) [会社:かいしゃ]{は} [何:なん]|です{か}。 ; B) [会社:かいしゃ]{は} どちら|です{か}。 || correct=B || expl: Təşkilat adı soruşulanda どちら / どこ (§3).
+T6: "Bu hansı ölkənin saatıdır?" これ{は} ＿{の} [時計:とけい]|です{か}。 || A) どこ ; B) どれ ; C) どの || correct=A || expl: Məhsulun haranın olduğu: どこの (§4).
+T7: こちら nə deməkdir?  || A) bu tərəf (bura, nəzakətli) ; B) o tərəf (uzaqda) ; C) hansı tərəf? || correct=A || expl: こ – danışana yaxın; こちら həm də ここ-nun nəzakətli variantıdır (§1, §5).
+T8: "Bu neçəyədir?" これ{は} ＿|です{か}。 || A) いくら ; B) どこ ; C) どちら || correct=A || expl: Qiymət soruşmaq: いくらですか (dialoq).
+T9: "Telefon ikinci mərtəbədədir." [電話:でんわ]{は} ＿|です。 || A) [2階:にかい] ; B) [2階:にかい]{に} ; C) [2階:にかい]{で} || correct=A || expl: Yer + です = "-dadır"; ədat lazım deyil (§2).
