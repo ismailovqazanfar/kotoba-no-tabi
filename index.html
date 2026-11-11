@@ -12119,8 +12119,8 @@ const CSS=`.l1g-room{position:relative;border-radius:18px;overflow:hidden;backgr
 .l1g-end{text-align:center}.l1g-stars{font-size:40px;color:#ffb300;letter-spacing:4px}.l1g-stars i{color:#ccc;font-style:normal}.l1g-end h3 span{color:#e53935}.l1g-log{text-align:left;display:grid;gap:8px;margin:10px 0}.l1g-log>div{background:var(--card,rgba(255,255,255,.7));border-radius:12px;padding:8px 10px}.l1g-log small{display:block;opacity:.8}
 @media (max-width:420px){.l1g-say .jp{font-size:18px}.l1g-tag{font-size:11px}}`;
 function css(){if(!document.getElementById('l1g-css')){const s=document.createElement('style');s.id='l1g-css';s.textContent=CSS;document.head.appendChild(s)}}
-const lbl=T3('Ziyafətdə kim kimdir?','Who is who at the party?','Кто есть кто на вечеринке?');
-Object.defineProperty(L1,'playLabel',{get:()=>T3('Ziyafət oyunu','Party game','Игра «Вечеринка»'),configurable:true});
+const lbl=T3('Tanışlıq','Introductions','Знакомство');
+Object.defineProperty(L1,'playLabel',{get:()=>T3('Tanışlıq','Introductions','Знакомство'),configurable:true});
 Object.defineProperty(L1,'play',{value:()=>{css();setTimeout(()=>{if(typeof window.KT_AUD7==='function')window.KT_AUD7()},50);return playSec(lbl,'<span class="jp">パーティーで だれですか</span>',T3('Tanış olun, dinləyin və yadda saxlayın: はい／いいえ, じゃ ありません, も, だれ, おいくつ.','Meet, listen and remember: はい／いいえ, じゃ ありません, も, だれ, おいくつ.','Знакомьтесь, слушайте и запоминайте: はい／いいえ, じゃ ありません, も, だれ, おいくつ.'),`<div id="l1g" class="l1g">${view()}</div>`)},configurable:true,writable:true});
 
 }catch(e){console.warn('l1g',e)}})();/*/L1G*/
