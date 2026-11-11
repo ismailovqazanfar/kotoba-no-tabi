@@ -1,0 +1,132 @@
+### l04b P6
+OLD JA: 猫は「わたしは夢の時計です。あなたの夢で明日を作ります」と言いました。ミナはびっくりしました。「夢ですか。じゃ、今日は十時に寝ます」。猫の耳がぴんと立ちました。
+CHANGE: 「夢ですか。じゃ、今日は十時に寝ます」 → 「わたしの夢からですか。じゃ、今日は十時に寝ます」
+OLD AZ: Pişik dedi: «Mən yuxular saatıyam. Sənin yuxularından sabahı yaradıram». Mina təəccübləndi. «Yuxularımdan? Onda bu gün saat onda yatıram». Pişiyin qulaqları dimdik qalxdı.
+OLD EN: The cat said, "I am a dream clock. I make tomorrow from your dreams." Mina was surprised. "My dreams? Then I will go to bed at ten tonight." The cat's ears pricked up.
+OLD RU: Кот сказал: «Я часы сновидений. Из твоих снов я создаю завтрашний день». Мина удивилась. «Из снов? Тогда сегодня я лягу в десять». Кошачьи уши встали торчком.
+
+### l08b P6
+OLD JA: 雲は花の前で泣いていました。「花はどうですか」とりんは聞きました。「きれいです。でも、ぼくは黒いです。きれいじゃありません」。雲から冷たい雨が降りました。
+CHANGE: 「「花はどうですか」とりんは聞きました。」 → 「「花はきれいですね。あなたはどう思いますか」とりんは聞きました。」
+OLD AZ: Bulud güllərin qarşısında ağlayırdı. «Güllər necədir?» – Rin soruşdu. «Gözəldir. Amma mən qarayam. Mən gözəl deyiləm». Buluddan soyuq yağış yağdı.
+OLD EN: The cloud was crying in front of the flowers. “What do you think of the flowers?” Rin asked. “They're beautiful. But I'm black. I'm not beautiful.” Cold rain fell from the cloud.
+OLD RU: Облако плакало перед цветами. «Как тебе цветы?» – спросила Рин. «Они красивые. А я чёрное. Я некрасивое». Из облака полился холодный дождь.
+
+### l09a P5
+OLD JA: 「毎日よく踊りますから、少し上手です」。鬼の親分はとても喜びました。「明日も約束ですよ。このこぶはここに置きます」。親分はこぶをぽんと取りました。
+CHANGE: 「明日も約束ですよ。」 → 「明日も来ると約束してください。」
+OLD AZ: «Hər gün çox rəqs edirəm, ona görə bir az bacarıram». Onilərin başçısı çox sevindi. «Sabah da gələcəyinizə söz verin. Bu şiş isə burada qalacaq». Başçı bir hərəkətlə şişi götürdü.
+OLD EN: “I dance a lot every day, so I am fairly good.” The oni chief was delighted. “Promise to come tomorrow too. We will keep this lump here.” With a pop, he took off the lump.
+OLD RU: «Я каждый день много танцую, поэтому немного умею». Главарь они очень обрадовался. «Обещайте прийти и завтра. А эту шишку мы оставим здесь». Он одним движением снял шишку.
+
+### l10c P7
+OLD JA: 「これもおじいちゃんのですから」。メイは本当の電池もそこに置きました。ソラは電池をおもちゃに入れました。犬はテーブルの上を歩きました。午後、おじいさんが家へ来ました。
+CHANGE: 「メイは本当の電池もそこに置きました。」 → 「メイは本当の電池もそこに置いていました。」
+OLD AZ: «Axı bunlar da babanındır». Mey əsl batareyaları da elə buna görə ora qoymuşdu. Sora batareyaları oyuncağa yerləşdirdi. İt masanın üstündə yeridi. Günortadan sonra baba evə gəldi.
+OLD EN: “Because these are Grandpa’s too.” That was why Mei had put the real batteries there as well. Sora put the batteries into the toy. The dog walked across the table. That afternoon, Grandpa came to the house.
+OLD RU: «Ведь эти тоже дедушкины». Поэтому Мэй положила туда и настоящие батарейки. Сора вставил их в игрушку. Собака пошла по столу. После обеда в гости пришёл дедушка.
+
+### l13a P8
+OLD JA: 二人は小さな家で食事しました。女神は金の斧よりおにぎりをよく見ました。「もう一つ欲しいです。」若者は笑いました。その日、女神はおにぎりを五つも食べました。
+CHANGE: 「女神は金の斧よりおにぎりをよく見ました。」 → 「女神は金の斧よりおにぎりに興味を持ちました。」
+OLD AZ: İkisi balaca evdə yemək yedi. İlahə qızıl baltadan çox onigiriyə baxırdı. «Birini də istəyirəm». Gənc güldü. Həmin gün ilahə düz beş onigiri yedi.
+OLD EN: They ate together in the little house. The goddess paid more attention to the rice balls than to the golden axe. “I'd like one more.” The young man laughed. That day, the goddess ate five whole rice balls.
+OLD RU: Они поели вместе в маленьком доме. Богиня смотрела на рисовые колобки чаще, чем на золотой топор. «Хочу ещё один». Юноша рассмеялся. В тот день богиня съела целых пять рисовых колобков.
+
+### l34b P5
+OLD JA: ハルは先生に「狐を助けに行かせていただけませんか」と聞きました。先生は「行け。でも、気をつけろ」と答えました。ハルは狐を抱いて、山の小さな小屋へ運びました。そこで、薬を作るおばあさんに「この子を治していただけませんか」と頼みました。
+CHANGE: 「狐を助けに行かせていただけませんか」 → 「狐を治してもらいに行かせていただけませんか」
+OLD AZ: Haru ustadından «Tülküyə kömək etməyə getməyimə icazə verərsinizmi?» deyə soruşdu. Ustad «Get. Amma ehtiyatlı ol!» cavabını verdi. Haru tülkünü qucağına alıb dağdakı balaca daxmaya apardı. Orada dərman hazırlayan yaşlı qadından «Bu balacanı sağalda bilərsinizmi?» deyə xahiş etdi.
+OLD EN: Haru asked his master, “Could you allow me to go and help the fox?” The master replied, “Go. But be careful.” Haru carried the fox to a small hut on the mountain. There, he asked an old woman who made medicines, “Could you please heal this little one?”
+OLD RU: Хару спросил наставника: «Не могли бы вы разрешить мне пойти помочь лисе?» Наставник ответил: «Иди. Но будь осторожен». Хару взял лису на руки и отнёс в маленькую хижину на горе. Там он попросил старушку, которая готовила лекарства: «Не могли бы вы вылечить эту малышку?»
+
+### l32c P8
+OLD JA: 次の朝、ハルはおばあちゃんに買い物の練習をもう一度するように頼みました。おばあちゃんは「今度は眼鏡を忘れないようにします」と答えました。でも、猫はメモを口に入れて、庭へ走っていきました。二人は笑って、ノートに新しい言葉を書きました。それは「猫のせいで、また買い物に行きます」でした。
+CHANGE: 「二人は笑って、ノートに新しい言葉を書きました。」 → 「二人は笑って、ノートに新しい文を書きました。」
+OLD AZ: Ertəsi səhər Haru nənəsindən alış-veriş məşqini bir daha etməsini xahiş etdi. Nənə «Bu dəfə eynəyimi unutmamağa çalışacağam» dedi. Amma pişik qeydi ağzına alıb həyətə qaçdı. İkisi də gülərək dəftərə yeni bir cümlə yazdı. Cümlə belə idi: «Pişiyin üzündən yenə alış-verişə gedirik».
+OLD EN: The next morning, Haru asked Grandma to practice shopping once more. Grandma replied, “This time, I'll make sure not to forget my glasses.” But the cat picked up the shopping note in its mouth and ran into the garden. They both laughed and wrote a new sentence in the notebook. It said, “Because of the cat, we're going shopping again.”
+OLD RU: На следующее утро Хару попросил бабушку ещё раз потренироваться ходить за покупками. Бабушка ответила: «На этот раз постараюсь не забыть очки». Но кошка схватила список покупок зубами и убежала в сад. Оба рассмеялись и записали в тетрадь новое предложение. Оно гласило: «Из-за кошки нам снова придётся идти за покупками».
+
+### l23c P2
+OLD JA: ユキは駅へ行く道を調べました。でも、携帯電話は故障していて、地図が見られませんでした。困ったとき、道の角に小さな花屋がありました。店のおばあさんに道を聞くと、にこにこして教えてくれました。
+CHANGE: 「困ったとき、道の角に小さな花屋がありました。」 → 「困っていると、道の角に小さな花屋があるのを見つけました。」
+OLD AZ: Yuki vağzala gedən yolu axtardı. Amma telefonu xarab olduğu üçün xəritəyə baxa bilmədi. Nə edəcəyini bilməyəndə küçənin tinində balaca bir gül dükanı gördü. Dükanın yaşlı sahibəsindən yolu soruşanda qadın gülümsəyərək ona istiqaməti izah etdi.
+OLD EN: Yuki tried to look up the way to the station. But her phone was broken, so she could not see the map. While she was wondering what to do, she noticed a small flower shop on the corner. When she asked the elderly shopkeeper for directions, the woman smiled and helped her.
+OLD RU: Юки попыталась найти дорогу к станции. Но её телефон сломался, и она не могла посмотреть карту. Пока она думала, что делать, на углу улицы заметила маленький цветочный магазин. Юки спросила дорогу у пожилой хозяйки магазина, и та с улыбкой всё объяснила.
+
+### l15b P2
+OLD JA: 寮のおばさんは三つの約束を教えました。「夜は窓を閉めてはいけません。白い帽子に触ってはいけません。それから、お茶を飲んでもいいですが、一つ残してください」。
+CHANGE: 「一つ残してください」 → 「一杯残してください」
+OLD AZ: Yataqxanaya baxan qadın ona üç qaydanı izah etdi. «Gecə pəncərəni bağlamaq olmaz. Ağ papağa toxunmaq olmaz. Bir də çay içə bilərsiniz, amma bir fincan saxlayın».
+OLD EN: The woman who looked after the dormitory explained three rules. “You must not close the window at night. You must not touch the white hat. And you may drink the tea, but leave one cup.”
+OLD RU: Смотрительница объяснила три правила. «Ночью нельзя закрывать окно. Нельзя трогать белую шапку. И ещё: чай пить можно, но одну чашку оставляйте».
+
+### l30b P4
+OLD JA: 猫はハルを大きな駅へ案内しました。「元の世界へ帰るなら、青い電車を探したほうがいいです。でも、夜になった場合は、電車が消えるかもしれません」と言いました。二人は急いで駅を探しました。ところが、駅には赤い電車しかありませんでした。
+CHANGE: 「二人は急いで駅を探しました。」 → 「二人は急いで青い電車を探しました。」
+OLD AZ: Pişik Harunu böyük bir stansiyaya apardı. «Öz dünyana qayıtmaq istəyirsənsə, mavi qatarı axtarsan, yaxşı olar. Amma gecə düşsə, qatar yoxa çıxa bilər», dedi. İkisi tələsərək stansiyada axtarış etdilər. Lakin orada yalnız qırmızı qatarlar var idi.
+OLD EN: The cat guided Haru to a large station. “If you want to return to your world, you should look for the blue train. But if night falls, the train might disappear,” it said. They hurried to search the station. However, there were only red trains.
+OLD RU: Котёнок привёл Хару на большую станцию. «Если хочешь вернуться в свой мир, лучше поискать синий поезд. Но если наступит ночь, поезд может исчезнуть», сказал он. Они поспешили осмотреть станцию. Однако там были только красные поезда.
+
+### l16a P8
+OLD JA: 母は話を聞いてから、笑顔でうなずきました。次の朝、動物たちは橋の前で金太郎を待っていました。熊は「歩き方はゆっくりですよ」と言いました。強い金太郎も、その日はゆっくり橋を渡りました。
+CHANGE: 「熊は「歩き方はゆっくりですよ」と言いました。」 → 「熊は「ゆっくり歩いてくださいね」と言いました。」
+OLD AZ: Anası söhbəti dinləyəndən sonra gülümsəyib başını tərpətdi. Ertəsi səhər heyvanlar körpünün qabağında Kintaronu gözləyirdi. Ayı «Yavaş-yavaş getmək lazımdır» dedi. Güclü Kintaro da həmin gün körpüdən asta-asta keçdi.
+OLD EN: His mother listened, smiled, and nodded. The next morning, the animals were waiting for Kintaro by the bridge. “Remember to walk slowly,” said the bear. Even strong Kintaro crossed the bridge slowly that day.
+OLD RU: Мама выслушала его и с улыбкой кивнула. На следующее утро звери ждали Кинтаро перед мостом. «Помни, идти нужно медленно», – сказал медведь. И даже сильный Кинтаро в тот день перешёл мост очень медленно.
+
+### l24a P2
+OLD JA: 男は「これは何かの始まりです」と思って、わらを拾いました。すると、小さな虫が飛んできました。男は虫をわらにつけて、小さなおもちゃを作りました。自分で作ったおもちゃを見て、少し笑いました。
+CHANGE: 「これは何かの始まりです」 → 「これは何かの始まりかもしれません」
+OLD AZ: Gənc «Bəlkə də bu, nəyinsə başlanğıcıdır» deyə düşünüb saman çöpünü götürdü. Bu vaxt balaca bir həşərat uçub gəldi. O, həşəratı saman çöpünə bağlayıb kiçik bir oyuncaq düzəltdi. Öz əlləri ilə hazırladığı oyuncağa baxıb gülümsədi.
+OLD EN: The young man thought, “Perhaps this is the beginning of something,” and picked up the straw. Just then, a little insect flew over. He attached the insect to the straw and made a small toy. Looking at the toy he had made himself, he smiled.
+OLD RU: Юноша подумал: «Может быть, это начало чего-то нового» и поднял соломинку. Тут прилетело маленькое насекомое. Он прикрепил его к соломинке и сделал игрушку. Посмотрев на игрушку, которую сделал сам, он улыбнулся.
+
+### l24b P3
+OLD JA: そこで、ソラは森の中の小さな家へ行きました。そこには、何でも直すことができるおじいさんがいました。おじいさんは時計を直してくれました。ソラはおじいさんにお礼を言って、村まで連れて来ました。
+CHANGE: 「おじいさんは時計を直してくれました。ソラはおじいさんにお礼を言って、村まで連れて来ました。」 → 「ソラはおじいさんを村まで連れて来ました。おじいさんは時計を直してくれました。ソラはおじいさんにお礼を言いました。」
+OLD AZ: Buna görə Sora meşədəki balaca evə getdi. Orada hər şeyi təmir edə bilən bir qoca yaşayırdı. Qoca saatı təmir etdi. Sora ona təşəkkür edib kəndə gətirdi.
+OLD EN: So Sora went to a little house in the forest. An old man who could repair anything lived there. The old man fixed the clock for him. Sora thanked the old man and brought him to the village.
+OLD RU: Поэтому Сора отправился в маленький домик в лесу. Там жил старик, который умел чинить всё на свете. Старик починил часы. Сора поблагодарил его и привёл в деревню.
+
+### l24c P8
+OLD JA: おばあさんはそこで、小さなカフェを始めました。「みんなが来る場所を、自分で作りたかったんです」と笑いました。ユキとケンは毎週カフェへ行って、お客さんを手伝ってあげました。おばあさんは二人にケーキをくれましたが、ときどき塩と砂糖を間違えました。
+CHANGE: 「ユキとケンは毎週カフェへ行って、お客さんを手伝ってあげました。」 → 「ユキとケンは毎週カフェへ行って、カフェの仕事を手伝ってあげました。」
+OLD AZ: Nənə orada balaca bir kafe açdı. Gülərək «Hamının gəlib görüşə biləcəyi bir yeri özüm yaratmaq istəyirdim» dedi. Yuki ilə Ken hər həftə kafeyə gedib müştərilərə kömək edirdilər. Nənə onlara tort verirdi, amma bəzən duzla şəkəri səhv salırdı.
+OLD EN: The grandmother opened a little café there. She smiled and said, “I wanted to create a place where everyone could come together, all by myself.” Yuki and Ken visited every week and helped the customers. The grandmother gave them cake, although she sometimes mixed up the salt and sugar.
+OLD RU: Бабушка открыла там маленькое кафе. Она улыбнулась и сказала: «Я хотела сама создать место, куда все смогут приходить и встречаться». Юки и Кен каждую неделю приходили в кафе и помогали посетителям. Бабушка угощала их тортом, хотя иногда путала соль с сахаром.
+
+### l28b P1
+OLD JA: 山の上の小さな町に、ソラという若い魔法使いが住んでいました。ソラは空を飛ぶことができましたが、忘れ物がとても多い子でした。毎朝、帽子をかぶったまま寝てしまったり、かばんを家に忘れたりしました。
+CHANGE: 「毎朝、帽子をかぶったまま寝てしまったり、かばんを家に忘れたりしました。」 → 「よく帽子をかぶったまま寝てしまったり、かばんを家に忘れたりしました。」
+OLD AZ: Dağın başındakı kiçik şəhərdə Sora adlı gənc sehrbaz yaşayırdı. Sora uça bilirdi, amma çox unutqan idi. Hər səhər başında papaqla yuxuya getdiyi və ya çantasını evdə unutduğu olurdu.
+OLD EN: In a small town on a mountain lived a young wizard named Sora. Sora could fly through the sky, but he was terribly forgetful. He often fell asleep with his hat still on or left his bag at home.
+OLD RU: В маленьком городке на вершине горы жил юный волшебник по имени Сора. Сора умел летать, но был ужасно забывчивым. Он часто засыпал прямо в шляпе или забывал сумку дома.
+
+### l25a P4
+OLD JA: 弟はその話を聞いて、石臼がほしくなりました。「もし石臼をもらったら、億のお金を作ろう」と考えました。ある夜、弟は兄の家に入り、石臼を取りました。でも、止め方は知りませんでした。
+CHANGE: 「億のお金を作ろう」 → 「何億円ものお金を出そう」
+OLD AZ: Kiçik qardaş bu əhvalatı eşidəndə dəyirmanı özü üçün istədi. «Əgər dəyirmanı əldə etsəm, yüz milyonlarla pul qazanaram», deyə düşündü. Bir gecə böyük qardaşının evinə girib dəyirmanı götürdü. Amma onu necə dayandıracağını bilmirdi.
+OLD EN: When the younger brother heard about the mill, he wanted it for himself. “If I get that mill, I'll make hundreds of millions,” he thought. One night, he entered his older brother's house and took the mill. But he did not know how to stop it.
+OLD RU: Услышав эту историю, младший брат захотел мельницу себе. «Если я получу эту мельницу, то сделаю сотни миллионов», подумал он. Однажды ночью он проник в дом старшего брата и забрал мельницу. Но он не знал, как её остановить.
+
+### l25a P6
+OLD JA: 弟が左に回しても、石臼は止まりませんでした。弟は本当の止め方を知らなかったのです。塩がどんどん増えて、もう何もできませんでした。船はだんだん重くなりました。弟は「助けて！」と大きな声で言いました。
+CHANGE: 「弟が左に回しても、石臼は止まりませんでした。弟は本当の止め方を知らなかったのです。」 → 「弟は石臼を止めようとしましたが、左に回すことを知りませんでした。」
+OLD AZ: Kiçik qardaş dəyirmanı sola çevirməyə çalışsa da, onu dayandıra bilmədi. Çünki dayandırmağın düzgün yolunu bilmirdi. Duz həddindən artıq çoxalmışdı və artıq heç nə edə bilmirdi. Qayıq getdikcə ağırlaşırdı. O, ucadan «Kömək edin!» deyə qışqırdı.
+OLD EN: Even when the younger brother tried turning it to the left, he could not stop the mill. He did not know the correct way to stop it. There was far too much salt, and he could do nothing. The boat became heavier and heavier. “Help!” he shouted loudly.
+OLD RU: Хотя младший брат пытался повернуть мельницу влево, остановить её не получалось. Он не знал, как правильно это сделать. Соли стало слишком много, и он уже ничего не мог поделать. Лодка становилась всё тяжелее. «Помогите!» закричал он.
+
+### l25c P4
+OLD JA: ユキは駅で花を持って待ちました。暇な時間があっても、帰りませんでした。すると、小さな男の子が来ました。男の子は「その花は誰のですか」と聞きました。ユキが説明したら、男の子は笑いました。
+CHANGE: 「暇な時間があっても、帰りませんでした。」 → 「長い時間待っても、帰りませんでした。」
+OLD AZ: Yuki vağzalda əlində güllə gözlədi. Boş vaxtı olsa da, geri qayıtmadı. Bir az sonra balaca bir oğlan gəldi. Oğlan «Bu gül kimindir?» deyə soruşdu. Yuki vəziyyəti izah edəndə oğlan gülümsədi.
+OLD EN: Yuki waited at the station with the flower in her hand. Even though she had time to spare, she did not go home. Then a little boy came over. “Whose flower is that?” he asked. When Yuki explained, the boy smiled.
+OLD RU: Юки ждала на станции с цветком в руках. Хотя у неё было свободное время, она не уходила домой. Вскоре подошёл маленький мальчик. «Чей это цветок?» спросил он. Когда Юки объяснила ситуацию, мальчик улыбнулся.
+
+### l19b P6
+OLD JA: そのとき、先生は大きなくしゃみをしました。「ハックション！」タロウはびっくりして、木から落ちました。でも、旗は手から離しませんでした。先生は目を開けて、「おお、すごい！」と言いました。
+CHANGE: 「タロウはびっくりして、木から落ちました。」 → 「タロウはびっくりして、転んでしまいました。」
+OLD AZ: Elə həmin anda müəllim bərkdən asqırdı. «Apçi!» Taro diksinib ağacdan yıxıldı. Amma bayrağı əlindən buraxmadı. Müəllim gözlərini açıb dedi: «Oho, əladır!»
+OLD EN: Just then, the teacher sneezed loudly. “Achoo!” Taro was startled and fell from the tree. But he did not let go of the flag. The teacher opened his eyes and said, “Oh, amazing!”
+OLD RU: В этот момент учитель громко чихнул. «Апчхи!» Таро испугался и упал с дерева. Но флаг из рук не выпустил. Учитель открыл глаза и сказал: «Ого, великолепно!»
