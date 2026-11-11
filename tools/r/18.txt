@@ -1,0 +1,75 @@
+LESSON 18: Sizin hobbiniz nədir?
+
+== GRAMMAR ==
+G1. Feilin lüğət forması | meaning: feilin əsas forması
+ pattern: 
+ explanation: Lüğət forması feilin "pasport adı"dır: lüğətlərdə feillər məhz bu formada yazılır. Dostlar arasında danışıqda da bu forma işlənir, ona görə çox vacibdir.qrupqaydanümunə1-ciい sırası → う sırasıかき→かく・のみ→のむ・まち→まつ・はなし→はなす2-ciます-forma + るたべ→たべる・み→みる3-cüxüsusiします→する・きます→くる1-ci qrupda heca い sırasından う sırasına keçir: き→く, み→む, り→る. 17-ci dərsdəki ない-formada あ sırasına keçirdi, indi う sırasına. Kana cədvəli burada xəritə rolunu oynayır!Faydalı vərdiş: lüğətdə yeni feil görəndə dərhal ます-formasını da qur. Məsələn, およぐ → およぎます. İkisini birlikdə öyrən.Məşq: feilin lüğət formasını deyin書きますKakimasuLüğət formasını özünüz deyinGöstərNövbəti feil →
+G2. İS / F-lüğət forması こと が できます | meaning: "... edə bilirəm", "... etmək olar"
+ pattern: İS / F-lüğət forması こと が できます
+ explanation: Bacarıq və imkanı bildirmək üçün できます: "edə bilirəm, mümkündür". Nəyi bacardığını が göstərir.1) İsimlə: 日本語 が できます – yapon dilini bilirəm (danışa bilirəm). 運転 が できます – maşın sürə bilirəm.2) Feillə: feil lüğət formasında + こと: 漢字 を 読む こと が できます – kanji oxuya bilirəm. こと feili "...mə" isminə çevirir, sonra qəlib eynidir.ピアノ を ひく こと が できます。Piano çala bilirəm. (bacarıq)ここ で カード で 払う こと が できます。Burada kartla ödəmək olar. (imkan)İki məna: できます həm "bacarıram" (öyrənmişəm), həm də "mümkündür" (şərait icazə verir) deməkdir. Kontekstdən tutursan.
+ ex: パーカーさんは 日本語が できます。 = Cənab Parker yapon dilini bilir.
+ ex: 雪が たくさん 降りましたから、ことしは ~スキーが できます。 = Çoxlu qar yağıb, ona görə bu il xizək sürmək olacaq.
+G3. わたしの 趣味は İS / F-lüğət forması こと です | meaning: "Mənim hobbim ..."
+ pattern: わたしの 趣味は İS / F-lüğət forması こと です
+ explanation: Hobbin haqqında danışmaq: わたし の 趣味 は 〜 です. İsimlə də olar (趣味 は 音楽 です), amma feil + こと daha dəqiqdir:趣味 は 音楽 です。Hobbim musiqidir. (ümumi)趣味 は ピアノ を ひく こと です。Hobbim piano çalmaqdır. (dəqiq)"Musiqi" deyəndə qarşı tərəf düşünür: dinləyir, çalır, oxuyur? Feil + こと isə dəqiq cavab verir. Tanışlıq söhbətlərində hobbini belə demək daha maraqlı səslənir.Söhbət açarı: 趣味 は 何 です か sualına cavabın hazır olsun! Yaponlar tanışlıqda bunu tez-tez soruşur.
+ ex: わたしの 趣味は 音楽です。 = Mənim hobbim musiqidir.
+ ex: わたしの 趣味は 音楽を 聞く ことです。 = Mənim hobbim musiqi dinləməkdir.
+G4. F₁-lüğət forması / İS の / Say (müddət) まえに、F₂ | meaning: "... -dan əvvəl"
+ pattern: F₁-lüğət forması まえに、 F₂
+ explanation: "...-dan əvvəl" demək üçün まえに. Üç cür işlənir:nə ilə?qəlibnümunəfeillüğət forması + まえに寝る まえに 本 を 読みますisimisim + の まえに食事 の まえに 手 を 洗いますmüddətsay + まえに3年 まえに 来ましたBöyük qayda: feil həmişə lüğət formasında olur, cümlə keçmiş zamanda olsa belə. 寝る まえに 読みました – yatmazdan əvvəl oxudum. Burada 寝た まえに demək olmaz.Məntiq: "yatmaq" hərəkəti oxuma anında hələ baş verməyib, ona görə keçmiş forma almır.
+ ex: 日本へ 来る まえに、日本語を 勉強しました。 = Mən Yaponiyaya gəlməzdən əvvəl yapon dilini öyrəndim.
+ ex: 寝る まえに、本を 読みます。 = Mən yatmazdan əvvəl kitab oxuyuram.
+G5. なかなか | meaning: "heç cür, asanlıqla" + inkar
+ pattern: なかなか F (inkar)
+ explanation: なかなか + inkar = "heç cür, asanlıqla olmur". Bir şeyin gözləniləndən çətin olduğunu bildirir.なかなか 寝られません。Heç cür yuxuya gedə bilmirəm.バス が なかなか 来ません。Avtobus gəlmək bilmir.Bu sözdə bir az "şikayət" tonu var. Gözləyirsən, çalışırsan, amma alınmır. Gündəlik həyatda çox lazım olur.Fərqli məna: təsdiq cümlədə なかなか "olduqca, kifayət qədər" deməkdir: なかなか おいしい – olduqca dadlıdır! Amma bu dərsdə inkarlı mənasına fokuslan.
+ ex: 日本では なかなか 馬を 見る ことが できません。 = Yaponiyada at görmək asan deyil.
+G6. ぜひ | meaning: "mütləq"
+ pattern: ぜひ 〜たい / 〜て ください
+ explanation: ぜひ arzu və ya xahişi gücləndirir: "mütləq, nə olursa olsun". 〜たい, 〜てください kimi formalarla işlənir.ぜひ 日本 へ 行きたい です。Mütləq Yaponiyaya getmək istəyirəm.ぜひ 遊び に 来て ください。Mütləq qonaq gəlin!Diqqət: ぜひ inkarla işlənmir. "Mütləq getməyəcəyəm" demək üçün başqa söz lazımdır.
+ ex: ぜひ 北海道へ 行きたいです。 = Mütləq Hokkaydoya getmək istəyirəm.
+ ex: ぜひ 遊びに 来て ください。 = Mütləq qonaq gəlin. (25-ci dərs)
+G7. F-lüğət + の が / の を | meaning: feili isimə çevirmək
+ pattern: F (辞書形) のが 好き / 上手 / 早い
+ explanation: Feili isimə çevirməyin ikinci yolu: の. 泳ぐ の が 好き です – üzməyi xoşlayıram. Sonra adi ədatlar gəlir.歌う の が 上手 です。Mahnı oxumağı yaxşı bacarır.宿題 を 出す の を 忘れました。Ev tapşırığını təqdim etməyi unutdum.こと ilə fərqi nədir? Çox vaxt hər ikisi işlənir, amma bəzi qəliblər yalnız こと ilə olur: 趣味は〜ことです və 〜ことができます. Hiss, qavrayış feilləri ilə isə (見る, 聞こえる) yalnız の.Qısa düstur: danışıqda の daha təbiidir. Rəsmi qəliblərdə こと.
+ ex: わたしは 泳ぐのが 好きです。 = Mən üzməyi xoşlayıram.
+ ex: 母は 料理を 作るのが 上手です。 = Anam yemək bişirməyi yaxşı bacarır.
+ ex: 窓を 閉めるのを 忘れました。 = Pəncərəni bağlamağı unutdum.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+できます | できます | dekimasu | bacarmaq, edə bilmək
+洗います | あらいます | araimasu | yumaq
+弾きます | ひきます | hikimasu | (musiqi alətində) çalmaq
+歌います | うたいます | utaimasu | mahnı oxumaq
+集めます | あつめます | atsumemasu | yığmaq, toplamaq, cəmləmək
+捨てます | すてます | sutemasu | atmaq
+換えます | かえます | kaemasu | mübadilə etmək, dəyişdirmək (pul)
+運転します | うんてんします | untenshimasu | (maşın) sürmək, idarə etmək
+予約します | よやくします | yoyakushimasu | rezerv etmək, bron etmək
+ピアノ | ピアノ | piano | piano
+～メートル | ～メートル | ~meetoru | ~metr
+現金 | げんきん | genkin | nəğd pul
+趣味 | しゅみ | shumi | hobbi, maraq
+日記 | にっき | nikki | gündəlik
+[お]祈り | [お]いのり | [o]inori | dua
+課長 | かちょう | kachou | bölmə müdiri
+部長 | ぶちょう | buchou | şöbə müdiri
+社長 | しゃちょう | shachou | şirkət müdiri
+動物 | どうぶつ | doubutsu | heyvan
+馬 | うま | uma | at
+インターネット | インターネット | intaanetto | internet
+特に | とくに | toku ni | özəlliklə, əsasən
+へえ | へえ | hee | Nəəə... (təəccüb)
+それはおもしろいですね | それはおもしろいですね | sore wa omoshiroi desu ne | Bu çox maraqlıdır!
+なかなか | なかなか | nakanaka | asanlıqla (inkarla: heç cür, çətinliklə)
+本当ですか | ほんとうですか | hontou desu ka | Doğrudanmı?
+ぜひ | ぜひ | zehi | mütləq
+
+== DIALOGUE ==
+yamada | ラモスさんの 趣味は 何ですか。 | Cənab Ramos, sizin hobbiniz nədir?
+santos | 写真です。 | Fotoqrafiya.
+yamada | どんな 写真を 撮りますか。 | Siz nəyin fotolarını çəkirsiniz?
+santos | 動物の 写真です。特に 馬が 好きです。 | Heyvanların. Atları xüsusilə sevirəm.
+yamada | へえ、それは おもしろいですね。日本へ 来てから、馬の 写真を 撮りましたか。 | Hə? Bu maraqlıdır. Yaponiyaya gələndən sonra at şəkli çəkmisiniz?
+santos | いいえ。日本では なかなか 馬を 見る ことが できません。 | Xeyr. Yaponiyada at görmək asan iş deyil.
+yamada | 北海道に 馬が たくさん いますよ。 | Hokkaydoda çoxlu at var.
+santos | ほんとうですか。じゃ、夏休みに ぜひ 行きたいです。 | Doğrudan? Elə isə yay tətilində mütləq ora getmək istəyərdim.

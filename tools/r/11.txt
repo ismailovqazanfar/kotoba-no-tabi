@@ -1,0 +1,120 @@
+LESSON 11: Bunu göndərin, zəhmət olmasa
+
+== GRAMMAR ==
+G1. Miqdarın ifadəsi | meaning: saylar və say suffiksləri
+ pattern: 
+ explanation: Yapon dilində saymaq bir az "macəra"dır, çünki iki say sistemi və onlarla say suffiksi var. Amma qorxma, gündəlik həyatda lazım olanlar azdır.1) Yapon mənşəli saylar. 1-dən 10-a qədər əşyaları saymaq üçün universal sistemdir. Nə saydığını bilmirsənsə, bunları işlət, səhv olmaz:1 ひとつ2 ふたつ3 みっつ4 よっつ5 いつつ6 むっつ7 ななつ8 やっつ9 ここのつ10 とお2) Say suffiksləri. Daha dəqiq danışmaq üçün sayın arxasına nəyin sayıldığını göstərən "etiket" qoşulur:suffiksnəyi sayırnümunə〜人insanlarひとり・ふたり・さんにん〜台maşın, cihazいちだい〜枚yastı əşya: kağız, köynəkいちまい〜回dəfəいっかい〜時間saat (müddət)いちじかん〜日günいちにち〜週間həftəいっしゅうかん〜か月ay (müddət)いっかげつ〜年ilいちねんTələlər: 1 və 2 adam ひとり, ふたり (ichinin yox!), 4 adam よにん. "Bir gün" いちにち, "ayın biri" isə tamam başqa söz: ついたち.
+G2. Miqdar ifadəsinin işlədilməsi | meaning: sayın yeri, sual və "təxminən"
+ pattern: İS を say F
+ explanation: Say cümlədə harada dayanır? Çox vaxt əşyadan və onun ədatından sonra, feildən əvvəl: りんご を ３つ 買いました – üç alma aldım.りんご を 3つ 買いました。Üç alma aldım.学生 が 2人 います。İki tələbə var.Soruşanda いくつ (neçə ədəd?) və ya 何 + suffiks: 何人 (neçə nəfər?), 何枚 (neçə vərəq?). Təxmini demək üçün saya ぐらい əlavə edirsən: 10人 ぐらい – təxminən 10 nəfər.Azərbaycan dilindən fərq: biz "üç alma" deyirik, say əvvəl gəlir. Yaponcada isə "alma üç" kimi: əşya əvvəl, say sonra.
+ ex: りんごを 4つ 買いました。 = 4 alma aldım.
+ ex: 外国人の 学生が 2人 います。 = İki əcnəbi tələbə var.
+ ex: 国で 2か月 日本語を 勉強しました。 = Mən öz ölkəmdə yapon dilini 2 ay öyrəndim.
+G3. müddət に 〜回 F | meaning: "... -da ... dəfə"
+ pattern: müddət に say 回 F
+ explanation: Tezlik, yəni "nə qədər vaxtda neçə dəfə": müddət + に + dəfə sayı. １週間 に ２回 – həftədə iki dəfə.1か月 に 1回 映画 を 見ます。Ayda bir dəfə kinoya gedirəm.1日 に 3回 薬 を 飲みます。Gündə üç dəfə dərman içirəm.Həkimdə lazım olacaq: dərmanın qəbulu həmişə bu qəlibdə deyilir. 17-ci dərsdə klinikada bunu xatırlayacaqsan.
+ ex: 1か月に 2回 映画を 見ます。 = Ayda 2 dəfə kinoya baxıram.
+G4. say だけ / İS だけ | meaning: "yalnız, cəmi"
+ pattern: say / İS だけ
+ explanation: だけ "yalnız, cəmi" deməkdir və neytral tonla miqdarı məhdudlaşdırır: １つ だけ – yalnız bir dənə.1つ だけ ください。Yalnız birini verin.休み は 日曜日 だけ です。İstirahət yalnız bazar günüdür.Ton: だけ sadəcə faktı deyir, nə çox, nə az. Növbəti qaydada "az olduğunu" vurğulayan başqa bir söz görəcəyik.
+ ex: アオゾラ電気に 外国人の 社員が 1人だけ います。 = Aozora Denki şirkətində yalnız bir əcnəbi əməkdaş var.
+ ex: 休みは 日曜日だけです。 = İstirahət günü yalnız bazar günüdür.
+G5. 〜しか 〜ません | meaning: "yalnız, cəmi" (az olduğunu vurğulayır)
+ pattern: İS しか F-ません
+ explanation: しか da "yalnız" deməkdir, amma emosiyası var: "cəmi, az, kifayət deyil". Ən qəribə tərəfi: həmişə inkar feillə gəlir, amma mənası təsdiqdir.お金 が 100円 だけ あります。100 yenim var. (neytral)お金 が 100円 しか ありません。Cəmi 100 yenim var. (az!)Hərfi tərcümədə "100 yendən başqa yoxdur" kimidir. Ona görə inkar lazımdır. が və を しか-dan əvvəl düşür, digər ədatlar qalır: 日曜日 に しか.Tələ: 100円 しか あります desən, səhvdir. しか inkarsız yaşaya bilmir.
+ ex: お金が 100円しか ありません。 = Cəmi 100 yen pulum var.
+ ex: 休みは 日曜日しか ありません。 = İstirahət günüm yalnız bazardır.
+G6. Say + も / Say + ずつ | meaning: "nə qədər çox!" / "hərəsinə …"
+ pattern: 
+ explanation: Saya iki maraqlı söz qoşula bilər. も miqdarın gözləniləndən çox olduğunu vurğulayır: ３時間 も 待ちました – düz 3 saat gözlədim! ずつ isə bərabər bölgünü göstərir: １つ ずつ – hərəsinə bir.3時間 も 待ちました。Düz 3 saat gözlədim! (çoxdur)1人 2枚 ずつ とって ください。Hər kəs ikişər vərəq götürsün.Fikir ver: buradakı も "də, da" deyil, təəccüb bildirir. Səs də bir az vurğulu olur.
+ ex: 駅で 3時間も 待ちました。 = Stansiyada düz 3 saat gözlədim!
+ ex: りんごを 1つずつ 取って ください。 = Hərə bir alma götürsün.
+G7. 〜ごろ və 〜ぐらい | meaning: "təxminən": vaxt anı ↔ miqdar
+ pattern: 
+ explanation: Hər ikisi "təxminən" deməkdir, amma işləri fərqlidir. ごろ zaman anı üçündür (saat, tarix), ぐらい isə miqdar və müddət üçün.7時 ごろ 起きます。Saat 7 radələrində oyanıram. (an)2時間 ぐらい 勉強します。Təxminən 2 saat dərs oxuyuram. (müddət)Kiçik detal: ごろ-dan sonra に çox vaxt düşür: ７時ごろ və ７時ごろに ikisi də işlənir.
+ ex: 7時ごろ うちへ 帰ります。 = Saat 7 radələrində evə qayıdıram.
+ ex: 毎晩 2時間ぐらい 勉強します。 = Hər axşam təxminən 2 saat dərs oxuyuram.
+G8. Səs dəyişməsi: 連濁 | meaning: ikinci hissənin ilk səsi cingiltiləşir
+ pattern: 
+ explanation: İki söz birləşəndə ikinci sözün ilk səsi tez-tez "yumşalır": か→が, さ→ざ, た→だ, は→ば. Bu, tələffüzü axıcı etmək üçündür.本 + 棚（たな）→ ほんだな (kitab rəfi)3 + 本（ほん）→ さんぼん (üç uzun əşya)Azərbaycan dilində də buna bənzər hal var: "çörək" + "-i" → "çörəyi", "k" səsi yumşalıb "y" olur. Hər dil tələffüzü rahatlaşdırmağın öz yolunu tapır.Məsləhət: bu dəyişmə həmişə baş vermir, qaydası mütləq deyil. Sözləri lüğətdə gördüyün kimi öyrən.
+ ex: 人 + 人 → 人々 = insanlar
+ ex: 本 + 棚 → 本棚; 雨 + 傘 → 雨傘 = kitab rəfi; yağış çətiri
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+あります | あります | arimasu | [子どもが～] olmaq, var olmaq
+います | います | imasu | [日本に～] (var) olmaq
+かかります | かかります | kakarimasu | (vaxt) aparmaq
+休みます | やすみます | yasumimasu | [会社を～] dincəlmək, istirahət etmək
+1つ | 1つ | hitotsu | bir
+2つ | 2つ | futatsu | iki
+3つ | 3つ | mittsu | üç
+4つ | 4つ | yottsu | dörd
+5つ | 5つ | itsutsu | beş
+6つ | 6つ | muttsu | altı
+7つ | 7つ | nanatsu | yeddi
+8つ | 8つ | yattsu | səkkiz
+9つ | 9つ | kokonotsu | doqquz
+10 | 10 | too | on
+いくつ | いくつ | ikutsu | neçə ədəd, nə qədər
+1人 | ひとり | hitori | bir adam
+2人 | ふたり | futari | iki adam
+～人 | ～にん | ~nin | ~insan/adam
+～台 | ～だい | ~dai | ~ədəd (cihaz, maşın)
+～枚 | ～まい | ~mai | ~ədəd (nazik, yastı əşya)
+～回 | ～かい | ~kai | ~dəfə
+りんご | りんご | ringo | alma
+みかん | みかん | mikan | mandarin, naringi
+サンドイッチ | サンドイッチ | sandoicchi | sendviç
+カレー[ライス] | カレー[ライス] | karee [raisu] | karri sousu ilə düyü
+アイスクリーム | アイスクリーム | aisukuriimu | dondurma
+切手 | きって | kitte | marka
+はがき | はがき | hagaki | açıqca
+封筒 | ふうとう | fuutou | zərf
+両親 | りょうしん | ryoushin | valideynlər
+兄弟 | きょうだい | kyoudai | bacı-qardaşlar
+兄 | あに | ani | böyük qardaş (özünün)
+お兄さん | おにいさん | oniisan | böyük qardaş (başqasının)
+姉 | あね | ane | böyük bacı (özünün)
+お姉さん | おねえさん | oneesan | böyük bacı (başqasının)
+弟 | おとうと | otouto | balaca qardaş (özünün)
+弟さん | おとうとさん | otoutosan | balaca qardaş (başqasının)
+妹 | いもうと | imouto | balaca bacı (özünün)
+妹さん | いもうとさん | imoutosan | balaca bacı (başqasının)
+外国 | がいこく | gaikoku | xarici ölkə
+留学生 | りゅうがくせい | ryuugakusei | xarici tələbə
+クラス | クラス | kurasu | sinif
+～時間 | ～じかん | ~jikan | ~saat (müddət)
+～週間 | ～しゅうかん | ~shuukan | ~həftə (müddət)
+～か月 | ～かげつ | ~kagetsu | ~ay (müddət)
+～年 | ～ねん | ~nen | ~il (müddət)
+～ぐらい | ～ぐらい | ~gurai | ~qədər, təxminən
+どのぐらい | どのぐらい | dono gurai | nə qədər?
+全部で | ぜんぶで | zenbu de | hamısı, cəmi
+みんな | みんな | minna | hamı
+～だけ | ～だけ | ~dake | ancaq~, yalnız~
+かしこまりました。 | かしこまりました。 | kashikomarimashita | Yaxşı, anladım. (Baş üstə.)
+いい[お]天気ですね。 | いい[お]てんきですね。 | ii [o]tenki desu ne | Necə gözəl havadır!
+お出かけですか。 | おでかけですか。 | odekake desu ka | Çölə çıxırsınız?
+ちょっと～まで。 | ちょっと ～まで。 | chotto ~ made | ~-ə qədər gedirəm
+行ってらっしゃい。 | いってらっしゃい。 | itterasshai | Gülə-gülə, sağ-salamat qayıdın (gedənə deyilir)
+行ってきます。 | いってきます。 | ittekimasu | Gedib gəlirəm (gedən deyir)
+船便 | ふなびん | funabin | gəmi poçtu
+航空便(エアメール) | こうくうびん(エアメール) | koukuubin (eameeru) | aviapoçt
+お願いします。 | おねがいします。 | onegaishimasu | xahiş edirəm
+オーストラリア | オーストラリア | Oosutoraria | Avstraliya
+
+== DIALOGUE ==
+kanri | いい お天気ですね。お出かけですか。 | Yaxşı havadır, hə? Siz harasa gedirsiniz?
+wang | ええ、ちょっと 郵便局まで。 | Bəli, poçta gedirəm.
+kanri | そうですか。行ってらっしゃい。 | Elədir? Onda yaxşı yol.
+wang | 行ってきます。 | Gedib gəlirəm. Görüşənədək.
+--- | poçtda
+wang | これ、オーストラリアまで お願いします。 | Bunu, zəhmət olmasa, Avstraliyaya.
+clerk | はい。船便ですか、航空便ですか。 | Yaxşı. Gəmi ilə, yoxsa aviapoçtla?
+wang | 航空便は いくらですか。 | Aviapoçtla neçəyədir?
+clerk | 7,600円です。 | 7600 yen.
+wang | 船便は。 | Bəs gəmi ilə?
+clerk | 3,450円です。 | 3450 yen.
+wang | どのくらい かかりますか。 | Nə qədər vaxta çatır?
+clerk | 航空便で 7日、船便で 2か月ぐらいです。 | Aviapoçtla 7 günə, gəmi ilə isə təxminən 2 aya.
+wang | じゃ、船便で お願いします。 | Hmm... onda gəmi ilə, zəhmət olmasa.

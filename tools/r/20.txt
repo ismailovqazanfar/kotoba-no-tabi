@@ -1,0 +1,56 @@
+LESSON 20: Mənimlə gedərsən?
+
+== GRAMMAR ==
+G1. Nəzakətli üslub və sadə üslub | meaning: 丁寧体 və 普通体
+ pattern: 
+ explanation: İndiyə qədər nəzakətli üslubda danışırdıq: です, ます. Amma yaponlar dostlarla, ailədə belə danışmır! Onlar sadə üslubu işlədir və indi sən də bu "ikinci dilə" keçirsən.nəzakətlisadəあした 東京 へ 行きます。あした 東京 へ 行く。毎日 忙しい です。毎日 忙しい。相撲 が 好き です。相撲 が 好き だ。ドイツ へ 行った こと が ありません。ドイツ へ 行った こと が ない。Sadə formaları artıq tanıyırsan: lüğət forması (行く), ない-forma (行かない), た-forma (行った). İndi hamısı yerinə oturur:nəzakətlisadəindiki, təsdiq行きます行くindiki, inkar行きません行かないkeçmiş, təsdiq行きました行ったkeçmiş, inkar行きませんでした行かなかったİki vacib detal: 1) あります-ın sadə inkarı ない-dır, あらない deyilmir. 2) İsim və な-sifətdə です sadə üslubda だ olur: 雨だ・静かだ.Formaları müqayisə edin: sözü seçin行きます (1-ci qrup)食べます (2-ci qrup)来ます (3-cü qrup)します (3-cü qrup)あります大きい (い-sifət)いい (い-sifət, istisna)きれい (な-sifət)雨 (isim)NəzakətliSadəİndiki, təsdiq行きますIkimasu行くIkuİndiki, inkar行きませんIkimasen行かないIkanaiKeçmiş, təsdiq行きましたIkimashita行ったIttaKeçmiş, inkar行きませんでしたIkimasen deshita行かなかったIkanakatta
+G2. Üslubların işlədilməsi | meaning: kimə hansı üslub?
+ pattern: 
+ explanation: Bəs kimə hansı üslubla danışmalı? Bu, sosial bir məsələdir və yaponlar buna çox diqqət edir.üslubkimlə?nəzakətliilk tanışlıqda; yaşca, vəzifəcə böyüklərlə; az tanıdığın həmyaşıdlasadəyaxın dostlarla; ailədə; yaxın iş yoldaşları iləYazıda isə qayda başqadır: məktublar adətən nəzakətli üslubda yazılır, amma qəzetlər, kitablar, elmi məqalələr və şəxsi gündəliklər sadə üslubda.Ehtiyatlı ol: sadə üslubu yanlış adama işlətsən, kobud görünə bilər. Əmin deyilsənsə, nəzakətli qal. Yapon dostun "sadə danış" deyəndə keçid edə bilərsən. Bunun üçün xüsusi ifadə də var: タメ口 で いい よ – "rahat danışaq".
+G3. Sadə üslubda danışıq | meaning: danışıq dilinin xüsusiyyətləri
+ pattern: 
+ explanation: Sadə danışığın öz "qaydaları" var. Ən vaciblərini bil:1) Sualda か düşür. Sual yalnız intonasiya ilə bilinir: コーヒー 飲む？↗ – qəhvə içirsən? Cavab: うん、飲む。↘.2) "Bəli/xeyr" dəyişir: はい → うん, いいえ → ううん. Bunlar dostlar arasında çox işlənir.3) Ədatlar tez-tez düşür: ご飯（を）食べる？. Kontekst aydın olduğu üçün.あした 来る？Sabah gələcəksən?うん、行く よ。Hə, gələrəm.Qızıl qayda: sadə sualı aşağı intonasiya ilə desən, sual yox, təsdiq kimi səslənər. Səsi qaldırmağı unutma ↗.
+ ex: ~コーヒーを 飲む？ ↗ = Kofe içəcəksən?
+ ex: ……うん、飲む。 ↘ = ……Hə, içəcəyəm.
+G4. 〜て［い］る, 〜けど | meaning: daha iki danışıq xüsusiyyəti
+ pattern: 
+ explanation: 4) 〜ている-dakı い düşür: もっている → もってる, 見ている → 見てる. Bu, danışıqda demək olar ki, həmişə belədir.5) が ("amma") əvəzinə けど: きれいだ けど、高い – gözəldir, amma bahadır. けど danışıq dilində daha təbiidir.今 何 してる？İndi nə edirsən?いい けど、ちょっと 高い ね。Yaxşıdır, amma bir az bahadır, hə.Bonus: けど cümlənin sonunda yumşaltma kimi də işlənir: 行きたい けど… – "istəyirəm, amma... (deyəsən olmayacaq)". Yaponlar narazılığı belə incə bildirir.
+ ex: 辞書、持って［い］る？ = Lüğətin var?
+ ex: ……うん、持って［い］る。 = ……Hə, var.
+ ex: ……ううん、持って［い］ない。 = ……Yox, yoxumdur.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+要ります[ビザが～] | いります[ビザが～] | irimasu [biza ga ~] | lazım olmaq [viza lazımdır]
+調べます | しらべます | shirabemasu | yoxlamaq, araşdırmaq
+修理します | しゅうりします | shuuri shimasu | düzəltmək, təmir etmək
+僕 | ぼく | boku | mən (私-nin qeyri-rəsmi forması, kişilər işlədir)
+君 | きみ | kimi | sən (あなた-nın qeyri-rəsmi forması)
+～君 | ～くん | ~kun | ~kun (～さん-ın qeyri-rəsmi forması, oğlanlar üçün)
+うん | うん | un | hə (はい-nın qeyri-rəsmi forması)
+ううん | ううん | uun | yox (いいえ-nin qeyri-rəsmi forması)
+言葉 | ことば | kotoba | dil, söz
+着物 | きもの | kimono | kimono (ənənəvi yapon geyimi)
+ビザ | ビザ | biza | viza
+始め | はじめ | hajime | başlanğıc
+終わり | おわり | owari | son
+こっち | こっち | kocchi | bura (こちら-nın qeyri-rəsmi forması)
+そっち | そっち | socchi | ora, müsahibin yanı (そちら-nın qeyri-rəsmi forması)
+あっち | あっち | acchi | ora, uzaq yer (あちら-nın qeyri-rəsmi forması)
+どっち | どっち | docchi | hansı, hara (どちら-nın qeyri-rəsmi forması)
+みんなで | みんなで | minna de | hamılıqla, hamımız birlikdə
+～けど | ～けど | ~kedo | amma, lakin (が-nın qeyri-rəsmi forması)
+おなかがいっぱいです | おなかがいっぱいです | onaka ga ippai desu | doydum
+よかったら | よかったら | yokattara | əgər istəsəniz, məsləhətdirsə...
+いろいろ | いろいろ | iroiro | müxtəlif
+
+== DIALOGUE ==
+kobayashi | 夏休みは 国へ 帰る？ | Yay tətilində vətənə gedirsən?
+thawa | ううん。帰りたいけど、……。 | Yox. İstəyərdim, amma...
+kobayashi | そう。エミンさん、富士山に 登った こと ある？ | Hə... Emin, sən heç Fuji dağına çıxmısan?
+thawa | ううん、ない。 | Yox.
+kobayashi | じゃ、よかったら、いっしょに 行かない？ | Elə isə, istəsən, birlikdə gedək?
+thawa | うん、いいね。いつごろ？ | Əla! Nə vaxt?
+kobayashi | 8月の はじめは どう？ | Avqustun əvvəli necədir?
+thawa | いいよ。 | Yaxşıdır.
+kobayashi | じゃ、いろいろ 調べて、また 電話するよ。 | Onda hər şeyi öyrənib sənə yenə zəng edərəm.
+thawa | ありがとう。待って［い］るよ。 | Çox sağ ol. Gözləyəcəyəm.

@@ -1,0 +1,104 @@
+LESSON 12: Gion bayramı necə keçdi?
+
+== GRAMMAR ==
+G1. İS / な-SİF: zaman formaları | meaning: "... idi", "... deyildi"
+ pattern: 
+ explanation: Keçmişdən danışmaq üçün isim və な-sifətlərdə yalnız です dəyişir. İsmin özü, sifətin özü yerində qalır, bütün "iş"i です görür.indiki / gələcəkkeçmiştəsdiqあめ ですしずか ですあめ でしたしずか でしたinkarあめ じゃ ありませんあめ じゃ ありませんでしたQayda çox məntiqlidir: です → でした ("idi"), inkarda isə sadəcə sonuna でした əlavə olunur. Feillərdəki ません → ませんでした ilə eyni məntiq!きのう は 雨 でした。Dünən yağış idi.お祭り は にぎやか でした。Bayram şən idi.Yadda saxla: な-sifət burada isim kimi davranır. Bu iki qrup "əkiz qardaş" kimidir, bütün zaman formaları eynidir.
+ ex: きのうは 雨でした。 = Dünən yağış yağırdı.
+ ex: きのうの 試験は 簡単じゃ ありませんでした。 = Dünənki imtahan heç də asan deyildi.
+G2. い-SİF: zaman formaları | meaning: "... idi", "... deyildi"
+ pattern: 
+ explanation: い-sifətlər isə tamam başqa yolla gedir: です toxunulmaz qalır, sifətin özü dəyişir. Sondakı い atılır və yerinə şəkilçi gəlir.indiki / gələcəkkeçmiştəsdiqあつい ですあつかった ですinkarあつくない ですあつくなかった ですBunu belə düşün: い-sifət "canlı"dır, özü feil kimi zaman alır. かった keçmişi, くない inkarı bildirir, くなかった isə ikisini birləşdirir.Böyük tələ: あつい でした desən, səhv olur! い-sifəti でした ilə keçmişə salmaq olmaz. Düzgünü: あつかった です.İstisna: いい (yaxşı) dəyişəndə よ-dan qurulur: よかった, よくない, よくなかった. Bu, ən çox işlənən sifətlərdən biridir, mütləq əzbərlə.
+ ex: きのうは 暑かったです。 = Dünən isti idi.
+ ex: きのうの ~パーティーは あまり 楽しくなかったです。 = Dünənki şənlik o qədər də xoş keçmədi.
+G3. İS₁ は İS₂ より SİF です | meaning: "İS₁ İS₂-dən daha ..."
+ pattern: İS₁ は İS₂ より SİF です
+ explanation: İki şeyi müqayisə edəndə より işlənir: "...dan daha". A は B より 〜 です – A B-dən daha ...-dır.東京 は 大阪 より 大きい です。Tokio Osakadan böyükdür.今日 は きのう より 寒い です。Bu gün dünənkindən soyuqdur.Diqqət et: yaponcada "daha" sözü ayrıca yoxdur. より sözü özü "-dan daha" mənasını daşıyır. Azərbaycan dilindəki "-dan, -dən" şəkilçisi ilə eyni yerdə dayanır.Asan yadda saxlamaq: より müqayisə olunan şeyin arxasına qoyulur, eynilə bizim "-dan" kimi: "Osaka-dan" = 大阪より.
+ ex: この 車は あの 車より 大きいです。 = Bu maşın o birindən böyükdür.
+G4. İS₁ と İS₂ と どちらが SİF ですか · İS₁ / İS₂ の ほうが SİF です | meaning: "hansı daha ...?"
+ pattern: İS₁ と İS₂ と どちらが SİF ですか
+ explanation: "Hansı daha ...?" sualı: A と B と どちら が 〜 です か. Maraqlıdır ki, əşya, yer, insan, vaxt fərq etmir, iki variant arasında seçəndə həmişə どちら.コーヒー と 紅茶 と どちら が 好き です か。Qəhvə, yoxsa çay, hansını daha çox sevirsən?コーヒー の ほう が 好き です。Qəhvəni daha çox sevirəm.Cavabda üstün olan 〜の ほう が ilə gəlir: "...tərəfi". Hər ikisi bərabərdirsə: どちら も 好き です – hər ikisini sevirəm.Fikir ver: insanlar haqqında da どちら işlənir, だれ yox. İki nəfər arasında seçəndə yaponlar "hansı tərəf?" kimi düşünür.
+ ex: ~サッカーと 野球と どちらが おもしろいですか。 = Hansı daha maraqlıdır, futbol, yoxsa beysbol?
+ ex: ……~サッカーの ほうが おもしろいです。 = ……Futbol daha maraqlıdır.
+ ex: パーカーさんと ラモスさんと どちらが ~テニスが 上手ですか。 = Kim tennisi daha yaxşı oynayır, cənab Parker, yoxsa cənab Ramos?
+ ex: 北海道と 大阪と どちらが 涼しいですか。 = Harada daha sərindir, Hokkaydoda, yoxsa Osakada?
+ ex: 春と 秋と どちらが 好きですか。 = Hansı daha çox xoşunuza gəlir, yaz, yoxsa payız?
+G5. İS₁ [の中] で 何 / どこ / だれ / いつ が いちばん SİF ですか | meaning: "... içində ən ... hansıdır?"
+ pattern: İS₁ ［の 中］で sual sözü が いちばん SİF ですか
+ explanation: "Ən ..." demək üçün いちばん işlədirsən. Seçimin hansı qrupda edildiyini で göstərir: 家族 で だれ が いちばん 背 が 高い です か – ailədə kim ən hündürdür?qrup növüsual sözüəşya何yerどこinsanだれvaxtいつİkidən çox şey arasında seçəndə artıq どちら yox, növə uyğun sual sözü gəlir. Bu, məntiqli bir keçiddir: iki variant "tərəf"dir, çox variant isə "növ".Tələ: sual sözündən sonra が gəlir, は yox: だれ が いちばん. Sual sözü heç vaxt は ilə mövzu olmur.
+ ex: 日本料理［の 中］で 何が いちばん おいしいですか。 = Yapon mətbəxində ən dadlı yemək hansıdır?
+ ex: ……てんぷらが いちばん おいしいです。 = ……Ən dadlı yemək tempuradır.
+ ex: ヨーロッパで どこが いちばん よかったですか。 = Avropada ən çox hara xoşunuza gəldi?
+ ex: ……スイスが いちばん よかったです。 = ……Ən yaxşı yer İsveçrə idi.
+ ex: 家族で だれが いちばん 背が 高いですか。 = Sizin ailədə ən ucaboy kimdir?
+ ex: ……弟が いちばん 背が 高いです。 = ……Kiçik qardaşım ən ucaboydur.
+ ex: 1年で いつが いちばん 寒いですか。 = İlin ən soyuq vaxtı nə vaxtdır?
+ ex: ……2月が いちばん 寒いです。 = ……Ən soyuq ay fevraldır.
+G6. SİF の | meaning: "... olanı"
+ pattern: SİF の
+ explanation: Kontekstdən aydın olan ismi sifətdən sonra の ilə əvəz edə bilərsən: "...olanı". 赤い の – qırmızı olanı.どの かばん が いい です か。Hansı çanta yaxşıdır?その 大きい の が いい です。O böyük olanı.2-ci dərsdə の kimi isimdən sonra işləyirdi ("Katonunku"). İndi sifətlə də işləyir. Dükanda çox lazım olacaq: "o qırmızısını verin" demək üçün.Qayda: な-sifətdən sonra な qalır: しずか な の – sakit olanı.
+ ex: ラトナさんの かばんは どれですか。 = Ratnanın çantası hansıdır?
+ ex: ……あの 赤くて、大きいのです。 = ……O qırmızı, böyük olanı.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+簡単[な] | かんたん[な] | kantan [na] | asan, sadə
+近い | ちかい | chikai | yaxın
+遠い | とおい | tooi | uzaq
+速い/早い | はやい | hayai | tez, sürətli
+遅い | おそい | osoi | gec, asta, ləng
+多い [人が～] | おおい [ひとが～] | ooi [hito ga ~] | çox (miqdarca) [çox adam]
+少ない [人が～] | すくない[ひとが～] | sukunai [hito ga ~] | az (miqdarca) [az adam]
+暖かい/温かい | あたたかい | atatakai | ilıq (hava / içki)
+涼しい | すずしい | suzushii | sərin
+甘い | あまい | amai | şirin
+辛い | からい | karai | acı
+重い | おもい | omoi | ağır
+軽い | かるい | karui | yüngül
+いい[コーヒーが～] | いい[コーヒーが～] | ii [koohii ga ~] | yaxşı; [qəhvə olsun] (seçim edəndə)
+季節 | きせつ | kisetsu | mövsüm
+春 | はる | haru | yaz
+夏 | なつ | natsu | yay
+秋 | あき | aki | payız
+冬 | ふゆ | fuyu | qış
+天気 | てんき | tenki | hava
+雨 | あめ | ame | yağış
+雪 | ゆき | yuki | qar
+曇り | くもり | kumori | buludlu
+ホテル | ホテル | hoteru | otel
+空港 | くうこう | kuukou | hava limanı
+海 | うみ | umi | dəniz
+世界 | せかい | sekai | dünya
+遊園地 | ゆうえんち | yuuenchi | əyləncə parkı
+パーティー | パーティー | paatii | əyləncəli yığıncaq, ziyafət (～をします: ziyafət keçirmək)
+[お]祭り | [お]まつり | [o]matsuri | festival, bayram
+すき焼き | すきやき | sukiyaki | sukiyaki (yemək adı)
+刺身 | さしみ | sashimi | sashimi (yemək adı)
+[お]寿司 | [お]すし | [o]sushi | sushi (yemək adı)
+天ぷら | てんぷら | tenpura | tempura (yemək adı)
+豚肉 | ぶたにく | butaniku | donuz əti
+とり肉 | とりにく | toriniku | toyuq əti
+牛肉 | ぎゅうにく | gyuuniku | mal əti
+レモン | レモン | remon | limon
+生け花 | いけばな | ikebana | yapon gülbəzəmə sənəti (～をします: ikebana düzəltmək)
+紅葉 | もみじ | momiji | Momiji ağacı (payızda yarpaqları qızaran ağac)
+どちら | どちら | dochira | (ikisindən) hansı
+どちらも | どちらも | dochira mo | hər ikisi də
+一番～ | いちばん～ | ichiban~ | ən~ (üstün dərəcə)
+ずっと | ずっと | zutto | daha da, lap
+初めて | はじめて | hajimete | birinci dəfə, ilk dəfə
+ただいま。 | ただいま。 | tadaima | Mən gəldim. (evə daxil olan deyir)
+お帰りなさい。 | おかえりなさい。 | okaerinasai | Xoş gəldin. (evdə olan deyir)
+わあ、すごい人ですね。 | わあ、すごいひとですね。 | waa, sugoi hito desu ne | Vay! Nə qədər adam var!
+疲れました。 | つかれました。 | tsukaremashita | Yoruldum.
+シンガポール | シンガポール | Shingapooru | Sinqapur
+
+== DIALOGUE ==
+miller | ただいま。 | Bu da mən (qayıtdım).
+kanri | お帰りなさい。 | Xoş gəldiniz.
+miller | これ、京都の お土産です。 | Bu Kiotodan suvenirdir.
+kanri | どうも すみません。祇園祭は どうでしたか。 | Çox sağ olun. Gion bayramı necə keçdi?
+miller | おもしろかったです。外国人も 多かったです。 | Çox maraqlı idi. Çoxlu əcnəbi var idi.
+kanri | 祇園祭は 京都の 祭りで いちばん 有名ですからね。 | Təbii ki, Gion Kiotonun ən məşhur bayramıdır.
+miller | そうですか。写真を たくさん 撮りました。これです。 | Doğrudan? Çoxlu şəkil çəkmişəm. Buyurun, baxın!
+kanri | わあ、すごい 人ですね。 | Vay! Nə qədər adam var!
+miller | ええ。ちょっと 疲れました。 | Hə... Amma bir az yorulmuşam.

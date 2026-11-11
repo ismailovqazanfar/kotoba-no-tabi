@@ -1,0 +1,93 @@
+LESSON 31: Dadlı görünür!
+
+== GRAMMAR ==
+G1. 〜そうです (görünüş) | meaning: ... görünür; deyəsən ...-acaq
+ pattern: ます-kök / い-sifət（〜い） / な-sifətそうです
+ explanation: Bu dərs bir "detektiv dərsi"dir: məlumatı haradan aldığını göstərmək. Birinci alət 〜そうです (görünüş) – öz gözünlə gördüyünə əsasən təxmin.sözqaydanümunəfeilます-kök + そう雨 が 降りそう です – yağış yağacaq kimiい-sifətい düşür + そうおいしそう です – dadlı görünürな-sifət+ そう元気そう です – gümrah görünüristisnaいい / ないよさそう・なさそうFeildə hadisənin baş verməyinin yaxın olduğunu göstərir: ボタン が 取れそう です – düymə qopmaq üzrədir. Sifətdə isə görünüşü: この ケーキ は おいしそう – bu tort dadlı görünür (hələ dadmamışam).Tələ: gözlə görünən faktın özünə işlənmir. Alma qırmızıdırsa, 赤そう demirlər, sadəcə 赤い です. 〜そう yalnız gözlə "dadı, xasiyyəti" kimi görünməyən keyfiyyətlər üçündür.
+ ex: 今にも 泣きそうな 顔です。 = Hər an ağlayacaq kimi görünür.
+ ex: この ~かばんは 丈夫そうです。 = Bu çanta möhkəm görünür.
+ ex: 忙しくて、今日は 行けなさそうです。 = Məşğulam, bu gün gedə bilməyəcəm, deyəsən.
+G2. 〜そうです (eşitdiyimə görə) | meaning: deyirlər ki, ...
+ pattern: sadə forma そうです
+ explanation: İkinci alət də 〜そうです, amma tam fərqli: "deyirlər ki, eşitdim ki". Başqasından eşitdiyini, oxuduğunu ötürürsən. Sadə formadan sonra gəlir:天気予報 に よると、明日 は 雨 が 降る そう です。Hava proqnozuna görə, sabah yağış yağacaqmış.あの 店 は おいしい そう です。Deyirlər ki, o restoran dadlıdır.Mənbəni 〜に よると ilə göstərirsən: "...a görə". Bu, xəbər ötürməyin ən təmiz yoludur.formamənası降りそう ですyağacaq kimi görünür (gözümlə görürəm)降る そう ですyağacaqmış (eşitdim)Fərq formadadır: görünüş そう ilə köklə birləşir (降り＋そう), eşitmə isə tam sadə formadan sonra gəlir (降る＋そう).
+ ex: ~ニュースに よると、駅の 近くで 火事が あった そうです。 = Xəbərlərə görə, stansiyanın yaxınlığında yanğın olub.
+ ex: あの 店の ~ラーメンは とても おいしい そうです。 = Deyirlər, o yerin ramenı çox dadlıdır.
+G3. 〜ようです / 〜みたいです | meaning: deyəsən, görünür ki (əlamətə görə)
+ pattern: sadə forma (な-sifət な / ad の) ようです
+ explanation: Üçüncü alət: 〜ようです / 〜みたいです – "deyəsən, görünür ki". Gördüyün, eşitdiyin əlamətlərdən nəticə çıxarırsan, eynilə detektiv kimi.隣 の 部屋 が にぎやか です ね。パーティー の よう です。Qonşu otaq səs-küylüdür. Deyəsən, qonaqlıqdır.道 が ぬれて います。雨 が 降った みたい です。Yol yaşdır. Deyəsən, yağış yağıb.ようです bir az rəsmi, みたいです danışıq dilidir. な-sifətdən sonra な, isimdən sonra の: 暇 な よう, 風邪 の よう. みたい isə birbaşa qoşulur: 暇 みたい, 風邪 みたい.Bənzətmə: 〜のようです həm də "kimi" deməkdir: 夢 の よう でした – yuxu kimi idi!
+ ex: 道が 濡れて いますね。夜 雨が 降った ようです。 = Yol yaşdır. Deyəsən, gecə yağış yağıb.
+ ex: 彼女は 猫が 好き みたいです。 = Deyəsən, o pişikləri sevir.
+G4. 〜はずです | meaning: ...-malıdır (məntiqə görə)
+ pattern: sadə forma (な-sifət な / ad の) はずです
+ explanation: 〜はずです – "...malıdır (məntiqə görə)". Bildiyin faktlara əsaslanan qəti gözlənti.3日 前 に 送った から、今日 着く はず です。3 gün əvvəl göndərmişəm, deməli bu gün çatmalıdır.あの 人 は 10年 日本 に いた から、日本語 が 上手な はず です。O, 10 il Yaponiyada olub, deməli yapon dilini yaxşı bilməlidir.İnkar: 〜はずが ありません – "ola bilməz!" Məntiq buna imkan vermir: 猫 が 冷蔵庫 を 開ける はず が ありません – pişik soyuducunu aça bilməz (detektiv səhnəsindən tanış?).Tələ: はず borc, vəzifə bildirmir. "Getməliyəm (məcburam)" üçün 行かなければ なりません lazımdır, 行く はず yox.
+ ex: 荷物は 今日 届く はずです。 = Bağlama bu gün çatmalıdır.
+ ex: 彼は 日本に 10年 住んで いますから、日本語が 上手な はずです。 = O, Yaponiyada 10 ildir yaşayır, yaponcası yaxşı olmalıdır.
+G5. 〜らしい | meaning: deyəsən, deyilənə görə; ...-a xas
+ pattern: sadə forma (な-sifət / ad: kök) らしい です
+ explanation: 〜らしい – "deyəsən, deyilənə görə". Eşitdiyin məlumatla öz müşahidəni birləşdirirsən və cavabdehliyi tam üzərinə götürmürsən.ifadəmənbə〜そうですbirbaşa eşitdim, ötürürəm〜らしいeşitdim, bir az da özüm düşünürəm〜ようですöz gördüyüm əlamətlərdən nəticə田中 さん は 会社 を やめる らしい です。Deyəsən, Tanaka işdən çıxır.今日 は 春 らしい 天気 です ね。Bu gün yaza xas havadır, hə?İkinci məna: isimdən sonra らしい "xas, layiq" deməkdir: 子ども らしい – uşağa yaraşan, 男 らしい – kişiyə xas. Bu məna tamam başqa işlənir, kontekstdən tutursan.
+ ex: 天気予報に よると、明日は 雨らしいです。 = Hava proqnozuna görə, sabah yağışlı olacaq, deyəsən.
+ ex: 隣の 人は 引っ越す らしいです。 = Deyəsən, qonşu köçür.
+ ex: 今日は 春らしい いい 天気ですね。 = Bu gün yaza xas gözəl havadır.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+泣きます | なきます | nakimasu | ağlamaq
+取れます | とれます | toremasu | [ボタンが～] qopmaq
+濡れます | ぬれます | nuremasu | islanmaq
+風邪をひきます | かぜをひきます | kaze o hikimasu | soyuqlamaq
+像 | ぞう | zou | heykəl
+火事 | かじ | kaji | yanğın
+地震 | じしん | jishin | zəlzələ
+丈夫 | じょうぶ | joubu | möhkəm, sağlam
+大変 | たいへん | taihen | çətin, ağır
+毎年 | まいとし | maitoshi | hər il
+今にも | いまにも | ima ni mo | hər an
+はず | はず | hazu | ...-malıdır (gözlənti)
+様子 | ようす | yousu | vəziyyət, görünüş
+匂い | におい | nioi | qoxu
+香り | かおり | kaori | xoş ətir
+酸っぱい | すっぱい | suppai | turş
+厳しい | きびしい | kibishii | ciddi, sərt
+怖い | こわい | kowai | qorxunc
+恥ずかしい | はずかしい | hazukashii | utancverici
+羨ましい | うらやましい | urayamashii | qibtə ediləsi
+嬉しい | うれしい | ureshii | sevincli
+悲しい | かなしい | kanashii | kədərli
+つまらない | つまらない | tsumaranai | maraqsız, darıxdırıcı
+怒ります | おこります | okorimasu | hirslənmək
+驚きます | おどろきます | odorokimasu | təəccüblənmək
+笑います | わらいます | waraimasu | gülmək
+喜びます | よろこびます | yorokobimasu | sevinmək
+緊張します | きんちょうします | kinchou shimasu | həyəcanlanmaq
+残念 | ざんねん | zannen | təəssüf doğuran
+不思議 | ふしぎ | fushigi | qəribə, möcüzəli
+確か | たしか | tashika | dəqiq, yəqin ki
+絶対 | ぜったい | zettai | qəti şəkildə, heç bir halda
+噂 | うわさ | uwasa | şayiə
+記事 | きじ | kiji | məqalə
+情報 | じょうほう | jouhou | məlumat
+予報 | よほう | yohou | proqnoz
+事故 | じこ | jiko | qəza
+事件 | じけん | jiken | hadisə, cinayət işi
+警察 | けいさつ | keisatsu | polis
+泥棒 | どろぼう | dorobou | oğru
+犯人 | はんにん | hannin | cinayətkar
+被害 | ひがい | higai | ziyan
+政治 | せいじ | seiji | siyasət
+社会 | しゃかい | shakai | cəmiyyət
+人口 | じんこう | jinkou | əhali
+平和 | へいわ | heiwa | sülh
+戦争 | せんそう | sensou | müharibə
+選挙 | せんきょ | senkyo | seçki
+首相 | しゅしょう | shushou | baş nazir
+大統領 | だいとうりょう | daitouryou | prezident
+匂います | においます | nioimasu | qoxu gəlmək
+似ています | にています | niteimasu | oxşamaq
+
+== DIALOGUE ==
+kimura | ~ホアンさん、北海道の お土産です。どうぞ。 | Doktor Xuan, Hokkaydodan suvenir. Buyurun.
+wang | わあ、おいしそうですね。ありがとう ございます。北海道は どうでしたか。 | Vay, dadlı görünür. Çox sağ olun. Hokkaydo necə idi?
+kimura | 寒かったですけど、雪祭りが とても きれいでした。毎年 200万人ぐらい 来る そうですよ。 | Soyuq idi, amma qar festivalı çox gözəl idi. Deyirlər, hər il təxminən 2 milyon adam gəlir.
+wang | そんなに。人が 多くて、大変だった でしょう。 | O qədər? Adam çox olub, yəqin çətin olub.
+kimura | ええ。でも、夜の 雪の 像は 夢の ようでした。 | Bəli. Amma gecə qar heykəlləri yuxu kimi idi.
+wang | いいですね。わたしも 来年 行って みたいです。飛行機で 1時間半ぐらいですね。 | Əla. Mən də gələn il getmək istəyirəm. Təyyarə ilə təxminən saat yarımdır, hə?
+kimura | ええ、東京から 札幌まで それぐらいの はずです。 | Bəli, Tokiodan Sapporoya təxminən o qədər olmalıdır.

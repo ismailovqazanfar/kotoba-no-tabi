@@ -1,0 +1,100 @@
+LESSON 4: İndi saat neçədir?
+
+== GRAMMAR ==
+G1. 今 ‒時‒分です | meaning: "İndi saat ...-dır"
+ pattern: 今 saat 時 dəqiqə 分 です
+ explanation: Saat demək üçün iki "etiket" lazımdır: saata 時 (ji), dəqiqəyə 分 (fun/pun) əlavə edirsən. 今 ９時 ３０分 です – İndi saat 9:30-dur. Soruşanda 何時 です か (saat neçədir?) deyirsən.Dəqiqələrdə bir az "musiqi" var: 分 bəzən "fun", bəzən "pun" oxunur, saylar da qısalır. Bunu qayda kimi yox, mahnı kimi əzbərləmək daha asandır:oxunuşuoxunuşu1いっぷん6ろっぷん2にふん7ななふん3さんぷん8はっぷん4よんぷん9きゅうふん5ごふん10じゅっぷんSaatlarda üç tələ: 4 saat よじ (yon-ji yox), 7 saat しちじ, 9 saat くじ (kyuu-ji yox). Bu üçünü ayrıca yadda saxla, qalanları qaydaya uyğundur.
+ ex: 今 何時ですか。 = İndi saat neçədir?
+ ex: ……7時10分です。 = ……8-ə 10 dəqiqə işləyib (7:10).
+G2. F ます / F ません / F ました / F ませんでした | meaning: feilin nəzakətli formaları
+ pattern: 
+ explanation: Yapon feilləri xoş sürprizdir: şəxsə görə dəyişmir! "Gedirəm", "gedirsən", "gedir" – hamısı eyni sözdür. Dəyişən yalnız zaman və təsdiq/inkardır. Nəzakətli danışıqda feil ます ilə bitir və cəmi dörd forması var:indiki / gələcəkkeçmiştəsdiqはたらきますişləyirəmはたらきましたişlədiminkarはたらきませんişləmirəmはたらきませんでしたişləmədimDiqqət et: ます forması həm "indi", həm də "gələcəkdə" mənasını verir. あした はたらきます – sabah işləyəcəyəm. Zamanı kontekst və "sabah", "hər gün" kimi sözlər aydınlaşdırır.Sual vermək: hər hansı formanın sonuna か qoy: はたらきます か – işləyirsiniz?
+ ex: わたしは 毎日 勉強します。 = Mən hər gün dərs oxuyuram.
+G3. İS (vaxt) に F | meaning: hərəkətin vaxtı
+ pattern: vaxt に feil
+ explanation: Hərəkətin dəqiq vaxtını demək üçün vaxt sözündən sonra に qoyursan: ６時 に おきます – saat 6-da oyanıram. Bu に bizim "-da, -də" şəkilçimizə bənzəyir, amma yalnız vaxt üçün.７時 に おきます。Saat 7-də oyanıram.日曜日 に 休みます。Bazar günü istirahət edirəm.Burada bir incəlik var: rəqəmlə deyilən konkret vaxtlara に lazımdır, amma "bu gün", "sabah", "hər gün" kimi nisbi vaxtlara yox.Tələ: あした に deyilmir, sadəcə あした. Eyni şəkildə きょう, まいにち, いつ də に-siz işlənir.
+ ex: 6時半に 起きます。 = Mən yeddinin yarısı (6:30) dururam (duracağam).
+ ex: 7月2日に 日本へ 来ました。 = Yaponiyaya iyulun 2-də gəlmişəm. (5-ci dərs)
+G4. İS₁ から İS₂ まで | meaning: "...-dan ...-a kimi"
+ pattern: İS₁ から İS₂ まで
+ explanation: "Saat 9-dan 5-ə kimi" demək üçün iki kiçik söz var: から başlanğıcı, まで sonu göstərir. Həm vaxt, həm də yer üçün işləyir.９時 から ５時 まで はたらきます。Saat 9-dan 5-ə kimi işləyirəm.東京 から 大阪 までTokiodan Osakaya kimiBunları təkbaşına da işlətmək olar: 銀行 は ９時 から です – bank saat 9-dan (açılır). Belə qısa cümlələr dükanlarda, elanlarda hər addımda qarşına çıxacaq.Asan yadda saxlamaq: から – "haradan/nə vaxtdan", まで – "haraya qədər". Azərbaycan dilindəki kimi sıra ilə gəlir.
+ ex: 9時から 5時まで 働きます。 = Mən doqquzdan beşə kimi işləyirəm.
+ ex: 大阪から 東京まで 3時間 かかります。 = Osakadan Tokioya 3 saat çəkir. (11-ci dərs)
+G5. İS₁ と İS₂ | meaning: "İS₁ və İS₂"
+ pattern: İS₁ と İS₂
+ explanation: と iki ismi "və" ilə bağlayır: パン と たまご – çörək və yumurta. Sadədir, amma bir məhdudiyyəti var: yalnız isimləri bağlayır.休み は 土曜日 と 日曜日 です。İstirahət şənbə və bazar günüdür.りんご と みかんalma və naringiTələ: iki cümləni と ilə birləşdirmək olmaz. "Oyandım və səhər yeməyi yedim" demək üçün başqa üsul lazımdır (te-formasını sonra öyrənəcəyik).
+ ex: 銀行の 休みは 土曜日と 日曜日です。 = Bank şənbə və bazar günləri bağlıdır.
+G6. 〜ね | meaning: "elə deyilmi?", "hə?"
+ pattern: cümlə ね
+ explanation: Cümlənin sonundakı ね söhbəti isti edir. Həmsöhbətdən razılıq gözləyəndə, ortaq bir fikri bölüşəndə deyilir: "elə deyilmi?", "hə?".たいへん です ね。Çətindir, hə?きょう は さむい です ね。Bu gün soyuqdur, elə deyilmi?Yaponlar bunu çox işlədir, çünki söhbəti "biz" hissi ilə doldurur. Biri sənə çətin işindən danışanda たいへん です ね desən, onu başa düşdüyünü göstərmiş olursan.Səmimi məsləhət: ね-ni çox işlətməkdən qorxma, amma ciddi rəsmi məktubda yazma. Bu, danışıq dilinin "duzu"dur.
+ ex: 毎日 10時ごろまで 勉強します。 = Mən hər gün saat ona kimi dərs oxuyuram.
+ ex: ……大変ですね。 = ……Hə, çətindir.
+ ex: 原田さんの 電話番号は 871の6813です。 = Cənab Haradanın telefon nömrəsi 871-6813-dür.
+ ex: ……871の6813ですね。 = ……871-6813, eləmi?
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+起きます | おきます | okimasu | oyanmaq, durmaq
+寝ます | ねます | nemasu | yatmaq
+働きます | はたらきます | hatarakimasu | işləmək
+休みます | やすみます | yasumimasu | dincəlmək, istirahət etmək
+勉強します | べんきょうします | benkyoushimasu | oxumaq, dərs etmək
+終わります | おわります | owarimasu | qurtarmaq, bitmək
+デパート | デパート | depaato | univermaq, alış-veriş mərkəzi
+銀行 | ぎんこう | ginkou | bank
+郵便局 | ゆうびんきょく | yuubinkyoku | poçt
+図書館 | としょかん | toshokan | kitabxana
+美術館 | びじゅつかん | bijutsukan | incəsənət muzeyi
+～分 | ～ふん | ~fun | ~dəqiqə
+～時 | ～じ | ~ji | ~saat (vaxt anı)
+～半 | ～はん | ~han | ~yarım (vaxt)
+～分前 | ～ふんまえ | ~fun mae | ~dəqiqə əvvəl
+今 | いま | ima | indi
+何時 | なんじ | nanji | saat neçədir
+何分 | なんぷん | nanpun | neçə dəqiqədir
+午前 | ごぜん | gozen | günün birinci yarısı (a.m.)
+午後 | ごご | gogo | günün ikinci yarısı (p.m.)
+朝 | あさ | asa | səhər
+昼 | ひる | hiru | günorta
+晩 | ばん(よる) | ban (yoru) | axşam (gecə)
+一昨日 | おととい | ototoi | sırağagün (2 gün əvvəl)
+昨日 | きのう | kinou | dünən
+今日 | きょう | kyou | bu gün
+明日 | あした | ashita | sabah
+明後日 | あさって | asatte | birisigün (2 gün sonra)
+今朝 | けさ | kesa | bu səhər
+今晩 | こんばん | konban | bu axşam
+休み | やすみ | yasumi | istirahət, tətil
+昼休み | ひるやすみ | hiruyasumi | nahar fasiləsi
+試験 | しけん | shiken | imtahan
+会議 | かいぎ | kaigi | iclas (～をします: iclas keçirmək)
+映画 | えいが | eiga | kino
+毎朝 | まいあさ | maiasa | hər səhər
+毎晩 | まいばん | maiban | hər axşam
+毎日 | まいにち | mainichi | hər gün
+月曜日 | げつようび | getsuyoubi | Bazar ertəsi
+火曜日 | かようび | kayoubi | Çərşənbə axşamı
+水曜日 | すいようび | suiyoubi | Çərşənbə
+木曜日 | もくようび | mokuyoubi | Cümə axşamı
+金曜日 | きんようび | kinyoubi | Cümə
+土曜日 | どようび | doyoubi | Şənbə
+日曜日 | にちようび | nichiyoubi | Bazar
+何曜日 | なんようび | nanyoubi | həftənin hansı günü
+～から | ～から | ~kara | ~dan, ~dən
+～まで | ～まで | ~made | ~qədər
+～と～ | ～と～ | ~to~ | ~və~ (bağlayıcı)
+大変ですね | たいへんですね | taihen desu ne | Necə də çətindir!
+番号 | ばんごう | bangou | nömrə
+何番 | なんばん | nanban | neçənci nömrə
+そちら | そちら | sochira | sizin yer
+
+== DIALOGUE ==
+miller | すみません。「あすか」の 電話番号は 何番ですか。 | Bağışlayın, “Asuka”nın telefon nömrəsi neçədir?
+sato | 「あすか」ですか。5275の2725です。 | “Asuka”? 5275-2725.
+miller | どうも ありがとう ございました。 | Çox sağ olun.
+--- | Parker restorana zəng vurur
+staff | はい、「あすか」です。 | Bəli, eşidirəm. Bura “Asuka” restoranıdır.
+miller | あのう、そちらは 何時までですか。 | Bağışlayın, siz saat neçəyə kimi işləyirsiniz?
+staff | 10時までです。 | Saat 10-a kimi.
+miller | 休みは 何曜日ですか。 | Bəs istirahət günü nə vaxtdır?
+staff | 日曜日です。 | Bazar günü.
+miller | そうですか。どうも。 | Aydındır. Sağ olun.

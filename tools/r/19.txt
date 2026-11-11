@@ -1,0 +1,60 @@
+LESSON 19: Pəhriz sabahdan!
+
+== GRAMMAR ==
+G1. F た-forma | meaning: feilin keçmiş zamanının sadə forması
+ pattern: 
+ explanation: た-forma keçmiş zamanın sadə formasıdır və yaxşı xəbər: onu öyrənmək üçün yeni qayda lazım deyil! て-formanı bilirsənsə, sadəcə て → た, で → だ edirsən.qrupて-formaた-forma1-ciかいて・のんでかいた・のんだ2-ciたべてたべた3-cüきて・してきた・したYəni 14-cü dərsdə çəkdiyin zəhmət indi ikiqat bəhrə verir. いって → いった istisnası da eynilə keçir.Harada lazımdır? dostlarla danışıqda "getdim" = 行った (nəzakətli 行きました əvəzinə). Bundan başqa, bu dərsdəki bütün qəliblər た-forma üzərində qurulur.Məşq: feilin た-formasını deyin書きますKakimasuた-formasını özünüz deyinGöstərNövbəti feil →
+G2. F た-forma ことが あります | meaning: "... etmişəm" (təcrübə)
+ pattern: Fた-forma ことが あります
+ explanation: た-forma + こと が あります – "...etmişəm, belə təcrübəm var". Nə vaxt olduğu vacib deyil, vacib olan həyatında bunun olub-olmamasıdır.すし を 食べた こと が あります。Suşi yemişəm. (təcrübəm var)富士山 に 登った こと が ありません。Fuji dağına heç çıxmamışam.Bunu sadə keçmişlə müqayisə et: きのう すし を 食べました – "dünən suşi yedim" (konkret hadisə). すし を 食べた こと が あります – "suşinin dadına baxmışam" (həyat təcrübəsi).Gücləndirmək üçün: 一度 も ありません – "heç bir dəfə də olmayıb". 一度 あります – bir dəfə olub.
+ ex: 馬に 乗った ことが あります。 = Mən ata minmişəm (belə təcrübəm var).
+G3. F た-forma り F た-forma り します | meaning: "... edir, ... edir və s."
+ pattern: Fた-forma り、 Fた-forma り します
+ explanation: 〜たり、〜たり します – "...edir, ...edir və s.". Bir neçə hərəkəti nümunə kimi sadalayır, siyahı tam deyil.日曜日 は 掃除 を したり、買い物 を したり します。Bazar günü təmizlik edirəm, alış-veriş edirəm və s.きのう は 本 を 読んだり、音楽 を 聞いたり しました。Dünən kitab oxudum, musiqi dinlədim, filan.İsimlərdəki や ilə eyni məntiq (10-cu dərs): と hamısını sadalayır, や nümunə verir. Feillərdə isə て-zəncir ardıcıllıq bildirir, たり isə "qarışıq nümunələr".Qəlibi unutma: sonda mütləq します gəlir və zaman ona görə müəyyən olunur: 〜たり しました (keçmiş).
+ ex: 日曜日は ~テニスを したり、映画を 見たり します。 = Bazar günləri tennis oynayır, kinoya baxıram və s.
+ ex: 日曜日は ~テニスを したり、映画を 見たり しました。 = Bazar günü tennis oynadım, kinoya baxdım və s.
+G4. い-SİF (〜い) → 〜く / な-SİF [な] → 〜に / İS に なります | meaning: "... olur", dəyişmə
+ pattern: SİF / İS く / に なります
+ explanation: なります – "olmaq, çevrilmək". Vəziyyətin dəyişdiyini göstərir: soyuqlaşmaq, sağalmaq, həkim olmaq. Söz növünə görə qoşulma fərqlidir:sözqaydanümunəい-sifətい → くさむい → さむく なります – soyuqlaşırな-sifət+ にげんき → げんきに なります – sağalırisim+ に25さい → 25さいに なります – 25 yaşı olurBu qəlib dəyişikliyi canlı göstərir: 暗く なりました – qaraldı. 上手に なりました – yaxşılaşdı (bacarıqda). Dil öyrənəndə tez-tez eşidəcəyin cümlə: 日本語 が 上手に なりましたね!Tanış qayda: 8-ci dərsdə sifətdən zərf düzəldirdik (はやく / しずかに). İndi eyni formalar なります ilə işləyir. Bir qayda, iki istifadə!Məşq: なります ilə deyin寒いSamuiなります ilə özünüz deyinGöstərNövbəti feil →
+ ex: 寒く なります。 = Soyuqlaşır.
+ ex: 元気に なります。 = Sağalır.
+ ex: 25歳に なります。 = 25 yaşı tamam olur.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+登ります | のぼります | noborimasu | [山に～] qalxmaq, dırmanmaq, çıxmaq
+泊まります | とまります | tomarimasu | [ホテルに～] gecələmək, qalmaq
+掃除します | そうじします | souji shimasu | (evi) yığışdırmaq, təmizlik etmək
+洗濯します | せんたくします | sentakushimasu | paltar yumaq
+なります | なります | narimasu | olmaq (vəziyyətə dönmək)
+眠い | ねむい | nemui | yuxulu
+強い | つよい | tsuyoi | güclü
+弱い | よわい | yowai | zəif, gücsüz
+練習 | れんしゅう | renshuu | məşq, çalışma ([～をします])
+ゴルフ | ゴルフ | gorufu | qolf
+相撲 | すもう | sumou | Sumo güləşi
+お茶 | おちゃ | ocha | çay mərasimi
+日 | ひ | hi | gün, tarix
+調子 | ちょうし | choushi | vəziyyət, hal
+一度 | いちど | ichido | bir dəfə
+一度も | いちども | ichido mo | heç bir dəfə (inkar ifadələrlə)
+だんだん | だんだん | dandan | getdikcə, yavaş-yavaş
+もうすぐ | もうすぐ | mou sugu | bir az sonra, birazdan
+おかげさまで | おかげさまで | okagesama de | sizin sayənizdə
+でも | でも | demo | amma, ancaq
+乾杯 | かんぱい | kanpai | şərəfə! (sağlığa!)
+ダイエット | ダイエット | daietto | pəhriz, rejim
+無理[な] | むり[な] | muri [na] | imkansız, mümkünsüz, çətin
+体に いい | からだに いい | karada ni ii | sağlamlıq üçün faydalı
+
+== DIALOGUE ==
+all | 乾杯。 | Sağlığınıza!
+--- | süfrə arxasında
+yoshiko | ソフィアさん、何も 食べませんね。 | Sofiya, siz heç nə yemirsiniz.
+maria | ええ。じつは きのうから ~ダイエットを して います。 | Hmm. Açığını desəm, dünəndən pəhriz saxlayıram.
+yoshiko | そうですか。わたしも 何回も ~ダイエットを した ことが あります。 | Elədir? Mən də dəfələrlə pəhriz saxlamışam.
+maria | どんな ~ダイエットですか。 | Hansı pəhriz?
+yoshiko | 毎日 りんごだけ 食べたり、水を たくさん 飲んだり しました。 | Hər gün ancaq alma yeyir, çoxlu su içirdim...
+tadashi | でも、無理な ~ダイエットは 体に よくないですよ。 | Amma ifrat pəhriz orqanizm üçün zərərlidir.
+maria | そうですね。 | Siz haqlısınız.
+yoshiko | ソフィアさん、この ~ケーキ、おいしいですよ。 | Sofiya, bu tort çox dadlıdır.
+maria | そうですか。……~ダイエットは また あしたから します。 | Elədir? ... Pəhrizə yenə sabahdan başlayaram.

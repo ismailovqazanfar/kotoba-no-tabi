@@ -1,0 +1,100 @@
+LESSON 10: Nam pla sousu var?
+
+== GRAMMAR ==
+G1. İS が あります / います | meaning: "... var"
+ pattern: İS が あります / います
+ explanation: "Var" demək üçün yapon dilində iki feil var və seçim çox sadə bir suala bağlıdır: o şey canlıdırmı?feilnə üçün?nümunəありますcansız əşyalar, bitkilər, yerlərつくえ が ありますいますinsanlar və heyvanlarねこ が いますOlan şey が ilə göstərilir. Maraqlıdır ki, ağac canlı olsa da, あります ilə işlənir: yaponlar burada "öz-özünə hərəkət edə bilirmi?" məntiqinə baxır.Yoxlama: oyuncaq pişik, ölü balıq, robot şəkli – hamısı あります. Canlı pişik, akvariumdakı balıq – います.
+ ex: ~コンピューターが あります。 = Kompüter var.
+ ex: 桜が あります。 = Sakura (albalı) ağacları var.
+ ex: 公園が あります。 = Park var.
+ ex: 男の 人が います。 = Kişi var.
+ ex: 犬が います。 = İt var.
+G2. MƏKAN に İS が あります / います | meaning: "məkanda ... var"
+ pattern: məkan に İS が あります
+ explanation: "Harada nə var?" deyəndə əvvəlcə yeri deyirsən, に qoyursan, sonra nəyin olduğunu: つくえ の 上 に 本 が あります – masanın üstündə kitab var.公園 に 子ども が います。Parkda uşaq var.冷蔵庫 に 何 が あります か。Soyuducuda nə var?Bu model "yeni məlumat" təqdim edir: dinləyən oradakı şeyi bilmir, sən deyirsən. Otağa girib "burada pişik var!" demək kimi.Sıra: yer → に → əşya → が → feil. Azərbaycan dilindəki "masanın üstündə kitab var" ilə eyni ardıcıllıq!
+ ex: わたしの 部屋に 机が あります。 = Mənim otağımda stol var.
+ ex: 事務所に パーカーさんが います。 = Ofisdə cənab Parker var.
+G3. İS は MƏKAN に あります / います | meaning: "İS məkandadır"
+ pattern: İS は məkan に あります
+ explanation: Bəzən sual əksinədir: əşyanı bilirik, yerini soruşuruq. Onda əşya は ilə mövzu olur və cümlənin əvvəlinə keçir: パーカー さん は 事務所 に います – Parker ofisdədir.事務所 に パーカー さん が います。Ofisdə (kim var?) Parker var. – yeni məlumatパーカー さん は 事務所 に います。Parker (bildiyimiz adam) ofisdədir.Fərq incədir, amma vacibdir: birincisində diqqət "kim?" üzərindədir, ikincisində "harada?" üzərində. Yaponlar が ilə は arasındakı bu fərqə çox həssasdır.Qısa yol: bu cümləni 3-cü dərsdəki kimi də demək olar: パーカー さん は 事務所 です. Məna eynidir.
+ ex: 東京ディズニーランドは 千葉県に あります。 = Tokio Disneylendi Chiba prefekturasında yerləşir.
+ ex: パーカーさんは 事務所に います。 = Cənab Parker ofisdədir.
+ ex: 東京ディズニーランドは どこに ありますか。 = Tokio Disneylendi harada yerləşir?
+ ex: ……千葉県に あります。 = ……Chiba prefekturasında.
+ ex: パーカーさんは どこに いますか。 = Cənab Parker haradadır?
+ ex: ……事務所に います。 = ……Ofisdə.
+G4. İS₁ の İS₂ (yer sözü) | meaning: "İS₁-in üstü, altı, yanı..."
+ pattern: İS₁ の yer sözü に
+ explanation: Yerləşməni dəqiq demək üçün "yer sözləri" var: üstü, altı, içi, yanı... Onlar の ilə əsas ismə qoşulur: 箱 の 中 – qutunun içi.上 üst下 alt前 ön後ろ arxa右 sağ左 sol中 iç外 çöl隣 yan, qonşu近く yaxınlıq間 araSıra Azərbaycan dilindəki kimidir: "qutunun içində" = 箱 の 中 に. İki əşyanın arasını demək üçün: 銀行 と 郵便局 の 間 – bankla poçtun arası.Fərqi tut: 隣 eyni növdən olan qonşu üçündür (ev-ev, adam-adam), 近く isə sadəcə "yaxınlıq"dır.
+ ex: 机の 上に 写真が あります。 = Stolun üstündə fotoşəkil var.
+ ex: 郵便局は 銀行の 隣に あります。 = Poçt bankın yanındadır.
+ ex: 本屋は 花屋と ~スーパーの 間に あります。 = Kitab mağazası gül dükanı ilə supermarketin arasında yerləşir.
+G5. İS₁ や İS₂ | meaning: "İS₁, İS₂ və s."
+ pattern: İS₁ や İS₂ ［など］
+ explanation: Siyahı verəndə と (4-cü dərs) və や arasında seçim var. Fərq "hamısını deyirəm" və "nümunə gətirirəm" arasındadır.りんご と みかん が あります。Alma və naringi var. (başqa heç nə)りんご や みかん が あります。Alma, naringi və s. var. (başqaları da var)や ilə sonuncu ismə など ("və s.") də əlavə etmək olar: りんご や みかん など. Bu, siyahının açıq olduğunu daha da vurğulayır.Gündəlik həyatda: çantanda nə olduğunu deyəndə hər şeyi sadalamırsan, ona görə や daha təbiidir.
+ ex: 箱の 中に 手紙や 写真が あります。 = Qutuda məktublar, fotoşəkillər və s. var.
+ ex: 箱の 中に 手紙や 写真などが あります。 = Qutuda məktublar, fotoşəkillər və başqa şeylər var.
+G6. İS ですか？ | meaning: sualı dəqiqləşdirmək
+ pattern: 
+ explanation: Canlı danışıqda yaponlar suala dərhal cavab vermir: əvvəlcə sualın mövzusunu təkrarlayıb dəqiqləşdirirlər. Bu, "düz başa düşdüm?" deməkdir.ナンプラー、ありますか。Nam pla sousu var?ナンプラー ですか。…あそこ に あります。Nam pla? ...Oradadır.Bu kiçik təkrar söhbətə vaxt qazandırır və qarşı tərəfə diqqət göstərir. Dükanda soruşanda işçilərin tez-tez belə etdiyini görəcəksən.Məsləhət: sən də bunu işlət! Sual eşidəndə mövzunu 〜ですか ilə təkrarlamaq həm səni təbii göstərir, həm də fikirləşməyə saniyə qazandırır.
+ ex: すみません。~コンビニは どこですか。 = Bağışlayın, market haradadır?
+ ex: ……~コンビニですか。あの ~ビルの 中です。 = ……Market? O binanın içindədir.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+あります | あります | arimasu | var, (var) olmaq (əşyalar üçün)
+います | います | imasu | var, (var) olmaq (canlılar üçün)
+色々[な] | いろいろ[な] | iroiro [na] | cürbəcür, müxtəlif
+男の人 | おとこのひと | otoko no hito | kişi
+女の人 | おんなのひと | onna no hito | qadın
+男の子 | おとこのこ | otoko no ko | oğlan uşağı
+女の子 | おんなのこ | onna no ko | qız uşağı
+犬 | いぬ | inu | it
+猫 | ねこ | neko | pişik
+パンダ | パンダ | panda | panda
+象 | ぞう | zou | fil
+木 | き | ki | ağac
+物 | もの | mono | əşya
+電池 | でんち | denchi | batareya
+箱 | はこ | hako | qutu
+スイッチ | スイッチ | suitchi | düymə (elektrik)
+冷蔵庫 | れいぞうこ | reizouko | soyuducu
+テーブル | テーブル | teeburu | masa
+ベッド | ベッド | beddo | çarpayı
+棚 | たな | tana | rəf, şkaf
+ドア | ドア | doa | qapı
+窓 | まど | mado | pəncərə
+ポスト | ポスト | posuto | poçt qutusu
+ビル | ビル | biru | bina
+ATM | ATM | ATM | bankomat
+コンビニ | コンビニ | konbini | (rahat) market
+公園 | こうえん | kouen | park
+喫茶店 | きっさてん | kissaten | qəlyanaltıxana, çay evi, kafe
+～屋 | ～や | ~ya | ~mağaza
+乗り場 | のりば | noriba | dayanacaq
+県 | けん | ken | prefektura
+上 | うえ | ue | üst
+下 | した | shita | alt
+前 | まえ | mae | ön, qabaq
+後ろ | うしろ | ushiro | arxa
+右 | みぎ | migi | sağ
+左 | ひだり | hidari | sol
+中 | なか | naka | iç, içəri, daxili
+外 | そと | soto | çöl, xarici
+隣 | となり | tonari | yanında
+近く | ちかく | chikaku | yaxın, ətraf
+間 | あいだ | aida | ara(sı)
+～や～[など] | ～や～[など] | ~ya~[nado] | ~, ~ və s. (bağlayıcı)
+[どうも]すみません | [どうも]すみません | [doumo] sumimasen | [Çox] üzr istəyirəm (zəhmət verəndə)
+ナンプラー | ナンプラー | nanpuraa | nam pla (balıq sousu)
+コーナー | コーナー | koonaa | guşə
+いちばん下 | いちばんした | ichiban shita | ən aşağı, ən altı
+
+== DIALOGUE ==
+miller | すみません。アジアストアは どこですか。 | Bağışlayın, “Asiya” mağazası harada yerləşir?
+woman | アジアストアですか。あそこに 白い ~ビルが ありますね。あの ~ビルの 中です。 | “Asiya” mağazası? O ağ binanı görürsünüz? O binadadır.
+miller | そうですか。どうも すみません。 | Aydındır. Çox sağ olun.
+woman | いいえ。 | Dəyməz.
+--- | mağazada
+miller | あのう、~ナンプラー、ありますか。 | Bağışlayın, sizdə “Nam pla” sousu var?
+clerk | ええ。あちらに タイ料理の ~コーナーが あります。~ナンプラーは いちばん 下です。 | Var. O tərəfdə tay mətbəxi guşəsi var. “Nam pla” sousu lap aşağıdadır.
+miller | わかりました。どうも。 | Aydındır. Çox sağ olun.

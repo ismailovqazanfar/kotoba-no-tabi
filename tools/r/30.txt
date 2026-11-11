@@ -1,0 +1,117 @@
+LESSON 30: Yağış yağsa, ləğv oluna bilər
+
+== GRAMMAR ==
+G1. Şərt forması: 〜ば | meaning: əgər ..., ...sa/...sə
+ pattern: şərt forması、〜
+ explanation: 〜ば şərt forması "...sa, ...sə" mənasını verir və şərtin təbii nəticəsini göstərir.sözqaydanümunəI qrupson う → え + ば行く → 行けばII qrupる → れば食べる → 食べればIII qrupxüsusiする → すれば・来る → 来れば（くれば）inkarない → なければ行かない → 行かなければい-sifətい → ければ安い → 安ければ・いい → よければな-sifət / isim+ なら暇 なら・雨 なら安ければ、買います。Ucuz olsa, alaram.急げば、間に合います。Tələssən, çatarsan.〜たら ilə fərqi: ば daha çox "şərt → təbii nəticə" əlaqəsini vurğulayır. Baş cümlədə istək və ya xahiş olanda, şərt hissəsində hərəkət feili ilə たら daha təbii səslənir.Tələ: いい → よければ, いければ yox! 17-ci dərsdəki 〜なければ-ın da elə buradan gəldiyini indi görürsən.
+ ex: この ~ボタンを 押せば、窓が 開きます。 = Bu düyməni bassanız, pəncərə açılır.
+ ex: 天気が よければ、島が 見えます。 = Hava yaxşı olsa, ada görünür.
+ ex: 急がなければ、間に 合いませんよ。 = Tələsməsəniz, çatmayacaqsınız.
+G2. 〜なら | meaning: əgər ... (deyirsinizsə), ... -dırsa
+ pattern: ad / sadə formaなら、〜
+ explanation: 〜なら – qarşı tərəfin dediyi mövzunu götürüb ona məsləhət vermək: "...deyirsənsə, onda...".パソコン を 買いたい ん です が。Kompüter almaq istəyirəm.パソコン なら、駅前 の 店 が 安い です よ。Kompüter deyirsənsə, stansiya qarşısındakı mağaza ucuzdur.Burada なら "əgər" deyil, "mövzu bu isə" deməkdir. Feildən sonra da gəlir: 京都 へ 行く なら、秋 が いい です – Kiotoya getmək istəyirsənsə, payız yaxşıdır.Məsləhət ustası: dostun nəsə planlaşdıranda 〜なら ilə başlayan məsləhət çox təbii səslənir.
+ ex: ~パソコンを 買いたいんですが。……~パソコンなら、駅前の 店が 安いですよ。 = Kompüter almaq istəyirəm. ……Kompüter istəyirsinizsə, stansiyanın qarşısındakı mağaza ucuzdur.
+ ex: 北海道へ 行くなら、冬が いいですよ。 = Hokkaydoya getmək istəyirsinizsə, qış yaxşıdır.
+G3. 〜た ほうが いいです / 〜ない ほうが いいです | meaning: ... etsəniz yaxşıdır / ... etməsəniz yaxşıdır
+ pattern: た-forma / ない-forma ほうが いいです
+ explanation: Məsləhət vermək: 〜た ほうが いいです (...etsən yaxşıdır) və 〜ない ほうが いいです (...etməsən yaxşıdır).熱 が ある なら、休んだ ほうが いい です。Qızdırman varsa, dincəlsən yaxşıdır.無理しない ほうが いい です よ。Özünü yormasan yaxşıdır.Müsbətdə feil た-formada gəlir, keçmiş mənası olmasa da! 休んだ ほうが – "dincəlsən". Bu, yapon dilinin maraqlı xüsusiyyətidir. İnkarda isə adi ない-forma.Ehtiyatlı ol: bu güclü məsləhətdir. Böyüklərə birbaşa demək təkəbbürlü görünə bilər. Onlara 〜たら どうですか ilə yumşaq təklif et.
+ ex: 毎日 少し 運動した ほうが いいですよ。 = Hər gün bir az idman etsəniz yaxşıdır.
+ ex: 夜 遅く 食べない ほうが いいです。 = Gecə gec yeməsəniz yaxşıdır.
+G4. 〜かもしれません / 〜でしょう | meaning: ... ola bilər / yəqin ki ...
+ pattern: sadə forma (な-sifət, ad: だ yoxdur) かもしれません ／ でしょう
+ explanation: Ehtimal dərəcələri: 〜かもしれません (ola bilər, ~50%) və 〜でしょう (yəqin ki, daha güclü).ifadəehtimalnümunə〜でしょうyüksək: "yəqin ki"明日 は 雨 でしょう〜かもしれませんorta: "ola bilər"明日 は 雨 かもしれませんHava proqnozunda でしょう eşidəcəksən. Dostun "bəlkə gec gələrəm" deyəndə 遅れる かもしれません. な-sifət və isimdən sonra だ gəlmir: 雨 かもしれません.Danışıqda: かもしれません → かも. Dostlar arasında tez-tez eşidəcəksən.
+ ex: 約束の 時間に 間に 合わない かもしれません。 = Görüş vaxtına çatmaya bilərəm.
+ ex: 明日は 北の 方で 雪が 降る でしょう。 = Sabah şimal bölgələrində yəqin qar yağacaq.
+G5. 〜のに | meaning: halbuki, ...-dığı halda
+ pattern: sadə forma (な-sifət / ad: な) のに
+ explanation: 〜のに – "halbuki, ...dığı halda". Nəticə gözlənilənin əksinədir və adətən təəccüb, narazılıq var.3時間 も 寝た のに、まだ 眠い です。Düz 3 saat yatdığım halda, hələ də yuxum gəlir.約束 した のに、来ません でした。Söz verdiyi halda, gəlmədi.けど və が neytraldır, のに isə hissi ifadə edir: "nə qədər çalışdım, amma...!" İkinci hissədə xahiş, əmr olmur. な-sifət və isimdən sonra な: 春 な のに 寒い.İkinci məna: feil + のに "...maq üçün" də ola bilər: 肉 を 切る のに 便利 です – ət kəsmək üçün rahatdır.
+ ex: 3時間 寝たのに、まだ 眠いです。 = 3 saat yatdım, halbuki hələ də yuxum gəlir.
+ ex: 春なのに、今日は とても 寒いです。 = Yazdır, halbuki bu gün çox soyuqdur.
+ ex: 約束を したのに、彼は 来ませんでした。 = Söz verdiyi halda, o gəlmədi.
+ ex: この ~ナイフは 肉を 切るのに 便利です。 = Bu bıçaq ət kəsmək üçün rahatdır.
+G6. 〜ば〜ほど | meaning: nə qədər ..., o qədər ...
+ pattern: feil ば-forması ＋ eyni feil lüğət forması ほど
+ explanation: 〜ば〜ほど – "nə qədər..., o qədər...". Eyni sözü iki dəfə təkrarlayırsan: əvvəl ば-formada, sonra lüğət formasında.勉強すれば する ほど、おもしろく なります。Nə qədər çox oxusan, o qədər maraqlı olur.安ければ 安い ほど いい です。Nə qədər ucuz, o qədər yaxşı.Motivasiya: 練習すれば する ほど 上手に なります – "nə qədər məşq etsən, o qədər yaxşılaşarsan". Dil öyrənməyin qızıl qaydası!
+ ex: 日本語は 勉強すれば するほど、おもしろく なります。 = Yapon dilini nə qədər öyrənsən, o qədər maraqlı olur.
+ ex: この 果物は 大きければ 大きいほど、おいしいです。 = Bu meyvə nə qədər böyükdürsə, o qədər dadlıdır.
+ ex: 会えば 会うほど、彼が 好きに なりました。 = Onunla nə qədər görüşdümsə, o qədər xoşum gəldi.
+G7. 〜ば よかった | meaning: kaş ...-sa idim
+ pattern: feil ば-forması よかった です
+ explanation: 〜ば よかった – "kaş ...saydım". Keçmişə baxıb təəssüflənirsən.傘 を 持って くれば よかった。Kaş çətir götürsəydim.あんな こと 言わなければ よかった。Kaş elə şey deməsəydim.〜たら よかった da eyni mənadadır. Sonuna のに əlavə etsən, təəssüf daha da güclənir: 来れば よかった のに – kaş gəlsəydin (nə yaxşı olardı)!Yalnız keçmiş: bu forma hələ baş verməmiş işlər üçün işlənmir, yalnız geriyə baxanda.
+ ex: もっと 早く 起きれば よかったです。 = Kaş daha tez dursaydım.
+ ex: 傘を 持って 来れば よかったです。 = Kaş çətir gətirsəydim.
+ ex: あんなに 食べなければ よかったです。 = Kaş o qədər yeməsəydim.
+G8. 〜ことが あります (ara-sıra) | meaning: ara-sıra ... olur
+ pattern: feil lüğət forması / ない-forma ことが あります
+ explanation: V-lüğət + ことが あります – "bəzən ...olur". 19-cu dərsdəki təcrübə formasından fərqlidir!formamənası行った ことが ありますgetmişəm (təcrübə)行く ことが ありますbəzən gedirəm (ara-sıra)ときどき 会社 を 休む こと が あります。Bəzən işə getmirəm.朝 ご飯 を 食べない こと も あります。Səhər yeməyi yemədiyim vaxtlar da olur.Fərq yalnız bir hərfdə: 行った (た) – keçmiş təcrübə, 行く (lüğət) – təkrarlanan hal. Diqqətli ol!
+ ex: 私は ときどき 朝ごはんを 食べない ことが あります。 = Bəzən səhər yeməyi yemirəm.
+ ex: 電車は 雪の 日に 遅れる ことが あります。 = Qatar qarlı günlərdə bəzən gecikir.
+ ex: 日曜日でも 仕事に 行く ことが あります。 = Bəzən bazar günü də işə gedirəm.
+G9. 〜場合は | meaning: ...olduqda; ...halında
+ pattern: feil (lüğət / た / ない) · い-sifət · な-sifət な · isim の 場合は、〜
+ explanation: 〜場合は – "...olarsa, belə hal olduqda". Ehtimal olunan, çox vaxt arzuolunmaz vəziyyət deyilir, ardınca nə etmək lazım olduğu gəlir.Rəsmi üslubdur: təlimatlarda, elanlarda, qaydalarda tez-tez görünür.Konkret, artıq baş vermiş bir hadisə üçün işlənmir: × 昨日 雨の 場合は、家に いました。Fərq: 〜たら gündəlik danışıqdır və bir dəfəlik hadisəyə də uyğundur. 〜場合は ümumi qayda kimi səslənir.
+ ex: 火事の 場合は、エレベーターを 使わないで ください。 = Yanğın olduqda liftdən istifadə etməyin.
+ ex: 遅れる 場合は、必ず 連絡して ください。 = Gecikəcəyiniz halda mütləq xəbər verin.
+ ex: 都合が 悪い 場合は、日を 変えても いいです。 = Vaxtınız uyğun deyilsə, günü dəyişə bilərsiniz.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+咲きます | さきます | sakimasu | [花が～] çiçəkləmək
+晴れます | はれます | haremasu | açılmaq (hava)
+曇ります | くもります | kumorimasu | buludlanmaq
+間に合います | まにあいます | ma ni aimasu | vaxtında çatmaq
+着替えます | きがえます | kigaemasu | paltar dəyişmək
+運動します | うんどうします | undou shimasu | idman etmək
+天気予報 | てんきよほう | tenki yohou | hava proqnozu
+雲 | くも | kumo | bulud
+島 | しま | shima | ada
+運動会 | うんどうかい | undoukai | idman bayramı (məktəb)
+中止 | ちゅうし | chuushi | ləğv
+席 | せき | seki | yer, oturacaq
+今夜 | こんや | kon'ya | bu gecə
+北 | きた | kita | şimal
+大丈夫 | だいじょうぶ | daijoubu | problem yoxdur
+～によると | ～によると | ~ni yoru to | ...-ə görə
+気温 | きおん | kion | hava temperaturu
+雷 | かみなり | kaminari | ildırım
+台風 | たいふう | taifuu | tayfun
+嵐 | あらし | arashi | fırtına
+洪水 | こうずい | kouzui | daşqın
+蒸し暑い | むしあつい | mushiatsui | bürkülü
+湿気 | しっけ | shikke | rütubət
+延期 | えんき | enki | təxirə salma
+変更 | へんこう | henkou | dəyişiklik
+取り消します | とりけします | torikeshimasu | ləğv etmək
+鼻水 | はなみず | hanamizu | burun axıntısı
+頭痛 | ずつう | zutsuu | baş ağrısı
+注射 | ちゅうしゃ | chuusha | inyeksiya
+検査 | けんさ | kensa | müayinə, yoxlama
+怪我 | けが | kega | yara, zədə
+入院 | にゅういん | nyuuin | xəstəxanaya yerləşdirilmə
+退院 | たいいん | taiin | xəstəxanadan çıxma
+心配 | しんぱい | shinpai | narahatlıq
+安心 | あんしん | anshin | arxayınlıq
+注意 | ちゅうい | chuui | diqqət, xəbərdarlıq
+危険 | きけん | kiken | təhlükə
+安全 | あんぜん | anzen | təhlükəsizlik
+予防 | よぼう | yobou | profilaktika
+消毒 | しょうどく | shoudoku | dezinfeksiya
+体温 | たいおん | taion | bədən temperaturu
+血 | ち | chi | qan
+骨 | ほね | hone | sümük
+指 | ゆび | yubi | barmaq
+背中 | せなか | senaka | kürək
+胸 | むね | mune | sinə
+虫歯 | むしば | mushiba | çürük diş
+梅雨 | つゆ | tsuyu | yağışlı mövsüm (iyun)
+氷 | こおり | koori | buz
+霧 | きり | kiri | duman
+虹 | にじ | niji | göy qurşağı
+
+== DIALOGUE ==
+maria | あなた、日曜日の 運動会、天気は どうかしら。 | Bazar günkü idman bayramında hava necə olacaq, görəsən?
+santos | 天気予報に よると、雨が 降る かもしれないって。 | Hava proqnozuna görə, yağış yağa bilər.
+maria | 雨が 降れば、中止かしら。 | Yağış yağsa, ləğv olunacaq?
+santos | 少しなら 大丈夫だと 思うよ。でも、早く 学校に 聞いた ほうが いいね。 | Az yağsa, problem olmaz, məncə. Amma tez məktəbdən soruşsaq yaxşıdır.
+maria | そうね。雨なら、傘と 着替えも 持って 行った ほうが いいわね。 | Hə. Yağış olacaqsa, çətir və ehtiyat paltar da götürsək yaxşıdır.
+santos | うん。それから、早く 行けば、いい 席が 取れるよ。 | Hə. Bir də, tez getsək, yaxşı yer tuta bilərik.
+maria | じゃ、7時に 出かけましょう。 | Onda saat 7-də çıxaq.

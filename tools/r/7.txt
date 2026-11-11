@@ -1,0 +1,102 @@
+LESSON 7: Bağışlayın, gəlmək olar?
+
+== GRAMMAR ==
+G1. İS (alət, vasitə) で F | meaning: "... ilə edirəm"
+ pattern: alət / vasitə で feil
+ explanation: で yenə qarşımızdadır, bu dəfə "nə ilə?" sualına cavab verir: hansı alətlə, hansı vasitə ilə. はし で 食べます – çubuqla yeyirəm. ペン で 書きます – qələmlə yazıram.Dilin adı ilə gələndə isə "... dilində" mənasını alır: 日本語 で 話します – yapon dilində danışıram. Məntiqi aydındır: dil də bir alətdir, fikri onunla çatdırırıq.はし で 食べます。Çubuqla yeyirəm.英語 で レポート を 書きます。Hesabatı ingilis dilində yazıram.Kolleksiyan böyüyür: で-nin artıq üç mənasını bilirsən: nəqliyyat (電車で), hərəkətin yeri (駅で) və alət, vasitə (はしで). Hamısının ortaq nöqtəsi: "nəyin köməyi ilə / harada edirəm?"
+ ex: はしで 食べます。 = Çubuqlarla yeyirəm.
+ ex: 日本語で ~レポートを 書きます。 = Yaponca məruzə yazıram.
+G2. “SÖZ / CÜMLƏ” は 〜語で 何ですか | meaning: "... dilində necədir?"
+ pattern: 「#söz」 は dil 語で 何ですか
+ explanation: Dil öyrənən üçün ən faydalı cümlələrdən biri budur: "Bu, yapon dilində necədir?" Sözü dırnaqda deyirsən, sonra は 日本語 で 何 です か.「Thank you」は 日本語 で 何 です か。"Thank you" yapon dilində necədir?「ありがとう」です。"Arigatou"dur.Bu cümləni əzbərlə, Yaponiyada və ya yapon dostla danışanda sənin "xilaskarın" olacaq. Bilmədiyin sözü soruşmaqdan çəkinmə, yaponlar bunu çox sevir.Ters istiqamət: yapon sözünü başa düşmürsənsə: 「〜」は 英語 で 何 です か – "Bu, ingilis dilində necədir?"
+ ex: 「ありがとう」は 英語で 何ですか。 = İngiliscə “ありがとう” necədir?
+ ex: ……「Thank you」です。 = ……“Thank you”.
+ ex: 「Thank you」は 日本語で 何ですか。 = “Thank you” yaponca necədir?
+ ex: ……「ありがとう」です。 = ……“Arigatou”.
+G3. İS₁ (insan) に İS₂ を あげます və s. | meaning: "İS₁-ə İS₂ verirəm"
+ pattern: insan に əşya を あげます
+ explanation: Vermək haqqında danışanda あげます işlənir: kimə verirsənsə, o adamdan sonra に gəlir. ともだち に 花 を あげます – dosta gül verirəm.Eyni qəlibdə işləyən iki feil də var: かします (borc vermək) və おしえます (öyrətmək). Üçünün ortaq məntiqi: bir şey məndən qarşı tərəfə gedir, alan şəxs isə に ilə işarələnir.パーカー さん に 本 を かします。Parkerə kitab borc verirəm.加藤 さん に 英語 を おしえます。Katoya ingilis dili öyrədirəm.Yadda saxla: に burada "kimə?" sualına cavab verir. Azərbaycan dilindəki "-a, -ə" şəkilçisi kimi.
+ ex: ［わたしは］ 野村さんに 花を あげました。 = [Mən] xanım Nomuraya gül hədiyyə etdim.
+ ex: ［わたしは］ カンさんに 本を 貸しました。 = [Mən] xanım İyə kitab borc verdim.
+ ex: ［わたしは］ 健斗くんに 英語を 教えます。 = [Mən] Kentoya ingilis dili öyrədirəm.
+G4. İS₁ (insan) に İS₂ を もらいます və s. | meaning: "İS₁-dən İS₂ alıram"
+ pattern: insan に əşya を もらいます
+ explanation: İndi əks istiqamət: bir şeyi almaq. もらいます (almaq), かります (borc almaq), ならいます (öyrənmək). Burada に verən adamı göstərir: "kimdən?".vermək (→ に alan)almaq (← に verən)あげます verməkもらいます almaqかします borc verməkかります borc almaqおしえます öyrətməkならいます öyrənməkMaraqlıdır, hə? Eyni に bir cümlədə "kimə", digərində "kimdən" olur. Feil istiqaməti müəyyən edir. Bu cütləri bir-birinin güzgüsü kimi öyrənmək ən asan yoldur.加藤 さん に 本 を もらいました。Katodan kitab aldım.先生 に 日本語 を ならいます。Müəllimdən yapon dili öyrənirəm.Bonus: "kimdən aldım" deyəndə に əvəzinə から də işlənə bilər: 会社 から もらいました. Xüsusən verən şəxs təşkilat olanda bu daha təbiidir.
+ ex: ［わたしは］ 原田さんに 花を もらいました。 = [Mən] cənab Haradadan gül aldım.
+ ex: ［わたしは］ ラトナさんに CDを 借りました。 = [Mən] Ratnadan kompakt-disk [müvəqqəti] götürdüm.
+ ex: ［わたしは］ ホアンさんに 中国語を 習います。 = [Mən] xanım Xuandan çin dili öyrənirəm.
+G5. もう F ました | meaning: "artıq ... -mışam"
+ pattern: もう feil ました
+ explanation: もう "artıq" deməkdir və keçmiş formadakı feillə gəlir: もう 昼ごはん を 食べました – artıq nahar etmişəm. Bu cümlə "iş bitib" mənasını verir.Kimsə "artıq yedin?" deyə soruşanda cavab belədir:はい、もう 食べました。Bəli, artıq yemişəm.いいえ、まだ です。Xeyr, hələ yox.Böyük tələ: "hələ yeməmişəm" demək üçün 食べませんでした işlətmə! O "keçmişdə heç yemədim" mənasını verir, sanki fürsət keçib. Düzgünü まだです və ya sonra öyrənəcəyimiz まだ 食べていません-dır.
+ ex: もう 荷物を 送りましたか。 = Siz baqajı (bağlamanı) artıq göndərmisiniz?
+ ex: ……はい、もう 送りました。 = ……Bəli, artıq göndərmişəm.
+ ex: ……いいえ、まだ 送って いません。 = ……Xeyr, hələ göndərməmişəm.
+ ex: ……いいえ、まだです。 = ……Xeyr, hələ yox.
+G6. Ədatların düşməsi | meaning: danışıq dilində
+ pattern: 
+ explanation: Canlı danışıqda yaponlar ədatları tez-tez "udur". Fikir aydındırsa, は, を kimi kiçik sözlər düşür və cümlə qısalır.この スプーン（は）、すてき です ね。Bu qaşıq qəşəngdir, hə?コーヒー（を）、もう いっぱい いかが です か。Bir fincan da qəhvə?Bu, tənbəllik deyil, danışığın təbii ritmidir. Azərbaycan dilində də "kitabı gətir" əvəzinə "kitab gətir" deyirik, hamı başa düşür.Məsləhət: yazıda və rəsmi danışıqda ədatları saxla. Dostla söhbətdə isə düşürmək səni daha "yerli" kimi göstərər.
+ ex: この ~スプーン［は］、すてきですね。 = Necə də gözəl qaşıqdır!
+ ex: ~コーヒー［を］、もう 一杯 いかがですか。 = Bəlkə, bir fincan da kofe? (8-ci dərs)
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+切ります | きります | kirimasu | kəsmək
+送ります | おくります | okurimasu | göndərmək, ötürmək
+あげます | あげます | agemasu | vermək
+もらいます | もらいます | moraimasu | almaq
+貸します | かします | kashimasu | borc vermək
+借ります | かります | karimasu | borc almaq
+教えます | おしえます | oshiemasu | öyrətmək
+習います | ならいます | naraimasu | öyrənmək
+かけます[電話を～] | かけます[でんわを～] | kakemasu [denwa o ~] | zəng vurmaq [telefonla zəng vurmaq]
+手 | て | te | əl
+はし | はし | hashi | yemək çubuqları
+スプーン | スプーン | supuun | qaşıq
+ナイフ | ナイフ | naifu | bıçaq
+フォーク | フォーク | fooku | çəngəl
+はさみ | はさみ | hasami | qayçı
+パソコン | パソコン | pasokon | fərdi kompyuter
+ケータイ | ケータイ | keetai | mobil telefon
+メール | メール | meeru | e-poçt, mesaj
+年賀状 | ねんがじょう | nengajou | Yeni il təbrik kartı
+パンチ | パンチ | panchi | deşikaçan
+ホッチキス | ホッチキス | hocchikisu | stepler
+セロテープ | セロテープ | seroteepu | yapışqan lent
+消しゴム | けしゴム | keshigomu | pozan
+紙 | かみ | kami | kağız
+花 | はな | hana | gül
+シャツ | シャツ | shatsu | köynək
+プレゼント | プレゼント | purezento | hədiyyə
+荷物 | にもつ | nimotsu | yük, baqaj
+お金 | おかね | okane | pul
+切符 | きっぷ | kippu | bilet
+クリスマス | クリスマス | kurisumasu | Milad bayramı
+父 | ちち | chichi | ata, atam (öz atası)
+母 | はは | haha | ana, anam (öz anası)
+お父さん | おとうさん | otousan | ata, atası (başqasının atası)
+お母さん | おかあさん | okaasan | ana, anası (başqasının anası)
+もう | もう | mou | artıq
+まだ | まだ | mada | hələ, hələ yox
+これから | これから | kore kara | bundan sonra
+すてきですね | すてきですね | suteki desu ne | necə də gözəldir!
+いらっしゃい | いらっしゃい | irasshai | Xoş gəldiniz.
+どうぞ おあがりください。 | どうぞ おあがりください。 | douzo oagari kudasai | Buyurun, keçin, zəhmət olmasa.
+しつれいします。 | しつれいします。 | shitsurei shimasu | İcazənizlə. (otağa girəndə və ya çıxanda)
+[～は]いかがですか。 | [～は]いかがですか。 | [~wa] ikaga desu ka | ~ istəyirsinizmi? (yemək/içmək təklif edəndə)
+いただきます | いただきます | itadakimasu | Təşəkkürlə qəbul edirəm (yeməkdən əvvəl deyilir)
+ごちそうさま[でした] | ごちそうさま[でした] | gochisousama [deshita] | Yeməklər çox dadlı idi (yeməkdən sonra)
+スペイン | スペイン | Supein | İspaniya
+
+== DIALOGUE ==
+jose | ごめんください。 | Bağışlayın, gəlmək olar? (Evdə kim var?)
+ichiro | はい。 | Bəli.
+jose | ラモスです。 | Ramosdur.
+--- | qapı açılır
+ichiro | いらっしゃい。どうぞ お上がり ください。 | Xoş gəlmisiniz. Buyurun, keçin.
+jose | 失礼します。 | Narahat etdiyimə görə bağışlayın.
+--- | qonaq otağında
+tomoko | ~コーヒーは いかがですか。 | Kofe istəyirsiniz?
+maria | ありがとう ございます。 | Çox sağ olun.
+--- | bir az sonra
+tomoko | どうぞ。 | Buyurun.
+maria | いただきます。この ~スプーン、すてきですね。 | Məmnuniyyətlə. Necə də gözəl qaşıqdır!
+tomoko | ええ。会社の 人に もらいました。メキシコの お土産です。 | Bəli, bunu mənə iş yoldaşım hədiyyə edib. Meksikadan suvenirdir.

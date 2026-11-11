@@ -1,0 +1,89 @@
+LESSON 35: Saat neçədə təşrif gətirəcəksiniz?
+
+== GRAMMAR ==
+G1. Hörmət dili (尊敬語) | meaning: qarşı tərəfi yüksəltmək
+ pattern: おます-kökに なります ／ xüsusi feil
+ explanation: Keigo (敬語) yapon dilinin "zirvəsi"dir. Qorxulu görünür, amma məntiqi sadədir. Hörmət dili (尊敬語) qarşı tərəfi yüksəldir: böyüyün, müştərinin, müəllimin hərəkətindən danışanda.Ümumi qayda: お + ます-kök + に なります: お帰り に なります (qayıdırlar), お書き に なります (yazırlar). Xahiş üçün: お + ます-kök + ください: お待ち ください – gözləyin.Ən çox işlənən feillərin isə xüsusi formaları var, bunları əzbərləmək lazımdır:adihörmət dili行く / 来る / いるいらっしゃる食べる / 飲む召し上がる言うおっしゃる見るご覧に なるするなさるくれるくださるKiçik qayda: いらっしゃる, おっしゃる, なさる, くださる ます-formada 〜います olur: いらっしゃいます (いらっしゃります yox).Asan yol: məchul forma da yüngül hörmət bildirir: 部長 は 何時 に 来られますか – müdir saat neçədə gələcəklər? Xüsusi formaları bilmirsənsə, bu xilaskardır.
+ ex: 社長は もう お帰りに なりました。 = Şirkət rəhbəri artıq evə gedib.
+ ex: 先生が そう おっしゃいました。 = Müəllim belə buyurdu.
+ ex: 週末は 何を なさいますか。 = Həftə sonu nə edəcəksiniz?
+ ex: 少々 お待ち ください。 = Bir az gözləyin, zəhmət olmasa.
+G2. Təvazökar dil (謙譲語) | meaning: özünü aşağı tutmaq
+ pattern: お／ごます-kök / adします ／ xüsusi feil
+ explanation: Təvazökar dil (謙譲語) əksini edir: özünü aşağı tutur. Öz hərəkətindən və ya öz tərəfinin (şirkət, ailə) hərəkətindən danışanda qarşı tərəfə hörmət üçün.Ümumi qayda: お + ます-kök + します: お持ち します (götürərəm), お送り します (göndərərəm). Çin mənşəli isimlərdə ご: ご案内 します – yol göstərərəm.aditəvazökar dil行く / 来る参るいるおる食べる / 飲む / もらういただく言う申す見る拝見するするいたすあげるさしあげる知って いる存じて おるBöyük mədəni fərq: kənar adamla (müştəri) danışanda öz şirkətinin müdirindən də təvazökar danışırsan və adını さん-sız deyirsən: 原田 は 会議中 で ございます – Harada iclasdadır. Çünki müdir "bizim tərəf"dir, müştəri isə "kənar".
+ ex: 明日 10時に そちらへ 参ります。 = Sabah saat 10-da yanınıza gələcəyəm.
+ ex: 会議室に ご案内します。 = Sizi iclas otağına aparım.
+ ex: 私は みどり商事の パーカーと 申します。 = Mən Midori Shouji şirkətindən Parkerəm.
+G3. ございます / で ございます | meaning: var / -dır (çox nəzakətli)
+ pattern: あります → ございます ／ です → で ございます
+ explanation: ございます / で ございます – ən nəzakətli "var" və "-dır". Mağaza, otel, bankda müştəriyə danışanda işlənir.トイレ は あちら に ございます。Tualet o tərəfdədir. (mağazada)こちら が お部屋 で ございます。Bura sizin otağınızdır. (oteldə)あります → ございます, です → で ございます. Gündəlik ifadələrdə artıq tanışsan: おはよう ございます, ありがとう ございます – bunlar da keigodur!Gözəl detal: Yaponiyada mağazaya girəndə いらっしゃいませ ("xoş gəlmisiniz") eşidəcəksən. Bu da いらっしゃる-nın əmr formasıdır, çox nəzakətli.
+ ex: 電話は 階段の 横に ございます。 = Telefon pilləkənin yanındadır.
+ ex: こちらは 新しい 商品で ございます。 = Bu, yeni məhsulumuzdur.
+G4. Hörmət dilini necə seçmək | meaning: kim edir, kimə danışıram
+ pattern: qarşı tərəf → 尊敬語 ／ mən, bizim tərəf → 謙譲語
+ explanation: Keigonu seçmək üçün yalnız bir sual ver: hərəkəti kim edir?hərəkəti kim edir?dilnümunəböyük, müştəri, müəllimhörmət dili (yüksəlt)先生 が いらっしゃいますmən, öz tərəfimtəvazökar dil (alçalt)わたし が 参りますhamıya neytralnəzakətli (です/ます)行きますƏn çox edilən səhv: öz hərəkətinə hörmət dili işlətmək. わたし が いらっしゃいます desən, özünü tərifləyirsən, çox gülməli səslənir! Düzgünü: わたし が 参ります.Rahatlatıcı söz: yaponların özləri də keigoda səhv edir, hətta şirkətlər yeni işçilərə xüsusi kurs keçir. Sən です/ます ilə nəzakətli danışsan, heç kim inciməz. Keigo "əlavə bonusdur", şərt deyil.
+ ex: 部長が 資料を ご覧に なります。 = Departament müdiri sənədlərə baxacaq.
+ ex: わたしが 資料を 拝見します。 = Sənədlərə mən baxaram.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+召し上がります | めしあがります | meshiagarimasu | yemək, içmək (hörmət)
+おっしゃいます | おっしゃいます | osshaimasu | demək (hörmət)
+なさいます | なさいます | nasaimasu | etmək (hörmət)
+ご覧になります | ごらんになります | goran ni narimasu | baxmaq (hörmət)
+くださいます | くださいます | kudasaimasu | vermək (mənə, hörmət)
+参ります | まいります | mairimasu | getmək, gəlmək (təvazökar)
+おります | おります | orimasu | olmaq (təvazökar)
+申します | もうします | moushimasu | demək (təvazökar)
+拝見します | はいけんします | haiken shimasu | baxmaq (təvazökar)
+いたします | いたします | itashimasu | etmək (təvazökar)
+さしあげます | さしあげます | sashiagemasu | vermək (təvazökar)
+存じています | ぞんじています | zonjite imasu | bilmək (təvazökar)
+戻ります | もどります | modorimasu | qayıtmaq
+商品 | しょうひん | shouhin | məhsul, mal
+会議中 | かいぎちゅう | kaigichuu | iclasda
+少々 | しょうしょう | shoushou | bir az (nəzakətli)
+ただいま | ただいま | tadaima | hazırda (nəzakətli)
+かしこまりました | かしこまりました | kashikomarimashita | baş üstə, anladım
+申し訳ございません | もうしわけございません | moushiwake gozaimasen | çox üzr istəyirəm
+伝言 | でんごん | dengon | ötürülən xəbər, qeyd
+留守 | るす | rusu | evdə / ofisdə olmama
+連絡 | れんらく | renraku | əlaqə
+返事 | へんじ | henji | cavab (məktuba, çağırışa)
+取引先 | とりひきさき | torihikisaki | biznes tərəfdaşı
+注文 | ちゅうもん | chuumon | sifariş
+見積もり | みつもり | mitsumori | smeta, qiymət təklifi
+請求書 | せいきゅうしょ | seikyuusho | hesab-faktura
+領収書 | りょうしゅうしょ | ryoushuusho | qəbz
+割引 | わりびき | waribiki | endirim
+値段 | ねだん | nedan | qiymət
+値上げ | ねあげ | neage | qiymət artımı
+支払います | しはらいます | shiharaimasu | ödəmək
+届けます | とどけます | todokemasu | çatdırmaq
+受け取ります | うけとります | uketorimasu | qəbul etmək, almaq
+確認します | かくにんします | kakunin shimasu | yoxlamaq, təsdiqləmək
+確かめます | たしかめます | tashikamemasu | dəqiqləşdirmək
+失礼 | しつれい | shitsurei | nəzakətsizlik; bağışlayın
+承知します | しょうちします | shouchi shimasu | anlamaq, razı olmaq
+遅くなります | おそくなります | osokunarimasu | gecikmək
+お待たせします | おまたせします | omatase shimasu | gözlətmək
+お世話になります | おせわになります | osewa ni narimasu | köməyiniz üçün minnətdaram (salamlama)
+お疲れ様 | おつかれさま | otsukaresama | əziyyətiniz üçün sağ olun
+お願いします | おねがいします | onegai shimasu | xahiş edirəm
+都合が悪い | つごうがわるい | tsugou ga warui | əlverişli deyil
+外出 | がいしゅつ | gaishutsu | çölə çıxma
+空席 | くうせき | kuuseki | boş yer
+満席 | まんせき | manseki | yerlər doludur
+応じます | おうじます | oujimasu | cavab vermək, razılaşmaq
+お客様 | おきゃくさま | okyakusama | müştəri, qonaq
+担当者 | たんとうしゃ | tantousha | məsul şəxs
+繰り返します | くりかえします | kurikaeshimasu | təkrarlamaq
+
+== DIALOGUE ==
+operator | はい、みどり商事で ございます。 | Bəli, Midori Shouji şirkəti, eşidirəm.
+santos | サンバ エアーの ラモスと 申します。原田 課長は いらっしゃいますか。 | Braziliya Hava Yollarından Ramos danışır. Şöbə müdiri Harada yerindədirmi?
+operator | 申し訳ございません。原田は ただいま 会議中で ございます。 | Çox üzr istəyirəm. Harada hazırda iclasdadır.
+santos | そうですか。何時ごろ お戻りに なりますか。 | Belə? Təxminən saat neçədə qayıdacaq?
+operator | 3時ごろに 戻る 予定で ございます。お戻りに なったら、お電話を さしあげましょうか。 | Saat 3 radələrində qayıtmalıdır. Qayıdanda sizə zəng etsin?
+santos | いいえ、こちらから また お電話します。原田 課長に よろしく お伝え ください。 | Xeyr, mən özüm yenə zəng edərəm. Şöbə müdiri Haradaya salamımı çatdırın.
+operator | かしこまりました。ラモスさまから お電話が あったと 申し伝えます。 | Baş üstə. Cənab Ramosun zəng etdiyini çatdıraram.
+santos | よろしく お願いします。失礼します。 | Xahiş edirəm. Sağ olun.

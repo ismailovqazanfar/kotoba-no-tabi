@@ -1,0 +1,103 @@
+LESSON 2: Bu nədir?
+
+== GRAMMAR ==
+G1. これ / それ / あれ | meaning: "bu / o (sizdəki) / o (uzaqdakı)"
+ pattern: 
+ explanation: これ, それ, あれ – əşyanı barmaqla göstərib "bu", "o" deməyin yapon variantıdır. Bunlar ismin yerinə keçir, yəni yanlarına başqa isim qoşulmur: これ は ほん です deyirsən, これ ほん demirsən.Bütün sirr məsafədədir. Yapon dili "kimə yaxındır?" sualına çox fikir verir:sözoxunuşuharada?これkoremənim yanımda, əlimdəそれsoresənin yanında, sənin əlindəあれareikimizdən də uzaqda, o tərəfdəTəsəvvür et: dükandasan. Əlindəki kitab これ-dir, satıcının əlindəki çanta それ, rəfin ən yuxarısındakı papaq isə あれ.Tələ: Azərbaycan dilində "o" sözü həm それ, həm də あれ yerinə işlənir. Yaponcada isə fərq vacibdir: それ qarşındakının yanındadır, あれ hər ikinizdən uzaqdadır.
+ ex: それは 辞書ですか。 = Bu (sizin əlinizdəki) lüğətdir?
+ ex: これは だれの 傘ですか。 = Bu kimin çətiridir?
+G2. この İS / その İS / あの İS | meaning: "bu ... / o ... / o ..."
+ pattern: この İS
+ explanation: この, その, あの これ ailəsinin "qardaşları"dır, amma xasiyyətləri fərqlidir: tək dura bilmirlər, mütləq arxalarından isim gəlməlidir. Yəni "bu", "o" sözünü bir isimlə birlikdə deyirsən: "bu kitab", "o çanta".これ は ほん です。Bu kitabdır. (これ təkdir)この ほん は わたし の です。Bu kitab mənimdir. (この + isim)Məsafə qaydası dəyişmir: この mənə yaxın, その sənə yaxın, あの ikimizdən də uzaq.Asan yadda saxlamaq üçün: sonu -re ilə bitənlər (これ/それ/あれ) tək gəzir, sonu -no ilə bitənlər (この/その/あの) isə həmişə "dostu" ilə, yəni isimlə gəzir.
+ ex: この 本は わたしのです。 = Bu kitab mənimdir.
+ ex: あの 方は どなたですか。 = O şəxs kimdir?
+G3. そうです | meaning: "bəli, elədir"
+ pattern: はい、そうです
+ explanation: Kimsə "Bu kitabdır?" deyə soruşanda cavabda bütün cümləni təkrarlamağa ehtiyac yoxdur. はい、そうです deyirsən: "bəli, elədir". Qısa, nəzakətli və təbii.これ は ほん です か。Bu kitabdır?はい、そう です。Bəli, elədir.Razı deyilsənsə, ən sadə yol いいえ、ちがいます-dır: "xeyr, elə deyil". そう sözünü "elə, o cür" kimi düşün.Diqqət: そうです yalnız isimli cümlələrə ("bu nədir?", "kimdir?") cavabda yaxşı işləyir. Feilli suallarda ("gedirsən?") başqa cavab lazım olacaq, bunu sonra görəcəyik.
+ ex: それは 辞書ですか。 = Bu lüğətdir?
+ ex: ……はい、そうです。 = ……Bəli, elədir.
+G4. 〜か、〜か | meaning: seçimli sual
+ pattern: A ですか、 B ですか
+ explanation: "Bu çaydır, yoxsa qəhvə?" kimi seçimli sualda hər variantın sonuna か qoyursan: 〜です か、〜です か. Yəni yapon dilində "yoxsa" sözü ayrıca yoxdur, iki dəfə か demək kifayətdir.これ は ボールペン です か、シャープペンシル です か。Bu diyircəkli qələmdir, yoxsa mexaniki karandaş?シャープペンシル です。Mexaniki karandaşdır.Tələ: bu suala はい / いいえ ilə cavab vermə. Soruşan "hə" və ya "yox" gözləmir, variantlardan birini gözləyir. Sadəcə düzgün olanı de.
+ ex: これは「９」ですか、「７」ですか。 = Bu “9”-dur, yoxsa “7”-dir?
+ ex: ……「９」です。 = ……(Bu) “9”-dur.
+G5. İS₁ の İS₂ | meaning: iki yeni məna
+ pattern: İS₁ の İS₂
+ explanation: 1-ci dərsdə の sahiblik göstərirdi: "mənim kitabım". İndi onun iki yeni rolunu görürük, və bunların ikisi də gündəlik danışıqda çox lazımdır.1) Nə haqqında? Kitabın, jurnalın, CD-nin mövzusunu deyəndə: コンピューター の ほん – kompüter haqqında kitab. Burada "kompüterin kitabı" yox, "kompüter mövzusunda kitab" deməkdir.2) Hansı dildə? 日本語 の 本 – yapon dilində kitab (və ya yapon dili kitabı).わたし の 本mənim kitabım (sahiblik)車 の 本maşın haqqında kitab (mövzu)Fikir ver: の həmişə eyni şeyi edir: birinci isim ikincini izah edir. Mənanı kontekst həll edir, yaponlar da bunu belə başa düşür.
+ ex: これは ~コンピューターの 本です。 = Bu kompüter haqqında kitabdır.
+G6. の – ismin yerinə | meaning: "... -ınkı, -inki"
+ pattern: İS₁ の
+ explanation: Söhbət hansı əşyadan getdiyi aydındırsa, の-dan sonrakı ismi atmaq olar. Bu, Azərbaycan dilindəki "-ınkı, -inki" şəkilçisinin tam qarşılığıdır.これ は 加藤 さん の かばん です か。Bu Katonun çantasıdır?はい、加藤 さん の です。Bəli, Katonunkudur.İkinci cümlədə かばん sözü təkrar olunmur, çünki hər kəs nədən danışıldığını bilir. Qısa və təmiz.Tələ: atılan söz insandırsa, bu qayda işləmir. "Midori Shouji-nin işçisidir" deyəndə 社員 sözünü saxlamalısan: ミドリ商事 の 社員 です. ミドリ商事 の です desən, qəribə səslənər, sanki insanı əşya kimi göstərirsən.
+ ex: あれは だれの ~カバンですか。 = O çanta kimindir?
+ ex: ……加藤さんのです。 = ……Xanım Katonundur.
+ ex: この ~カバンは あなたのですか。 = Bu çanta sizindir?
+ ex: ……いいえ、わたしのじゃ ありません。 = ……Xeyr, mənim deyil.
+ ex: パーカーさんは ミドリ 商事の 社員ですか。 = Cənab Parker Midori Shouji-nin işçisidir?
+ ex: ……はい、ミドリ 商事の 社員です。 = ……Bəli, (o) Midori Shouji-nin işçisidir.
+G7. お〜 | meaning: nəzakət prefiksi
+ pattern: お İS
+ explanation: Bəzi sözlərin qabağına お qoyulur və söz daha nəzakətli, daha "yumşaq" səslənir. Məsələn, みやげ (suvenir) əvəzinə çox vaxt おみやげ deyilir, さけ (spirtli içki) əvəzinə おさけ.Bu prefiks söhbətə hörmət qatır, xüsusən qarşı tərəfə aid şeylərdən danışanda. Bəzi sözlərdə isə artıq elə adət olub ki, お olmadan demək kobud və ya qəribə səslənir.Məsləhət: yeni sözləri lüğətdə necə görürsənsə, elə də öyrən. お ilə gəlirsə, onunla birlikdə əzbərlə.
+ ex: お土産 = hədiyyə, suvenir
+ ex: お酒 = spirtli içki, sake
+G8. そうですか | meaning: "Belə? Aydındır."
+ pattern: そうですか ↘
+ explanation: そう です か çox işlənən reaksiyadır: "Belə? Aha, aydındır". Yeni bir məlumat eşidəndə, onu qəbul etdiyini bildirmək üçün deyilir.Burada か olsa da, bu sual deyil. Ona görə səs sonda qalxmır, əksinə, enir ↘. Səsi qaldırsan, "doğrudan?!" kimi təəccüblü bir sual alınar.これ は 日本 の コーヒー です。Bu Yaponiya qəhvəsidir.そう です か。Aha, belə.Səmimi məsləhət: yaponlar söhbətdə tez-tez belə qısa reaksiyalar verir. Sən də そうですか, へえ kimi sözləri işlətsən, danışığın daha canlı və təbii olar.
+ ex: この 傘は あなたのですか。 = Bu çətir sizindir?
+ ex: ……いいえ、違います。ボルコフさんのです。 = ……Xeyr, (mənim deyil.) Cənab Volkovundur.
+ ex: そうですか。 = Aydındır.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+これ | これ | kore | bu (buradakı əşya)
+それ | それ | sore | o (müsahibin yanındakı obyekt)
+あれ | あれ | are | o (müsahiblərdən uzaq obyekt)
+この～ | この～ | kono~ | bu (işarə əvəzliyi, isimlə)
+その～ | その～ | sono~ | o (işarə əvəzliyi)
+あの～ | あの～ | ano~ | o, uzaq (işarə əvəzliyi)
+本 | ほん | hon | kitab
+辞書 | じしょ | jisho | lüğət
+雑誌 | ざっし | zasshi | jurnal
+新聞 | しんぶん | shinbun | qəzet
+ノート | ノート | nooto | dəftər
+手帳 | てちょう | techou | kitabça
+名刺 | めいし | meishi | vizit kartı
+カード | カード | kaado | kart
+鉛筆 | えんぴつ | enpitsu | karandaş
+ボールペン | ボールペン | boorupen | ruçka
+シャープペンシル | シャープペンシル | shaapupenshiru | avtomat karandaş
+鍵 | かぎ | kagi | açar
+時計 | とけい | tokei | saat
+傘 | かさ | kasa | çətir
+かばん | かばん | kaban | çanta
+CD | CD | shii dii | CD
+テレビ | テレビ | terebi | televizor
+ラジオ | ラジオ | rajio | radio
+カメラ | カメラ | kamera | foto aparat
+コンピューター | コンピューター | konpyuutaa | kompyuter
+車 | くるま | kuruma | maşın
+机 | つくえ | tsukue | masa, stol
+いす | いす | isu | oturacaq, stul
+チョコレート | チョコレート | chokoreeto | şokolad
+コーヒー | コーヒー | koohii | qəhvə
+お土産 | おみやげ | omiyage | hədiyyə, suvenir
+英語 | えいご | eigo | ingilis dili
+～語 | ～ご | ~go | ~ca/cə, ~dili
+何 | なん | nan | nə
+そう | そう | sou | bəli, belə (razılıq bildirir)
+あのう | あのう | anou | ee, şey (fikri söyləməzdən öncə tərəddüd edəndə)
+えっ | えっ | e(t) | Nə? (təəccüblənəndə)
+どうぞ。 | どうぞ。 | douzo | Buyurun. (təklif)
+[どうも]ありがとう[ございます] | [どうも]ありがとう[ございます] | [doumo] arigatou [gozaimasu] | [Çox] təşəkkür [edirəm]. [Çox] sağ olun
+そうですか。 | そうですか。 | sou desu ka | Belə mi. (başa düşürəm)
+違います | ちがいます | chigaimasu | Səhvdir, belə deyil
+あ | あ | a | A! (yeni bir xəbər eşidəndə)
+これからお世話になります | これからおせわになります | kore kara osewa ni narimasu | Bundan sonra köməyinizə ümid bəsləyirəm
+こちらこそ[どうぞ]よろしく[お願いします] | こちらこそ[どうぞ]よろしく[おねがいします] | kochira koso [douzo] yoroshiku [onegaishimasu] | Mən də məmnun oldum ([どうぞ]よろしく-nın cavabı)
+
+== DIALOGUE ==
+yamada | はい。どなたですか。 | Bəli? Kimdir?
+santos | 408の ラモスです。 | Mən Ramosam, 408-ci mənzildən.
+--- | qapı açılır
+santos | 。ラモスです。これから お世話に なります。どうぞ よろしく お願いします。 | Salam. Mənim adım Ramosdur. Bundan sonra dəstəyinizə ümidvaram. Lütfünüzü rica edirəm.
+yamada | こちらこそ よろしく お願いします。 | Mən də lütfünüzü rica edirəm.
+santos | あのう、これ、~コーヒーです。どうぞ。 | Hmm..., bu... kofedir. Buyurun, qəbul edin.
+yamada | どうも ありがとう ございます。 | Çox sağ olun.

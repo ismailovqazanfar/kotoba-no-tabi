@@ -1,0 +1,64 @@
+LESSON 15: Ailəniz haqqında danışın
+
+== GRAMMAR ==
+G1. F て-forma も いいですか | meaning: "... etmək olar?"
+ pattern: Fて-forma も いいですか
+ explanation: İcazə istəmək üçün: て-forma + も いい です か – "...etmək olar?" Hərfi mənası "...etsəm də, yaxşıdırmı?".写真 を 撮って も いい です か。Şəkil çəkmək olar?ええ、いい です よ。Bəli, olar.Rədd cavabı vermək yaponlar üçün çətindir, ona görə çox vaxt birbaşa "yox" demirlər. Əvəzində cümləni yarımçıq qoyurlar: すみません、ちょっと… – "bağışlayın, bir az...". Bu "..." əslində "olmaz" deməkdir!Mədəni sirr: ちょっと… eşidəndə israr etmə. Bu, nəzakətli "yox"dur və yaponlar səndən onu başa düşməyini gözləyir.
+ ex: 写真を 撮っても いいですか。 = Şəkil çəkmək olar?
+ ex: ここで たばこを 吸っても いいですか。 = Burada siqaret çəkmək olar?
+ ex: ……ええ、［吸っても］ いいですよ。 = ……Bəli, buyurun, çəkin.
+ ex: ……いいえ、［吸っては］ いけません。禁煙ですから。 = ……Xeyr, olmaz. Burada siqaret çəkmək qadağandır.
+G2. F て-forma は いけません | meaning: "... etmək olmaz"
+ pattern: Fて-forma は いけません
+ explanation: Qadağa: て-forma + は いけません – "...etmək olmaz". Hərfi mənası "...etsən, getməz/yaramaz".ここ で たばこ を 吸って は いけません。Burada siqaret çəkmək olmaz.教室 で 食べて は いけません。Sinifdə yemək olmaz.Bu forma çox sərtdir. Müəllim şagirdə, valideyn uşağa, ya da yazılı qaydalarda işlənir. Siz isə böyüyünüzə heç vaxt bunu demirsiniz, kobud səslənir.Yumşaq alternativ: qadağanı nəzakətlə demək üçün 17-ci dərsdəki 〜ないでください daha uyğundur: ここ で 吸わないで ください.
+ ex: ここで たばこを 吸っては いけません。禁煙ですから。 = Burada siqaret çəkmək olmaz. Çünki burada siqaret çəkmək qadağandır.
+G3. F て-forma います (II) | meaning: vəziyyət, adət, peşə
+ pattern: Fて-forma います
+ explanation: 14-cü dərsdə 〜て います "indi davam edir" deməkdi. Əslində bu forma daha geniş işləyir və daha iki çox vacib mənası var.1) Vəziyyət, nəticə. Hərəkət bir dəfə olub, nəticəsi isə davam edir: 結婚して います – evliyəm. Diqqət et: "evlənirəm" yox! Evlilik bir dəfə baş verib, mən indi o vəziyyətdəyəm.結婚して います。Evliyəm. (evlənmişəm, hələ də evliyəm)東京 に 住んで います。Tokioda yaşayıram.2) Adət, peşə. Uzun müddət təkrarlanan iş: 銀行 で 働いて います – bankda işləyirəm. 日本語 を 勉強して います – yapon dili öyrənirəm (bu yaxınlarda, davamlı).Tələ: 知って います = "bilirəm" (öyrənmişəm, bilik məndədir). Amma inkarda 知って いません yox, 知りません deyilir! Bu, yapon dilinin məşhur qəribəliklərindəndir.
+ ex: わたしは 結婚して います。 = Mən evliyəm (ərdəyəm).
+ ex: わたしは 田中さんを 知って います。 = Mən cənab Tanakanı tanıyıram.
+ ex: わたしは ~カメラを 持って います。 = Mənim fotoaparatım var.
+ ex: わたしは 大阪に 住んで います。 = Mən Osakada yaşayıram.
+G4. İS に F | meaning: hərəkətin son nöqtəsi
+ pattern: yer に 入ります / 座ります
+ explanation: Bəzi feillər hərəkətin "son nöqtəsini" に ilə göstərir: harada olacaqsan? 電車 に 乗ります – qatara minirəm, 部屋 に 入ります – otağa girirəm.いす に すわります。Stula otururam.電車 に 乗ります。Qatara minirəm.Burada "qatarı minirəm" kimi düşünüb を yazmaq istəyəcəksən, amma yaponca məntiq başqadır: sən qatarın içinə gedirsən, qatar sənin "təyinat nöqtəndir".Bu feilləri yadda saxla: 入ります (girmək), すわります (oturmaq), 乗ります (minmək), のぼります (qalxmaq), 着きます (çatmaq) – hamısı に ilə.
+ ex: ここに 入っては いけません。 = Bura girmək olmaz.
+ ex: ここに 座っても いいですか。 = Burada oturmaq olar?
+ ex: 京都駅から 16番の ~バスに 乗って ください。 = Kioto stansiyasından 16 nömrəli avtobusa minin, zəhmət olmasa.
+G5. İS₁ に İS₂ を F | meaning: "İS₂-ni İS₁-ə ..."
+ pattern: İS₁ (yer) に İS₂ を F
+ explanation: Bir şeyi bir yerə qoyanda, yazanda: İS₁ に İS₂ を F. に əşyanın son yerini göstərir.ここ に 名前 を 書いて ください。Adınızı bura yazın.つくえ の 上 に 本 を 置きます。Kitabı masanın üstünə qoyuram.Sual "hara?" olanda və əşya ora "yerləşəcək"sə, に lazımdır. Kağıza yazmaq, rəfə qoymaq, maşını parka qoymaq – hamısı bu qəlibdir.Fərqi tut: 部屋 で 書きます – "harada yazıram" (hərəkətin yeri), 紙 に 書きます – "haraya yazıram" (yazının düşdüyü yer).
+ ex: ここに 車を 止めて ください。 = Zəhmət olmasa, maşını burada saxlayın.
+ ex: ここに 住所を 書いて ください。 = Zəhmət olmasa, ünvanı bura yazın.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+置きます | おきます | okimasu | qoymaq
+作ります | つくります | tsukurimasu | düzəltmək
+売ります | うります | urimasu | satmaq
+知ります | しります | shirimasu | bilmək
+住みます | すみます | sumimasu | yaşamaq
+研究します | けんきゅうします | kenkyuushimasu | tədqiq etmək
+資料 | しりょう | shiryou | material, sənəd
+カタログ | カタログ | katarogu | kataloq
+時刻表 | じこくひょう | jikokuhyou | hərəkət cədvəli (qatar, avtobus)
+服 | ふく | fuku | paltar
+製品 | せいひん | seihin | məhsul
+ソフト | ソフト | sofuto | proqram təminatı (software)
+電子辞書 | でんしじしょ | denshi jisho | elektron lüğət
+経済 | けいざい | keizai | iqtisadiyyat
+市役所 | しやくしょ | shiyakusho | bələdiyyə
+歯医者 | はいしゃ | haisha | diş həkimi
+独身 | どくしん | dokushin | subay
+すみません | すみません | sumimasen | bağışlayın, üzr istəyirəm
+皆さん | みなさん | minasan | hamınız (nəzakətli)
+思い出します | おもいだします | omoidashimasu | xatırlamaq
+いらっしゃいます | いらっしゃいます | irasshaimasu | olmaq (います-in nəzakətli forması)
+
+== DIALOGUE ==
+kimura | いい 映画でしたね。 | Yaxşı film idi, elə deyilmi?
+miller | ええ。わたしは 家族を 思い出しました。 | Bəli. Öz ailəmi xatırladım.
+kimura | そうですか。パーカーさんの ご家族は。 | Doğrudan? Cənab Parker, ailənizdə kimlər var?
+miller | 両親と 姉が 1人 います。 | Valideynlərim və bir böyük bacım.
+kimura | どちらに いらっしゃいますか。 | Onlar harada yaşayırlar?
+miller | 両親は ニューヨークの 近くに 住んで います。姉は ロンドンに 住んで います。野村さんの ご家族は。 | Valideynlərim Nyu-York yaxınlığında yaşayır, bacım isə Londonda. Bəs sizin ailəniz, xanım Nomura?
+kimura | 3人です。父は 銀行員です。母は 高校で 英語を 教えて います。 | Biz üç nəfərik. Atam bankda işləyir, anam isə liseydə ingilis dili dərsi deyir.

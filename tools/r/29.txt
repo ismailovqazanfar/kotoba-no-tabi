@@ -1,0 +1,122 @@
+LESSON 29: Musiqi dinləyə-dinləyə dərs oxuyuram
+
+== GRAMMAR ==
+G1. 〜ながら | meaning: ...-a-...-a, eyni vaxtda
+ pattern: feil ます-köküながら 〜
+ explanation: 〜ながら – "...a-...a", eyni vaxtda iki iş. Feilin ます-kökünə qoşulur: 聞きます → 聞きながら.音楽 を 聞きながら 勉強します。Musiqi dinləyə-dinləyə dərs oxuyuram.働きながら 大学 に 通って います。İşləyə-işləyə universitetə gedirəm.Əsas hərəkət sonda gəlir, köməkçi hərəkət ながら ilə. Birinci nümunədə əsas iş dərs oxumaqdır, musiqi fon kimidir. Azərbaycan dilindəki "-a-a" təkrarı ilə eyni məna!Mübtəda: ながら yalnız bir insanın iki işinə aiddir. "Mən musiqi dinləyirdim, o isə dərs oxuyurdu" üçün işlənmir.
+ ex: ~コーヒーを 飲みながら 話しましょう。 = Qəhvə içə-içə danışaq.
+ ex: 歌いながら 料理を 作ります。 = Mahnı oxuya-oxuya yemək bişirirəm.
+G2. 〜し、〜し | meaning: həm ..., həm də ...; (səbəblər)
+ pattern: sadə formaし、sadə formaし、〜
+ explanation: 〜し、〜し – "həm..., həm də..." və ya bir neçə səbəb sadalamaq. から tək səbəb verir, し isə "başqa səbəblər də var" hissi yaradır.この アパート は 駅 も 近い し、安い し、いい です。Bu mənzil həm stansiyaya yaxındır, həm də ucuzdur, yaxşıdır.雨 も 降って いる し、今日 は 出かけません。Həm də yağış yağır, bu gün çıxmıram.Ədat çox vaxt も olur: "həm də". な-sifət və isimdən sonra だし: 静か だし.Bəhanə ustası: yaponlar dəvəti rədd edəndə し ilə bir neçə səbəb sadalayır: 疲れて いる し、明日 早い し… – "həm yorğunam, həm də sabah tezdən işim var..."
+ ex: 雨も 降って いるし、今日は 出かけません。 = Yağış da yağır, bu gün heç yerə çıxmıram.
+ ex: 彼は 優しいし、頭も いいし、みんなに 人気が あります。 = O həm mehribandır, həm də ağıllı, hamı onu sevir.
+G3. 〜すぎます | meaning: həddindən artıq, çox
+ pattern: ます-kök / い-sifət（〜い） / な-sifətすぎます
+ explanation: 〜すぎます – "həddindən artıq". Çox vaxt mənfi mənada: çox yedim, çox bahadır.sözqaydanümunəfeilます-kök + すぎます食べすぎますい-sifətい düşür + すぎます高い → 高すぎますな-sifət+ すぎます静か → 静かすぎますいいistisnaよすぎますゆうべ 飲みすぎました。Dünən gecə çox içdim.この ラーメン は 辛すぎて、食べられません。Bu ramen çox acıdır, yeyə bilmirəm.Özü feildir: すぎる II qrup feil kimi dəyişir: すぎて, すぎない.
+ ex: この 問題は 難しすぎます。 = Bu tapşırıq çox çətindir.
+ ex: 昨日は 飲みすぎて、頭が 痛いです。 = Dünən çox içmişəm, başım ağrıyır.
+G4. 〜やすい / 〜にくい | meaning: etmək asan / çətin
+ pattern: ます-kökやすい ／ にくい
+ explanation: 〜やすい / 〜にくい – etmək asan / çətindir. ます-köklə birləşir və nəticə い-sifət kimi dəyişir.この ペン は 書きやすい です。Bu qələmlə yazmaq rahatdır.この 薬 は 飲みにくい です。Bu dərmanı içmək çətindir.Öz-özünə baş verən işlərə də aiddir: この ガラス は 割れやすい – bu şüşə tez sınır. Məhsul təsvirlərində, rəylərdə çox rast gələcəksən: 使いやすい (istifadəsi rahat), 分かりやすい (başa düşülən).Gündəlik söz: 分かりやすい – "başa düşülən, aydın". Müəllimə kompliment: 先生 の 説明 は 分かりやすい です.
+ ex: この 辞書は 字が 大きくて 使いやすいです。 = Bu lüğətin hərfləri böyükdür, işlətmək rahatdır.
+ ex: 雨の 日は 道が 滑りやすいです。 = Yağışlı günlərdə yol sürüşkən olur.
+ ex: この 薬は 苦くて 飲みにくいです。 = Bu dərman acıdır, içmək çətindir.
+G5. 〜た ばかりです | meaning: təzəcə ...-dım
+ pattern: feil た-forması ばかり です
+ explanation: 〜た ばかりです – "təzəcə ...etdim". Danışanın hissinə görə az vaxt keçib. Bu "az" bir neçə dəqiqə də ola bilər, bir neçə ay da!さっき 起きた ばかり です。Təzəcə oyanmışam.先月 結婚した ばかり です。Keçən ay təzə evlənmişəm.İkinci nümunədə bir ay keçib, amma danışan üçün bu hələ "təzə"dir. Sifət kimi də işlənir: 買った ばかり の 車 – təzəcə alınmış maşın.Bəhanə: 来た ばかり なので、まだ 分かりません – "təzəcə gəlmişəm, hələ bilmirəm" yeni işçinin ən sevimli cümləsidir.
+ ex: 今 起きた ばかりです。 = İndicə yuxudan durmuşam.
+ ex: 日本に 来た ばかりですから、わからない ことが 多いです。 = Yaponiyaya təzəcə gəlmişəm, ona görə anlamadığım şeylər çoxdur.
+ ex: 買った ばかりの ~パソコンが 壊れて しまいました。 = Təzəcə aldığım kompüter xarab oldu.
+G6. 〜ところです | meaning: ...-məkdə / ...-ir / ...-dı (an)
+ pattern: feil lüğət forması / 〜て いる / た-forma ところ です
+ explanation: 〜ところです hərəkətin hansı anda olduğunu göstərir. Üç forma var, hər biri dəqiq bir an:formaannümunəlüğət + ところhərəkətdən bir an əvvəl今 出かける ところ です – indi çıxıram〜ている ところhərəkətin ortasında今 食べて いる ところ です – indi yeyirəm〜た ところhərəkət indicə bitib今 帰った ところ です – indicə gəldimTelefon zəngində çox lazımdır: "nə edirsən?" sualına ちょうど 出かける ところ です – düz indi çıxırdım.ばかり ilə fərq: 〜たところ dəqiq an deyir (bir neçə saniyə), 〜たばかり isə hiss deyir ("mənə təzə gəlir").
+ ex: これから 出かける ところです。 = İndi çıxmaq üzrəyəm.
+ ex: 今 料理を して いる ところです。 = İndi yemək bişirirəm (tam bu anda).
+ ex: たった今 帰った ところです。 = Elə indicə qayıtdım.
+G7. 〜ばかり | meaning: ancaq, yalnız ..., ...-məkdən başqa heç nə
+ pattern: ad / feil て-forması ばかり
+ explanation: 〜ばかり – "ancaq, yalnız ...". Eyni şeyin təkrar-təkrar olduğunu bildirir, çox vaxt tənqidlə.弟 は ゲーム ばかり して います。Qardaşım ancaq oyun oynayır.肉 ばかり 食べないで、野菜 も 食べなさい。Ancaq ət yemə, tərəvəz də ye.Ton: だけ neytral "yalnız"dır, ばかり isə narazılıq hissi daşıyır. Valideynlərin sevimli sözü!
+ ex: 弟は ~ゲームばかり して います。 = Qardaşım yalnız oyun oynayır.
+ ex: 肉ばかり 食べないで、野菜も 食べて ください。 = Yalnız ət yeməyin, tərəvəz də yeyin.
+ ex: 休みの 日は 寝てばかり いて、どこへも 行きませんでした。 = İstirahət günü yalnız yatıb heç yerə getmədim.
+G8. 〜方 | meaning: ...-mə qaydası, ...-ma üsulu
+ pattern: feil ます-kökü 方（かた）
+ explanation: 〜方 – "...mə qaydası". 16-cı dərsdə gördük, burada yada salaq və genişləndirək: 書き方 (yazma qaydası), 使い方, 食べ方.漢字 の 読み方 が 分かりません。Kanjinin oxunuşunu bilmirəm.お箸 の 持ち方 を 教えて ください。Çubuq tutma qaydasını öyrədin.Kanji üçün: 読み方 həm "oxuma qaydası", həm də sadəcə "oxunuşu" deməkdir. Lüğətdə kanjinin oxunuşunu soruşanda: この 漢字 の 読み方 は？.
+ ex: 漢字の 書き方を 教えて ください。 = Kanjini necə yazmağı öyrədin.
+ ex: この 機械の 使い方が わかりません。 = Bu cihazın necə istifadə olunduğunu bilmirəm.
+ ex: 彼女の 話し方は とても 丁寧です。 = Onun danışıq tərzi çox nəzakətlidir.
+G9. 〜始める / 〜続ける / 〜終わる / 〜出す | meaning: başlamaq / davam etmək / bitirmək / birdən başlamaq
+ pattern: feil ます-kökü 始める / 続ける / 終わる / 出す
+ explanation: ます-köklə birləşib hərəkətin mərhələsini göstərən feillər:qəlibmənasınümunə〜始めるbaşlamaq雨 が 降り始めました〜続けるdavam etmək3時間 歩き続けました〜終わるbitirmək本 を 読み終わりました〜出すbirdən başlamaq赤ちゃん が 泣き出しました〜出す xüsusilə canlıdır: gözlənilmədən, birdən başlayan hərəkət. Uşaq birdən ağlayır, hamı birdən gülür: みんな が 笑い出しました.Fərqi tut: 〜始める sakit başlanğıcdır, 〜出す isə qəfil. Yağış yavaş-yavaş yağmağa başlayır (降り始める), amma uşaq birdən ağlayır (泣き出す).
+ ex: 雨が 降り始めました。 = Yağış yağmağa başladı.
+ ex: 1時間 走り続けました。 = Bir saat fasiləsiz qaçdım.
+ ex: この 本は もう 読み終わりました。 = Bu kitabı artıq oxuyub bitirdim.
+ ex: 赤ちゃんが 急に 泣き出しました。 = Körpə birdən ağlamağa başladı.
+G10. 〜うちに | meaning: ...ikən; ...-madan (vaxt keçmədən)
+ pattern: feil (lüğət / ている / ない) · い-sifət · な-sifət な · isim の うちに、〜
+ explanation: 〜うちに – "vəziyyət dəyişməmiş, fürsət var ikən". Ardınca gələn hərəkəti indi etmək lazımdır, sonra gec olacaq.ない うちに – "...-madan": 暗く ならない うちに – hava qaralmamış.〜て いる うちに başqa mənadadır: "...edərkən (özün də hiss etmədən) bir şey oldu".Fərq: 間に sadəcə zaman aralığıdır. うちに isə "fürsət itməmiş" çalarını verir.
+ ex: 若い うちに、いろいろな 国へ 行って みたいです。 = Gənc ikən müxtəlif ölkələrə getmək istəyirəm.
+ ex: 暗く ならない うちに、帰りましょう。 = Hava qaralmamış evə qayıdaq.
+ ex: 音楽を 聞いて いる うちに、寝て しまいました。 = Musiqiyə qulaq asarkən yuxuya getdim.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+慣れます | なれます | naremasu | öyrəşmək
+通います | かよいます | kayoimasu | [大学に～] getmək (müntəzəm)
+滑ります | すべります | suberimasu | sürüşmək
+込みます | こみます | komimasu | [電車が～] adamla dolu olmaq
+人気 | にんき | ninki | populyarlıq
+単語 | たんご | tango | söz (lüğət vahidi)
+アプリ | アプリ | apuri | proqram (telefon)
+苦い | にがい | nigai | acı
+優しい | やさしい | yasashii | mehriban
+無理 | むり | muri | mümkünsüz; gücündən artıq
+～すぎます | ～すぎます | ~sugimasu | həddindən artıq ...
+眠ります | ねむります | nemurimasu | yatmaq, yuxuya getmək
+休憩 | きゅうけい | kyuukei | fasilə, istirahət
+太ります | ふとります | futorimasu | kökəlmək
+痩せます | やせます | yasemasu | arıqlamaq
+睡眠 | すいみん | suimin | yuxu
+歌手 | かしゅ | kashu | müğənni
+楽器 | がっき | gakki | musiqi aləti
+曲 | きょく | kyoku | musiqi parçası, mahnı
+番組 | ばんぐみ | bangumi | veriliş (televiziya, radio)
+漫画 | まんが | manga | manga, komiks
+教科書 | きょうかしょ | kyoukasho | dərslik
+成績 | せいせき | seiseki | qiymət, nəticə
+復習 | ふくしゅう | fukushuu | təkrar
+予習 | よしゅう | yoshuu | əvvəlcədən hazırlıq
+暗記 | あんき | anki | əzbərləmə
+文法 | ぶんぽう | bunpou | qrammatika
+発音 | はつおん | hatsuon | tələffüz
+例 | れい | rei | nümunə
+説明 | せつめい | setsumei | izah
+間違い | まちがい | machigai | səhv
+間違えます | まちがえます | machigaemasu | səhv etmək
+複雑 | ふくざつ | fukuzatsu | mürəkkəb
+丁寧 | ていねい | teinei | nəzakətli, diqqətli
+細かい | こまかい | komakai | xırda, təfərrüatlı
+細い | ほそい | hosoi | nazik, ensiz
+太い | ふとい | futoi | yoğun, qalın
+硬い | かたい | katai | bərk
+柔らかい | やわらかい | yawarakai | yumşaq
+大切 | たいせつ | taisetsu | əziz, vacib
+集中します | しゅうちゅうします | shuuchuu shimasu | diqqətini cəmləmək
+始まります | はじまります | hajimarimasu | başlamaq
+途中 | とちゅう | tochuu | yolda, ortada
+残ります | のこります | nokorimasu | qalmaq
+残します | のこします | nokoshimasu | qoymaq (qalıq)
+目覚まし時計 | めざましどけい | mezamashidokei | zəngli saat
+お菓子 | おかし | okashi | şirniyyat
+おやつ | おやつ | oyatsu | ara qəlyanaltısı
+ガム | ガム | gamu | saqqız
+ヘッドホン | ヘッドホン | heddohon | qulaqlıq
+
+== DIALOGUE ==
+kobayashi | ~エミンさん、疲れて いますね。 | Emin, yorğun görünürsən.
+thawa | ええ、最近 忙しすぎて……。昼は 学校が あるし、夜は ~アルバイトが あるし。 | Hə, son vaxtlar çox məşğulam... Gündüz məktəb var, axşam da part-time iş.
+kobayashi | いつ 勉強して いますか。 | Bəs nə vaxt dərs oxuyursan?
+thawa | 電車の 中で、単語の ~アプリを 見ながら 覚えて います。 | Qatarda, söz proqramına baxa-baxa əzbərləyirəm.
+kobayashi | へえ、すごいですね。その ~アプリ、使いやすいですか。 | Vay, əladır. O proqramı işlətmək rahatdır?
+thawa | ええ。字が 大きくて 見やすいです。でも、漢字の 読み方は 覚えにくいです。 | Bəli. Hərflər böyükdür, oxumaq rahatdır. Amma kanjilərin oxunuşunu yadda saxlamaq çətindir.
+kobayashi | 無理しすぎないで くださいね。週末は ゆっくり 休んで ください。 | Özünü çox yorma. Həftə sonu yaxşıca dincəl.

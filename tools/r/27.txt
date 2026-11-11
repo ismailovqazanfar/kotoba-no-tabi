@@ -1,0 +1,115 @@
+LESSON 27: Yay tətilində nə etmək fikrindəsiniz?
+
+== GRAMMAR ==
+G1. Niyyət forması: 〜(よ)う | meaning: gəl ...; ...-ım/-im (sadə danışıq)
+ pattern: feil（niyyət forması）
+ explanation: Niyyət forması 〜ましょう-nun sadə danışıq variantıdır: dostlara "gəl edək!", özünə isə "edim!" demək üçün.qrupqaydanümunəI qrupson う → お + う行く → 行こう・飲む → 飲もう・待つ → 待とうII qrupる → よう食べる → 食べよう・見る → 見ようIII qrupxüsusiする → しよう・来る → 来よう（こよう）いっしょに 帰ろう。Gəl birlikdə qayıdaq.ちょっと 休もう か。Bir az dincələk?Uzadılmış sait (〜おう) bu formanın "imzasıdır". Yaponlar dostlarla planlaşdıranda bu formanı tez-tez işlədir: 行こう！ – "gedək!"Tələ: I qrupda う → お, amma ゆう deyil. 来る isə こよう, きよう yox.
+ ex: 一緒に 帰ろう。 = Gəl birlikdə qayıdaq.
+ ex: 少し 休もうか。 = Bir az dincələkmi?
+ ex: 明日は 早く 起きよう。 = Sabah tez durum.
+G2. 〜(よ)うと 思って います | meaning: ... etmək fikrindəyəm
+ pattern: niyyət formasıと 思って います
+ explanation: 〜(よ)うと 思って います – "...etmək fikrindəyəm". Bu, çoxdan düşündüyün və hələ də qüvvədə olan planı bildirir.夏休み に 北海道 へ 行こう と 思って います。Yay tətilində Hokkaydoya getmək fikrindəyəm.来年 留学しよう と 思って います。Gələn il xaricdə oxumaq fikrindəyəm.思います ilə fərqi: 行こう と 思います indi, bu an verdiyin qərardır ("deyəsən, gedəcəm"). 思って います isə bir müddətdir beynində olan plandır.Başqası haqqında: başqasının planı üçün yalnız 思って います işlənir: 彼 は 留学しよう と 思って います.
+ ex: 週末は 部屋を 掃除しようと 思って います。 = Həftə sonu otağı yığışdırmaq fikrindəyəm.
+ ex: 新しい ~パソコンを 買おうと 思って います。 = Yeni kompüter almaq fikrindəyəm.
+G3. 〜つもりです / 〜ない つもりです | meaning: ... niyyətindəyəm / ... etməmək niyyətindəyəm
+ pattern: lüğət forması / ない-forma つもりです
+ explanation: 〜つもりです daha qəti niyyətdir: "...etmək niyyətindəyəm, qərarımı vermişəm". İnkar üçün 〜ない つもりです.来年 結婚する つもりです。Gələn il evlənmək niyyətindəyəm.もう たばこ は 吸わない つもりです。Artıq siqaret çəkməmək niyyətindəyəm.Şiddət şkalası: 〜ようと思っています (fikirləşirəm) 〜つもりです (qərarlıyam). İkincisi daha "möhkəm" səslənir.
+ ex: 来月 引っ越す つもりです。 = Gələn ay köçmək niyyətindəyəm.
+ ex: もう 遅刻しない つもりです。 = Daha gecikməmək niyyətindəyəm.
+G4. 〜予定です | meaning: plana görə ...
+ pattern: lüğət forması / ad の 予定です
+ explanation: 〜予定です – "plana görə...". Burada şəxsi istək yox, cədvəldə yazılmış, razılaşdırılmış iş var: səfər, iclas, gəliş vaxtı.3時 に 着く 予定です。Saat 3-də çatmaq planlaşdırılır.来週 出張 の 予定です。Gələn həftə ezamiyyət planlaşdırılıb.Üçlük: 〜ようと思っています (fikir) → 〜つもり (qərar) → 〜予定 (cədvəl). Səhnədəki yay planı oyunu tam bu üç pilləni məşq etdirir.
+ ex: 部長は 来週 大阪へ 出張の 予定です。 = Departament müdirinin gələn həftə Osakaya ezamiyyəti var.
+ ex: 飛行機は 3時に 着く 予定です。 = Təyyarə saat 3-də enməlidir.
+G5. まだ 〜て いません | meaning: hələ ... etməmişəm
+ pattern: まだ て-forma いません
+ explanation: まだ 〜て いません – "hələ ...etməmişəm (amma edəcəyəm)". 7-ci dərsdə gördük ki, まだ です qısa cavabdır. İndi tam cümlə qururuq.レポート は もう 書きましたか。Hesabatı artıq yazdın?いいえ、まだ 書いて いません。Xeyr, hələ yazmamışam.Böyük tələ: まだ 書きませんでした desən, "keçmişdə yazmadım (fürsət keçdi)" mənası çıxır. "Hələ" deyəndə həmişə まだ 〜て いません.
+ ex: 宿題は まだ 出して いません。 = Ev tapşırığını hələ təhvil verməmişəm.
+ ex: 昼ご飯を 食べましたか。……いいえ、まだです。 = Nahar etmisiniz? ……Xeyr, hələ yox.
+G6. 〜ことに します | meaning: ...-məyə qərar verirəm
+ pattern: feil lüğət forması / ない-forma ことに します
+ explanation: 〜ことに します – "...məyə qərar verirəm". Qərarı sən öz iradənlə verirsən.毎朝 走る こと に しました。Hər səhər qaçmağa qərar verdim.毎晩 日記 を 書く こと に して います。Hər axşam gündəlik yazmağı qayda etmişəm.ことに しました – qərar artıq verilib. ことに して います – qərar vərdişə çevrilib. つもり ilə fərq: つもり hələ niyyətdir, ことにしました isə "artıq qərar verdim" deməkdir.Motivasiya cümləsi: これ から 毎日 日本語 を 勉強する こと に しました – "bundan sonra hər gün yapon dili öyrənməyə qərar verdim!"
+ ex: 夏休みは 海へ 行く ことに しました。 = Yay tətilində dənizə getməyə qərar verdim.
+ ex: 健康の ために、毎朝 走る ことに して います。 = Sağlamlıq üçün hər səhər qaçmağı qayda qoymuşam.
+ ex: 来月から お酒は 飲まない ことに しました。 = Gələn aydan spirtli içki içməməyə qərar verdim.
+G7. 〜ことに なります | meaning: ...-məsi qərara alınıb; ...-məli olur
+ pattern: feil lüğət forması / ない-forma ことに なります
+ explanation: 〜ことに なります – qərarı sən yox, başqası (şirkət, qanun, vəziyyət) verib. Sən sadəcə nəticəni bildirirsən.来月 大阪 へ 転勤する こと に なりました。Gələn ay Osakaya köçürülməyim qərara alındı.ここ で は 靴 を 脱ぐ こと に なって います。Burada ayaqqabını çıxarmaq qaydadır.Yaponlar şəxsi xəbərləri (evlilik, köçmə) belə yumşaq bildirməyi sevir: 結婚する こと に なりました – "evlənməli oldum" kimi təvazökar səslənir, "mən evlənməyə qərar verdim" kimi təkəbbürlü deyil.Cüt öyrən: ことにしました = mən qərar verdim, ことになりました = belə qərar çıxdı.
+ ex: 来月から 外国で 働く ことに なりました。 = Gələn aydan xaricdə işləməli oldum (belə qərar verildi).
+ ex: この 学校では、教室で 食べない ことに なって います。 = Bu məktəbdə sinifdə yemək yeməyə icazə verilmir (qayda belədir).
+ ex: 私は 来年の 春、結婚する ことに なりました。 = Gələn yazda evlənirəm.
+G8. 〜がります | meaning: ...-ir deyə görünür (3-cü şəxs)
+ pattern: い-sifət kökü / な-sifət / ます-kök + たい がります
+ explanation: 〜がります – başqasının hissini göstərmək üçün. 〜たい, ほしい, こわい yalnız öz hissini bildirir. Başqasının içini bilmirik, yalnız görünüşündən anlayırıq.öz hissinbaşqasının hissi行きたい行きたがって いますほしいほしがって いますこわいこわがって います子ども が 犬 を こわがって います。Uşaq itdən qorxur. (görünüşündən)弟 は 新しい ゲーム を ほしがって います。Qardaşım yeni oyun istəyir.Mədəni məntiq: yaponcada "o, qorxur" demək "onun içini bilirəm" iddiası kimi səslənir. 〜がる isə "qorxduğu görünür" deyir: daha dürüst və nəzakətli.
+ ex: 弟は ~ゲームを したがって います。 = Qardaşım oyun oynamaq istəyir (belə görünür).
+ ex: 子供は 暗い 所を 怖がります。 = Uşaqlar qaranlıq yerlərdən qorxur.
+ ex: 彼女は 新しい 車を 欲しがって います。 = O, yeni maşın istəyir.
+G9. 〜(よ)うと します | meaning: ...etməyə cəhd edirəm; ...etmək üzrə idim
+ pattern: feilin niyyət forması と します
+ explanation: 〜(よ)うと します iki mənada işlənir.1. Cəhd: bir şeyi etməyə çalışırsan, amma çox vaxt alınmır.2. Hərəkətdən bir an əvvəl: 〜(よ)うと した とき – "elə ...mək istəyirdim ki".〜(よ)うと しません başqası haqqında deyilir: "heç ...məyə cəhd etmir, istəmir".Fərq: 〜て みます – edirsən və nəticəyə baxırsan. 〜(よ)うと します – cəhd edirsən, amma nəticə hələ yoxdur.
+ ex: 毎朝 6時に 起きようと して いますが、なかなか 起きられません。 = Hər səhər saat 6-da durmağa çalışıram, amma heç cür dura bilmirəm.
+ ex: 出かけようと した とき、雨が 降り出しました。 = Çölə çıxmaq istəyirdim ki, yağış yağmağa başladı.
+ ex: 子どもは 野菜を 食べようと しません。 = Uşaq tərəvəz yeməyə heç cəhd etmir.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+引っ越します | ひっこします | hikkoshimasu | köçmək
+探します | さがします | sagashimasu | axtarmaq
+遅刻します | ちこくします | chikoku shimasu | gecikmək
+卒業します | そつぎょうします | sotsugyou shimasu | məzun olmaq
+続けます | つづけます | tsuzukemasu | davam etdirmək
+決めます | きめます | kimemasu | qərar vermək
+描きます | かきます | kakimasu | [絵を～] şəkil çəkmək
+予定 | よてい | yotei | plan, cədvəl
+つもり | つもり | tsumori | niyyət
+夏休み | なつやすみ | natsuyasumi | yay tətili
+冬休み | ふゆやすみ | fuyuyasumi | qış tətili
+結婚式 | けっこんしき | kekkonshiki | toy
+将来 | しょうらい | shourai | gələcək
+計画 | けいかく | keikaku | plan, layihə
+しばらく | しばらく | shibaraku | bir müddət
+予約 | よやく | yoyaku | bron, əvvəlcədən sifariş
+出発します | しゅっぱつします | shuppatsu shimasu | yola düşmək
+到着します | とうちゃくします | touchaku shimasu | çatmaq, gəlib çıxmaq
+帰国します | きこくします | kikoku shimasu | vətənə qayıtmaq
+観光 | かんこう | kankou | turizm, gəzinti
+見物します | けんぶつします | kenbutsu shimasu | görməli yerlərə baxmaq
+旅館 | りょかん | ryokan | yapon üslublu mehmanxana
+温泉 | おんせん | onsen | isti bulaq, termal hamam
+港 | みなと | minato | liman
+往復 | おうふく | oufuku | gediş-gəliş
+片道 | かたみち | katamichi | birtərəfli yol
+通ります | とおります | toorimasu | keçmək, yanından getmək
+海外 | かいがい | kaigai | xarici ölkələr
+国内 | こくない | kokunai | ölkə daxili
+湖 | みずうみ | mizuumi | göl
+森 | もり | mori | meşə (sıx)
+海岸 | かいがん | kaigan | sahil
+休暇 | きゅうか | kyuuka | məzuniyyət
+連休 | れんきゅう | renkyuu | ardıcıl istirahət günləri
+祝日 | しゅくじつ | shukujitsu | bayram günü (rəsmi)
+日程 | にってい | nittei | proqram, cədvəl
+申し込みます | もうしこみます | moushikomimasu | müraciət etmək, yazılmaq
+決まります | きまります | kimarimasu | müəyyən olmaq
+楽しみ | たのしみ | tanoshimi | səbirsizliklə gözləmə
+思い出 | おもいで | omoide | xatirə
+経験 | けいけん | keiken | təcrübə
+荷造り | にづくり | nizukuri | yükü yığma
+観光客 | かんこうきゃく | kankoukyaku | turist
+免税 | めんぜい | menzei | vergisiz
+両替 | りょうがえ | ryougae | valyuta mübadiləsi
+通訳 | つうやく | tsuuyaku | tərcüməçi (şifahi)
+市内 | しない | shinai | şəhər daxili
+郊外 | こうがい | kougai | şəhər ətrafı
+遠足 | えんそく | ensoku | ekskursiya (məktəbli)
+キャンプ | キャンプ | kyanpu | düşərgə
+
+== DIALOGUE ==
+miller | ~ラトナさん、夏休みは どうしますか。 | Ratna, yay tətilində nə edirsən?
+karina | 京都へ 行こうと 思って います。絵を 描きたいですから。 | Kiotoya getmək fikrindəyəm. Şəkil çəkmək istəyirəm.
+miller | いいですね。何日ぐらい 行きますか。 | Əla. Neçə günlüyə gedirsən?
+karina | 1週間 泊まる つもりです。でも、まだ ~ホテルを 予約して いません。 | Bir həftə qalmaq niyyətindəyəm. Amma hələ otel bron etməmişəm.
+miller | 夏の 京都は 人が 多いですよ。早く 予約した ほうが いいですよ。 | Yayda Kioto çox adamlı olur. Tez bron etsən yaxşıdır.
+karina | そうですね。今晩 探して みます。パーカーさんは？ | Düzdür. Bu axşam axtararam. Bəs siz, cənab Parker?
+miller | わたしは 国へ 帰る 予定です。妹の 結婚式が ありますから。 | Mən vətənə qayıtmalıyam (plana görə). Bacımın toyu var.
+karina | わあ、おめでとう ございます。 | Vay, təbrik edirəm!

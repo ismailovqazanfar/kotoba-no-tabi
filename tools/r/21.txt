@@ -1,0 +1,99 @@
+LESSON 21: Mən də elə düşünürəm
+
+== GRAMMAR ==
+G1. neytral forma と 思います | meaning: "Düşünürəm ki, ..."
+ pattern: neytral forma と 思います
+ explanation: Fikrini, təxminini demək üçün: sadə forma + と 思います – "düşünürəm ki...". Burada sadə formaları 20-ci dərsdə öyrəndiyin kimi işlədirsən.1) Ehtimal: あした 雨 が 降る と 思います – düşünürəm ki, sabah yağış yağacaq.2) Fikir: 日本 の 電車 は 便利だ と 思います – düşünürəm ki, Yaponiyanın qatarları rahatdır.田中 さん は 来ない と 思います。Məncə, Tanaka gəlməyəcək.この 映画 は おもしろい と 思います。Məncə, bu film maraqlıdır.Vacib: な-sifət və isimdə だ saxlanılır: 便利 だ と 思います. Bunu unutmaq ən çox edilən səhvdir.Mədəni nüans: yaponlar fikrini birbaşa demək əvəzinə tez-tez と 思います əlavə edir. Bu, fikri yumşaldır, "mən belə düşünürəm, amma səhv də edə bilərəm" hissi verir.
+ ex: あした 雨が 降ると 思います。 = Məncə, sabah yağış yağacaq.
+ ex: ルイーザちゃんは もう 寝たと 思います。 = Yəqin, Luiza artıq yatıb.
+ ex: パーカーさんは この ~ニュースを 知って いますか。 = Cənab Parker bu xəbəri bilir?
+ ex: ……いいえ、知らないと 思います。 = ……Xeyr, məncə, bilmir.
+G2. 「cümlə」/ neytral forma と 言います | meaning: "... deyir, dedi ki ..."
+ pattern: 「cümlə」 / neytral forma と 言います
+ explanation: Kiminsə dediyini çatdırmaq üçün と 言います. İki yol var:1) Birbaşa nitq: sözlər olduğu kimi dırnaqda: 「いただきます」と 言います – "itadakimasu" deyirlər.2) Dolayı nitq: sadə formada çatdırırsan: 田中 さん は あした 休む と 言いました – Tanaka dedi ki, sabah istirahət edəcək.寝る まえに「おやすみなさい」と 言います。Yatmazdan əvvəl "oyasuminasai" deyirlər.先生 は 試験 が 難しい と 言いました。Müəllim dedi ki, imtahan çətindir.Sual vermək üçün: これ は 日本語 で 何 と 言います か – "bu, yapon dilində necə deyilir?" Dil öyrənənin ən yaxşı dostu!
+ ex: 寝る まえに、「お休みなさい」と 言います。 = Yatmazdan əvvəl “gecəniz xeyrə qalsın” deyirlər.
+ ex: パーカーさんは「来週 東京へ 出張します」と 言いました。 = Cənab Parker dedi: “Gələn həftə Tokioya ezamiyyətə gedəcəyəm”.
+G3. neytral forma でしょう？ | meaning: "..., hə? elə deyilmi?"
+ pattern: neytral forma でしょう？ ↗
+ explanation: 〜でしょう？↗ – "..., hə? elə deyilmi?" Qarşı tərəfin də bildiyini güman etdiyin şeyi təsdiqlətmək üçün. Səs sonda qalxır.sözqəlibnümunəfeil / い-sifətsadə forma + でしょう行く でしょう・寒かった でしょうな-sifət / isimだ-sız + でしょうひま でしょう・雨 でしょうあした パーティー に 行く でしょう？Sabah qonaqlığa gedirsən, hə?ええ、行きます。Bəli, gedirəm.Fərqi tut: 〜ね "elə deyilmi?" kimi razılıq gözləyir, 〜でしょう？ isə bilmədiyi şeyi təsdiqlətmək istəyir: "...hə? doğrudurmu?".
+ ex: あした ~パーティーに 行くでしょう？ = Sabah şənliyə gedirsiniz, hə?
+ ex: ……ええ、行きます。 = ……Hə, gedirəm.
+ ex: 北海道は 寒かったでしょう？ = Hokkaydoda soyuq idi, hə?
+ ex: ……いいえ、そんなに 寒くなかったです。 = ……Yox, o qədər də soyuq deyildi.
+G4. İS₁ (yer) で İS₂ が あります | meaning: "... -da ... olur, keçirilir"
+ pattern: yer で hadisə が あります
+ explanation: Hadisələr (şənlik, konsert, matç, qəza, yanğın) üçün あります "keçirilir, baş verir" mənasını alır. Bu zaman yer で ilə gəlir, に ilə yox!mənası東京 に 公園 が ありますTokioda park var (10-cu dərs, mövcudluq)東京 で 試合 が ありますTokioda matç keçiriləcək (hadisə)Məntiq sadədir: park "orada durur" (に), matç isə "orada baş verir" (で). Hadisə bir hərəkətdir, ona görə hərəkətin yeri で ilə göstərilir.Yoxlama: "Kiotoda bayram var" = 京都 で お祭り が あります.
+ ex: 東京で 日本と ブラジルの ~サッカーの 試合が あります。 = Tokioda “Yaponiya–Braziliya” futbol matçı keçiriləcək.
+G5. İS (vəziyyət) で | meaning: "... -da, ... zamanı"
+ pattern: vəziyyət で
+ explanation: で burada hərəkətin hansı vəziyyətdə, hansı tədbirdə baş verdiyini göstərir: 会議 で 意見 を 言いました – iclasda fikrimi dedim.パーティー で 新しい 友だち に 会いました。Qonaqlıqda yeni dostla tanış oldum.試験 で 100点 を 取りました。İmtahanda 100 bal aldım.Kolleksiya tamamlanır: で-nin mənaları: nəqliyyat, yer, alət, dil, və indi tədbir/vəziyyət. Hamısı "hansı çərçivədə?" sualına cavab verir.
+ ex: 会議で 何か 意見を 言いましたか。 = İclasda hər hansı fikir söylədinizmi?
+G6. İS でも F | meaning: "... -zad, məsələn ..."
+ pattern: İS でも F
+ explanation: でも təklifi yumşaldır: "...zad, məsələn ...". コーヒー でも 飲みませんか – "qəhvə-zad içməyək?"お茶 でも 飲みましょう。Gəl, çay-zad içək.映画 でも 見に 行きませんか。Kinoya-zad getməyək?Burada でも "qəhvə olmalıdır" demir, sadəcə bir nümunə təklif edir. Qarşı tərəf "yox, şirə istəyirəm" desə də, problem yoxdur. Təklif yumşaq və rahat olur.Azərbaycan dilində: bizim "-zad", "-filan" danışıq sözümüz tam bunun qarşılığıdır: "çay-zad içək".
+ ex: ちょっと ~ビールでも 飲みませんか。 = Bəlkə bir krujka pivə içək?
+G7. F ない-forma ないと…… | meaning: "... etməliyəm (axı)..."
+ pattern: Fない-forma ないと……
+ explanation: 〜ないと…… – "...etməliyəm axı". Bu, 〜ないと いけません-in qısaldılmış formasıdır. 17-ci dərsdəki 〜なければ なりません ilə eyni mənadadır, amma danışıq dilidir.あ、もう 帰らないと……。Ah, artıq getməliyəm...明日 早い から、寝ないと。Sabah tez durmalıyam, yatmalıyam.Söhbəti bitirmək: yaponlar söhbətdən çıxmaq istəyəndə saata baxıb そろそろ 帰らないと… deyir. Bu, "getmək vaxtıdır" deməyin nəzakətli yoludur.
+ ex: もう 帰らないと……。 = Artıq qayıtmalıyam...
+G8. 〜でしょう (ehtimal) | meaning: "yəqin ki, …"
+ pattern: 普通形 でしょう
+ explanation: Enən intonasiya ilə 〜でしょう ehtimal bildirir: "yəqin ki...". Hava proqnozunun klassik dilidir.あした は 雨 が 降る でしょう。Sabah yəqin ki, yağış yağacaq.たぶん 寒い でしょう。Yəqin ki, soyuq olacaq.たぶん (yəqin) ilə birlikdə daha da qətiyyətsiz olur. Sual formasında (〜でしょうか) isə nəzakətli "...görəsən?" mənası verir: あした 晴れる でしょうか – sabah hava açılacaqmı görəsən?İntonasiya hər şeydir: でしょう ↗ "hə?" (təsdiq istəyi), でしょう ↘ "yəqin ki" (ehtimal). Eyni söz, iki fərqli məna!
+ ex: あしたは 雨が 降るでしょう。 = Sabah yəqin ki, yağış yağacaq.
+ ex: 北海道は 寒いでしょう。 = Hokkaydoda yəqin ki, soyuq olacaq.
+ ex: 試験は 難しいでしょうか。 = İmtahan çətin olacaqmı görəsən?
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+思います | おもいます | omoimasu | düşünmək, fikirləşmək
+言います | いいます | iimasu | söyləmək, demək
+勝ちます | かちます | kachimasu | qələbə çalmaq, udmaq, qazanmaq
+負けます | まけます | makemasu | məğlub olmaq, uduzmaq
+あります | あります | arimasu | [お祭りが～] olmaq, keçirilmək
+役に立ちます | やくにたちます | yaku ni tachimasu | faydalı olmaq, lazım olmaq
+動きます | うごきます | ugokimasu | hərəkət etmək, işləmək (əşya)
+やめます | やめます | yamemasu | [会社を～] işdən çıxmaq, tərk etmək
+気をつけます | きをつけます | ki o tsukemasu | [車に～] diqqət yetirmək
+むだ[な] | むだ[な] | muda [na] | boş, mənasız
+不便[な] | ふべん[な] | fuben | narahat
+すごい | すごい | sugoi | möhtəşəm, dəhşətli
+本当 | ほんとう | hontou | gerçək, həqiqət
+うそ | うそ | uso | yalan
+自動車 | じどうしゃ | jidousha | avtomobil
+交通 | こうつう | koutsuu | yol hərəkəti
+物価 | ぶっか | bukka | qiymətlər (bazar qiymətləri)
+放送 | ほうそう | housou | yayım
+ニュース | ニュース | nyuusu | xəbər
+アニメ | アニメ | anime | anime
+マンガ | マンガ | manga | manga (yapon komiksi)
+デザイン | デザイン | dezain | dizayn
+夢 | ゆめ | yume | röya, yuxu
+天才 | てんさい | tensai | dahi
+試合 | しあい | shiai | yarış
+意見 | いけん | iken | fikir
+話 | はなし | hanashi | danışıq, söhbət (～をします: söhbət etmək)
+地球 | ちきゅう | chikyuu | Yer kürəsi
+月 | つき | tsuki | Ay
+最近 | さいきん | saikin | son vaxtlar, yaxınlarda
+たぶん | たぶん | tabun | bəlkə, yəqin
+きっと | きっと | kitto | mütləq, şübhəsiz
+ほんとうに | ほんとうに | hontou ni | doğrudan, həqiqətən
+そんなに | そんなに | sonna ni | o qədər də ~ deyil (inkarla)
+～について | ～について | ~ni tsuite | ~haqqında
+久しぶりですね。 | ひさしぶりですね。 | hisashiburi desu ne | Çoxdandır görüşmürük.
+～でも飲みませんか。 | ～でものみませんか。 | ~demo nomimasen ka | ~ nəsə içməzsinizmi?
+もちろん | もちろん | mochiron | əlbəttə
+もう帰らないと…。 | もうかえらないと…。 | mou kaeranai to... | Artıq evə qayıtmalıyam...
+カンガルー | カンガルー | kangaruu | kenquru
+
+== DIALOGUE ==
+matsumoto | あ、ラモスさん、久しぶりですね。 | A! Cənab Ramos, çoxdandır görüşmürük.
+santos | あ、橋本さん、お元気ですか。 | O! Cənab Hashimoto, necəsiniz?
+matsumoto | ええ。ちょっと ~ビールでも 飲みませんか。 | Yaxşıyam. Bəlkə bir krujka pivə içək?
+santos | いいですね。 | Pis olmaz.
+--- | pivəxanada
+santos | 今晩 10時から 日本と ブラジルの ~サッカーの 試合が ありますね。 | Bu axşam saat 10-da “Yaponiya–Braziliya” futbol matçı var, eləmi?
+matsumoto | ああ、そうですね。ラモスさんは どちらが 勝つと 思いますか。 | Hə. Ramos san, sizcə, kim udacaq?
+santos | もちろん ブラジルですよ。 | Əlbəttə, Braziliya.
+matsumoto | でも、最近 日本も 強く なりましたよ。 | Amma son vaxtlar Yaponiya da güclənib.
+santos | ええ、わたしも そう 思いますが、……。あ、もう 帰らないと……。 | Hmm, mən də elə düşünürəm, amma... A, artıq getmək lazımdır...
+matsumoto | そうですね。じゃ、帰りましょう。 | Hə, elədir. Tərpənək.

@@ -1,0 +1,95 @@
+LESSON 3: Hardadır?
+
+== GRAMMAR ==
+G1. ここ / そこ / あそこ / こちら / そちら / あちら | meaning: "bura / ora / ora" və "bu tərəf / o tərəf"
+ pattern: 
+ explanation: Əşyalar üçün これ/それ/あれ vardı, yerlər üçün də onların "qohumları" var: ここ, そこ, あそこ. Məntiq tamamilə eynidir, sadəcə indi əşyanı yox, yeri göstəririk.sözoxunuşumənasıここkokobura, mənim olduğum yerそこsokoora, sənin olduğun yerあそこasokoora, ikimizdən də uzaq yerBir də こちら, そちら, あちら var. Əslində "bu tərəf, o tərəf" deməkdir, amma gündəlik həyatda ən çox nəzakətli "bura, ora" kimi işlənir. Mağazada, oteldə, ofisdə işçilər sənə yolu göstərəndə məhz bunları eşidəcəksən: エレベーター は あちら です – lift o tərəfdədir.Maraqlı detal: sən və dostun eyni otaqdasınızsa, ikinizin olduğu yer ここ olur. Onda そこ yaxınlıqdakı yeri, あそこ uzaqdakı yeri bildirir.
+G2. İS₁ は İS₂ (məkan) です | meaning: "İS₁ İS₂-dadır"
+ pattern: İS₁ は məkan です
+ explanation: Bir şeyin harada olduğunu demək üçün yeni model öyrənməyə ehtiyac yoxdur: 1-ci dərsdəki 〜は 〜です burada da işləyir. Sadəcə xəbər yerinə məkan qoyursan və です avtomatik olaraq "-dadır, -dədir" mənasını alır.トイレ は あそこ です。Tualet oradadır.加藤 さん は 会議室 です。Kato iclas otağındadır.Gördün? Eyni qəlib, yeni məna. Yapon dili bu cür "qənaətcil"dir: az qayda, çox istifadə.Tələ: 加藤さん は 会議室 です deyəndə "Kato iclas otağıdır" kimi başa düşmə. Kontekst aydındır: söhbət onun harada olduğundan gedir.
+ ex: お手洗いは あそこです。 = Ayaqyolu oradadır.
+ ex: 電話は 2階です。 = Telefon ikinci mərtəbədədir.
+ ex: 原田さんは 事務所です。 = Cənab Harada ofisdədir.
+G3. どこ / どちら | meaning: "harada?" / "hansı tərəfdə?"
+ pattern: İS は どこですか
+ explanation: Yer soruşmaq üçün どこ (harada?) işlədirsən. どちら isə əslində "hansı tərəf?" deməkdir, amma nəzakətli danışıqda どこ-nun yerinə də keçir.トイレ は どこ です か。Tualet haradadır? (adi)お国 は どちら です か。Hansı ölkədənsiniz? (çox nəzakətli)İkinci cümlə çox maraqlıdır: "Ölkəniz hansı tərəfdədir?" kimi səslənir, amma əslində "haralısınız?" sualının ən nəzakətli formasıdır. Tanış olanda yaponlar bunu çox soruşur.Məsləhət: dostla どこ, tanımadığın böyüklə və ya müştəri ilə どちら işlət. Məna eynidir, fərq hörmətdədir.
+ ex: お手洗いは どこですか。 = (Zəhmət olmasa, deyin) ayaqyolu hardadır?
+ ex: ……あそこです。 = ……Orada.
+ ex: ~エレベーターは どちらですか。 = Lift hansı tərəfdədir? yəni
+ ex: ……あちらです。 = ……O tərəfdə.
+G4. İS₁ の İS₂ | meaning: "haranın məhsulu"
+ pattern: ölkə / şirkət の məhsul
+ explanation: の yenə səhnədədir! Bu dəfə "haranın məhsulu?" sualına cavab verir. Birinci isim ölkə və ya şirkət, ikincisi isə məhsul olanda の "orada istehsal olunub" mənasını verir.日本 の 車Yaponiya maşını, yapon istehsalıミドリ商事 の カメラMidori Shouji-nin kamerasıSoruşanda どこ の deyirsən: これ は どこ の 時計 です か – Bu haranın saatıdır? Cavab: スイス の です – İsveçrənindir.Fikir ver: sonuncu cavabda ismi atdıq (スイス の です). 2-ci dərsdəki "-ınkı" qaydası burada da işləyir.
+ ex: これは どこの ~コンピューターですか。 = Bu kompüter harada istehsal olunub?
+ ex: ……日本の ~コンピューターです。 = ……Bu, yapon kompüteridir.
+ ex: ……アオゾラ電気の ~コンピューターです。 = ……Bu, Aozora Denki şirkətinin kompüteridir.
+G5. こ・そ・あ・ど sistemi | meaning: işarə əvəzliklərinin ümumi cədvəli
+ pattern: 
+ explanation: İndiyə qədər öyrəndiyin bütün işarə sözləri əslində bir böyük sistemin hissələridir. Yaponlar buna sadəcə ko-so-a-do deyir. Sözün birinci hecası məsafəni, qalan hissəsi isə nəyi göstərdiyini bildirir.こ · mənə yaxınそ · sənə yaxınあ · uzaqど · sualəşyaこれそれあれどれ+ isimこのそのあのどのyerここそこあそこどこtərəf (nəzakətli)こちらそちらあちらどちらBu cədvəli bir dəfə başa düşsən, onlarla sözü avtomatik bilmiş olursan. Məsələn, "どれ" hansı deməkdir? Cədvələ bax: sual sırası + əşya sətiri, yəni "hansı (əşya)?".Kiçik istisna: あ sətirində "あこ" yox, あそこ deyilir. Bunu ayrıca yadda saxla.
+G6. お〜 | meaning: ehtiram prefiksi
+ pattern: お İS
+ explanation: 2-ci dərsdə gördüyümüz お prefiksi burada qarşı tərəfə hörməti göstərmək üçün işlənir. Sənə yox, həmsöhbətinə və ya üçüncü şəxsə aid olan şeyə qoşulur.お国 は どちら です か。Ölkəniz haradır?お名前 は？Adınız?Öz ölkənə, öz adına お qoymursan. Bu, özünü tərifləmək kimi səslənir. Yəni わたし の お国 desən, gülməli olar.Qayda sadədir: お = "sizin" deməyin nəzakətli yolu. Özün haqqında danışanda onu at.
+ ex: ［お］国は どちらですか。 = Siz hansı ölkədənsiniz?
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+ここ | ここ | koko | bura, burada
+そこ | そこ | soko | ora, orada (müsahibin yanında)
+あそこ | あそこ | asoko | ora, orada (uzaqda)
+どこ | どこ | doko | hara, harada
+こちら | こちら | kochira | bura (nəzakətli forma)
+そちら | そちら | sochira | ora (nəzakətli forma)
+あちら | あちら | achira | ora, uzaq (nəzakətli forma)
+どちら | どちら | dochira | hara (nəzakətli forma)
+教室 | きょうしつ | kyoushitsu | sinif otağı, auditoriya
+食堂 | しょくどう | shokudou | yeməkxana
+事務所 | じむしょ | jimusho | ofis
+会議室 | かいぎしつ | kaigishitsu | iclas otağı
+受付 | うけつけ | uketsuke | qəbul, resepsiya
+ロビー | ロビー | robii | foye
+部屋 | へや | heya | otaq
+トイレ | トイレ | toire | ayaq yolu, tualet
+お手洗い | おてあらい | otearai | tualet (nəzakətli forma)
+階段 | かいだん | kaidan | pilləkən
+エレベーター | エレベーター | erebeetaa | lift
+エスカレーター | エスカレーター | esukareetaa | eskalator
+自動販売機 | じどうはんばいき | jidouhanbaiki | avtomat satış maşını
+電話 | でんわ | denwa | telefon
+国 | くに | kuni | ölkə
+お国 | おくに | okuni | ölkə (nəzakətli forma)
+会社 | かいしゃ | kaisha | şirkət
+家 | うち | uchi | ev
+靴 | くつ | kutsu | ayaqqabı
+ネクタイ | ネクタイ | nekutai | qalstuk
+ワイン | ワイン | wain | şərab
+売り場 | うりば | uriba | satış məntəqəsi (universamda şöbə)
+地下 | ちか | chika | yeraltı mərtəbə, zirzəmi
+～階 | ～かい | ~kai | ~mərtəbə (san gai: üçüncü mərtəbə)
+何階 | なんがい | nangai | neçənci mərtəbə
+～円 | ～えん | ~en | ~yen
+いくら | いくら | ikura | neçə (qiyməti soruşanda)
+百 | ひゃく | hyaku | yüz
+千 | せん | sen | min
+万 | まん | man | on min
+すみません | すみません | sumimasen | Bağışlayın
+どうも | どうも | doumo | Təşəkkürlər. Sağ ol.
+いらっしゃいませ | いらっしゃいませ | irasshaimase | Xoş gəldiniz (satıcı müştərini qarşılayanda)
+～を見せてください | ～をみせてください | ~o misete kudasai | ~ göstərin zəhmət olmasa
+じゃ | じゃ | ja | onda, elə isə
+～をください | ～をください | ~o kudasai | ~ verin zəhmət olmasa
+イタリア | イタリア | Itaria | İtaliya
+スイス | スイス | Suisu | İsveçrə
+フランス | フランス | Furansu | Fransa
+
+== DIALOGUE ==
+a | いらっしゃいませ。 | Xoş gəlmisiniz.
+maria | すみません。~ワイン売り場は どこですか。 | Bağışlayın, şərab şöbəsi hardadır?
+a | 地下1階です。 | Zirzəmi mərtəbəsində.
+maria | どうも。 | Sağ olun.
+--- | şərab şöbəsində
+maria | すみません。その ~ワインを 見せて ください。 | Bağışlayın. Zəhmət olmasa, o şərabı göstərin.
+b | はい、どうぞ。 | Buyurun.
+maria | これは どこの ~ワインですか。 | Bu hansı ölkənin şərabıdır?
+b | 日本のです。 | Bu, yapon şərabıdır.
+maria | いくらですか。 | Neçəyədir?
+b | 2,500円です。 | 2500 yen.
+maria | じゃ、これを ください。 | Neynək... zəhmət olmasa, bunu verin.

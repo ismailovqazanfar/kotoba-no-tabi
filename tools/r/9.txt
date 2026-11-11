@@ -1,0 +1,98 @@
+LESSON 9: Təəssüf
+
+== GRAMMAR ==
+G1. İS が あります / わかります · İS が 好きです / 嫌いです / 上手です / 下手です | meaning: tamamlıq が ilə
+ pattern: İS が 好きです
+ explanation: İndiyə qədər "nəyi?" sualını を ilə göstərirdik. Amma bəzi feil və sifətlər inadkardır: onlar が istəyir. Bu siyahını yadda saxla, çox tez-tez işlənir:sözmənasınümunəありますvar, sahibəmお金 が ありますわかりますbaşa düşürəm日本語 が わかります好きですxoşlayıram音楽 が 好き です嫌いですxoşlamıramへび が 嫌い です上手ですyaxşı bacarır料理 が 上手 です下手ですzəif bacarır歌 が 下手 ですNiyə belədir? Yaponlar bunlara "hərəkət" kimi baxmır, "vəziyyət" kimi baxır. 音楽 が 好き です hərfi tərcümədə "musiqi (mənə) xoşdur" deməkdir. Musiqi hərəkətin obyekti deyil, vəziyyətin mərkəzidir.Ən çox edilən səhv: Azərbaycan dilində "futbolu sevirəm" deyirik və əl avtomatik を yazmaq istəyir. Amma サッカー を 好き です səhvdir, düzgünü サッカー が 好き です-dir.
+ ex: わたしは イタリア料理が 好きです。 = İtalyan mətbəxi mənim xoşuma gəlir.
+ ex: わたしは 日本語が わかります。 = Mən yaponca başa düşürəm.
+ ex: わたしは 車が あります。 = Mənim maşınım var.
+G2. どんな İS | meaning: "hansı ...?" – konkret cavab
+ pattern: どんな İS が 好きですか
+ explanation: 8-ci dərsdə どんな sualına sifətlə cavab verirdik ("necə şəhərdir? – köhnə"). Amma ona konkret ad çəkərək də cavab vermək olar.どんな スポーツ が 好き です か。Hansı idmanı sevirsən?サッカー が 好き です。Futbolu sevirəm.Yəni どんな burada "hansı növ?" mənasını alır. Cavabda növün konkret adını deyirsən. Tanışlıq söhbətlərində bu sual çox işlənir.Məşq ideyası: どんな 食べ物 が 好き です か sualına özün haqqında cavab hazırla. Növbəti yapon tanışınla söhbətdə lazım olacaq!
+ ex: どんな ~スポーツが 好きですか。 = Hansı idman növü xoşunuza gəlir?
+ ex: ……~サッカーが 好きです。 = ……Mən futbolu xoşlayıram.
+G3. よく / だいたい / たくさん / 少し / あまり / 全然 | meaning: dərəcə və miqdar zərfləri
+ pattern: 
+ explanation: Bu zərflər "nə qədər?" sualına cavab verir və feildən əvvəl gəlir. İki qrupa bölmək asandır:dərəcə (わかります ilə)miqdar (あります ilə)よくyaxşıたくさんçoxだいたいəsasən少しbir az少しbir azあまり (inkar)o qədər dəあまり (inkar)o qədər də全然 (inkar)heç全然 (inkar)heç, qətiyyənBunlar bir "termometr" kimidir: よく-dan 全然-ə qədər. Özünü qiymətləndirəndə çox lazım olur: 日本語 が 少し わかります – yapon dilini bir az başa düşürəm.Unutma: あまり və 全然 yalnız inkarla işləyir. 全然 わかりません – heç başa düşmürəm.
+ ex: 英語が よく わかります。 = Mən ingilis dilini yaxşı başa düşürəm.
+ ex: 英語が 少し わかります。 = Mən ingilis dilini bir az başa düşürəm.
+ ex: 英語が あまり わかりません。 = Mən ingilis dilini o qədər də yaxşı başa düşmürəm.
+ ex: お金が たくさん あります。 = Mənim çoxlu pulum var.
+ ex: お金が 全然 ありません。 = Mənim heç pulum yoxdur.
+G4. 〜から、〜 | meaning: "..., ona görə də ..."
+ pattern: səbəb から、 nəticə
+ explanation: 〜から、〜 səbəb və nəticəni bağlayır: "..., ona görə də...". から-dan əvvəl səbəb, sonra nəticə gəlir.時間 が ありません から、行きません。Vaxtım yoxdur, ona görə getmirəm.寒い です から、まど を しめます。Soyuqdur, ona görə pəncərəni bağlayıram.Azərbaycan dilindəki kimi düşünmək olar: "çünki" sözü yaponcada səbəbin sonunda gəlir. "Vaxtım yoxdur-çünki, getmirəm" kimi bir sıra.Fikir ver: 4-cü dərsdəki から ("-dan, başlanğıc") ilə bu から eyni yazılır, amma fərqli işdir. Birincisi isimdən sonra gəlir, bu isə cümlədən sonra.
+ ex: 時間が ありませんから、新聞を 読みません。 = Vaxtım olmadığına görə qəzet oxumuram.
+G5. どうして | meaning: "niyə?"
+ pattern: どうして cümlə か
+ explanation: どうして "niyə?" sualıdır. Cavab adətən 〜から ilə bitir.どうして 行きません か。Niyə getmirsən?用事 が あります から。Çünki işim var.Cavab bəzən yalnız səbəbdən ibarət olur, nəticə deyilmir, çünki sual artıq onu ehtiva edir. Bu çox təbii və qısadır.Mədəni nüans: yaponlar dəvəti rədd edəndə səbəbi tam demir: ちょっと 用事 が… – "bir az işim var...". Bu, nəzakətli imtinanın klassik formasıdır, ətraflı soruşmaq ədəbsizlik sayılır.
+ ex: どうして 朝 新聞を 読みませんか。 = Siz səhərlər niyə qəzet oxumursunuz?
+ ex: ……時間が ありませんから。 = ……Çünki vaxtım olmur.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+分かります | わかります | wakarimasu | başa düşmək
+あります | あります | arimasu | var, sahib olmaq
+好き[な] | すき[な] | suki | xoşagələn
+嫌い[な] | きらい[な] | kirai | xoşuma gəlməyən, zəhləm gedən
+上手[な] | じょうず[な] | jouzu | bacarıqlı, zirak
+下手[な] | へた[な] | heta | bacarıqsız, fərsiz
+飲み物 | のみもの | nomimono | içki
+料理 | りょうり | ryouri | yemək (xörək), aşpazlıq
+スポーツ | スポーツ | supootsu | idman (～をします: idmanla məşğul olmaq)
+野球 | やきゅう | yakyuu | beysbol
+ダンス | ダンス | dansu | rəqs (～をします: rəqs etmək)
+旅行 | りょこう | ryokou | səyahət
+音楽 | おんがく | ongaku | musiqi
+歌 | うた | uta | mahnı
+クラシック | クラシック | kurashikku | klassik musiqi
+ジャズ | ジャズ | jazu | caz
+コンサート | コンサート | konsaato | konsert
+カラオケ | カラオケ | karaoke | karaoke
+歌舞伎 | かぶき | kabuki | Kabuki (ənənəvi yapon teatrı)
+絵 | え | e | rəsm
+字 | じ | ji | hərf
+漢字 | かんじ | kanji | heroqlif
+ひらがな | ひらがな | hiragana | Hiragana əlifbası
+カタカナ | カタカナ | katakana | Katakana əlifbası
+ローマ字 | ローマじ | roumaji | Latın əlifbası
+細かいお金 | こまかいおかね | komakai okane | xırda pul
+チケット | チケット | chiketto | bilet
+時間 | じかん | jikan | vaxt
+用事 | ようじ | youji | vacib iş
+約束 | やくそく | yakusoku | söz, sözləşmə
+アルバイト | アルバイト | arubaito | əlavə iş (～をします: əlavə işləmək)
+ご主人 | ごしゅじん | goshujin | başqasının əri
+夫/主人 | おっと/しゅじん | otto / shujin | mənim ərim
+奥さん | おくさん | okusan | başqasının xanımı
+妻/家内 | つま/かない | tsuma / kanai | mənim xanımım
+子供 | こども | kodomo | uşaq
+よく | よく | yoku | yaxşı, tez-tez
+だいたい | だいたい | daitai | təxminən, demək olar ki
+たくさん | たくさん | takusan | çoxlu
+少し | すこし | sukoshi | biraz, az
+全然 | ぜんぜん | zenzen | heç (inkarla)
+早く | はやく | hayaku | tez, sürətlə
+～から | ～から | ~kara | ~ üçün, ~ görə
+どうして | どうして | doushite | nə üçün, niyə
+貸してください。 | かしてください。 | kashite kudasai | Borc verin, zəhmət olmasa.
+いいですよ。 | いいですよ。 | ii desu yo | Olar. Əlbəttə.
+残念です[が] | ざんねんです[が] | zannen desu [ga] | Təəssüf edirəm, amma...
+ああ | ああ | aa | aaa
+いっしょにいかがですか。 | いっしょにいかがですか。 | issho ni ikaga desu ka | Bizimlə birgə necədir?
+[～は]ちょっと…。 | [～は]ちょっと…。 | [~wa] chotto... | [~] bir az çətindir (təklifi rədd edəndə)
+だめですか。 | だめですか。 | dame desu ka | Olmaz?
+また今度お願いします。 | またこんどおねがいします。 | mata kondo onegaishimasu | Qalsın gələn dəfəyə, zəhmət olmasa.
+
+== DIALOGUE ==
+kimura | はい。 | Bəli (eşidirəm).
+miller | 野村さんですか。パーカーです。 | Xanım Nomura? Danışan Parkerdir.
+kimura | あ、パーカーさん、。お元気ですか。 | Hə, cənab Parker, axşamınız xeyir. Necəsiniz?
+miller | ええ、元気です。あのう、野村さん、~クラシックの ~コンサート、いっしょに いかがですか。 | Çox sağ olun, yaxşıyam. Xanım Nomura, mənimlə klassik musiqi konsertinə getmək istəmirsiniz?
+kimura | いいですね。いつですか。 | Məmnuniyyətlə. Nə vaxtdır?
+miller | 来週の 金曜日の 晩です。 | Gələn həftə cümə günü axşam.
+kimura | 金曜日ですか。金曜日の 晩は ちょっと……。 | Cümə günü? Cümə günü axşam qorxuram ki, ...
+miller | だめですか。 | Alınmayacaq?
+kimura | ええ、友達と 約束が ありますから……。 | Hə, mən artıq rəfiqəmlə razılaşmışam...
+miller | そうですか。 | Aydındır.
+kimura | ええ。また 今度 お願いします。 | Qalsın başqa vaxta.

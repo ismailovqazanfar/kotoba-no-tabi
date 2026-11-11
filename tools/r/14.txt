@@ -1,0 +1,104 @@
+LESSON 14: Midori-çoya, zəhmət olmasa
+
+== GRAMMAR ==
+G1. Feil qrupları | meaning: üç təsrif qrupu
+ pattern: 
+ explanation: Yapon feilləri formasını dəyişir, amma bunu nizamla edir: hamısı üç qrupa bölünür. Qrupunu bilsən, istənilən formanı qura bilərsən. Bu, bütün qalan dərslərin açarıdır!qrupnecə tanımalı?nümunə1-ciます-dan əvvəlki heca い sırasındandırかきます・のみます・いきます2-ciます-dan əvvəlki heca え sırasındandır (+ bəzi istisnalar)たべます・みせます・みます3-cüyalnız iki feil: する və くるします・さんぽします・きます2-ci qrupda bir neçə "gizli" feil var: ます-dan əvvəl い sırası olsa da, 2-ci qrupdur. Ən çox işlənənləri: みます (baxmaq), おきます (oyanmaq), かります (borc almaq), います (olmaq). Bunları ayrıca yadda saxla.Rahatlıq: 3-cü qrupda cəmi iki feil var, amma します minlərlə isimlə birləşir (勉強します・さんぽします), ona görə əslində ən geniş qrupdur.
+G2. て-forma | meaning: feilin て / で ilə bitən forması
+ pattern: 
+ explanation: て-forma yapon dilinin "İsveçrə bıçağı"dır: xahiş, ardıcıllıq, davam edən hərəkət, icazə... hamısı bununla qurulur. Bir az məşq tələb edir, amma bir dəfə oturdusa, sənin olur.qrupqaydanümunə1-ciい・ち・り → ってかいます → かって1-ciみ・び・に → んでのみます → のんで1-ciき → いて, ぎ → いでかきます → かいて1-ciし → してかします → かしてistisnaいきます → いっていきます → いって2-ciます → てたべます → たべて3-cüきます → きて, します → してさんぽします → さんぽしてYapon uşaqları bunu mahnı ilə öyrənir! "Tə-forma mahnısı" var: "い ち り って, み び に んで, き いて, ぎ いで, し して". Sən də bunu bir neçə dəfə yüksək səslə de, əzbər olacaq.Ən məşhur istisna: いきます qaydaya görə いいて olmalı idi, amma いって olur. Bu tək istisnanı unutma.Məşq: feilin て-formasını deyin買いますKaimasuて-formasını özünüz deyinGöstərNövbəti feil →
+G3. F て-forma ください | meaning: "... edin, zəhmət olmasa"
+ pattern: Fて-forma ください
+ explanation: て-forma + ください – "...edin, zəhmət olmasa". Xahiş, göstəriş və ya təklif üçündür.ちょっと 待って ください。Bir az gözləyin, zəhmət olmasa.どうぞ、入って ください。Buyurun, içəri keçin.Diqqət: adı xahiş olsa da, çox nəzakətli səslənmir, daha çox "göstəriş" tonundadır. Ona görə yaponlar çox vaxt qabağına すみませんが qoyur: すみませんが、塩 を 取って ください – bağışlayın, duzu verin.İkinci rol: 〜てください təklif də ola bilər: たくさん 食べて ください – "çox yeyin" (qonağa ev sahibi).
+ ex: すみませんが、この 漢字の 読み方を 教えて ください。 = Bağışlayın, deyə bilərsiniz, bu heroqlif necə oxunur? (xahiş)
+ ex: ~ボールペンで 名前を 書いて ください。 = Zəhmət olmasa, adınızı qələmlə yazın. (göstəriş)
+ ex: どうぞ たくさん 食べて ください。 = Buyurun, doyunca yeyin. (təklif)
+G4. F て-forma います | meaning: indi davam edən hərəkət
+ pattern: Fて-forma います
+ explanation: て-forma + います indi davam edən hərəkəti göstərir: "...edir, ...məkdədir". İngilis dilindəki "-ing" kimi.今 雨 が 降って います。İndi yağış yağır.パーカー さん は 電話 を して います。Parker telefonla danışır.Azərbaycan dilində "yazıram" həm "indi yazıram", həm də "ümumiyyətlə yazıram" ola bilər. Yaponcada isə 〜ています "indi, bu an" mənasını dəqiqləşdirir.Növbəti dərsdə: 〜ています-ın daha iki mənası olacaq: vəziyyət və adət. Hələlik "indi baş verir" kimi yadda saxla.
+ ex: パーカーさんは 今 電話を かけて います。 = Cənab Parker indi telefonla zəng edir.
+ ex: 今 雨が 降って いますか。 = İndi yağış yağır?
+ ex: ……はい、降って います。 = ……Bəli, yağır.
+ ex: ……いいえ、降って いません。 = ……Xeyr, yağmır.
+G5. F ます-forma ましょうか | meaning: kömək təklifi: "... edimmi?"
+ pattern: Fます-forma ましょうか
+ explanation: 〜ましょうか – "...edimmi?" Qarşı tərəfə kömək təklif edirsən: 手伝いましょうか – kömək edimmi?荷物 を 持ちましょうか。Çantanı götürümmü?ええ、お願いします。Bəli, zəhmət olmasa.Cavab vermək üçün iki yol: razısansa ええ、お願いします, ehtiyac yoxdursa いいえ、けっこうです və ya だいじょうぶです.Fərqi hiss et: 〜ましょう – "gəl edək" (birlikdə), 〜ましょうか – "sənin üçün edimmi?" (köməyi təklif).
+ ex: あしたも 来ましょうか。 = Sabah da gəlimmi?
+ ex: ……ええ、10時に 来て ください。 = ……Bəli, saat 10-da gəlin, zəhmət olmasa.
+ ex: 傘を 貸しましょうか。 = Sizə çətir verimmi?
+ ex: ……すみません。お願いします。 = ……Sağ olun, zəhmət olmasa.
+ ex: 荷物を 持ちましょうか。 = Yükünüzü götürümmü?
+ ex: ……いいえ、けっこうです。 = ……Yox, sağ olun, lazım deyil.
+G6. İS が F | meaning: gördüyümüz hadisə
+ pattern: İS が F
+ explanation: Gözünlə gördüyün hadisəni olduğu kimi təsvir edəndə mübtəda が ilə gəlir: 雨 が 降って います – yağış yağır.あ、バス が 来ました。Ah, avtobus gəldi.風 が 強い です ね。Külək güclüdür, hə?Burada は yox, が işlənir, çünki "mövzu" seçmirik, sadəcə gözümüzün qarşısında baş verəni xəbər veririk. Kameranın çəkdiyi kadr kimi.Qısa test: pəncərədən baxıb "qar yağır!" deyirsən: 雪 が 降って います və ya 雪 は 降って います? Cavab: 雪 が 降って います.
+ ex: 雨が 降って います。 = Yağış yağır.
+ ex: パーカーさんが いませんね。 = Cənab Parker yoxdur, elə deyilmi?
+G7. すみませんが | meaning: yumşaq başlanğıc
+ pattern: 
+ explanation: すみませんが, しつれいですが ifadələrindəki が "amma" demək deyil. Sadəcə xahişdən və ya sualdan əvvəl yumşaq bir başlanğıcdır, "bağışlayın ki narahat edirəm" hissi verir.すみませんが、駅 は どこ です か。Bağışlayın, stansiya haradadır?しつれいですが、お名前 は？Bağışlayın, adınız?Söhbət açarı: tanımadığın adama müraciət edəndə həmişə すみませんが ilə başla. Bu, yaponcada qapını döymək kimidir.
+ ex: すみませんが、塩を 取って ください。 = Bağışlayın, zəhmət olmasa, duzu ötürün.
+ ex: 失礼ですが、お名前は。 = Bağışlayın, adınız nədir?
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+つけます | つけます | tsukemasu | yandırmaq (işıq, radio, tv)
+消します | けします | keshimasu | söndürmək (işıq, radio, tv)
+開けます | あけます | akemasu | açmaq (qapını, pəncərəni)
+閉めます | しめます | shimemasu | bağlamaq (qapını, pəncərəni)
+急ぎます | いそぎます | isogimasu | tələsmək
+待ちます | まちます | machimasu | gözləmək
+持ちます | もちます | mochimasu | tutmaq, daşımaq, aparmaq
+取ります | とります | torimasu | almaq, götürmək
+手伝います | てつだいます | tetsudaimasu | kömək etmək
+呼びます | よびます | yobimasu | çağırmaq
+話します | はなします | hanashimasu | danışmaq
+使います | つかいます | tsukaimasu | işlətmək, istifadə etmək
+止めます | とめます | tomemasu | dayandırmaq, saxlamaq
+見せます | みせます | misemasu | göstərmək
+教えます | おしえます | oshiemasu | öyrətmək, tədris etmək
+座ります | すわります | suwarimasu | oturmaq
+立ちます | たちます | tachimasu | ayaq üstündə durmaq
+入ります | はいります | hairimasu | (içəri) girmək, daxil olmaq
+出ます | でます | demasu | çıxmaq
+降ります | ふります | furimasu | yağmaq (yağış)
+コピーします | コピーします | kopii shimasu | sürət çıxarmaq
+電気 | でんき | denki | elektrik, işıq
+エアコン | エアコン | eakon | kondisioner
+パスポート | パスポート | pasupooto | pasport
+名前 | なまえ | namae | ad
+住所 | じゅうしょ | juusho | ünvan
+地図 | ちず | chizu | xəritə
+塩 | しお | shio | duz
+砂糖 | さとう | satou | şəkər
+問題 | もんだい | mondai | problem, sual
+答え | こたえ | kotae | cavab
+読み方 | よみかた | yomikata | oxunuş (qaydası)
+～かた | ～かた | ~kata | ~qaydası
+まっすぐ | まっすぐ | massugu | düz, birbaşa
+ゆっくり | ゆっくり | yukkuri | yavaş, asta
+すぐ | すぐ | sugu | həmən, təcili
+また | また | mata | yenidən, yenə
+あとで | あとで | ato de | sonra
+もう少し | もうすこし | mou sukoshi | biraz daha
+もう～ | もう～ | mou~ | ~daha/başqa
+さあ | さあ | saa | Hə, haydı (təşviq edəndə)
+あれ? | あれ? | are? | Nəə? (təəccüb)
+信号を右へ曲がってください | しんごうをみぎへまがってください | shingou o migi e magatte kudasai | işıqfordan sağa dönün zəhmət olmasa
+これでお願いします | これでおねがいします | kore de onegai shimasu | Bununla ödəyirəm, zəhmət olmasa
+お釣り | おつり | otsuri | qalıq pul
+
+== DIALOGUE ==
+karina | みどり町まで お願いします。 | Midori-çoya, zəhmət olmasa.
+driver | はい。 | Oldu.
+--- | yolda
+karina | すみません。あの 信号を 右へ 曲がって ください。 | Bağışlayın. O işıqfordan sağa dönün, zəhmət olmasa.
+driver | 右ですね。 | Sağa?
+karina | ええ。 | Bəli.
+--- | bir az sonra
+driver | まっすぐですか。 | İndi düz?
+karina | ええ、まっすぐ 行って ください。 | Bəli, düz gedin, zəhmət olmasa.
+--- | gül dükanının yanında
+karina | あの 花屋の 前で 止めて ください。 | Zəhmət olmasa, o gül dükanının qarşısında saxlayın.
+driver | はい。1,800円です。 | Buyurun. 1800 yen.
+karina | これで お願いします。 | Buyurun (bununla ödəyirəm).
+driver | 3,200円の お釣りです。ありがとう ございました。 | 3200 yen qalıq. Çox sağ olun.

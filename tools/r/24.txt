@@ -1,0 +1,59 @@
+LESSON 24: Mənə kömək edərsiniz?
+
+== GRAMMAR ==
+G1. くれます | meaning: "(mənə) verir"
+ pattern: verən は わたしに əşya を くれます
+ explanation: Vermək haqqında danışarkən yapon dilində "kim kimə?" sualı çox vacibdir. 7-ci dərsdəki あげます yalnız "məndən başqasına" istiqamətindədir. Kimsə mənə (və ya ailəmə) bir şey verəndə くれます deyilir.feilistiqamətnümunəあげますmən → başqasıわたし は 友だち に 花 を あげますくれますbaşqası → mən / ailəm友だち が わたし に 花 を くれましたもらいますmən ← başqası (mübtəda alan)わたし は 友だち に 花 を もらいましたくれます və もらいます eyni hadisəni iki tərəfdən göstərir: "dost mənə verdi" (くれました) və "dostdan aldım" (もらいました). Məna eynidir, sadəcə fokus fərqlidir.Tələ: 友だち が わたし に あげました desən, yanlışdır. Sənə verəndə həmişə くれました.
+ ex: わたしは 加藤さんに 花を あげました。 = Mən xanım Katoya gül hədiyyə etdim.
+ ex: 加藤さんは わたしに ~クリスマスカードを くれました。 = Xanım Kato mənə Milad açıqcası göndərdi.
+ ex: 加藤さんは 妹に お菓子を くれました。 = Xanım Kato bacıma şirniyyat verdi.
+G2. F て-forma あげます / もらいます / くれます | meaning: lütf olaraq edilən hərəkət
+ pattern: 
+ explanation: Bu feillər yalnız əşya deyil, hərəkət verildiyini də bildirir: kimsə kimin üçünsə nəsə edir. て-formaya qoşulurlar və minnətdarlıq, xeyirxahlıq hissi əlavə edirlər:qəlibmənasınümunə〜て あげますmən başqası üçün edirəm妹 に 本 を 読んで あげます〜て もらいますkiməsə etdirirəm (o mənim üçün edir)友だち に 手伝って もらいました〜て くれますkimsə mənim üçün edir友だち が 手伝って くれましたBurada çox incə bir mədəni məqam var: 〜て くれました desən, minnətdar olduğunu göstərirsən. Sadəcə 手伝いました ("kömək etdi") desən, quru fakt olur. Yaponlar minnətdarlığı qrammatikanın özünə yerləşdirib!Ehtiyatlı ol: böyüyə 〜て あげます demək lovğalıq kimi səslənir ("sənə yaxşılıq edirəm"). Bunun əvəzinə 〜ましょうか – "edimmi?" deyə təklif et.
+ ex: わたしは 野村さんに 本を 貸して あげました。 = Mən xanım Nomuraya kitab borc verdim.
+G3. Ədatlar dəyişmir | meaning: 〜て くれます ilə
+ pattern: 
+ explanation: 〜て くれます əlavə edəndə cümlədəki ədatlar dəyişmir: əsas cümlədə hansı ədat varsa, o qalır.わたし に 写真 を 見せます。Mənə şəkilləri göstərir.わたし に 写真 を 見せて くれます。(Mehribanlıqla) mənə şəkilləri göstərir.Yəni qrammatik "skelet" eyni qalır, sadəcə sonuna "minnət" (くれます) əlavə olunur. わたし を 大阪城 へ 連れて 行って くれました – məni Osaka qəsrinə apardı (çox sağ olsun).Qısa yol: わたし に çox vaxt atılır, çünki くれます artıq "mənə" deməkdir: 写真 を 見せて くれました.
+G4. İS₁ は İS₂ が F | meaning: "İS₁-i İS₂ ..."
+ pattern: İS₁ (mövzu) は İS₂ (mübtəda) が F
+ explanation: Sual-cavabda tamamlıq mövzuya çevrilə bilər (を → は, 17-ci dərs), hərəkəti edən isə が ilə qalır: この ワイン は 佐藤 さん が くれました – bu şərabı Sato verdi.すてき な ワイン です ね。Gözəl şərabdır!ええ、佐藤 さん が くれました。Bəli, Sato verib.İkinci cümlədə この ワイン は düşüb, çünki ikiniz də hansı şərabdan danışdığınızı bilirsiniz. 佐藤 さん が isə "kim?" sualının cavabıdır, yəni yeni məlumatdır.Məntiq: köhnə məlumat は, yeni məlumat が. Bu cüt bütün yapon cümlələrinin "nəfəs alma" ritmidir.
+ ex: おいしい ~ワインですね。 = Əla şərabdır, elə deyilmi?
+ ex: ……ええ、［この ~ワインは］ 加藤さんが くれました。 = ……Bəli, (bu şərabı) xanım Kato hədiyyə edib.
+G5. 自分 / 自分で | meaning: "özü, öz" / "özü-özünə"
+ pattern: 
+ explanation: 自分 – "özü, öz". Cümlənin mübtədasına qayıdır: 自分 の 部屋 – öz otağı. 自分 で isə "heç kimin köməyi olmadan, özü-özünə" deməkdir.自分 で 作りました。Özüm düzəltdim. (kömək olmadan)友だち に 作って もらいました。Dostuma düzəltdirdim.Gözəl ziddiyyət: 自分で ↔ 〜てもらいます. Biri "özüm etdim", digəri "başqası mənim üçün etdi". Yaponlar bu fərqə çox fikir verir.
+ ex: この ~ケーキは 自分で 作りました。 = Bu tortu özüm bişirdim.
+ ex: 自分の 部屋を 自分で 掃除します。 = Öz otağımı özüm yığışdırıram.
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+くれます | くれます | kuremasu | vermək (mənə)
+直します | なおします | naoshimasu | təmir etmək, düzəltmək
+連れて行きます | つれていきます | tsurete ikimasu | (kimisə) özünlə aparmaq
+連れて来ます | つれてきます | tsurete kimasu | (kimisə) özünlə gətirmək
+送ります[人を～] | おくります[ひとを～] | okurimasu [hito o ~] | yola salmaq [kimisə yola salmaq]
+紹介します | しょうかいします | shoukaishimasu | tanıtmaq
+案内します | あんないします | annaishimasu | yol göstərmək, bələdçilik etmək
+説明します | せつめいします | setsumeishimasu | izah etmək
+おじいさん/おじいちゃん | おじいさん/おじいちゃん | ojiisan / ojiichan | baba, yaşlı kişi
+おばあさん/おばあちゃん | おばあさん/おばあちゃん | obaasan / obaachan | nənə, yaşlı qadın
+準備 | じゅんび | junbi | hazırlıq (～します: hazırlaşmaq)
+引っ越し | ひっこし | hikkoshi | köç (～します: köçmək)
+[お]菓子 | [お]かし | [o]kashi | şirniyyat
+ホームステイ | ホームステイ | hoomusutei | xaricdə ailədə qonaq qalmaq
+全部 | ぜんぶ | zenbu | hamısı
+自分で | じぶんで | jibun de | özü, təkbaşına
+他に | ほかに | hoka ni | ~dan başqa
+母の日 | ははのひ | Haha no Hi | Analar günü
+
+== DIALOGUE ==
+karina | ホアンさん、日曜日に 引っ越しですね。手伝いましょうか。 | Xanım Xuan, bazar günü köçürsünüz, hə? Sizə kömək edim?
+wang | ありがとう ございます。じゃ、すみませんが、9時ごろ お願いします。 | Çox sağ olun. Onda, zəhmət olmasa, saat doqquz radələrində gəlin.
+karina | ほかに だれが 手伝いに 行きますか。 | Kömək etməyə daha kim gələcək?
+wang | 原田さんと パーカーさんが 来て くれます。 | Cənab Harada və cənab Parker gələcəklər.
+karina | 車は。 | Bəs maşın?
+wang | 原田さんに ~ワゴン車を 貸して もらいます。 | Cənab Harada öz miniven maşınını mənə verəcək.
+karina | 昼ご飯は どうしますか。 | Bəs nahar?
+wang | えーと……。 | Eee...
+karina | わたしが お弁当を 持って 行きましょうか。 | Mən bento gətirim, yaxşı?
+wang | すみません。お願いします。 | Çox sağ olun, xahiş edirəm.
+karina | じゃ、日曜日に。 | Onda bazar günü görüşərik.

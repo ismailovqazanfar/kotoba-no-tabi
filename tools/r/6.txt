@@ -1,0 +1,109 @@
+LESSON 6: Bizimlə getməzsiniz?
+
+== GRAMMAR ==
+G1. İS を F (təsirli) | meaning: "... -ı/-i edirəm"
+ pattern: İS を feil
+ explanation: を "nəyi?" sualına cavab olan sözü işarələyir. Nəyi yeyirsən, nəyi içirsən, nəyi alırsan – həmin söz を ilə gəlir: ジュース を 飲みます – şirə içirəm.Azərbaycan dilində bunu "-ı, -i" şəkilçisi edir: "kitabı oxuyuram". Yaponcada həmin iş ayrıca kiçik bir sözə verilib.パン を 食べます。Çörək yeyirəm.テレビ を 見ます。Televizora baxıram.Tələffüz: を "wo" yazılsa da, sadəcə "o" oxunur. Bu hərf yalnız ədat kimi işlənir, başqa sözlərin içində olmur.
+ ex: ~ジュースを 飲みます。 = Mən şirə içirəm.
+G2. İS を します | meaning: "... etmək, ... oynamaq"
+ pattern: İS を します
+ explanation: します yapon dilinin "universal" feilidir: "etmək". Bir çox isimlə birləşib yeni mənalar yaradır. Bunu öyrənmək, onlarla feili birdən öyrənmək deməkdir.qrupnümunəmənasıidman, oyunサッカー を しますfutbol oynamaqトランプ を しますkart oynamaqtədbirパーティー を しますqonaqlıq vermək会議 を しますiclas keçirməkiş宿題 を しますev tapşırığı etmək電話 を しますzəng etməkGördün? Azərbaycan dilində hər biri üçün ayrı feil var (oynamaq, keçirmək, vermək), yaponcada isə hamısı します-dir. Rahatdır, hə?Məsləhət: yeni isim öyrənəndə özündən soruş: "bununla します işlənirmi?" Çox vaxt cavab "hə" olur.
+G3. 何を しますか | meaning: "nə edirsiniz?"
+ pattern: 何を しますか
+ explanation: "Nə edirsən?" sualı: 何 を します か. Həm plan, həm də artıq edilmiş iş üçün işlənir, sadəcə feilin zamanını dəyişirsən.あした 何 を します か。Sabah nə edəcəksiniz?きのう 何 を しました か。Dünən nə etdiniz?Cavabda 何 yerinə işi qoyursan: テニス を します – tennis oynayacağam. Sual və cavab eyni qəlibdə qurulur, bu da öyrənməni asanlaşdırır.Qısa cavab: cavabı bilmirsənsə və ya heç nə etməyəcəksənsə: なにも しません – heç nə etmirəm.
+ ex: 月曜日 何を しますか。 = Siz bazar ertəsi nə edəcəksiniz?
+ ex: ……京都へ 行きます。 = ……Kiotoya gedəcəyəm.
+ ex: きのう 何を しましたか。 = Siz dünən nə etdiniz?
+ ex: ……~サッカーを しました。 = ……Futbol oynadım.
+G4. なん və なに | meaning: "nə" sözünün iki oxunuşu
+ pattern: 
+ explanation: 何 sözü iki cür oxunur: なん (nan) və なに (nani). Məna eynidir, oxunuşu isə arxasından gələn səsdən asılıdır. Bu, dilin rahat tələffüz üçün öz-özünə tapdığı yoldur.oxunuşnə vaxt?nümunəなんarxadan t, d, n səsi gələndəなん です か, なん の 本say sözlərindən əvvəlなんじ, なんさいなにqalan hallardaなに を, なにもKiçik sirr: なにで "nə ilə?" deməkdir, なんで isə danışıqda çox vaxt "niyə?" mənasında işlənir. Bir səs fərqi, tam başqa sual!
+ ex: それは 何ですか。 = Bu nədir?
+ ex: 何の 本ですか。 = Bu nə haqqında kitabdır?
+ ex: 寝る まえに、何と 言いますか。 = Yatmazdan əvvəl nə deyirlər? (21-ci dərs)
+ ex: 何で 東京へ 行きますか。 = Siz Tokioya necə gedəcəksiniz?
+G5. İS (məkan) で F | meaning: "... -da/-də edirəm"
+ pattern: məkan で feil
+ explanation: Hərəkətin harada baş verdiyini demək üçün yerdən sonra で gəlir: 駅 で 新聞 を 買います – stansiyada qəzet alıram.Burada çox vacib bir fərq var. Bir yerə getmək üçün へ, bir yerdə nəsə etmək üçün で:図書館 へ 行きます。Kitabxanaya gedirəm. (istiqamət)図書館 で 勉強します。Kitabxanada dərs oxuyuram. (hərəkətin yeri)Diqqət: artıq で-nin iki mənasını bilirsən: vasitə (電車で, 5-ci dərs) və hərəkətin yeri (駅で). İkisi də "nə ilə/harada edirəm?" sualına cavabdır.
+ ex: 駅で 新聞を 買います。 = Mən stansiyada qəzet alıram (alacağam).
+G6. F ませんか | meaning: "... -məzsiniz?" – dəvət
+ pattern: feil ませんか
+ explanation: 〜ませんか nəzakətli dəvətdir: "...məzsiniz?". Bu, yapon nəzakətinin gözəl nümunəsidir: birbaşa "gəl gedək" demək əvəzinə, inkarlı sualla soruşursan. Belə qarşı tərəf "yox" deməkdə özünü rahat hiss edir.いっしょに 京都 へ 行きません か。Bizimlə Kiotoya getməzsiniz?ええ、いい です ね。Bəli, yaxşı fikirdir.Fərqi hiss et: 行きますか – "gedirsən?" (sadə sual), 行きませんか – "getməzsən?" (dəvət). Dəvət edəndə həmişə ikincisini işlət.
+ ex: いっしょに 京都へ 行きませんか。 = Bizimlə (mənimlə) Kiotoya getməzsiniz?
+ ex: ……ええ、いいですね。 = ……Hə, yaxşı fikirdir! (Məmnuniyyətlə!)
+G7. F ましょう | meaning: "gəlin, ... -aq"
+ pattern: feil ましょう
+ explanation: 〜ましょう "gəlin ...-aq" deməkdir. Birlikdə nəsə etməyi təklif edəndə və ya kiminsə dəvətinə "hə, gedək!" deyə cavab verəndə işlənir.ちょっと 休みましょう。Bir az dincələk.ええ、行きましょう。Hə, gedək!Dəvət zənciri belə işləyir: biri 〜ませんか ilə nəzakətlə təklif edir, digəri 〜ましょう ilə həvəslə razılaşır. Bu iki forma bir-birini tamamlayır.Nüans: 〜ましょう bir az daha "aktiv" səslənir. Qarşı tərəfin istəyini bilmirsənsə, əvvəlcə 〜ませんか ilə soruşmaq daha nəzakətlidir.
+ ex: ちょっと 休みましょう。 = Gəlin, bir az dincələk.
+ ex: いっしょに 昼ご飯を 食べませんか。 = Birlikdə nahar etməzsiniz?
+ ex: ……ええ、食べましょう。 = ……Əlbəttə, gəlin edək.
+G8. 〜か | meaning: "Elə? ..." – yeni məlumata reaksiya
+ pattern: söz ですか ↘
+ explanation: Bu dərsdə か-nın gözlənilməz bir rolu var: sual yox, reaksiya. Yeni bir məlumat eşidəndə qısaca 〜か deyib onu qəbul edirsən, eynilə そう です か kimi.あした は 休み です。Sabah istirahət günüdür.休み です か。いい です ね。İstirahət? Əla!Səsə fikir ver: burada səs enir ↘. Səsi qaldırsan, adi sual olur. Yapon dilində intonasiya mənanı dəyişə bilir.
+ ex: 日曜日 京都へ 行きました。 = Bazar günü Kiotoya getdim.
+ ex: ……京都ですか。いいですね。 = ……Kiotoya? Nə gözəl!
+
+== VOCABULARY (word | reading | romaji | Azerbaijani) ==
+食べます | たべます | tabemasu | yemək
+飲みます | のみます | nomimasu | içmək (su, pivə, sake və s.)
+吸います | すいます | suimasu | çəkmək (siqaret və s.)
+見ます | みます | mimasu | görmək, baxmaq, izləmək
+聞きます | ききます | kikimasu | eşitmək, qulaq asmaq
+読みます | よみます | yomimasu | oxumaq
+書きます | かきます | kakimasu | yazmaq
+買います | かいます | kaimasu | almaq, alış-veriş etmək
+撮ります | とります | torimasu | (fotoşəkil) çəkmək
+します | します | shimasu | etmək
+会います | あいます | aimasu | görüşmək
+ご飯 | ごはん | gohan | yemək; bişmiş düyü
+朝ご飯 | あさごはん | asagohan | səhər yeməyi
+昼ご飯 | ひるごはん | hirugohan | günorta yeməyi
+晩ご飯 | ばんごはん | bangohan | axşam yeməyi
+パン | パン | pan | çörək
+たまご | たまご | tamago | yumurta
+肉 | にく | niku | ət
+魚 | さかな | sakana | balıq
+野菜 | やさい | yasai | tərəvəz
+果物 | くだもの | kudamono | meyvə
+水 | みず | mizu | su
+お茶 | おちゃ | ocha | çay (yaşıl)
+紅茶 | こうちゃ | koucha | çay (qara)
+牛乳 | ぎゅうにゅう | gyuunyuu | süd
+ミルク | ミルク | miruku | süd
+ジュース | ジュース | juusu | şirə
+ビール | ビール | biiru | pivə
+[お]酒 | [お]さけ | [o]sake | sake, Yaponiya spirtli içkisi
+たばこ | たばこ | tabako | siqaret
+手紙 | てがみ | tegami | məktub
+レポート | レポート | repooto | hesabat
+写真 | しゃしん | shashin | fotoşəkil
+ビデオ | ビデオ | bideo | video
+店 | みせ | mise | mağaza
+庭 | にわ | niwa | bağ, həyət
+宿題 | しゅくだい | shukudai | ev tapşırığı (～をします: ev tapşırığını etmək)
+テニス | テニス | tenisu | tennis (～をします: tennis oynamaq)
+サッカー | サッカー | sakkaa | futbol
+[お]花見 | [お]はなみ | [o]hanami | Sakura (albalı çiçəkləri) seyri
+何 | なに | nani | nə
+一緒に | いっしょに | issho ni | birlikdə, birgə
+ちょっと | ちょっと | chotto | bir az, azacıq
+いつも | いつも | itsumo | hər zaman, həmişə
+時々 | ときどき | tokidoki | hərdən
+それから | それから | sore kara | ondan sonra
+ええ | ええ | ee | hə, bəli
+いいですね | いいですね | ii desu ne | (Ah,) nə yaxşı!
+分かりました | わかりました | wakarimashita | Başa düşdüm. Aydındır.
+何ですか。 | なんですか。 | nan desu ka | Nə olub?
+じゃ、また[あした]。 | じゃ、また[あした]。 | ja, mata [ashita] | Oldu, [sabaha] qədər.
+メキシコ | メキシコ | Mekishiko | Meksika
+
+== DIALOGUE ==
+sato | パーカーさん。 | Cənab Parker.
+miller | 何ですか。 | Bəli?
+sato | あした 友達と お花見を します。パーカーさんも いっしょに 行きませんか。 | Sabah dostlarla çiçəklənmiş sakuraları seyr etməyə (hanami) gedəcəyik. Bizimlə getməzsiniz?
+miller | いいですね。どこへ 行きますか。 | Məmnuniyyətlə. Hara gedirsiniz?
+sato | 大阪城公園です。 | Osaka qəsrinin parkına.
+miller | 何時ですか。 | Saat neçədə?
+sato | 10時に 大阪駅で 会いましょう。 | Gəlin, saat 10-da Osaka stansiyasında görüşək.
+miller | わかりました。 | Yaxşı.
+sato | じゃ、また あした。 | Onda sabaha qədər.
