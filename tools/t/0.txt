@@ -1,9 +1,0 @@
-LESSON 0 TESTS
-T1: き necə oxunur?  || A) ki ; B) ka ; C) sa || correct=A || expl: か sətri: ka ki ku ke ko.
-T2: し necə oxunur?  || A) si ; B) shi ; C) chi || correct=B || expl: し – shi.
-T3: つ necə oxunur?  || A) tu ; B) tsu ; C) su || correct=B || expl: つ – tsu.
-T4: ふ necə oxunur?  || A) hu ; B) fu ; C) pu || correct=B || expl: ふ – fu.
-T5: Katakana ソ hansıdır?  || A) so ; B) n || correct=A || expl: ソ – so, ン – n. Bir-birinə çox oxşayırlar!
-T6: きゃ necə oxunur?  || A) kiya ; B) kya ; C) ya || correct=B || expl: Kiçik ゃ əvvəlki işarə ilə birləşir: き + ゃ = kya.
-T7: "Nənə" hansıdır?  || A) おばさん ; B) おばあさん || correct=B || expl: Uzun sait mənanı dəyişir: おばさん – xala.
-T8: "Marka" hansıdır?  || A) きて ; B) きって || correct=B || expl: Kiçik っ samiti ikiləşdirir: きって (kitte) – marka, きて (kite) – "gəl".

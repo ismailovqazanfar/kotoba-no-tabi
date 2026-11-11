@@ -1,9 +1,0 @@
-LESSON 36 TESTS
-T1: "Kim gəldi?" だれ＿ [来:き]ました{か}。 || A) {が} ; B) {は} || correct=A || expl: Sual sözü mübtədadırsa – が.
-T2: Cavab: "Parker gəldi." パーカー|さん＿ [来:き]ました。 || A) {が} ; B) {は} || correct=A || expl: Sual sözünə cavabda da が.
-T3: "Mən tələbəyəm." (özünüzü təqdim edirsiniz) わたし＿ [学生:がくせい]|です。 || A) {は} ; B) {が} || correct=A || expl: Mövzu: は.
-T4: "Bax, yağış yağır!" [雨:あめ]＿ [降:ふ]って います。 || A) {が} ; B) {は} || correct=A || expl: Görülən hadisə: が.
-T5: "Futbolu xoşlayıram." ~サッカー＿ [好:す]き|です。 || A) {が} ; B) {を} ; C) {は} || correct=A || expl: 好き ilə が.
-T6: "Parkerin bişirdiyi tort" パーカー|さん＿ [作:つく]った ~ケーキ || A) {が} ; B) {は} || correct=A || expl: Təyin cümləsində が.
-T7: "Pivə içirəm, şərab isə içmirəm." ~ビール{は} [飲:の]みます{が}、~ワイン＿ [飲:の]みません。 || A) {は} ; B) {が} || correct=A || expl: Müqayisə: は.
-T8: "Filin burnu uzundur." [象:ぞう]{は} [鼻:はな]＿ [長:なが]い|です。 || A) {が} ; B) {は} || correct=A || expl: İS₁ は İS₂ が SİF.

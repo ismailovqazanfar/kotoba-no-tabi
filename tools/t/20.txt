@@ -1,9 +1,0 @@
-LESSON 20 TESTS
-T1: 行きます → sadə üslub  || A) [行:い]く ; B) [行:い]った ; C) [行:い]かない || correct=A || expl: Lüğət forması = sadə indiki təsdiq (§1).
-T2: 行きませんでした → sadə üslub  || A) [行:い]かなかった ; B) [行:い]かない ; C) [行:い]った || correct=A || expl: Keçmiş inkar: 〜なかった (§1).
-T3: あります sözünün sadə inkarı hansıdır?  || A) ない ; B) あらない || correct=A || expl: ある → ない (§1).
-T4: 好きです → sadə üslub  || A) [好:す]き|だ ; B) [好:す]き|だった ; C) [好:す]き|です || correct=A || expl: な-sifət: です → だ (§1).
-T5: Sadə üslubda "Kofe içəcəksən?"  || A) ~コーヒー［{を}］ [飲:の]む？ ; B) ~コーヒー{を} [飲:の]む{か}。 || correct=A || expl: か düşür, səs yüksəlir (§3).
-T6: Hansı ədat sadə danışıqda düşə bilməz?  || A) {を} ; B) {が} ; C) {で} || correct=C || expl: で, に, から, まで, と düşmür (§3).
-T7: "Acıdır, amma dadlıdır." (danışıq dili) [辛:から]い＿、おいしい。 || A) けど ; B) から || correct=A || expl: "Amma": けど (§4).
-T8: Müdirinizlə hansı üslubda danışırsınız?  || A) nəzakətli ; B) sadə || correct=A || expl: Böyüklərlə nəzakətli üslub (§2).

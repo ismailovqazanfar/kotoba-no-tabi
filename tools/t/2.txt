@@ -1,9 +1,0 @@
-LESSON 2 TESTS
-T1: Danışanın əlindəki kitab: "Bu kitabdır." ＿{は} [本:ほん]|です。 || A) これ ; B) それ ; C) あれ || correct=A || expl: Danışana yaxın əşya – これ (§1).
-T2: Həmsöhbətin əlindəki əşya: "Bu nədir?" ＿{は} [何:なん]|です{か}。 || A) これ ; B) それ ; C) あれ || correct=B || expl: Həmsöhbətə yaxın əşya – それ (§1).
-T3: "Bu kitab mənimdir." ＿ [本:ほん]{は} わたし{の}|です。 || A) これ ; B) この || correct=B || expl: İsmin qabağında この işlənir (§2).
-T4: それは 辞書ですか。 – Bəli, elədir.  || A) はい、そう|です。 ; B) はい、[違:ちが]います。 || correct=A || expl: Təsdiq: はい、そうです (§3).
-T5: それは パーカーさんのですか。 – Xeyr, elə deyil.  || A) いいえ、そう|です。 ; B) いいえ、[違:ちが]います。 || correct=B || expl: İnkar: いいえ、ちがいます (§3).
-T6: これは「９」ですか、「７」ですか。 Düzgün cavab hansıdır?  || A) はい、「９」|です。 ; B) 「９」|です。 || correct=B || expl: Seçimli sualda はい / いいえ işlənmir (§4).
-T7: パーカーさんは ミドリ商事の 社員ですか。 – Bəli.  || A) はい、ミドリ ^[商事:しょうじ]{の} [社員:しゃいん]|です。 ; B) はい、ミドリ ^[商事:しょうじ]{の}|です。 || correct=A || expl: İS₂ insandırsa, düşmür (§6).
-T8: そうですか ("aydındır") deyəndə səs necə olur?  || A) ↗ yüksəlir ; B) ↘ enir || correct=B || expl: Bu sual deyil, ona görə səs enir (§8).
