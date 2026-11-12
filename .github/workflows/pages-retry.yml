@@ -1,10 +1,16 @@
-# GitHub Pages deploy "syncing_files" timeout ilə düşəndə eyni commit üçün avtomatik yenidən build istəyir (hər commit üçün ən çox 2 dəfə).
+# Pages gözətçisi: GitHub-ın öz "pages build and deployment" işi bəzən GitHub tərəfdən düşür
+# (deploy "Timeout reached", runner "not acquired", startup_failure). O iş sistem workflow-u olduğu üçün
+# workflow_run tetikləyicisi ona işləmir – ona görə gözətçi push-dan sonra və hər 20 dəqiqədən bir yoxlayır:
+# main-in son commit-i üçün uğurlu Pages yayımı yoxdursa, yenidən build istəyir (commit başına ən çox 6 dəfə)
+# və sonda canlı saytdakı sw.js versiyasının repo ilə eyni olduğunu yoxlayır.
 name: Pages retry
 
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "7,27,47 * * * *"
+  workflow_dispatch:
 
 permissions:
   pages: write
@@ -12,27 +18,47 @@ permissions:
   contents: read
 
 concurrency:
-  group: pages-retry
-  cancel-in-progress: false
+  group: pages-watchdog
+  cancel-in-progress: true
 
 jobs:
-  retry:
-    if: github.event.workflow_run.conclusion == 'failure'
+  watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 120
     steps:
-      - name: Retry the Pages build
+      - name: Make sure the latest commit is live
         env:
           GH_TOKEN: ${{ github.token }}
-          SHA: ${{ github.event.workflow_run.head_sha }}
           REPO: ${{ github.repository }}
+          SITE: https://ismailovqazanfar.github.io/kotoba-no-tabi
+          MODE: ${{ github.event_name }}
         run: |
-          latest=$(gh api "repos/$REPO/commits/main" --jq .sha)
-          if [ "$latest" != "$SHA" ]; then echo "Newer commit on main – its own deploy will run."; exit 0; fi
-          fails=$(gh api "repos/$REPO/actions/runs?head_sha=$SHA&per_page=50" \
-            --jq '[.workflow_runs[] | select(.name=="pages build and deployment" and .conclusion=="failure")] | length')
-          echo "Failed Pages runs for $SHA: $fails"
-          if [ "$fails" -gt 2 ]; then echo "::error::Pages deploy failed $fails times for this commit – check githubstatus.com"; exit 1; fi
-          sleep 60
-          gh api -X POST "repos/$REPO/pages/builds"
-          echo "New Pages build requested."
+          set -u
+          sha=$(gh api "repos/$REPO/commits/main" --jq .sha)
+          want=$(gh api "repos/$REPO/contents/sw.js?ref=$sha" --jq .content | base64 -d | grep -o "kt-ho[0-9]*" | head -1)
+          live() { curl -fsSL -H 'Cache-Control: no-cache' "$SITE/sw.js?nc=$(date +%s)" 2>/dev/null | grep -o "kt-ho[0-9]*" | head -1; }
+          echo "main=$sha want=$want live=$(live)"
+          if [ "$MODE" = schedule ]; then lim=600; else lim=6600; fi
+          deadline=$(( $(date +%s) + lim ))
+          while :; do
+            [ "$(live)" = "$want" ] && { echo "Live site is up to date."; exit 0; }
+            cur=$(gh api "repos/$REPO/commits/main" --jq .sha)
+            [ "$cur" != "$sha" ] && { echo "Newer commit pushed – its own watchdog takes over."; exit 0; }
+            runs=$(gh api "repos/$REPO/actions/runs?head_sha=$sha&per_page=50" --jq '[.workflow_runs[] | select(.name=="pages build and deployment")]')
+            active=$(echo "$runs" | jq '[.[] | select(.status!="completed")] | length')
+            ok=$(echo "$runs" | jq '[.[] | select(.conclusion=="success")] | length')
+            bad=$(echo "$runs" | jq '[.[] | select(.conclusion=="failure" or .conclusion=="startup_failure" or .conclusion=="timed_out" or .conclusion=="cancelled")] | length')
+            echo "$(date -u +%T) active=$active ok=$ok bad=$bad live=$(live)"
+            if [ "$active" -eq 0 ] && [ "$ok" -gt 0 ]; then
+              # build uğurlu, CDN hələ köhnəni göstərir – bir az gözlə
+              :
+            elif [ "$active" -eq 0 ] && [ "$bad" -ge 6 ]; then
+              echo "::error::Pages deploy failed $bad times for $sha – check https://www.githubstatus.com"; exit 1
+            elif [ "$active" -eq 0 ]; then
+              echo "No successful Pages deploy for $sha – requesting a new build."
+              gh api -X POST "repos/$REPO/pages/builds" || true
+              sleep 90
+            fi
+            [ "$(date +%s)" -ge "$deadline" ] && { echo "Not live yet – next scheduled check will continue."; exit 0; }
+            sleep 60
+          done
